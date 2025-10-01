@@ -3,245 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio - Créations Artistiques</title>
+    <title>Portfolio Minimaliste</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="ink-background">
+        <div class="ink-blob blob-1"></div>
+        <div class="ink-blob blob-2"></div>
+        <div class="ink-blob blob-3"></div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Mon Portfolio</h2>
-            </div>
+            <div class="logo">Portfolio</div>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#maquettes3d" class="nav-link">Maquettes 3D</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pages-web" class="nav-link">Pages Web</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tatouages" class="nav-link">Tatouages</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#affiches" class="nav-link">Affiches</a>
-                </li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Bienvenue dans mon univers créatif</h1>
-            <p>Découvrez mes créations à travers quatre domaines artistiques : maquettes 3D, développement web, art du tatouage et design graphique.</p>
-            <a href="#maquettes3d" class="cta-button">Découvrir mes créations</a>
-        </div>
-    </section>
+    <main class="container">
+        <section id="accueil" class="hero">
+            <h1 class="hero-title">Design Minimaliste</h1>
+            <p class="hero-subtitle">Simplicité et élégance en noir et blanc</p>
+            <button class="btn-primary" onclick="scrollToGallery()">Découvrir</button>
+        </section>
 
-    <!-- Section Maquettes 3D -->
-    <section id="maquettes3d" class="section">
-        <div class="container">
-            <h2 class="section-title">Maquettes 3D</h2>
-            <p class="section-description">Collection de modélisations et rendus 3D réalisés avec passion et précision.</p>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="assets/maquettes3D/placeholder1.jpg" alt="Maquette 3D 1" loading="lazy">
+        <section id="galerie" class="gallery-section">
+            <h2 class="section-title">Galerie</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="design">
+                    <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Design 1">
                     <div class="gallery-overlay">
-                        <h3>Projet Architecture</h3>
-                        <p>Modélisation d'un bâtiment moderne</p>
+                        <h3>Architecture Moderne</h3>
+                        <p>Design minimaliste</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/maquettes3D/placeholder2.jpg" alt="Maquette 3D 2" loading="lazy">
+                <div class="gallery-item" data-category="photo">
+                    <img src="https://images.pexels.com/photos/3847669/pexels-photo-3847669.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photo 1">
                     <div class="gallery-overlay">
-                        <h3>Design Industriel</h3>
-                        <p>Rendu photoréaliste d'un objet</p>
+                        <h3>Photographie</h3>
+                        <p>Noir et blanc</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/maquettes3D/placeholder3.jpg" alt="Maquette 3D 3" loading="lazy">
+                <div class="gallery-item" data-category="art">
+                    <img src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Art 1">
                     <div class="gallery-overlay">
-                        <h3>Scène d'Intérieur</h3>
-                        <p>Visualisation 3D d'un espace de vie</p>
+                        <h3>Art Abstrait</h3>
+                        <p>Composition</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/maquettes3D/placeholder4.jpg" alt="Maquette 3D 4" loading="lazy">
+                <div class="gallery-item" data-category="design">
+                    <img src="https://images.pexels.com/photos/2404843/pexels-photo-2404843.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Design 2">
                     <div class="gallery-overlay">
-                        <h3>Personnage 3D</h3>
-                        <p>Modélisation et rigging de personnage</p>
+                        <h3>Intérieur</h3>
+                        <p>Espace épuré</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="photo">
+                    <img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photo 2">
+                    <div class="gallery-overlay">
+                        <h3>Nature</h3>
+                        <p>Contraste</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="art">
+                    <img src="https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Art 2">
+                    <div class="gallery-overlay">
+                        <h3>Texture</h3>
+                        <p>Matière</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section Pages Web -->
-    <section id="pages-web" class="section alt-bg">
-        <div class="container">
-            <h2 class="section-title">Pages Web</h2>
-            <p class="section-description">Projets de développement web et applications interactives.</p>
-            <div class="web-projects">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/pagesWeb/project1.jpg" alt="Projet Web 1" loading="lazy">
-                    </div>
-                    <div class="project-info">
-                        <h3>Site E-commerce</h3>
-                        <p>Boutique en ligne responsive avec panier et paiement sécurisé.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Voir le site</a>
-                            <a href="#" class="btn-secondary">Code source</a>
-                        </div>
-                    </div>
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nom" required>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/pagesWeb/project2.jpg" alt="Projet Web 2" loading="lazy">
-                    </div>
-                    <div class="project-info">
-                        <h3>Application Web</h3>
-                        <p>Dashboard analytique avec visualisation de données en temps réel.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Voir la demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/pagesWeb/project3.jpg" alt="Projet Web 3" loading="lazy">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Créatif</h3>
-                        <p>Site vitrine pour artiste avec galerie interactive et animations.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Visiter</a>
-                            <a href="#" class="btn-secondary">Détails</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" rows="5" required></textarea>
                 </div>
-            </div>
-        </div>
-    </section>
+                <button type="submit" class="btn-primary">Envoyer</button>
+            </form>
+        </section>
+    </main>
 
-    <!-- Section Tatouages -->
-    <section id="tatouages" class="section">
-        <div class="container">
-            <h2 class="section-title">Tatouages</h2>
-            <p class="section-description">Créations artistiques sur peau, alliant technique et créativité.</p>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo1.jpg" alt="Tatouage 1" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Style Réaliste</h3>
-                        <p>Portrait noir et gris</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo2.jpg" alt="Tatouage 2" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Géométrique</h3>
-                        <p>Mandala détaillé</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo3.jpg" alt="Tatouage 3" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Traditional</h3>
-                        <p>Style old school coloré</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo4.jpg" alt="Tatouage 4" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Minimaliste</h3>
-                        <p>Ligne fine délicate</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo5.jpg" alt="Tatouage 5" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Aquarelle</h3>
-                        <p>Technique couleur fluide</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/tatouages/tattoo6.jpg" alt="Tatouage 6" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Neo Traditional</h3>
-                        <p>Style moderne coloré</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Affiches -->
-    <section id="affiches" class="section alt-bg">
-        <div class="container">
-            <h2 class="section-title">Affiches de Communication</h2>
-            <p class="section-description">Créations graphiques pour événements, campagnes et communications visuelles.</p>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="assets/affiches/poster1.jpg" alt="Affiche 1" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Événement Musical</h3>
-                        <p>Affiche de concert</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/affiches/poster2.jpg" alt="Affiche 2" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Campagne Publicitaire</h3>
-                        <p>Promotion produit</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/affiches/poster3.jpg" alt="Affiche 3" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Festival Artistique</h3>
-                        <p>Communication événementielle</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/affiches/poster4.jpg" alt="Affiche 4" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Affiche Corporative</h3>
-                        <p>Identité visuelle d'entreprise</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="LinkedIn">💼</a>
-                <a href="#" aria-label="Email">✉️</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="modal" id="imageModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Portfolio Minimaliste. Tous droits réservés.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
