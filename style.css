@@ -13,7 +13,8 @@ body {
     font-family: 'Lora', serif;
     line-height: 1.8;
     color: #1a1a2e;
-    background: #f8f9fa;
+    background: url('https://www.freepik.com/free-vector/abstract-black-watercolor-background_14728120.htm#fromView=keyword&page=1&position=1&uuid=3ee8713a-06aa-4e29-8486-fdd129c38a18&query=Ink+background') no-repeat center center fixed;
+    background-size: cover;
     position: relative;
     overflow-x: hidden;
 }
