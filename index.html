@@ -90,22 +90,31 @@
 
   <div class="coupe">
 
-    <!-- ─── TOIT-TERRASSE : l'objectif ─── -->
-    <article class="niveau revele" style="--teinte:var(--rouge)">
-      <span class="etage etage-toit" aria-hidden="true"><span class="rambarde"></span></span>
+    <!-- ─── TOIT-TERRASSE : le PFE recherché ─── -->
+    <article class="niveau recherche revele" style="--teinte:var(--rouge)">
+      <span class="etage etage-toit chantier" aria-hidden="true">
+        <span class="corniche"></span><span class="rubalise"></span>
+      </span>
       <span class="altitude">+15.00</span>
-      <span class="niv-tag">Toit-terrasse</span>
-      <h3>Projet de fin d'études<span class="balise">À construire</span></h3>
-      <p class="lieu">Bureau d'études structure · France / International</p>
-      <p>Le dernier niveau, celui qui referme l'ouvrage. Six mois à partir de
-      février 2027 : conception structure béton et métal, coordination BIM,
-      ingénierie incendie ou développement d'outils métier. Ouvert à la
-      mobilité.</p>
+      <span class="niv-tag">À construire</span>
+      <h3>Projet de fin d'études <span class="badge-recherche">Recherche active</span></h3>
+      <p class="lieu">Stage 6 mois · À partir de février 2027 · France ou international</p>
+      <p>Je cherche un PFE en bureau d'études structure, en coordination BIM,
+      en ingénierie de la sécurité incendie ou en développement d'outils
+      métier. Disponible six mois à temps plein, mobile en France comme à
+      l'étranger, et prêt à démarrer un échange dès maintenant.</p>
+      <div class="etiquettes">
+        <span>Structure béton</span><span>Construction métallique</span>
+        <span>BIM</span><span>Sécurité incendie</span><span>Outils métier</span>
+      </div>
+      <p style="margin-top:1rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
     </article>
 
     <!-- ─── R+3 ─── -->
     <article class="niveau cliquable revele" style="--teinte:var(--vert)">
-      <span class="etage" aria-hidden="true"></span>
+      <span class="etage" aria-hidden="true">
+        <span class="fenetre"></span><span class="secours"></span>
+      </span>
       <span class="altitude">+11.25</span>
       <span class="niv-tag">R+3</span>
       <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
@@ -123,7 +132,9 @@
 
     <!-- ─── R+2 ─── -->
     <article class="niveau cliquable revele" style="--teinte:var(--jaune)">
-      <span class="etage" aria-hidden="true"></span>
+      <span class="etage" aria-hidden="true">
+        <span class="fenetre"></span><span class="secours inverse"></span>
+      </span>
       <span class="altitude">+7.50</span>
       <span class="niv-tag">R+2</span>
       <h3><a href="exp-guivibat.html">Stage assistant ingénieur, Guivibat Ingénierie</a></h3>
@@ -137,28 +148,32 @@
 
     <!-- ─── R+1 ─── -->
     <article class="niveau cliquable revele" style="--teinte:var(--jaune)">
-      <span class="etage" aria-hidden="true"></span>
+      <span class="etage" aria-hidden="true">
+        <span class="fenetre"></span><span class="secours"></span>
+      </span>
       <span class="altitude">+3.75</span>
       <span class="niv-tag">R+1</span>
       <h3><a href="exp-ouvrier.html">Stage ouvrier</a></h3>
       <p class="lieu">Chantier · 3 semaines · Exécution</p>
-      <p>Le premier étage, et la première fois où l'on voit un ouvrage se faire
-      avec les mains plutôt qu'avec un logiciel. Trois semaines côté exécution,
-      outil à la main.</p>
+      <p>Trois semaines côté exécution, outil à la main, à voir un ouvrage se
+      faire autrement que derrière un écran. De quoi comprendre ce qu'un
+      compagnon peut réaliser, ce qui lui coûte du temps, et pourquoi certains
+      détails de plan ne passent jamais sur le terrain.</p>
       <span class="voir-plus">Voir le chantier</span>
     </article>
 
-    <!-- ─── REZ-DE-CHAUSSÉE : le niveau du sol ─── -->
+    <!-- ─── REZ-DE-CHAUSSÉE ─── -->
     <article class="niveau cliquable revele" style="--teinte:var(--bleu)">
-      <span class="etage etage-rdc" aria-hidden="true"><span class="semelle"></span></span>
+      <span class="etage etage-rdc" aria-hidden="true">
+        <span class="porte"></span><span class="perron"></span><span class="semelle"></span>
+      </span>
       <span class="altitude">±0.00</span>
       <span class="niv-tag">RDC</span>
       <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a></h3>
       <p class="lieu">Lyon · Génie civil, structure, BIM</p>
-      <p>Le niveau du sol, celui d'où part tout le reste. Béton armé,
-      construction métallique, thermique, gestion de chantier, maquette
-      numérique. En parallèle : création d'un nouveau BDE avec mon équipe, de
-      la campagne au montage opérationnel.</p>
+      <p>Béton armé, construction métallique, thermique, gestion de chantier,
+      maquette numérique. En parallèle : création d'un nouveau BDE avec mon
+      équipe, de la campagne au montage opérationnel.</p>
       <span class="voir-plus">Voir la formation</span>
     </article>
 
@@ -171,7 +186,7 @@
     <span class="tn-libelle">Terrain naturel</span>
   </div>
 
-  <!-- ─── PARTIE ENTERRÉE : les fondations ─── -->
+  <!-- ─── PARTIE ENTERRÉE ─── -->
   <div class="coupe">
 
     <article class="niveau revele" style="--teinte:var(--bleu)">
@@ -182,38 +197,24 @@
       <span class="niv-tag">Fondation</span>
       <h3>Classe préparatoire PCSI</h3>
       <p class="lieu">✏️ Lycée, ville · Deux années</p>
-      <p>La couche qui porte tout le reste. Maths, physique, sciences de
-      l'ingénieur, et surtout une méthode de travail : découper un problème,
-      poser les hypothèses, vérifier les ordres de grandeur avant de se lancer
-      dans le calcul. Rien de ce que je fais aujourd'hui sous Eurocodes ne
-      tiendrait sans ça.</p>
-    </article>
-
-    <article class="niveau revele" style="--teinte:var(--bleu)">
-      <span class="etage etage-sol sol-argile" aria-hidden="true">
-        <span class="pieu"></span><span class="figure">Argile</span>
-      </span>
-      <span class="altitude">-5.00</span>
-      <span class="niv-tag">Fondation</span>
-      <h3>Baccalauréat</h3>
-      <p class="lieu">✏️ Série, mention, lycée, année</p>
-      <p><!-- ✏️ Trois lignes : ce qui t'a orienté vers les sciences, le
-      moment où le BTP est devenu une évidence, un projet de lycée, un
-      chantier vu de près. C'est ce qui donne de la chair au reste. --></p>
+      <p>Maths, physique et sciences de l'ingénieur à haute dose, et surtout
+      une méthode de travail : découper un problème, poser les hypothèses,
+      vérifier les ordres de grandeur avant de se lancer dans le calcul. Rien
+      de ce que je fais aujourd'hui sous Eurocodes ne tiendrait sans ça.</p>
     </article>
 
     <article class="niveau revele" style="--teinte:var(--bleu)">
       <span class="etage etage-sol sol-rocher" aria-hidden="true">
-        <span class="pieu pointe"></span><span class="figure">Substratum</span>
+        <span class="pieu pointe"></span><span class="figure">Bon sol</span>
       </span>
-      <span class="altitude">-7.50</span>
-      <span class="niv-tag">Bon sol</span>
-      <h3>Le point d'ancrage</h3>
-      <p class="lieu">Avant tout le reste</p>
-      <p><!-- ✏️ Le rocher sur lequel tout repose : d'où tu viens, ce qui t'a
-      donné le goût de construire. Une famille dans le bâtiment, une passion
-      pour le dessin, une maison suivie de A à Z. Deux ou trois phrases
-      suffisent, et c'est souvent le paragraphe qu'un recruteur retient. --></p>
+      <span class="altitude">-5.00</span>
+      <span class="niv-tag">Ancrage</span>
+      <h3>Baccalauréat</h3>
+      <p class="lieu">✏️ Série, mention, lycée, année</p>
+      <p><!-- ✏️ Trois lignes : ce qui t'a orienté vers les sciences, le
+      moment où le BTP est devenu une évidence, un projet de lycée, un
+      chantier vu de près, une famille dans le bâtiment. C'est souvent le
+      paragraphe qu'un recruteur retient. --></p>
     </article>
 
   </div>
