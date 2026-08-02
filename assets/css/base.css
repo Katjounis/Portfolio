@@ -1,4 +1,4 @@
-/* v6 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v8 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    BASE : variables, typographie, composants partagés par toutes les pages
    Ne touche à ce fichier que si tu veux changer les couleurs ou les polices.
@@ -171,13 +171,20 @@ a{color:inherit;}
 .cellule .cle{display:block; font-family:var(--tech); font-size:.57rem; letter-spacing:.13em; text-transform:uppercase; color:var(--gris); margin-bottom:.15rem;}
 .cellule .val{font-family:var(--tech); font-size:.78rem; font-weight:500;}
 
-/* ---------- Apparition au défilement ---------- */
-.revele{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);}
-.revele.vu{opacity:1; transform:none;}
+/* ---------- Apparition au défilement ----------
+   Règle de sécurité : le contenu est VISIBLE par défaut. Il n'est masqué
+   pour être animé que si le JavaScript a bien démarré (classe .js posée
+   dans le <head>). Si un script échoue, la page reste lisible. */
+.revele{opacity:1; transform:none;}
+.js .revele{
+  opacity:0; transform:translateY(22px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.js .revele.vu{opacity:1; transform:none;}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .revele{opacity:1; transform:none; transition:none;}
+  .js .revele{opacity:1; transform:none; transition:none;}
   .cote .ligne{animation:none; stroke-dashoffset:0;}
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
 }
