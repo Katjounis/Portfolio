@@ -1,4 +1,4 @@
-/* v19 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v20 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
@@ -69,11 +69,27 @@
 .parcours{
   position:relative; isolation:isolate;
   background:linear-gradient(180deg,
-    var(--papier) 0%,
-    var(--papier-2) 22%,
-    var(--papier-2) 78%,
-    var(--papier) 100%);
-  border-block:1.5px solid var(--trait);
+    #B9D6F2 0%,
+    #D6E7F7 24%,
+    #EDF2F5 46%,
+    #F6F0E2 62%,
+    var(--terre-haut) 80%,
+    var(--terre-bas) 100%);
+}
+/* Trame de plan, très discrète */
+.parcours::before{
+  content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(25,27,31,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25,27,31,.045) 1px, transparent 1px);
+  background-size:54px 54px;
+}
+/* Grain de papier */
+.parcours::after{
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  opacity:.34; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%2523g)'%20opacity='0.22'/%3E%3C/svg%3E");
+  background-size:160px 160px;
 }
 
 .notice{
@@ -107,16 +123,17 @@
 /* ---------- Segments de sentier ---------- */
 .lien{
   position:relative; display:block;
-  height:var(--h,132px);
-  margin-block:-10px;
+  height:var(--h,140px);
+  margin-block:-14px;
 }
 .lien svg{display:block; width:100%; height:100%; overflow:visible;}
 .lien path{fill:none; vector-effect:non-scaling-stroke; stroke-linecap:round;}
-.lien .assise{stroke:rgba(25,27,31,.26); stroke-width:38;}
-.lien .sentier{stroke:#FCFAF3; stroke-width:32;}
+.lien .bordure{stroke:#191B1F; stroke-width:56;}
+.lien .rive{stroke:#F2EEE3; stroke-width:50;}
+.lien .assise{stroke:#3D4149; stroke-width:44;}
 .lien .axe{
-  stroke:rgba(25,27,31,.42); stroke-width:3;
-  stroke-dasharray:14 16;
+  stroke:#F2EEE3; stroke-width:3.4;
+  stroke-dasharray:17 20;
 }
 .lien .droit{display:none;}
 @media(max-width:899px){
@@ -128,9 +145,9 @@
 /* Mobilier de bord de route : arbres, rochers, touffes, panneaux */
 .deco{
   position:absolute; z-index:1; pointer-events:none;
-  opacity:.28;
+  opacity:.34;
 }
-.deco.pale{opacity:.17;}
+.deco.pale{opacity:.2;}
 @media(max-width:899px){.deco{display:none;}}
 
 /* Borne kilometrique posee sur le sentier */
@@ -166,8 +183,8 @@
   transition:transform .22s ease, box-shadow .22s ease;
 }
 @media(min-width:900px){
-  .etape.a-gauche{width:47%; margin-right:auto;}
-  .etape.a-droite{width:47%; margin-left:auto;}
+  .etape.a-gauche{width:49.5%; margin-right:auto;}
+  .etape.a-droite{width:49.5%; margin-left:auto;}
 }
 
 /* Epingle plantee sur le haut de la carte */
