@@ -19,6 +19,10 @@ Portfolio/
 ├── exp-guivibat.html       détail : stage bureau d'études
 ├── exp-builders.html       détail : formation
 ├── exp-ouvrier.html        détail : stage ouvrier
+├── proj-aura.html          projet : maquette BIM du campus AURA
+├── proj-tep-revit.html     projet : TEP Revit Challenge
+├── proj-eurocodes.html     projet : outils de calcul
+├── proj-incendie.html      projet : sécurité incendie
 ├── 404.html                page affichée si l'URL n'existe pas
 ├── README.md               ce fichier
 ├── .gitignore              fichiers à ne jamais publier
@@ -28,7 +32,7 @@ Portfolio/
     │   ├── base.css        couleurs, polices, composants communs
     │   ├── accueil.css     styles de index.html
     │   ├── experience.css  styles des 4 pages exp-*.html
-    │   └── moi.css         styles de moi.html
+    │   └── moi.css         styles de moi.html (identité fanzine, indépendante)
     ├── js/
     │   ├── app.js          apparition au défilement, images manquantes
     │   └── moi.js          compteurs, bandeau défilant
@@ -37,6 +41,7 @@ Portfolio/
     │   ├── parcours/       photos Édimbourg, stage, école, chantier
     │   ├── logos/          blasons, favicon
     │   └── moi/            portrait, tatouages, 3D, rugby, voyages
+    ├── video/              vidéos des pages projet (MP4, moins de 20 Mo)
     └── docs/
         └── cv.pdf          ton CV
 ```
@@ -88,7 +93,7 @@ Tant qu'un logo n'est pas déposé, un cadre hachuré s'affiche à sa place avec
 nom du fichier attendu. Aucun risque de casser la mise en page.
 
 **`assets/img/moi/`**
-`portrait.jpg` · `tattoo-01.jpg` à `tattoo-04.jpg` · `3d-01.jpg` · `3d-02.jpg`
+`portrait.jpg` · `tattoo-01.jpg` à `tattoo-06.jpg` · `3d-01.jpg` · `3d-02.jpg`
 · `design-01.jpg` · `rugby-01.jpg` · `voyage-01.jpg` · `voyage-02.jpg`
 
 **Conseils :**
