@@ -1,4 +1,4 @@
-/* v9 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v10 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en élévation, projets, nomenclature
    ========================================================================== */
@@ -25,31 +25,19 @@
 }
 .heros-int{position:relative; z-index:2;}
 
-/* Silhouette de grue à tour, posée au fond à droite comme une ombre portée */
-.deco-grue{
-  position:absolute; right:2%; bottom:0;
-  height:min(96%,560px); width:auto;
+/* Silhouette de grue a tour, en image de fond.
+   Elle vit entierement dans ce fichier : si la feuille n'est pas chargee,
+   rien ne s'affiche, plutot qu'une forme cassee. */
+.heros::after{
+  content:''; position:absolute; right:2%; bottom:0;
+  width:min(46%,560px); height:min(94%,600px);
   z-index:0; pointer-events:none;
-  display:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='560'%20height='660'%20viewBox='0%200%20560%20660'%3E%3Cg%20fill='none'%20stroke='%23191B1F'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20opacity='0.09'%3E%3Cpath%20d=%22M250%20604V150M288%20604V150%22/%3E%3Cpath%20d=%22M250%20150H288%22/%3E%3Cpath%20d=%22M250%20195H288%22/%3E%3Cpath%20d=%22M250%20240H288%22/%3E%3Cpath%20d=%22M250%20285H288%22/%3E%3Cpath%20d=%22M250%20330H288%22/%3E%3Cpath%20d=%22M250%20375H288%22/%3E%3Cpath%20d=%22M250%20420H288%22/%3E%3Cpath%20d=%22M250%20465H288%22/%3E%3Cpath%20d=%22M250%20510H288%22/%3E%3Cpath%20d=%22M250%20555H288%22/%3E%3Cpath%20d=%22M250%20600H288%22/%3E%3Cpath%20d=%22M250%20150L288%20195M288%20150L250%20195%22/%3E%3Cpath%20d=%22M250%20195L288%20240M288%20195L250%20240%22/%3E%3Cpath%20d=%22M250%20240L288%20285M288%20240L250%20285%22/%3E%3Cpath%20d=%22M250%20285L288%20330M288%20285L250%20330%22/%3E%3Cpath%20d=%22M250%20330L288%20375M288%20330L250%20375%22/%3E%3Cpath%20d=%22M250%20375L288%20420M288%20375L250%20420%22/%3E%3Cpath%20d=%22M250%20420L288%20465M288%20420L250%20465%22/%3E%3Cpath%20d=%22M250%20465L288%20510M288%20465L250%20510%22/%3E%3Cpath%20d=%22M250%20510L288%20555M288%20510L250%20555%22/%3E%3Cpath%20d=%22M250%20555L288%20600M288%20555L250%20600%22/%3E%3Cpath%20d=%22M250%20150L269%2062L288%20150%22/%3E%3Cpath%20d=%22M250%20138H126V168H250%22/%3E%3Cpath%20d=%22M288%20138H552L540%20168H288%22/%3E%3Cpath%20d=%22M300%20140L322%20166%22/%3E%3Cpath%20d=%22M322%20166L344%20140%22/%3E%3Cpath%20d=%22M344%20140L366%20166%22/%3E%3Cpath%20d=%22M366%20166L388%20140%22/%3E%3Cpath%20d=%22M388%20140L410%20166%22/%3E%3Cpath%20d=%22M410%20166L432%20140%22/%3E%3Cpath%20d=%22M432%20140L454%20166%22/%3E%3Cpath%20d=%22M454%20166L476%20140%22/%3E%3Cpath%20d=%22M476%20140L498%20166%22/%3E%3Cpath%20d=%22M498%20166L520%20140%22/%3E%3Cpath%20d=%22M520%20140L542%20166%22/%3E%3Cpath%20d=%22M542%20166L552%20140%22/%3E%3Cpath%20d=%22M269%2062L546%20139%22/%3E%3Cpath%20d=%22M269%2062L128%20139%22/%3E%3Cpath%20d=%22M288%20150H322V182H288%22/%3E%3Cpath%20d=%22M232%20604L212%20646H326L306%20604%22/%3E%3Cpath%20d=%22M180%20646H380%22/%3E%3Cpath%20d=%22M436%20168V356%22/%3E%3C/g%3E%3Cg%20fill='%23191B1F'%20opacity='0.09'%3E%3Cpath%20d='M120%20148H160V194H120Z'/%3E%3Cpath%20d='M422%20356H450V380H422Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right bottom;
+  background-size:contain;
 }
-@media(min-width:1000px){.deco-grue{display:block;}}
-.deco-grue .grue-trait{
-  fill:none; stroke:var(--encre);
-  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
-  opacity:.085;
-}
-.deco-grue .grue-plein{fill:var(--encre); stroke:none; opacity:.085;}
-.deco-grue .grue-charge{
-  transform-origin:436px 168px;
-  animation:balancer 9s ease-in-out infinite;
-}
-@keyframes balancer{
-  0%,100%{transform:rotate(-1.1deg);}
-  50%{transform:rotate(1.1deg);}
-}
-@media (prefers-reduced-motion:reduce){
-  .deco-grue .grue-charge{animation:none;}
-}
+@media(max-width:1000px){.heros::after{display:none;}}
 
 /* Le nom utilise une grotesque industrielle plus franche que le reste du site */
 .nom{
@@ -507,3 +495,51 @@
   text-transform:uppercase; letter-spacing:-.03em; line-height:1;
 }
 .renvoi p{max-width:42ch; margin-top:.6rem; color:var(--gris);}
+
+/* ==========================================================================
+   TÉLÉPHONE
+   Sous 620 px, l'immeuble disparaît : la gouttière mangerait la moitié de
+   la largeur. Les cotes et les repères de niveau repassent dans le flux.
+   ========================================================================== */
+@media(max-width:620px){
+  .coupe{padding-left:0;}
+  .etage{display:none;}
+  .niveau::before{display:none;}
+  .niveau{padding:1rem 1rem 1.1rem; box-shadow:3px 3px 0 rgba(25,27,31,.12);}
+  .niveau .altitude,
+  .niv-tag{
+    position:static; display:inline-block;
+    margin:0 .4rem .6rem 0; vertical-align:middle;
+  }
+  .niveau .altitude{border:1.5px solid var(--encre); background:var(--papier);}
+  .logo-exp{max-width:96px; margin-inline:0;}
+  .niveau-corps{gap:.9rem;}
+  .terrain-naturel{margin-block:.2rem 1.2rem;}
+  .notice{text-align:left; font-size:.68rem; line-height:1.7;}
+}
+
+@media(max-width:700px){
+  /* Le tableau de compétences devient une liste de blocs */
+  .nomenclature thead{display:none;}
+  .nomenclature, .nomenclature tbody, .nomenclature tr, .nomenclature td{
+    display:block; width:auto;
+  }
+  .nomenclature tr{border-top:1.5px solid var(--trait); padding:.8rem .9rem;}
+  .nomenclature tr:first-child{border-top:none;}
+  .nomenclature td{border:none; padding:.1rem 0;}
+  .nomenclature td:first-child{
+    width:auto; color:var(--bleu); font-size:.62rem; margin-bottom:.25rem;
+  }
+  .nomenclature td:last-child{margin-top:.5rem;}
+}
+
+@media(max-width:640px){
+  .heros{padding-block:2rem 2rem;}
+  .nom{font-size:clamp(2.2rem,13vw,3.4rem); line-height:.95;}
+  .heros .role{font-size:.62rem; letter-spacing:.14em;}
+  .cote text{font-size:8.5px;}
+  .actions{flex-direction:column; align-items:stretch;}
+  .actions .bouton{text-align:center;}
+  .renvoi{flex-direction:column; align-items:flex-start;}
+  .fiche-texte{padding:1.05rem;}
+}
