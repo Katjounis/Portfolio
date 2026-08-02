@@ -73,14 +73,19 @@ Le site fonctionne sans aucune image : un cadre hachuré apparaît avec le nom d
 fichier attendu. Tu remplis au fur et à mesure.
 
 **`assets/img/projets/`**
-`tep-revit-01.jpg` · `eurocodes-01.jpg` · `incendie-01.jpg` · `gpr-01.jpg`
+`aura-01.jpg` · `tep-revit-01.jpg` · `eurocodes-01.jpg` · `incendie-01.jpg`
+· `gpr-01.jpg`
 
 **`assets/img/parcours/`**
 `edimbourg-01.jpg` à `edimbourg-05.jpg` · `guivibat-01.jpg` à `guivibat-03.jpg`
 · `builders-01.jpg` à `builders-03.jpg` · `chantier-01.jpg` à `chantier-03.jpg`
 
-**`assets/img/logos/`**
-`edinburgh.png` (blason) · `favicon.png` (carré, 64×64)
+**`assets/img/logos/`** (logos et écussons, fond transparent de préférence)
+`edinburgh.png` · `builders.png` · `guivibat.png` · `stal-tp.png`
+· `blaise-pascal.png` · `carnot.png` · `premiers-pas.png` · `favicon.png`
+
+Tant qu'un logo n'est pas déposé, un cadre hachuré s'affiche à sa place avec le
+nom du fichier attendu. Aucun risque de casser la mise en page.
 
 **`assets/img/moi/`**
 `portrait.jpg` · `tattoo-01.jpg` à `tattoo-04.jpg` · `3d-01.jpg` · `3d-02.jpg`
