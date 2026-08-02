@@ -1,4 +1,4 @@
-/* v13 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v14 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    MOI : la rondeur, mais tirée de l'architecture plutôt que du gadget.
    Le motif est l'arche : portrait, photos et dessins sont cintrés en haut.
@@ -6,17 +6,31 @@
    ========================================================================== */
 
 .page-moi{
-  --m-carte:#FFFFFF;
+  --m-carte:rgba(255,255,255,.86);
   --m-douce:0 16px 38px rgba(25,27,31,.10);
   --m-douce-forte:0 22px 50px rgba(25,27,31,.16);
-  background:var(--papier);
+  background:
+    linear-gradient(180deg,
+      #FBFAF5 0%,
+      #F2F5FA 34%,
+      #F7F4EC 68%,
+      #F1F3F8 100%);
   overflow-x:hidden;
 }
+/* Lavis colorés, fixes, très pâles */
 .page-moi::before{
-  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
   background:
-    radial-gradient(62% 42% at 82% 0%, rgba(27,79,216,.08), transparent 68%),
-    radial-gradient(50% 36% at 4% 96%, rgba(255,197,61,.11), transparent 70%);
+    radial-gradient(58% 40% at 84% 2%, rgba(27,79,216,.13), transparent 66%),
+    radial-gradient(46% 34% at 2% 42%, rgba(255,197,61,.16), transparent 68%),
+    radial-gradient(52% 38% at 92% 74%, rgba(27,138,90,.10), transparent 68%),
+    radial-gradient(44% 32% at 12% 98%, rgba(217,65,47,.09), transparent 70%);
+}
+/* Grain de points, pour que le fond ne soit jamais un aplat */
+.page-moi::after{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(25,27,31,.075) 1px, transparent 1.5px);
+  background-size:17px 17px;
 }
 
 /* ---------- Navigation en capsule ---------- */
@@ -72,7 +86,15 @@
   transition:transform .4s cubic-bezier(.2,.8,.3,1), box-shadow .4s;
 }
 .m-arche:hover{transform:translateY(-6px); box-shadow:var(--m-douce-forte);}
-.m-arche .cadre{border:none; border-radius:inherit;}
+.m-arche .cadre{
+  position:absolute; inset:0;
+  width:100%; height:100%; aspect-ratio:auto;
+  border:none; border-radius:inherit;
+}
+.m-arche .cadre::after{
+  /* le nom du fichier reste collé en bas de l'arche, pas au milieu */
+  border-radius:0 0 26px 26px;
+}
 .m-arche .cadre img{transition:transform .6s cubic-bezier(.2,.8,.3,1);}
 .m-arche:hover .cadre img{transform:scale(1.06);}
 .m-arche.basse{border-radius:180px 180px 24px 24px;}
@@ -141,6 +163,17 @@
    SECTIONS
    ========================================================================== */
 .m-section{position:relative; padding-block:clamp(2.6rem,7vw,4.6rem);}
+
+/* Une section sur deux est posée dans un grand panneau arrondi */
+.m-section.panneau{
+  background:rgba(255,255,255,.62);
+  backdrop-filter:blur(6px);
+  border:1.5px solid rgba(25,27,31,.14);
+  border-radius:52px;
+  padding-inline:clamp(1.2rem,4vw,3rem);
+  box-shadow:0 20px 46px rgba(25,27,31,.07);
+}
+@media(max-width:640px){.m-section.panneau{border-radius:28px; padding-inline:1.1rem;}}
 .m-tete{position:relative; margin-bottom:2rem;}
 .m-chiffre{
   position:absolute; left:-.06em; top:-.42em; z-index:0;
@@ -198,9 +231,12 @@
 .m-planche .m-arche{aspect-ratio:3/4; border-radius:110px 110px 18px 18px;}
 .m-planche .m-arche .cadre::after{font-size:.46rem;}
 .m-planche .n{
-  position:absolute; left:50%; bottom:9px; transform:translateX(-50%); z-index:3;
-  font-family:var(--tech); font-size:.55rem; letter-spacing:.1em;
-  color:var(--gris);
+  position:absolute; left:10px; top:12px; z-index:4;
+  width:24px; height:24px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(252,251,249,.92); color:var(--encre);
+  border:1.5px solid var(--encre);
+  font-family:var(--tech); font-size:.56rem; font-weight:500;
 }
 
 .m-paire{display:grid; grid-template-columns:1fr 1fr; gap:1rem;}
