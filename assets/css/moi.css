@@ -1,309 +1,303 @@
-/* v12 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v13 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
-   MOI : même papier et mêmes couleurs que le reste du site.
-   La seule différence, c'est la géométrie : tout est arrondi, rien n'a
-   d'angle vif. Un seul accent, le bleu, et le jaune en surlignage.
-   Les ombres portées sont à l'encre, jamais en couleur.
+   MOI : la rondeur, mais tirée de l'architecture plutôt que du gadget.
+   Le motif est l'arche : portrait, photos et dessins sont cintrés en haut.
+   Palette du site, un seul accent bleu, ombres douces et beaucoup d'air.
    ========================================================================== */
 
 .page-moi{
   --m-carte:#FFFFFF;
-  --m-ombre:rgba(25,27,31,.16);
+  --m-douce:0 16px 38px rgba(25,27,31,.10);
+  --m-douce-forte:0 22px 50px rgba(25,27,31,.16);
   background:var(--papier);
   overflow-x:hidden;
 }
-
-/* Halo très pâle en haut de page, pour éviter le fond plat */
 .page-moi::before{
   content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(70% 45% at 78% 4%, rgba(27,79,216,.07), transparent 70%),
-    radial-gradient(55% 40% at 8% 92%, rgba(255,197,61,.10), transparent 72%);
+    radial-gradient(62% 42% at 82% 0%, rgba(27,79,216,.08), transparent 68%),
+    radial-gradient(50% 36% at 4% 96%, rgba(255,197,61,.11), transparent 70%);
 }
 
-/* ---------- Barre de navigation en capsule ---------- */
+/* ---------- Navigation en capsule ---------- */
 .page-moi .bandeau{background:transparent; border-bottom:none;}
 .page-moi .bandeau-int{
-  border:1.5px solid var(--encre);
-  border-radius:999px;
-  background:rgba(252,251,249,.92);
-  padding:.55rem 1.3rem;
-  margin-block:.6rem;
-  box-shadow:0 4px 0 var(--m-ombre);
+  border:1.5px solid var(--encre); border-radius:999px;
+  background:rgba(252,251,249,.94);
+  padding:.55rem 1.35rem; margin-block:.7rem;
+  box-shadow:var(--m-douce);
 }
-.page-moi .bandeau nav a{border-bottom:none; border-radius:999px; padding:.28rem .6rem;}
-.page-moi .bandeau nav a:hover{background:var(--jaune);}
+.page-moi .bandeau nav a{border-bottom:none; border-radius:999px; padding:.28rem .62rem;}
+.page-moi .bandeau nav a:hover{background:var(--papier-2);}
 .page-moi .bandeau nav a.ici{background:var(--encre); color:var(--papier);}
 
-/* ---------- Pastille ---------- */
+/* ---------- Rail de navigation à points ---------- */
+.m-rail{
+  position:fixed; left:26px; top:50%; transform:translateY(-50%);
+  z-index:40; display:none; flex-direction:column; gap:15px;
+}
+@media(min-width:1240px){.m-rail{display:flex;}}
+.m-rail a{
+  position:relative; width:11px; height:11px; border-radius:50%;
+  border:1.5px solid var(--encre); background:transparent;
+  transition:background .2s, transform .2s;
+}
+.m-rail a:hover{background:var(--bleu); border-color:var(--bleu); transform:scale(1.25);}
+.m-rail a::after{
+  content:attr(data-titre); position:absolute; left:22px; top:50%;
+  transform:translateY(-50%);
+  font-family:var(--tech); font-size:.58rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gris); white-space:nowrap;
+  opacity:0; transition:opacity .2s;
+}
+.m-rail a:hover::after{opacity:1;}
+
+/* ---------- Pastilles ---------- */
 .m-pill{
   display:inline-block;
-  font-family:var(--tech); font-size:.62rem;
-  letter-spacing:.16em; text-transform:uppercase;
-  padding:.5rem 1rem; border-radius:999px;
-  border:1.5px solid var(--encre);
-  background:var(--m-carte);
+  font-family:var(--tech); font-size:.6rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  padding:.5rem 1.05rem; border-radius:999px;
+  border:1.5px solid var(--encre); background:var(--m-carte);
 }
-.m-pill.plein{background:var(--encre); color:var(--papier);}
+.m-pill.plein{background:var(--encre); color:var(--papier); border-color:var(--encre);}
 
-/* ---------- Séparateur arrondi ---------- */
-.m-separation{
-  display:flex; align-items:center; justify-content:center; gap:.6rem;
-  padding-block:.4rem; margin-block:1.6rem;
+/* ---------- Arche : le motif de la page ---------- */
+.m-arche{
+  position:relative; overflow:hidden;
+  border:1.5px solid var(--encre);
+  border-radius:999px 999px 28px 28px;
+  background:var(--papier-2);
+  box-shadow:var(--m-douce);
+  transition:transform .4s cubic-bezier(.2,.8,.3,1), box-shadow .4s;
 }
-.m-separation i{
-  display:block; width:9px; height:9px; border-radius:50%;
-  background:var(--encre); opacity:.35;
-}
-.m-separation i:nth-child(2){width:56px; border-radius:999px; opacity:.2;}
+.m-arche:hover{transform:translateY(-6px); box-shadow:var(--m-douce-forte);}
+.m-arche .cadre{border:none; border-radius:inherit;}
+.m-arche .cadre img{transition:transform .6s cubic-bezier(.2,.8,.3,1);}
+.m-arche:hover .cadre img{transform:scale(1.06);}
+.m-arche.basse{border-radius:180px 180px 24px 24px;}
 
 /* ==========================================================================
    HÉROS
    ========================================================================== */
-.m-heros{padding-block:clamp(2.2rem,6vw,4rem) clamp(1.8rem,4vw,2.8rem);}
+.m-heros{padding-block:clamp(2rem,5vw,3.6rem) clamp(2rem,5vw,3.4rem);}
 .m-heros-int{
-  display:grid; gap:clamp(1.8rem,4vw,3rem);
+  display:grid; gap:clamp(2rem,5vw,4rem);
   grid-template-columns:1fr; align-items:center;
 }
-@media(min-width:880px){
-  .m-heros-int{grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);}
+@media(min-width:900px){
+  .m-heros-int{grid-template-columns:minmax(0,1.08fr) minmax(270px,.92fr);}
 }
-
 .m-titre{
   font-family:var(--display); font-weight:800;
-  font-size:clamp(2.5rem,9.5vw,5.4rem);
-  line-height:.9; letter-spacing:-.04em; text-transform:uppercase;
+  font-size:clamp(2.6rem,9vw,5.4rem);
+  line-height:.9; letter-spacing:-.042em; text-transform:uppercase;
   margin-top:1.2rem;
 }
-.m-titre em{
-  font-style:normal; position:relative; display:inline-block;
-}
+.m-titre em{font-style:normal; position:relative; display:inline-block;}
 .m-titre em::after{
-  content:''; position:absolute; left:-.04em; right:-.04em; bottom:.02em;
-  height:.16em; border-radius:999px; background:var(--jaune); z-index:-1;
+  content:''; position:absolute; left:-.03em; right:-.03em; bottom:.04em;
+  height:.14em; border-radius:999px; background:var(--jaune); z-index:-1;
 }
-.m-intro{max-width:46ch; margin-top:1.5rem; font-size:1.05rem; line-height:1.78;}
-.m-intro strong{
-  font-weight:600; background:rgba(255,197,61,.5);
-  border-radius:999px; padding:.06em .5em;
-  box-decoration-break:clone; -webkit-box-decoration-break:clone;
+.m-intro{max-width:45ch; margin-top:1.6rem; font-size:1.06rem; line-height:1.8;}
+.m-intro strong{font-weight:600; border-bottom:2px solid var(--bleu);}
+
+.m-meta{
+  display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.7rem;
+}
+.m-meta span{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gris);
+  border:1.5px solid var(--trait); border-radius:999px;
+  padding:.42rem .9rem;
 }
 
-/* Portrait dans une forme qui respire */
 .m-portrait{
-  position:relative; width:100%; max-width:320px; margin-inline:auto;
-  aspect-ratio:1/1; overflow:hidden;
-  border:1.5px solid var(--encre);
-  box-shadow:10px 10px 0 var(--m-ombre);
-  animation:m-respire 20s ease-in-out infinite;
+  width:100%; max-width:330px; margin-inline:auto;
+  aspect-ratio:3/4;
 }
-@keyframes m-respire{
-  0%,100%{border-radius:56% 44% 48% 52% / 48% 52% 48% 52%;}
-  33%{border-radius:46% 54% 58% 42% / 55% 45% 55% 45%;}
-  66%{border-radius:52% 48% 42% 58% / 43% 57% 43% 57%;}
-}
-.m-portrait .cadre{border:none; width:100%; height:100%; aspect-ratio:auto;}
+.m-portrait .cadre{width:100%; height:100%; aspect-ratio:auto;}
 .m-portrait .cadre::after{display:none;}
 .m-portrait .cadre.vide::before{content:'portrait.jpg';}
 
-/* ==========================================================================
-   FICHE
-   ========================================================================== */
-.m-fiche{
-  display:grid; gap:1.7rem; grid-template-columns:1fr;
-  border:1.5px solid var(--encre); border-radius:34px;
-  background:var(--m-carte); padding:1.7rem;
-  box-shadow:8px 8px 0 var(--m-ombre);
+/* ---------- Bandeau d'intérêts ---------- */
+.m-bande{
+  border:1.5px solid var(--encre); border-radius:999px;
+  background:var(--m-carte);
+  overflow:hidden; padding-block:.7rem;
+  box-shadow:var(--m-douce);
 }
-@media(min-width:760px){.m-fiche{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}}
-.m-fiche h2{
-  font-family:var(--display); font-weight:800; font-size:1.3rem;
-  text-transform:uppercase; letter-spacing:-.025em; margin-bottom:1rem;
+.m-bande-piste{display:flex; width:max-content; animation:m-glisse 38s linear infinite;}
+.m-bande:hover .m-bande-piste{animation-play-state:paused;}
+.m-bande span{
+  font-family:var(--tech); font-size:.66rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gris);
+  padding-inline:1.3rem; white-space:nowrap;
 }
-.m-infos{display:grid; gap:.5rem; font-size:.93rem;}
-.m-infos span{
-  background:var(--papier-2); border-radius:999px;
-  padding:.42rem .95rem; color:var(--gris);
-}
-.m-infos b{color:var(--encre); font-weight:600;}
-
-/* Jauges à segments arrondis */
-.m-jauges{display:grid; gap:.85rem; align-content:start;}
-.m-jauge .lib{
-  display:block; margin-bottom:.35rem;
-  font-family:var(--tech); font-size:.63rem;
-  letter-spacing:.13em; text-transform:uppercase; color:var(--gris);
-}
-.m-jauge .barre{display:flex; gap:5px;}
-.m-jauge i{
-  flex:1; height:12px; border-radius:999px; display:block;
-  background:var(--papier-2); border:1.5px solid var(--trait);
-}
-.m-jauge i.on{background:var(--bleu); border-color:var(--bleu);}
+.m-bande span::after{content:'•'; margin-left:1.3rem; color:var(--bleu);}
+@keyframes m-glisse{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
 /* ==========================================================================
    SECTIONS
    ========================================================================== */
-.m-section{position:relative; padding-block:clamp(2.2rem,5.5vw,3.6rem);}
-.m-tete{display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.6rem;}
+.m-section{position:relative; padding-block:clamp(2.6rem,7vw,4.6rem);}
+.m-tete{position:relative; margin-bottom:2rem;}
+.m-chiffre{
+  position:absolute; left:-.06em; top:-.42em; z-index:0;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(4.5rem,13vw,9rem); line-height:1;
+  color:transparent; -webkit-text-stroke:1.6px rgba(25,27,31,.13);
+  letter-spacing:-.04em; pointer-events:none;
+}
+.m-tete-int{position:relative; z-index:1; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
 .m-h2{
   font-family:var(--display); font-weight:800;
-  font-size:clamp(1.7rem,5.2vw,2.8rem);
+  font-size:clamp(1.8rem,5.4vw,2.9rem);
   text-transform:uppercase; letter-spacing:-.035em; line-height:1;
 }
 .m-h2 em{font-style:normal; position:relative; display:inline-block;}
 .m-h2 em::after{
-  content:''; position:absolute; left:-.04em; right:-.04em; bottom:.04em;
-  height:.15em; border-radius:999px; background:var(--bleu); opacity:.28; z-index:-1;
+  content:''; position:absolute; left:-.03em; right:-.03em; bottom:.05em;
+  height:.13em; border-radius:999px; background:var(--bleu); opacity:.26; z-index:-1;
+}
+.m-fil{
+  flex:1; min-width:60px; height:1.5px; border-radius:999px;
+  background:var(--trait);
 }
 
-.m-duo{display:grid; gap:clamp(1.4rem,3.5vw,2.4rem); grid-template-columns:1fr; align-items:start;}
-@media(min-width:840px){
+.m-duo{display:grid; gap:clamp(1.6rem,4vw,3rem); grid-template-columns:1fr; align-items:start;}
+@media(min-width:860px){
   .m-duo{grid-template-columns:1fr 1fr;}
   .m-duo.inverse > :first-child{order:2;}
 }
-.m-texte{
-  background:var(--m-carte);
-  border:1.5px solid var(--encre); border-radius:32px;
-  padding:1.6rem 1.7rem;
-  box-shadow:7px 7px 0 var(--m-ombre);
-}
-.m-texte p{margin-bottom:.85rem; line-height:1.78;}
+.m-texte p{margin-bottom:.95rem; line-height:1.82; max-width:56ch;}
 .m-texte p:last-child{margin-bottom:0;}
-.m-texte strong{
-  font-weight:600; background:rgba(255,197,61,.5);
-  border-radius:999px; padding:.06em .45em;
-  box-decoration-break:clone; -webkit-box-decoration-break:clone;
+.m-texte strong{font-weight:600; border-bottom:2px solid var(--jaune);}
+.m-texte .exergue{
+  font-family:var(--display); font-weight:600;
+  font-size:1.28rem; line-height:1.35; letter-spacing:-.015em;
+  padding-left:1.2rem; border-left:3px solid var(--bleu);
+  margin-bottom:1.3rem; max-width:44ch;
 }
 
 .m-rond{
-  display:inline-block;
-  font-family:var(--tech); font-size:.68rem;
-  letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
-  padding:.75rem 1.3rem; border-radius:999px;
+  display:inline-block; margin-top:.6rem;
+  font-family:var(--tech); font-size:.66rem;
+  letter-spacing:.13em; text-transform:uppercase; text-decoration:none;
+  padding:.8rem 1.4rem; border-radius:999px;
   border:1.5px solid var(--encre); background:var(--m-carte); color:var(--encre);
-  transition:transform .22s ease, background .22s, color .22s;
+  transition:background .22s, color .22s, transform .22s, box-shadow .22s;
 }
-.m-rond:hover{background:var(--encre); color:var(--papier); transform:translateY(-2px);}
-
-/* ---------- Vignettes de dessins ---------- */
-.m-slots{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,112px),1fr));}
-.m-slot{
-  position:relative; border:1.5px solid var(--encre);
-  background:var(--m-carte); overflow:hidden;
-  border-radius:26px;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-.m-slot:hover{transform:translateY(-5px); box-shadow:5px 6px 0 var(--m-ombre); z-index:3;}
-.m-slot .cadre{border:none; aspect-ratio:3/4;}
-.m-slot .cadre::after{font-size:.48rem;}
-.m-slot .n{
-  position:absolute; top:9px; left:10px; z-index:3;
-  width:24px; height:24px; border-radius:50%;
-  display:grid; place-items:center;
-  background:var(--papier); color:var(--encre);
-  border:1.5px solid var(--encre);
-  font-family:var(--tech); font-size:.6rem; font-weight:500;
+.m-rond:hover{
+  background:var(--encre); color:var(--papier);
+  transform:translateY(-3px); box-shadow:var(--m-douce);
 }
 
-.m-image{
-  border:1.5px solid var(--encre); overflow:hidden;
-  border-radius:34px;
-  box-shadow:7px 7px 0 var(--m-ombre);
+/* ---------- Planche de dessins ---------- */
+.m-planche{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));}
+.m-planche .m-arche{aspect-ratio:3/4; border-radius:110px 110px 18px 18px;}
+.m-planche .m-arche .cadre::after{font-size:.46rem;}
+.m-planche .n{
+  position:absolute; left:50%; bottom:9px; transform:translateX(-50%); z-index:3;
+  font-family:var(--tech); font-size:.55rem; letter-spacing:.1em;
+  color:var(--gris);
 }
-.m-image .cadre{border:none;}
-.m-paire{display:grid; grid-template-columns:1fr 1fr; gap:.9rem;}
+
+.m-paire{display:grid; grid-template-columns:1fr 1fr; gap:1rem;}
+.m-paire .m-arche{aspect-ratio:3/4;}
 
 /* ==========================================================================
-   COMPTEURS EN PASTILLES RONDES
+   CHIFFRES
    ========================================================================== */
-.m-scores{display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center;}
-.m-score{
-  width:clamp(126px,19vw,158px); aspect-ratio:1/1;
-  display:grid; place-content:center; text-align:center; gap:.25rem;
-  border-radius:50%; border:1.5px solid var(--encre);
-  background:var(--m-carte);
-  box-shadow:6px 6px 0 var(--m-ombre);
-  transition:transform .25s ease;
+.m-scores{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));
+  border:1.5px solid var(--encre); border-radius:34px;
+  background:var(--m-carte); overflow:hidden;
+  box-shadow:var(--m-douce);
 }
-.m-score:hover{transform:translateY(-6px);}
+.m-score{padding:1.7rem 1rem; text-align:center; border-right:1.5px solid var(--trait);}
+.m-score:last-child{border-right:none;}
 .m-score .n{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(1.9rem,5vw,2.6rem); line-height:1;
-  color:var(--bleu);
+  display:block; font-family:var(--display); font-weight:800;
+  font-size:clamp(2.1rem,5.5vw,3rem); line-height:1; color:var(--bleu);
+  letter-spacing:-.03em;
 }
 .m-score .q{
-  font-family:var(--tech); font-size:.55rem; letter-spacing:.1em;
-  text-transform:uppercase; line-height:1.6; padding-inline:.8rem;
-  color:var(--gris);
+  display:block; margin-top:.7rem;
+  font-family:var(--tech); font-size:.57rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gris); line-height:1.7;
 }
 
 /* ==========================================================================
    CARTES
    ========================================================================== */
-.m-cartes{display:grid; gap:1.1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
+.m-cartes{display:grid; gap:1.2rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));}
 .m-carte{
-  display:flex; gap:1rem; align-items:flex-start;
   border:1.5px solid var(--encre); border-radius:28px;
-  background:var(--m-carte); padding:1.2rem 1.3rem;
-  box-shadow:6px 6px 0 var(--m-ombre);
-  transition:transform .25s ease, box-shadow .25s ease;
+  background:var(--m-carte); padding:1.5rem;
+  transition:transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s;
 }
-.m-carte:hover{transform:translate(-2px,-4px); box-shadow:8px 9px 0 var(--m-ombre);}
+.m-carte:hover{transform:translateY(-5px); box-shadow:var(--m-douce);}
 .m-carte .ico{
-  flex:0 0 40px; width:40px; height:40px;
-  display:grid; place-items:center; border-radius:50%;
+  display:grid; place-items:center;
+  width:42px; height:42px; border-radius:50%;
   background:var(--papier-2); border:1.5px solid var(--encre);
-  font-size:.9rem; color:var(--encre);
+  font-size:.95rem; margin-bottom:.9rem;
 }
-.m-carte .ico.plein{background:var(--encre); color:var(--papier);}
 .m-carte h3{
   font-family:var(--display); font-weight:800; font-size:1.05rem;
-  line-height:1.2; margin-bottom:.35rem;
+  line-height:1.2; margin-bottom:.4rem;
   text-transform:uppercase; letter-spacing:-.02em;
 }
-.m-carte p{font-size:.92rem; color:#3A3B35; line-height:1.65;}
+.m-carte p{font-size:.92rem; color:#3A3B35; line-height:1.68;}
 
 /* ---------- Pays ---------- */
-.m-pays{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem;}
+.m-pays{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.4rem;}
 .m-pays span{
-  font-family:var(--tech); font-size:.66rem; letter-spacing:.08em;
-  padding:.45rem .95rem; border-radius:999px;
-  border:1.5px solid var(--encre); background:var(--m-carte);
-  transition:transform .22s ease, background .22s, color .22s;
+  font-family:var(--tech); font-size:.64rem; letter-spacing:.09em;
+  padding:.48rem 1rem; border-radius:999px;
+  border:1.5px solid var(--trait); background:var(--m-carte); color:var(--gris);
+  transition:border-color .22s, color .22s, transform .22s;
 }
-.m-pays span:hover{background:var(--encre); color:var(--papier); transform:translateY(-3px);}
+.m-pays span:hover{border-color:var(--encre); color:var(--encre); transform:translateY(-3px);}
 
 /* ---------- Citation ---------- */
 .m-citation{
-  position:relative;
-  background:var(--m-carte);
-  border:1.5px solid var(--encre); border-radius:36px;
-  padding:1.7rem 2rem;
+  text-align:center; padding-block:clamp(2.4rem,6vw,3.8rem);
+}
+.m-citation p{
   font-family:var(--display); font-weight:600;
-  font-size:clamp(1.15rem,3.4vw,1.75rem); line-height:1.32;
-  letter-spacing:-.02em; max-width:44ch;
-  box-shadow:8px 8px 0 var(--m-ombre);
+  font-size:clamp(1.35rem,4vw,2.2rem); line-height:1.3;
+  letter-spacing:-.025em; max-width:24ch; margin-inline:auto;
 }
-.m-citation em{
-  font-style:normal; position:relative; display:inline-block;
-}
+.m-citation em{font-style:normal; position:relative; display:inline-block;}
 .m-citation em::after{
-  content:''; position:absolute; left:-.04em; right:-.04em; bottom:.02em;
-  height:.16em; border-radius:999px; background:var(--jaune); z-index:-1;
+  content:''; position:absolute; left:-.03em; right:-.03em; bottom:.04em;
+  height:.14em; border-radius:999px; background:var(--jaune); z-index:-1;
 }
+.m-citation .points{
+  display:flex; justify-content:center; gap:.55rem; margin-bottom:1.6rem;
+}
+.m-citation .points i{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--encre); opacity:.3; display:block;
+}
+.m-citation .points i:nth-child(2){width:44px; border-radius:999px; opacity:.16;}
 
 /* ---------- Pied ---------- */
 .page-moi .pied{background:transparent; border-top:1.5px solid var(--trait);}
 .page-moi .bouton{border-radius:999px;}
-.page-moi .cellule{border-radius:0;}
 
 @media(max-width:640px){
-  .m-fiche{padding:1.2rem; border-radius:26px;}
-  .m-texte{padding:1.2rem 1.25rem; border-radius:24px;}
-  .m-carte{border-radius:22px;}
-  .page-moi .bandeau-int{border-radius:26px;}
+  .m-arche{border-radius:999px 999px 22px 22px;}
+  .m-planche .m-arche{border-radius:76px 76px 14px 14px;}
+  .m-scores{border-radius:26px;}
+  .m-score{border-right:none; border-bottom:1.5px solid var(--trait);}
+  .m-score:last-child{border-bottom:none;}
+  .m-carte{border-radius:22px; padding:1.2rem;}
+  .page-moi .bandeau-int{border-radius:24px;}
+  .m-chiffre{font-size:4.5rem; top:-.3em;}
 }
 @media (prefers-reduced-motion:reduce){
-  .m-portrait{animation:none; border-radius:50%;}
+  .m-bande-piste{animation:none;}
 }
