@@ -1,4 +1,4 @@
-/* v8 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v10 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    EXPERIENCE : pages de détail d'une expérience du parcours
    ========================================================================== */
@@ -155,4 +155,16 @@
   display:grid; place-items:center;
   font-family:var(--tech); font-size:.62rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--gris);
+}
+
+/* ---------- Téléphone ---------- */
+@media(max-width:640px){
+  .exp-titre{font-size:clamp(1.6rem,9vw,2.2rem);}
+  .exp-logo{max-width:120px;}
+  .exp-cartouche{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .exp-cartouche .cellule:nth-child(2n){border-right:none;}
+  .missions li{padding-left:2.4rem;}
+  .exp-bloc h2{flex-wrap:wrap; gap:.35rem;}
+  .exp-bloc h2 small{margin-left:0; width:100%;}
+  .exp-nav{flex-direction:column; gap:.6rem;}
 }
