@@ -1,298 +1,432 @@
-/* v6 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v8 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
-   MOI : page personnelle en encre et flash de tatouage.
-   Même ossature que le reste du site, mais une identité à part.
+   MOI : une planche de fanzine imprimée en risographie.
+   Deux encres (bleu profond et rouge orangé), trame de demi-teinte,
+   décalage de repérage volontaire, papier crème.
+   Cette page ne partage volontairement presque rien avec le reste du site.
    ========================================================================== */
 
-.page-moi{
-  --rouge-flash:#B8412F;
-  --vert-flash:#4E7B5C;
-  --or:#B0873C;
-  --papier-flash:#FFFCF5;
-  /* Encre de tatouage : un bleu-noir profond, jamais du noir pur */
-  --encre-tat:#33406B;
-  --encre-tat-pale:#5A6899;
+.zine{
+  --z-papier:#F6F1E3;
+  --z-bleu:#1B2A6B;
+  --z-rouge:#F0522E;
+  --z-vert:#0E9C8F;
+  --z-noir:#141821;
 
-  background:var(--papier-flash);
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(25,27,31,.055) 1px, transparent 1.6px),
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(217,65,47,.06), transparent 70%);
-  background-size:14px 14px, 100% 100%;
-}
+  --serif:'Instrument Serif', Georgia, serif;
+  --gras:'Archivo', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
 
-/* ==========================================================================
-   ORNEMENTS À L'ENCRE
-   ========================================================================== */
-.encre{max-width:100%; height:auto;}
-.encre path, .encre circle, .encre line, .encre ellipse{
-  fill:none; stroke:var(--encre-tat); stroke-width:2;
-  stroke-linecap:round; stroke-linejoin:round;
-  stroke-dasharray:1400; stroke-dashoffset:1400;
-}
-.encre.vu path, .encre.vu circle, .encre.vu line, .encre.vu ellipse{
-  animation:tracer-encre 1.8s cubic-bezier(.25,.8,.3,1) forwards;
-}
-.encre .rouge{stroke:var(--rouge-flash);}
-.encre .vert{stroke:var(--vert-flash);}
-.encre .or{stroke:var(--or); stroke-width:2.6;}
-.encre .plein{fill:var(--rouge-flash); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
-.encre .plein-noir{fill:var(--encre-tat); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
-.encre [data-d="1"]{animation-delay:.18s;}
-.encre [data-d="2"]{animation-delay:.36s;}
-.encre [data-d="3"]{animation-delay:.54s;}
-.encre [data-d="4"]{animation-delay:.72s;}
-.encre [data-d="5"]{animation-delay:.9s;}
-@keyframes tracer-encre{to{stroke-dashoffset:0;}}
-
-/* ---------- Fleurs fixées dans les marges ---------- */
-/* Les fleurs restent cantonnées aux marges. Elles ne sont affichées que
-   s'il y a réellement de la place à gauche et à droite du contenu. */
-.marge{
-  display:none;
-  position:fixed; top:50%; z-index:1; pointer-events:none;
-  width:118px; max-width:118px; height:auto; opacity:.55;
-}
-.marge.gauche{left:14px; transform:translateY(-50%); animation:flotter 13s ease-in-out infinite;}
-.marge.droite{right:14px; transform:translateY(-50%) scaleX(-1); animation:flotter 16s ease-in-out infinite reverse;}
-@media(min-width:1320px){.marge{display:block;}}
-@keyframes flotter{
-  0%,100%{transform:translateY(-50%) rotate(0deg);}
-  50%{transform:translateY(calc(-50% - 16px)) rotate(-2.5deg);}
-}
-.marge.droite{animation-name:flotter-droite;}
-@keyframes flotter-droite{
-  0%,100%{transform:translateY(-50%) scaleX(-1) rotate(0deg);}
-  50%{transform:translateY(calc(-50% - 20px)) scaleX(-1) rotate(2.5deg);}
+  background:var(--z-papier);
+  color:var(--z-noir);
+  font-family:var(--corps);
+  overflow-x:hidden;
 }
 
-/* ---------- Filigrane séparateur ---------- */
-.filigrane{display:block; width:min(100%,400px); max-width:400px; margin:2.6rem auto; height:auto;}
-
-/* ---------- Banderole de titre ---------- */
-.banderole{position:relative; width:100%; max-width:460px; margin-bottom:1.6rem;}
-.banderole svg{display:block; width:100%; height:auto; overflow:visible;}
-.banderole svg{max-width:100%;}
-.banderole .ruban{fill:var(--rouge-flash); stroke:var(--encre-tat); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
-.banderole .queue{fill:#8E2F22; stroke:var(--encre-tat); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
-.banderole span{
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(1.1rem,3.6vw,1.75rem);
-  letter-spacing:.02em; text-transform:uppercase;
-  color:var(--papier-flash);
-  padding-bottom:.15rem;
-  text-shadow:0 2px 0 rgba(0,0,0,.25);
+/* Trame de demi-teinte sur toute la page */
+.zine::before{
+  content:''; position:fixed; inset:0; z-index:9; pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px, rgba(20,24,33,.16) .9px, transparent 1.3px);
+  background-size:5px 5px;
+  opacity:.5; mix-blend-mode:multiply;
 }
+
+.zine .enveloppe{max-width:1120px;}
+
+/* ---------- Barre de navigation, version encre pleine ---------- */
+.zine .bandeau{
+  background:var(--z-bleu);
+  border-bottom:none;
+  backdrop-filter:none;
+}
+.zine .bandeau-int{max-width:1120px;}
+.zine .sigle, .zine .bandeau nav a{color:var(--z-papier);}
+.zine .bandeau nav a:hover{border-bottom-color:var(--z-rouge);}
+.zine .bandeau nav a.ici{border-bottom-color:var(--z-rouge);}
+
+/* ---------- Décalage de repérage : le fantôme rouge du titre ---------- */
+.decale{position:relative; display:inline-block;}
+.decale::after{
+  content:attr(data-mot);
+  position:absolute; left:0; top:0;
+  color:var(--z-rouge); mix-blend-mode:multiply;
+  transform:translate(4px,3px);
+  opacity:.8; pointer-events:none; white-space:nowrap;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.decale:hover::after{transform:translate(-5px,-4px);}
+
+/* ---------- Croix de repérage ---------- */
+.repere{
+  position:absolute; width:22px; height:22px; opacity:.65;
+  background:
+    linear-gradient(var(--z-rouge),var(--z-rouge)) center/1.4px 100% no-repeat,
+    linear-gradient(var(--z-rouge),var(--z-rouge)) center/100% 1.4px no-repeat;
+  border-radius:50%;
+  box-shadow:inset 0 0 0 1.4px var(--z-bleu);
+}
+.repere.hg{top:14px; left:14px;} .repere.hd{top:14px; right:14px;}
+.repere.bg{bottom:14px; left:14px;} .repere.bd{bottom:14px; right:14px;}
 
 /* ==========================================================================
-   HÉROS
+   COUVERTURE
    ========================================================================== */
-.moi-heros{position:relative; padding-block:clamp(2.2rem,6vw,4rem) clamp(1.6rem,4vw,2.6rem);}
-.moi-heros-int{
-  display:grid; gap:clamp(1.8rem,5vw,3rem);
-  grid-template-columns:1fr; align-items:center; justify-items:center;
+.z-couv{
+  position:relative;
+  padding-block:clamp(2.5rem,7vw,5rem) clamp(2rem,5vw,3.5rem);
 }
-.moi-heros-int > *{min-width:0; width:100%;}
+.z-couv-int{
+  display:grid; gap:clamp(1.8rem,4vw,3rem);
+  grid-template-columns:1fr; align-items:end;
+}
 @media(min-width:900px){
-  .moi-heros-int{
-    /* minmax(0,...) empêche le titre géant de dévorer la colonne de droite */
-    grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);
-    justify-items:stretch;
-  }
+  .z-couv-int{grid-template-columns:minmax(0,1.25fr) minmax(290px,.75fr);}
 }
 
-.moi-titre{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(2.6rem,9.5vw,6.2rem);
-  line-height:.84; letter-spacing:-.045em; text-transform:uppercase;
-  overflow-wrap:break-word;
-  position:relative; z-index:2;
+.z-surtitre{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--z-bleu);
+  display:flex; flex-wrap:wrap; gap:.6rem; align-items:center;
+  margin-bottom:1.4rem;
 }
-.moi-titre em{
-  font-style:normal; display:block; color:var(--rouge-flash);
-  -webkit-text-stroke:2px var(--encre-tat);
-  paint-order:stroke fill;
-  animation:vibrer 7s ease-in-out infinite;
-}
-@keyframes vibrer{
-  0%,92%,100%{transform:rotate(0deg);}
-  94%{transform:rotate(-1.2deg);}
-  97%{transform:rotate(1deg);}
-}
-.moi-intro{max-width:44ch; margin-top:1.3rem; font-size:1.05rem;}
-.moi-intro strong{
-  font-weight:600;
-  box-shadow:inset 0 -.45em 0 rgba(217,65,47,.24);
+.z-surtitre::before{
+  content:''; width:38px; height:2px; background:var(--z-rouge);
 }
 
-.ornement-heros{width:100%; max-width:320px; margin-top:1.4rem; height:auto;}
+.z-titre{
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(3rem,13.5vw,9.5rem);
+  line-height:.82; letter-spacing:-.015em;
+  color:var(--z-bleu);
+}
+.z-titre span{display:block;}
+.z-titre .ital{font-style:italic; color:var(--z-rouge); margin-left:.08em;}
 
-/* ---------- Portrait ---------- */
-.polaroid{
-  position:relative; width:100%; max-width:360px; margin-inline:auto;
-  background:#fff; padding:.9rem .9rem 3.2rem;
-  border:2px solid var(--encre);
-  box-shadow:8px 8px 0 rgba(25,27,31,.16);
-  transform:rotate(-2.5deg);
-  transition:transform .4s cubic-bezier(.2,.8,.3,1), box-shadow .4s ease;
+.z-chapo{
+  margin-top:1.8rem; max-width:46ch; font-size:1.06rem; line-height:1.7;
 }
-.polaroid:hover{transform:rotate(1deg) scale(1.025); box-shadow:12px 12px 0 var(--rouge-flash);}
-.polaroid .cadre{width:100%; aspect-ratio:4/5; border:1.5px solid var(--encre-tat);}
-.polaroid .cadre::after{display:none;}
-.polaroid figcaption{
-  position:absolute; left:0; right:0; bottom:1rem; text-align:center;
-  font-family:var(--tech); font-size:.7rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--gris);
+.z-chapo b{font-weight:600; color:var(--z-bleu);}
+
+.z-filet{
+  display:flex; align-items:center; gap:.8rem; margin-top:1.6rem;
+  font-family:var(--mono); font-size:.63rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--z-bleu);
 }
-.punaise{
-  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-  width:26px; height:26px; border-radius:50%;
-  background:var(--rouge-flash); border:2px solid var(--encre);
-  box-shadow:inset -3px -3px 0 rgba(0,0,0,.18);
+.z-filet::after{content:''; flex:1; height:2px; background:var(--z-bleu); opacity:.5;}
+
+/* ---------- Portrait en arche, duoton ---------- */
+.z-portrait{
+  position:relative; width:100%; max-width:340px; margin-inline:auto;
+  aspect-ratio:3/4;
+  border-radius:999px 999px 10px 10px;
+  overflow:hidden;
+  background:var(--z-bleu);
+  box-shadow:10px 10px 0 var(--z-rouge);
 }
+.z-portrait img{
+  width:100%; height:100%; object-fit:cover;
+  filter:grayscale(1) contrast(1.2) brightness(1.06);
+  mix-blend-mode:screen;
+}
+.z-portrait::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(circle at 2px 2px, rgba(240,82,46,.55) 1.1px, transparent 1.6px);
+  background-size:6px 6px;
+  mix-blend-mode:multiply; opacity:.55;
+}
+.z-portrait.vide img{display:none;}
+.z-portrait.vide::before{
+  content:'portrait.jpg'; position:absolute; inset:0; z-index:2;
+  display:grid; place-items:center;
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--z-papier);
+}
+
+/* ---------- Pastille autocollante ---------- */
+.z-sticker{
+  position:absolute; z-index:6;
+  display:grid; place-items:center; text-align:center;
+  width:118px; height:118px; border-radius:50%;
+  background:var(--z-rouge); color:var(--z-papier);
+  font-family:var(--gras); font-weight:900; font-size:.72rem;
+  letter-spacing:.06em; text-transform:uppercase; line-height:1.25;
+  padding:.6rem;
+  border:2px solid var(--z-bleu);
+  transform:rotate(-13deg);
+  transition:transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.z-sticker:hover{transform:rotate(5deg) scale(1.06);}
+.z-sticker.sur-portrait{right:-14px; bottom:34px;}
+@media(max-width:900px){.z-sticker.sur-portrait{right:6px; bottom:6px; width:96px; height:96px; font-size:.62rem;}}
 
 /* ==========================================================================
-   BANDEAU DÉFILANT
+   BANDE DÉFILANTE
    ========================================================================== */
-.defilant{
-  border-block:2.5px solid var(--encre);
-  background:var(--jaune);
+.z-bande{
+  background:var(--z-bleu); color:var(--z-papier);
+  border-block:2px solid var(--z-noir);
   overflow:hidden; padding-block:.6rem;
-  --duree:26s;
-  box-shadow:0 4px 0 rgba(25,27,31,.12);
 }
-.defilant-piste{display:flex; width:max-content; animation:glisser var(--duree) linear infinite;}
-.defilant:hover .defilant-piste{animation-play-state:paused;}
-.defilant span{
-  font-family:var(--display); font-weight:800; font-size:1rem;
-  letter-spacing:.02em; text-transform:uppercase;
-  padding-inline:1.1rem; white-space:nowrap;
+.z-bande-piste{display:flex; width:max-content; animation:z-glisse 32s linear infinite;}
+.z-bande:hover .z-bande-piste{animation-play-state:paused;}
+.z-bande span{
+  font-family:var(--gras); font-weight:900; font-size:.95rem;
+  letter-spacing:.04em; text-transform:uppercase;
+  padding-inline:1.2rem; white-space:nowrap;
 }
-.defilant span::after{content:'✦'; margin-left:1.1rem; font-size:.7rem; vertical-align:middle; color:var(--rouge-flash);}
-@keyframes glisser{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+.z-bande span::after{content:'●'; margin-left:1.2rem; font-size:.5rem; vertical-align:middle; color:var(--z-rouge);}
+@keyframes z-glisse{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+/* ==========================================================================
+   PLANCHES
+   ========================================================================== */
+.z-planche{
+  position:relative;
+  padding-block:clamp(2.8rem,7vw,4.8rem);
+  border-top:2px solid var(--z-bleu);
+}
+.z-tete{
+  display:flex; align-items:flex-end; gap:clamp(.9rem,2.5vw,1.6rem);
+  margin-bottom:1.8rem; flex-wrap:wrap;
+}
+.z-num{
+  font-family:var(--gras); font-weight:900;
+  font-size:clamp(2.6rem,8vw,5rem); line-height:.75;
+  color:transparent; -webkit-text-stroke:2.2px var(--z-rouge);
+  letter-spacing:-.03em;
+}
+.z-titre-sec{
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(1.9rem,5.5vw,3.2rem); line-height:.98;
+  color:var(--z-bleu); letter-spacing:-.01em;
+}
+.z-titre-sec em{font-style:italic; color:var(--z-rouge);}
+.z-etiquette{
+  margin-left:auto;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--z-bleu);
+  border:1.5px solid var(--z-bleu); padding:.28rem .6rem;
+}
+
+.z-double{display:grid; gap:clamp(1.4rem,4vw,2.8rem); grid-template-columns:1fr; align-items:start;}
+@media(min-width:840px){
+  .z-double{grid-template-columns:1fr 1fr;}
+  .z-double.inverse > :first-child{order:2;}
+}
+
+.z-texte p{margin-bottom:.85rem; max-width:54ch; line-height:1.72;}
+.z-texte p:last-child{margin-bottom:0;}
+.z-texte p.lettrine::first-letter{
+  font-family:var(--serif); font-size:3.5em; line-height:.76;
+  float:left; padding:.06em .12em 0 0; color:var(--z-rouge);
+}
+.z-texte b{font-weight:600; color:var(--z-bleu);}
+
+/* ---------- Planche contact pour les dessins ---------- */
+.z-contact{
+  position:relative; background:var(--z-bleu);
+  padding:2.1rem 1.2rem;
+  box-shadow:9px 9px 0 rgba(20,24,33,.18);
+}
+.z-perfos{
+  position:absolute; left:0; right:0; height:14px;
+  background-image:radial-gradient(circle at 10px 7px, var(--z-papier) 4.2px, transparent 4.7px);
+  background-size:24px 14px;
+}
+.z-perfos.haut{top:4px;} .z-perfos.bas{bottom:4px;}
+.z-grille-contact{
+  display:grid; gap:.7rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,116px),1fr));
+}
+.z-vignette{
+  position:relative; aspect-ratio:3/4;
+  background:rgba(246,241,227,.09);
+  border:1px solid rgba(246,241,227,.4);
+  overflow:hidden;
+  transition:transform .3s cubic-bezier(.2,.8,.3,1);
+}
+.z-vignette:hover{transform:scale(1.06) rotate(-1.2deg); z-index:3;}
+.z-vignette img{
+  width:100%; height:100%; object-fit:cover;
+  filter:grayscale(1) contrast(1.25) brightness(1.08);
+  mix-blend-mode:screen;
+}
+.z-vignette.vide img{display:none;}
+.z-vignette span{
+  position:absolute; left:4px; bottom:3px; z-index:2;
+  font-family:var(--mono); font-size:.54rem; letter-spacing:.08em;
+  color:var(--z-papier); opacity:.85;
+}
+.z-legende-contact{
+  margin-top:1rem; text-align:center;
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.16em;
+  text-transform:uppercase; color:rgba(246,241,227,.75);
+}
+
+/* ---------- Cadres image ordinaires ---------- */
+.z-image{
+  position:relative; overflow:hidden;
+  background:var(--z-bleu);
+  border:2px solid var(--z-bleu);
+  aspect-ratio:4/3;
+}
+.z-image.haute{aspect-ratio:3/4;}
+.z-image img{
+  width:100%; height:100%; object-fit:cover;
+  filter:grayscale(1) contrast(1.2) brightness(1.06);
+  mix-blend-mode:screen;
+  transition:transform .55s cubic-bezier(.2,.8,.3,1);
+}
+.z-image:hover img{transform:scale(1.05);}
+.z-image.vide img{display:none;}
+.z-image.vide::before{
+  content:attr(data-legende); position:absolute; inset:0;
+  display:grid; place-items:center; text-align:center; padding:.6rem;
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.12em;
+  text-transform:uppercase; color:rgba(246,241,227,.8);
+}
+.z-duo{display:grid; grid-template-columns:1fr 1fr; gap:.8rem;}
 
 /* ==========================================================================
    COMPTEURS
    ========================================================================== */
-.compteurs{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));
-  border:2.5px solid var(--encre); background:#fff;
-  box-shadow:6px 6px 0 rgba(25,27,31,.14);
+.z-compteurs{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));
+  border:2px solid var(--z-bleu);
+  background:var(--z-papier);
 }
-.compteur{padding:1.4rem 1rem; border-right:1.5px solid var(--encre); text-align:center; position:relative;}
-.compteur:last-child{border-right:none;}
-.compteur .chiffre{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(2.2rem,6.5vw,3.2rem); line-height:1;
-  letter-spacing:-.04em; color:var(--rouge-flash);
+.z-compteur{
+  padding:1.5rem .9rem; text-align:center;
+  border-right:1.5px solid var(--z-bleu);
+}
+.z-compteur:last-child{border-right:none;}
+.z-compteur .n{
+  display:block;
+  font-family:var(--serif); font-size:clamp(2.6rem,7vw,3.8rem);
+  line-height:.9; color:var(--z-rouge);
   font-variant-numeric:tabular-nums;
-  -webkit-text-stroke:1.5px var(--encre); paint-order:stroke fill;
 }
-.compteur .quoi{
-  display:block; margin-top:.4rem;
-  font-family:var(--tech); font-size:.62rem; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--gris);
-}
-
-/* ==========================================================================
-   BLOCS PASSION
-   ========================================================================== */
-.passions{display:grid; gap:clamp(2.4rem,6vw,4rem);}
-.passion{display:grid; gap:clamp(1.2rem,3.5vw,2.2rem); grid-template-columns:1fr; align-items:start;}
-@media(min-width:820px){
-  .passion{grid-template-columns:1fr 1fr;}
-  .passion.inverse .passion-visuel{order:-1;}
-}
-.passion-texte .surtitre{
-  font-family:var(--tech); font-size:.63rem; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--rouge-flash); display:block; margin-bottom:.5rem;
-}
-.moi-sous-titre{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(1.6rem,4.5vw,2.3rem);
-  text-transform:uppercase; letter-spacing:-.03em; line-height:1;
-  position:relative; display:inline-block;
-}
-.moi-sous-titre::after{
-  content:''; position:absolute; left:0; right:0; bottom:-6px;
-  height:4px; background:var(--rouge-flash);
-  transform:scaleX(0); transform-origin:left;
-  transition:transform .45s cubic-bezier(.2,.8,.3,1);
-}
-.passion.vu .moi-sous-titre::after{transform:scaleX(1);}
-.passion-texte p{margin-top:.7rem; max-width:52ch;}
-.passion-texte p + p{margin-top:.6rem;}
-
-.passion-visuel{display:grid; gap:.8rem;}
-.duo{display:grid; grid-template-columns:1fr 1fr; gap:.8rem;}
-.passion-visuel .cadre{aspect-ratio:1/1; border:2px solid var(--encre);}
-.passion-visuel .cadre.large{aspect-ratio:16/10;}
-.passion-visuel .cadre img{transition:transform .5s cubic-bezier(.2,.8,.3,1);}
-.passion-visuel .cadre:hover img{transform:scale(1.06);}
-
-/* ---------- Planche de flashs ---------- */
-.eventail{display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;}
-.flash{
-  position:relative;
-  width:clamp(125px,27vw,175px);
-  background:#fff; border:2px solid var(--encre);
-  padding:.5rem .5rem .5rem;
-  box-shadow:5px 5px 0 rgba(25,27,31,.14);
-  transition:transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s ease;
-}
-.flash:nth-child(odd){transform:rotate(-2.5deg);}
-.flash:nth-child(even){transform:rotate(2.5deg);}
-.flash:hover{transform:rotate(0) translateY(-8px) scale(1.03); box-shadow:8px 8px 0 var(--rouge-flash); z-index:4;}
-.flash .cadre{aspect-ratio:3/4; border:1.5px solid var(--encre);}
-.flash .num{
-  position:absolute; top:-11px; right:-11px;
-  width:30px; height:30px; border-radius:50%;
-  background:var(--rouge-flash); color:#fff;
-  border:2px solid var(--encre);
-  display:grid; place-items:center;
-  font-family:var(--tech); font-size:.65rem; font-weight:500;
+.z-compteur .q{
+  display:block; margin-top:.5rem;
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--z-bleu);
 }
 
 /* ==========================================================================
-   EN VRAC
+   TIMBRES DE VOYAGE
    ========================================================================== */
-.vrac{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr)); gap:1.1rem;}
-.jeton{
-  border:2px solid var(--encre); background:#fff;
-  padding:1.2rem; position:relative; overflow:hidden;
+.z-timbres{display:flex; flex-wrap:wrap; gap:.7rem;}
+.z-timbre{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.5rem .7rem;
+  border:1.5px dashed var(--z-bleu);
+  box-shadow:inset 0 0 0 3px var(--z-papier), inset 0 0 0 4.2px rgba(27,42,107,.35);
+  background:var(--z-papier); color:var(--z-bleu);
+  transition:transform .25s ease, background .25s ease, color .25s ease;
+}
+.z-timbre:nth-child(odd){transform:rotate(-1.6deg);}
+.z-timbre:nth-child(even){transform:rotate(1.4deg);}
+.z-timbre:hover{transform:rotate(0) translateY(-3px); background:var(--z-rouge); color:var(--z-papier);}
+
+/* ==========================================================================
+   NOTES EN VRAC
+   ========================================================================== */
+.z-notes{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));}
+.z-note{
+  position:relative; padding:1.2rem 1.2rem 1.3rem;
+  background:var(--z-papier);
+  border:2px solid var(--z-bleu);
   transition:transform .25s ease, box-shadow .25s ease;
 }
-.jeton::before{
-  content:''; position:absolute; inset:auto auto -26px -26px;
-  width:64px; height:64px; background:var(--jaune);
-  border:2px solid var(--encre); transform:rotate(45deg);
-  transition:transform .35s cubic-bezier(.2,.8,.3,1);
+.z-note:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--z-rouge);}
+.z-note h3{
+  font-family:var(--serif); font-size:1.3rem; line-height:1.1;
+  color:var(--z-bleu); margin-bottom:.45rem;
 }
-.jeton:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--encre);}
-.jeton:hover::before{transform:rotate(45deg) scale(1.5);}
-.jeton h4{font-family:var(--display); font-weight:800; font-size:1.08rem; margin-bottom:.35rem; position:relative; text-transform:uppercase; letter-spacing:-.01em;}
-.jeton p{font-size:.9rem; color:#3A3B35; position:relative;}
+.z-note p{font-size:.92rem; line-height:1.65;}
+.z-note .puce{
+  position:absolute; top:-9px; right:14px;
+  width:18px; height:18px; border-radius:50%;
+  background:var(--z-rouge); border:2px solid var(--z-bleu);
+}
 
 /* ==========================================================================
-   CITATION EN BANDEROLE
+   CITATION
    ========================================================================== */
-.citation-bloc{position:relative; margin-top:3rem; text-align:center;}
-.citation{
-  font-family:var(--display); font-weight:600;
-  font-size:clamp(1.15rem,3.6vw,1.75rem); line-height:1.3;
-  letter-spacing:-.02em; max-width:30ch;
-  margin:1.2rem auto 0;
+.z-citation{
+  position:relative; text-align:center;
+  padding-block:clamp(2.4rem,6vw,4rem);
+  border-top:2px solid var(--z-bleu);
 }
-.citation em{font-style:normal; color:var(--rouge-flash);}
+.z-citation blockquote{
+  font-family:var(--serif); font-size:clamp(1.5rem,4.6vw,2.7rem);
+  line-height:1.22; color:var(--z-bleu);
+  max-width:22ch; margin-inline:auto;
+}
+.z-citation blockquote em{font-style:italic; color:var(--z-rouge);}
+.z-citation .signature{
+  margin-top:1.4rem;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--z-bleu); opacity:.75;
+}
 
-/* ---------- Gouttes d'encre décoratives ---------- */
-.goutte{
-  position:absolute; border-radius:50%;
-  background:var(--encre-tat); opacity:.16;
-  animation:respirer 6s ease-in-out infinite;
+/* ==========================================================================
+   COLOPHON
+   ========================================================================== */
+.z-colophon{
+  background:var(--z-bleu); color:var(--z-papier);
+  padding-block:clamp(2.4rem,6vw,4rem);
 }
-@keyframes respirer{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.35);}
+.z-colophon h2{
+  font-family:var(--serif); font-size:clamp(2rem,7vw,4rem);
+  line-height:.95; margin-bottom:1.4rem;
+}
+.z-colophon h2 em{font-style:italic; color:var(--z-rouge);}
+.z-liens{display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:2.2rem;}
+.z-lien{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; text-decoration:none;
+  padding:.75rem 1.2rem;
+  border:2px solid var(--z-papier); color:var(--z-papier);
+  transition:background .2s, color .2s, transform .2s;
+}
+.z-lien:hover{background:var(--z-rouge); border-color:var(--z-rouge); transform:translateY(-2px);}
+.z-lien.plein{background:var(--z-papier); color:var(--z-bleu);}
+.z-lien.plein:hover{background:var(--z-rouge); color:var(--z-papier);}
+
+.z-ours{
+  display:grid; gap:.4rem 2rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));
+  border-top:1.5px solid rgba(246,241,227,.4);
+  padding-top:1.2rem;
+  font-family:var(--mono); font-size:.62rem; letter-spacing:.08em;
+  color:rgba(246,241,227,.8);
+}
+.z-ours b{color:var(--z-papier); font-weight:500;}
+
+/* ==========================================================================
+   RAIL LATÉRAL
+   ========================================================================== */
+.z-rail{
+  position:fixed; left:0; top:0; bottom:0; width:34px; z-index:8;
+  display:none; pointer-events:none;
+  background:var(--z-rouge);
+  overflow:hidden;
+}
+@media(min-width:1400px){.z-rail{display:block;}}
+.z-rail-texte{
+  position:absolute; top:0; left:50%;
+  transform:translateX(-50%);
+  writing-mode:vertical-rl;
+  font-family:var(--gras); font-weight:900; font-size:.74rem;
+  letter-spacing:.3em; text-transform:uppercase;
+  color:var(--z-papier); white-space:nowrap;
+  animation:z-monte 40s linear infinite;
+}
+@keyframes z-monte{from{transform:translateX(-50%) translateY(0);} to{transform:translateX(-50%) translateY(-50%);}}
+
+@media (prefers-reduced-motion:reduce){
+  .z-bande-piste, .z-rail-texte{animation:none;}
+  .decale::after{transition:none;}
 }
