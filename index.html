@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=15">
-<link rel="stylesheet" href="assets/css/accueil.css?v=15">
+<link rel="stylesheet" href="assets/css/base.css?v=16">
+<link rel="stylesheet" href="assets/css/accueil.css?v=16">
 </head>
 <body>
 
@@ -81,205 +81,285 @@
   <div class="cartouche revele">
     <span class="num">01</span>
     <h2>Parcours</h2>
-    <span class="meta">Itinéraire · 2018 à 2027</span>
+    <span class="meta">Le chemin · 2018 à 2027</span>
   </div>
 
   <p class="notice revele">
-    Mon parcours lu comme un itinéraire. Le départ est à Roanne, la destination
-    reste à écrire. Chaque étape est une ville, les bornes indiquent la distance
-    depuis la précédente, et les cartes bordées s'ouvrent sur le détail.
+    Mon parcours lu comme un chemin. En haut, la destination : le PFE que je
+    cherche pour mars 2027. En dessous, le sentier redescend étape par étape
+    jusqu'au point de départ, un stage de troisième en cabinet d'architecture.
+    Les bornes indiquent la distance entre deux villes, et les cartes bordées
+    s'ouvrent sur le détail.
   </p>
 
   <div class="resume revele">
-    <span>Départ <b>Roanne</b></span>
+    <span>Destination <b>PFE BIM</b></span>
     <span><b>7</b> étapes</span>
     <span><b>2</b> pays</span>
     <span><b>3 200 km</b> environ</span>
-    <span>Destination <b>à définir</b></span>
+    <span>Départ <b>Roanne, 2018</b></span>
   </div>
 
-  <div class="itineraire">
-
-    <!-- ─── 01 ─── -->
-    <article class="etape revele" style="--teinte:var(--jaune)">
-      <span class="voie" aria-hidden="true"><span class="borne">sur place</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>01</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2018</span></p>
-          <h3>Le point de départ</h3>
-          <p class="lieu">Maisons Foyer Roannais · Stage de troisième · Cabinet d'architecture</p>
-          <p>Je voulais faire de la modélisation avant même de savoir que ça
-          portait un nom. Ce stage de troisième en cabinet d'architecture a
-          confirmé la direction, et je ne l'ai plus lâchée depuis.</p>
+  <div class="chemin">
+  <article class="etape destination revele" style="--teinte:var(--rouge)">
+    <span class="jalon" aria-hidden="true"><i><b>★</b></i></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Destination</span><span class="quand">1<sup>er</sup> mars 2027</span></p>
+        <h3>PFE, modélisateur et projeteur BIM <span class="badge-recherche">Recherche active</span></h3>
+        <p class="lieu">20 semaines minimum · Lyon, Toulouse, Roanne</p>
+        <p>Je cherche mon projet de fin d'études en <strong>modélisation et
+        projection BIM</strong>, de préférence en agence d'architecture ou dans
+        un service BIM intégré. Concrètement : produire et faire vivre la
+        maquette, sortir les plans, coordonner les modèles entre lots et faire
+        le lien avec la conception.</p>
+        <div class="etiquettes">
+          <span>Revit</span><span>Navisworks</span><span>Dynamo</span>
+          <span>Allplan</span><span>Twinmotion</span><span>Synthèse</span>
         </div>
-        <figure class="logo-exp" data-legende="maisons-foyer.png">
-          <img src="assets/img/logos/maisons-foyer.png" alt="" loading="lazy">
-        </figure>
+        <p style="margin-top:1rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
       </div>
-    </article>
-
-    <!-- ─── 02 ─── -->
-    <article class="etape revele" style="--teinte:var(--bleu)">
-      <span class="voie" aria-hidden="true"><span class="borne">90 km</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>02</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2022</span></p>
-          <h3>Baccalauréat général, mention bien</h3>
-          <p class="lieu">Lycée Hippolyte Carnot</p>
-          <p>Spécialités mathématiques, physique-chimie et sciences de la vie et
-          de la Terre, cette dernière abandonnée en fin de première pour
-          resserrer sur les sciences dures et viser une prépa. La même année, un
-          stage volontaire chez <strong>Nexter Systems</strong>.</p>
-        </div>
-        <figure class="logo-exp" data-legende="carnot.png">
-          <img src="assets/img/logos/carnot.png" alt="" loading="lazy">
-        </figure>
+      <figure class="logo-exp" data-legende="Votre logo ici"></figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M50 0 C50 58,23 42,23 100"/>
+        <path class="sentier" d="M50 0 C50 58,23 42,23 100"/>
+        <path class="axe" d="M50 0 C50 58,23 42,23 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">Le chemin parcouru</span>
+  </div>
+  <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
+    <span class="jalon" aria-hidden="true"><i><b>2026</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Andrézieux-Bouthéon</span><span class="quand">Juin à septembre 2026</span></p>
+        <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span class="marqueur">En cours</span></h3>
+        <p class="lieu">Bureau d'études structure · 15 semaines</p>
+        <p>Suivi de dossiers de bout en bout : reprise des hypothèses, calculs
+        de structure sous Eurocodes, dimensionnement d'assemblages selon
+        EN 1993-1-8, puis production des plans de coffrage et de ferraillage
+        jusqu'à la livraison du dossier au client.</p>
+        <span class="voir-plus">Voir les missions</span>
       </div>
-    </article>
-
-    <!-- ─── 03 ─── -->
-    <article class="etape revele" style="--teinte:var(--bleu)">
-      <span class="voie" aria-hidden="true"><span class="borne">170 km</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>03</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Clermont-Ferrand</span><span class="quand">2022 à 2024</span></p>
-          <h3>CPGE PCSI puis PSI</h3>
-          <p class="lieu">Lycée Blaise Pascal · Deux années · TIPE et concours</p>
-          <p>Maths, physique et sciences de l'ingénieur à haute dose, et surtout
-          une méthode de travail : découper un problème, poser les hypothèses,
-          vérifier les ordres de grandeur avant de se lancer dans le calcul.
-          Entre deux années, une mission d'intérim chez <strong>Eiffage
-          Route</strong>.</p>
+      <figure class="logo-exp" data-legende="guivibat.png">
+          <img src="assets/img/logos/guivibat.png" alt="" loading="lazy">
+        </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="sentier" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="axe" d="M23 0 C23 58,77 42,77 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">1 400 km</span>
+  </div>
+  <article class="etape a-droite cliquable revele" style="--teinte:var(--vert)">
+    <span class="jalon" aria-hidden="true"><i><b>2026</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Édimbourg</span><span class="quand">Semestre 2, 2026</span></p>
+        <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
+        <p class="lieu">Old College, South Bridge · School of Engineering</p>
+        <p>Un semestre complet de génie civil enseigné en anglais :
+        construction numérique, sécurité incendie, auscultation au géoradar,
+        énergie durable et supply chain.</p>
+        <div class="etiquettes">
+          <span>CIVE10032</span><span>CIVE09023</span><span>CIVE11050</span>
+          <span>MAEE10002</span><span>MECE09026</span>
         </div>
-        <figure class="logo-exp" data-legende="blaise-pascal.png">
+        <span class="voir-plus">Voir le détail du semestre</span>
+      </div>
+      <figure class="logo-exp" data-legende="edinburgh.png">
+          <img src="assets/img/logos/edinburgh.png" alt="" loading="lazy">
+        </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M77 0 C77 58,23 42,23 100"/>
+        <path class="sentier" d="M77 0 C77 58,23 42,23 100"/>
+        <path class="axe" d="M77 0 C77 58,23 42,23 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">1 500 km</span>
+  </div>
+  <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
+    <span class="jalon" aria-hidden="true"><i><b>2025</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Chassieu</span><span class="quand">2025</span></p>
+        <h3><a href="exp-ouvrier.html">Stage ouvrier puis conduite de travaux, STAL TP</a></h3>
+        <p class="lieu">3 semaines en exécution puis 12 en conduite</p>
+        <p>Trois semaines outil à la main, puis douze semaines côté conduite
+        de travaux. J'ai suivi le chantier de l'Intermarché de
+        Saint-Bonnet-de-Mure, environ 400 000 euros, avec une large autonomie
+        sur la coordination des équipes, les devis et les sous-traitants.</p>
+        <span class="voir-plus">Voir le chantier</span>
+      </div>
+      <figure class="logo-exp" data-legende="stal-tp.png">
+          <img src="assets/img/logos/stal-tp.png" alt="" loading="lazy">
+        </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="sentier" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="axe" d="M23 0 C23 58,77 42,77 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">12 km</span>
+  </div>
+  <article class="etape a-droite cliquable revele" style="--teinte:var(--bleu)">
+    <span class="jalon" aria-hidden="true"><i><b>2024</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Vaulx-en-Velin</span><span class="quand">Depuis 2024</span></p>
+        <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a><span class="marqueur">En cours</span></h3>
+        <p class="lieu">Campus AURA · Orientation bâtiment</p>
+        <p>Béton armé, construction métallique, étude de prix et métré, gestion
+        de chantier, maquette numérique. J'ai monté la maquette 3D des nouveaux
+        locaux de l'école, avec des réunions hebdomadaires aux côtés de
+        l'architecte et de la maîtrise d'ouvrage. En parallèle : responsable
+        communication du <strong>Riptide</strong>, le premier BDE du campus.</p>
+        <span class="voir-plus">Voir la formation</span>
+      </div>
+      <figure class="logo-exp" data-legende="builders.png">
+          <img src="assets/img/logos/builders.png" alt="" loading="lazy">
+        </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M77 0 C77 58,23 42,23 100"/>
+        <path class="sentier" d="M77 0 C77 58,23 42,23 100"/>
+        <path class="axe" d="M77 0 C77 58,23 42,23 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">170 km</span>
+  </div>
+  <article class="etape a-gauche revele" style="--teinte:var(--bleu)">
+    <span class="jalon" aria-hidden="true"><i><b>2022</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Clermont-Ferrand</span><span class="quand">2022 à 2024</span></p>
+        <h3>CPGE PCSI puis PSI</h3>
+        <p class="lieu">Lycée Blaise Pascal · TIPE et concours</p>
+        <p>Maths, physique et sciences de l'ingénieur à haute dose, et surtout
+        une méthode de travail : découper un problème, poser les hypothèses,
+        vérifier les ordres de grandeur avant de calculer. Entre deux années,
+        une mission d'intérim chez <strong>Eiffage Route</strong>.</p>
+      </div>
+      <figure class="logo-exp" data-legende="blaise-pascal.png">
           <img src="assets/img/logos/blaise-pascal.png" alt="" loading="lazy">
         </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="sentier" d="M23 0 C23 58,77 42,77 100"/>
+        <path class="axe" d="M23 0 C23 58,77 42,77 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">90 km</span>
+  </div>
+  <article class="etape a-droite revele" style="--teinte:var(--bleu)">
+    <span class="jalon" aria-hidden="true"><i><b>2022</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2022</span></p>
+        <h3>Baccalauréat général, mention bien</h3>
+        <p class="lieu">Lycée Hippolyte Carnot</p>
+        <p>Spécialités mathématiques, physique-chimie et sciences de la vie et
+        de la Terre, cette dernière abandonnée en fin de première pour viser une
+        prépa. La même année, un stage volontaire chez <strong>Nexter
+        Systems</strong>.</p>
       </div>
-    </article>
-
-    <!-- ─── 04 ─── -->
-    <article class="etape cliquable revele" style="--teinte:var(--bleu)">
-      <span class="voie" aria-hidden="true"><span class="borne">12 km</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>04</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Vaulx-en-Velin</span><span class="quand">Depuis 2024</span></p>
-          <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a><span class="marqueur">En cours</span></h3>
-          <p class="lieu">Campus AURA · Orientation bâtiment</p>
-          <p>Béton armé, construction métallique, étude de prix et métré, gestion
-          de chantier, maquette numérique. J'ai monté la maquette 3D des nouveaux
-          locaux de l'école et participé aux réunions hebdomadaires avec
-          l'architecte et la maîtrise d'ouvrage. En parallèle : responsable
-          communication du <strong>Riptide</strong>, le premier BDE du campus.</p>
-          <span class="voir-plus">Voir la formation</span>
-        </div>
-        <figure class="logo-exp" data-legende="builders.png">
-          <img src="assets/img/logos/builders.png" alt="Logo BUILDERS" loading="lazy">
+      <figure class="logo-exp" data-legende="carnot.png">
+          <img src="assets/img/logos/carnot.png" alt="" loading="lazy">
         </figure>
+    </div>
+  </article>
+  <div class="lien" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g class="courbe">
+        <path class="assise" d="M77 0 C77 58,50 42,50 100"/>
+        <path class="sentier" d="M77 0 C77 58,50 42,50 100"/>
+        <path class="axe" d="M77 0 C77 58,50 42,50 100"/>
+      </g>
+      <g class="droit">
+        <path class="assise" d="M50 0 V100"/>
+        <path class="sentier" d="M50 0 V100"/>
+        <path class="axe" d="M50 0 V100"/>
+      </g>
+    </svg>
+    <span class="borne">sur place</span>
+  </div>
+  <article class="etape depart revele" style="--teinte:var(--jaune)">
+    <span class="jalon" aria-hidden="true"><i><b>2018</b></i></span>
+    <span class="balise" aria-hidden="true"></span>
+    <div class="niveau-corps">
+      <div>
+        <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2018</span></p>
+        <h3>Le point de départ</h3>
+        <p class="lieu">Maisons Foyer Roannais · Stage de troisième · Cabinet d'architecture</p>
+        <p>Je voulais faire de la modélisation avant même de savoir que ça
+        portait un nom. Ce stage de troisième en cabinet d'architecture a
+        confirmé la direction, et je ne l'ai plus lâchée depuis.</p>
       </div>
-    </article>
-
-    <!-- ─── 05 ─── -->
-    <article class="etape cliquable revele" style="--teinte:var(--jaune)">
-      <span class="voie" aria-hidden="true"><span class="borne">1 500 km</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>05</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Chassieu</span><span class="quand">2025</span></p>
-          <h3><a href="exp-ouvrier.html">Stage ouvrier puis conduite de travaux, STAL TP</a></h3>
-          <p class="lieu">3 semaines en exécution puis 12 en conduite</p>
-          <p>Trois semaines outil à la main, puis douze semaines côté conduite de
-          travaux. J'ai suivi le chantier de l'Intermarché de
-          Saint-Bonnet-de-Mure, environ 400 000 euros, avec une large autonomie
-          sur la coordination des équipes, les devis et le suivi des
-          sous-traitants.</p>
-          <span class="voir-plus">Voir le chantier</span>
-        </div>
-        <figure class="logo-exp" data-legende="stal-tp.png">
-          <img src="assets/img/logos/stal-tp.png" alt="Logo STAL TP" loading="lazy">
+      <figure class="logo-exp" data-legende="maisons-foyer.png">
+          <img src="assets/img/logos/maisons-foyer.png" alt="" loading="lazy">
         </figure>
-      </div>
-    </article>
-
-    <!-- ─── 06 ─── -->
-    <article class="etape cliquable revele" style="--teinte:var(--vert)">
-      <span class="voie" aria-hidden="true"><span class="borne">1 400 km</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>06</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Édimbourg</span><span class="quand">Semestre 2, 2026</span></p>
-          <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
-          <p class="lieu">Old College, South Bridge · School of Engineering</p>
-          <p>Un semestre complet de génie civil enseigné en anglais :
-          construction numérique, sécurité incendie, auscultation au géoradar,
-          énergie durable et supply chain. Cinq modules, cinq façons différentes
-          de regarder un ouvrage.</p>
-          <div class="etiquettes">
-            <span>CIVE10032</span><span>CIVE09023</span><span>CIVE11050</span>
-            <span>MAEE10002</span><span>MECE09026</span>
-          </div>
-          <span class="voir-plus">Voir le détail du semestre</span>
-        </div>
-        <figure class="logo-exp" data-legende="edinburgh.png">
-          <img src="assets/img/logos/edinburgh.png" alt="Écusson de l'University of Edinburgh" loading="lazy">
-        </figure>
-      </div>
-    </article>
-
-    <!-- ─── 07 ─── -->
-    <article class="etape cliquable revele" style="--teinte:var(--jaune)">
-      <span class="voie fin" aria-hidden="true"><span class="borne">et après ?</span></span>
-      <span class="jalon" aria-hidden="true"><i><b>07</b></i></span>
-      <span class="balise" aria-hidden="true"><span></span></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Andrézieux-Bouthéon</span><span class="quand">Juin à septembre 2026</span></p>
-          <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span class="marqueur">En cours</span></h3>
-          <p class="lieu">Bureau d'études structure · 15 semaines</p>
-          <p>Suivi de dossiers de bout en bout : reprise des hypothèses, calculs
-          de structure sous Eurocodes, dimensionnement d'assemblages selon
-          EN 1993-1-8, puis production des plans de coffrage et de ferraillage
-          jusqu'à la livraison du dossier au client.</p>
-          <span class="voir-plus">Voir les missions</span>
-        </div>
-        <figure class="logo-exp" data-legende="guivibat.png">
-          <img src="assets/img/logos/guivibat.png" alt="Logo Guivibat Ingénierie" loading="lazy">
-        </figure>
-      </div>
-    </article>
-
-    <!-- ─── DESTINATION ─── -->
-    <article class="etape destination revele" style="--teinte:var(--rouge)">
-      <span class="jalon" aria-hidden="true"><i><b>★</b></i></span>
-      <div class="niveau-corps">
-        <div>
-          <p class="lieu-etape"><span class="ville">Destination</span><span class="quand">1<sup>er</sup> mars 2027</span></p>
-          <h3>PFE, modélisateur et projeteur BIM <span class="badge-recherche">Recherche active</span></h3>
-          <p class="lieu">20 semaines minimum · Lyon, Toulouse, Roanne</p>
-          <p>Je cherche mon projet de fin d'études en <strong>modélisation et
-          projection BIM</strong>, de préférence en agence d'architecture ou dans
-          un service BIM intégré. Concrètement : produire et faire vivre la
-          maquette, sortir les plans, coordonner les modèles entre lots et faire
-          le lien avec la conception.</p>
-          <div class="etiquettes">
-            <span>Revit</span><span>Navisworks</span><span>Dynamo</span>
-            <span>Allplan</span><span>Twinmotion</span><span>Synthèse</span>
-          </div>
-          <p style="margin-top:1rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
-        </div>
-        <figure class="logo-exp" data-legende="Votre logo ici"></figure>
-      </div>
-    </article>
-
+    </div>
+  </article>
   </div>
  </div>
 </section>
@@ -484,7 +564,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=15"></script>
+<script src="assets/js/app.js?v=16"></script>
 </body>
 </html>
-
