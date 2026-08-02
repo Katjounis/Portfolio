@@ -1,10 +1,10 @@
 /* ==========================================================================
-   BASE — variables, typographie, composants partagés par toutes les pages
+   BASE : variables, typographie, composants partagés par toutes les pages
    Ne touche à ce fichier que si tu veux changer les couleurs ou les polices.
    ========================================================================== */
 
 :root{
-  /* Couleurs — palette claire */
+  /* Couleurs : palette claire */
   --papier:#FCFBF8;
   --papier-2:#F3F2EC;
   --encre:#1C1E22;
