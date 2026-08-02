@@ -16,9 +16,9 @@
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=6">
-<link rel="stylesheet" href="assets/css/accueil.css?v=6">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css?v=7">
+<link rel="stylesheet" href="assets/css/accueil.css?v=7">
 </head>
 <body>
 
@@ -38,7 +38,31 @@
 <main>
 
 <!-- ══════════════ HÉROS ══════════════ -->
-<section class="heros enveloppe">
+<section class="heros">
+ <svg class="deco-heros" viewBox="0 0 520 470" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+   <g class="trait-bleu">
+     <path d="M260 62 L380 122 L260 182 L140 122 Z"/>
+     <path d="M140 122 L140 322"/><path d="M260 182 L260 382"/><path d="M380 122 L380 322"/>
+     <path d="M140 322 L260 382 L380 322"/>
+     <path d="M140 172 L260 232"/><path d="M260 232 L380 172"/>
+     <path d="M140 222 L260 282"/><path d="M260 282 L380 222"/>
+     <path d="M140 272 L260 332"/><path d="M260 332 L380 272"/>
+   </g>
+   <g class="trait-bleu pale">
+     <path d="M400 196 L480 236 L400 276 L320 236 Z"/>
+     <path d="M320 236 L320 336"/><path d="M400 276 L400 376"/><path d="M480 236 L480 336"/>
+     <path d="M320 336 L400 376 L480 336"/>
+     <path d="M320 286 L400 326"/><path d="M400 326 L480 286"/>
+   </g>
+   <g class="trait-jaune">
+     <path d="M96 122 L96 382"/>
+     <path d="M88 122 L104 122"/><path d="M88 382 L104 382"/>
+     <path d="M88 172 L104 172"/><path d="M88 222 L104 222"/>
+     <path d="M88 272 L104 272"/><path d="M88 322 L104 322"/>
+   </g>
+   <g class="pastille"><circle cx="260" cy="62" r="4"/><circle cx="400" cy="196" r="4"/></g>
+ </svg>
+ <div class="enveloppe heros-int">
   <svg class="cote" viewBox="0 0 1000 26" preserveAspectRatio="none" aria-hidden="true">
     <line class="ligne" x1="1" y1="13" x2="999" y2="13"/>
     <line x1="1" y1="4" x2="1" y2="22"/><line x1="999" y1="4" x2="999" y2="22"/>
@@ -70,6 +94,7 @@
     <a class="bouton vide" href="#projets">Voir les projets</a>
     <a class="bouton vide" href="moi.html">Qui je suis</a>
   </div>
+ </div>
 </section>
 
 <!-- ══════════════ PARCOURS ══════════════ -->
@@ -305,86 +330,76 @@
   <div class="cartouche revele">
     <span class="num">02</span>
     <h2>Projets</h2>
-    <span class="meta">Sélection · 5 dossiers</span>
+    <span class="meta">Sélection · 4 dossiers</span>
   </div>
 
   <div class="grille">
 
-    <article class="fiche revele">
+    <article class="fiche cliquable revele">
       <figure class="cadre" data-legende="aura-01.jpg">
         <img src="assets/img/projets/aura-01.jpg" alt="Maquette numérique des nouveaux locaux du campus AURA" loading="lazy">
       </figure>
       <div class="fiche-texte">
         <div class="ref"><span>PR-01</span><span>2025 à 2026</span></div>
-        <h3>Maquette BIM du campus AURA</h3>
+        <h3><a href="proj-aura.html">Maquette BIM du campus AURA</a></h3>
         <p>Modélisation 3D des nouveaux locaux de BUILDERS à Vaulx-en-Velin,
         menée en parallèle du projet réel. Réunions hebdomadaires avec
         l'architecte et la maîtrise d'ouvrage, reprise du modèle à chaque
         évolution du projet, et restitution des vues aux équipes.</p>
         <div class="etiquettes"><span>Revit</span><span>BIM</span><span>Twinmotion</span><span>Suivi de projet</span></div>
+      <span class="voir-plus">Voir le projet</span>
       </div>
     </article>
 
-    <article class="fiche revele">
+    <article class="fiche cliquable revele">
       <figure class="cadre" data-legende="tep-revit-01.jpg">
         <img src="assets/img/projets/tep-revit-01.jpg" alt="Rendu du campus modélisé sous Revit" loading="lazy">
       </figure>
       <div class="fiche-texte">
         <div class="ref"><span>PR-02</span><span>2026</span></div>
-        <h3>TEP Revit Challenge</h3>
+        <h3><a href="proj-tep-revit.html">TEP Revit Challenge</a></h3>
         <p>Campus universitaire à EuropaCity, Gonesse. Deux bâtiments aux
         volumes organiques reliés par une passerelle, sur un terrain de
         15 000 m² à 3 % de pente. Modélisation Revit en LOD 300,
         géoréférencement Lambert 93, complexes de façade BFUP et COR-TEN,
         documentation technique complète.</p>
         <div class="etiquettes"><span>Revit</span><span>LOD 300</span><span>Lambert 93</span><span>Concours</span></div>
+      <span class="voir-plus">Voir le projet</span>
       </div>
     </article>
 
-    <article class="fiche revele">
+    <article class="fiche cliquable revele">
       <figure class="cadre" data-legende="eurocodes-01.jpg">
         <img src="assets/img/projets/eurocodes-01.jpg" alt="Classeur de dimensionnement Eurocodes" loading="lazy">
       </figure>
       <div class="fiche-texte">
         <div class="ref"><span>PR-03</span><span>2026</span></div>
-        <h3>Outils de dimensionnement Eurocodes</h3>
+        <h3><a href="proj-eurocodes.html">Outils de dimensionnement Eurocodes</a></h3>
         <p>Classeurs de calcul générés en Python : poutres métalliques avec
         vérifications EC3, ferraillage béton armé EC2 piloté par bibliothèques
         et listes déroulantes, descente de charges avec équilibre des moments
         ELU et ELS. Graphiques natifs et macros de navigation intégrées.</p>
         <div class="etiquettes"><span>Python</span><span>Excel / VBA</span><span>EC2 · EC3</span></div>
+      <span class="voir-plus">Voir les classeurs</span>
       </div>
     </article>
 
-    <article class="fiche revele">
+    <article class="fiche cliquable revele">
       <figure class="cadre" data-legende="incendie-01.jpg">
         <img src="assets/img/projets/incendie-01.jpg" alt="Courbe d'échauffement d'un profilé acier protégé" loading="lazy">
       </figure>
       <div class="fiche-texte">
         <div class="ref"><span>PR-04</span><span>2026</span></div>
-        <h3>Ingénierie de la sécurité incendie</h3>
+        <h3><a href="proj-incendie.html">Ingénierie de la sécurité incendie</a></h3>
         <p>Cinq études menées à Édimbourg : modèle d'évacuation, classement de
         réaction au feu, échauffement d'un 254×254UC73 protégé par 25 mm de
         Fendolite MII sous ISO 834 calculé en Python, séparation entre
         bâtiments selon BR 187, et accès des services de secours.</p>
         <div class="etiquettes"><span>Python</span><span>ISO 834</span><span>BR 187</span><span>EN 13501</span></div>
+      <span class="voir-plus">Voir les études</span>
       </div>
     </article>
 
-    <article class="fiche revele">
-      <figure class="cadre" data-legende="gpr-01.jpg">
-        <img src="assets/img/projets/gpr-01.jpg" alt="Radargramme de la campagne GPR" loading="lazy">
-      </figure>
-      <div class="fiche-texte">
-        <div class="ref"><span>PR-05</span><span>2026</span></div>
-        <h3>Auscultation GPR, William Rankine Building</h3>
-        <p>Campagne de radar de sol sur dalle béton au GSSI SIR-4000 :
-        protocole de mesure, acquisition en maillage, traitement des
-        radargrammes et localisation des armatures et réseaux noyés. Rapport
-        d'interprétation rédigé en anglais.</p>
-        <div class="etiquettes"><span>Géoradar</span><span>Diagnostic</span><span>Rapport EN</span></div>
-      </div>
-    </article>
 
   </div>
  </div>
@@ -425,11 +440,6 @@
         <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
       </tr>
       <tr>
-        <td>Sécurité incendie</td>
-        <td>EN 13501-1, ISO 834, BR 187, modèles d'évacuation RSET et ASET</td>
-        <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
-      </tr>
-      <tr>
         <td>Programmation</td>
         <td>Python, VBA, HTML et CSS, automatisation de classeurs de calcul</td>
         <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
@@ -440,14 +450,29 @@
         <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
       </tr>
       <tr>
-        <td>Langues</td>
-        <td>Français langue maternelle, anglais courant (TOEIC 905/990), italien intermédiaire</td>
+        <td>Travail en équipe</td>
+        <td>Coordination d'équipes de chantier, projets de groupe internationaux à Édimbourg, direction de la communication du BDE Riptide, cinq années de sport collectif</td>
+        <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+      </tr>
+      <tr>
+        <td>Autonomie</td>
+        <td>Conduite d'un chantier de 400 000 euros et suivi de dossiers de bureau d'études de bout en bout</td>
         <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
       </tr>
       <tr>
-        <td>Mobilité</td>
-        <td>Permis B, véhiculé</td>
+        <td>Français</td>
+        <td>Langue maternelle</td>
         <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+      </tr>
+      <tr>
+        <td>Anglais</td>
+        <td>Courant. TOEIC 905/990, un semestre universitaire suivi et soutenu en anglais</td>
+        <td><span class="jauge"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+      </tr>
+      <tr>
+        <td>Italien</td>
+        <td>Niveau intermédiaire</td>
+        <td><span class="jauge"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
       </tr>
     </tbody>
   </table>
@@ -499,6 +524,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=6"></script>
+<script src="assets/js/app.js?v=7"></script>
 </body>
 </html>
