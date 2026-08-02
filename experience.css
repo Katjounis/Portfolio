@@ -1,0 +1,106 @@
+/* ==========================================================================
+   EXPERIENCE : pages de détail d'une expérience du parcours
+   ========================================================================== */
+
+.retour{
+  display:inline-block; margin-bottom:1.4rem;
+  font-family:var(--tech); font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; text-decoration:none; color:var(--gris);
+}
+.retour::before{content:'← '; display:inline-block; transition:margin-right .2s ease;}
+.retour:hover{color:var(--encre);}
+.retour:hover::before{margin-right:.3rem;}
+
+/* ---------- En-tête ---------- */
+.exp-tete{padding-block:clamp(2rem,5vw,3.2rem) clamp(1.6rem,4vw,2.4rem);}
+.exp-cote{
+  font-family:var(--tech); font-size:.7rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--bleu); margin-bottom:.7rem; display:block;
+}
+.exp-titre{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(2rem,7vw,4.2rem);
+  line-height:.95; letter-spacing:-.035em; text-transform:uppercase;
+  max-width:20ch;
+}
+.exp-chapeau{max-width:58ch; margin-top:1.3rem; font-size:1.05rem;}
+
+.exp-cartouche{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border:1.5px solid var(--encre); background:var(--papier); margin-top:2rem;
+}
+.exp-cartouche .cellule{border-right:1px solid var(--trait); border-bottom:none;}
+.exp-cartouche .cellule:last-child{border-right:none;}
+
+/* ---------- Blocs de contenu ---------- */
+.exp-bloc{padding-block:clamp(2rem,5vw,3rem);}
+.exp-bloc h2{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.3rem,4vw,1.9rem);
+  text-transform:uppercase; letter-spacing:-.025em; line-height:1;
+  padding-bottom:.6rem; margin-bottom:1.4rem;
+  border-bottom:1.5px solid var(--encre);
+  display:flex; align-items:baseline; gap:.7rem;
+}
+.exp-bloc h2 small{
+  font-family:var(--tech); font-size:.6rem; letter-spacing:.13em;
+  color:var(--gris); font-weight:400; margin-left:auto;
+}
+.exp-bloc > p{max-width:66ch;}
+.exp-bloc > p + p{margin-top:.8rem;}
+
+/* ---------- Liste des missions ---------- */
+.missions{list-style:none; counter-reset:m; display:grid; gap:1rem;}
+.missions li{
+  counter-increment:m;
+  position:relative; padding-left:3.1rem;
+  border-top:1px solid var(--trait); padding-top:.9rem;
+  max-width:70ch;
+}
+.missions li::before{
+  content:counter(m,decimal-leading-zero);
+  position:absolute; left:0; top:.85rem;
+  font-family:var(--tech); font-size:.72rem; font-weight:500;
+  color:var(--bleu);
+}
+.missions b{font-weight:600; display:block; margin-bottom:.15rem;}
+
+/* ---------- Modules de cours ---------- */
+.cours{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));}
+.module{
+  border:1.5px solid var(--encre); background:var(--papier);
+  padding:1.1rem 1.2rem; display:flex; flex-direction:column; gap:.45rem;
+}
+.module .code{
+  font-family:var(--tech); font-size:.63rem; letter-spacing:.13em;
+  color:var(--papier); background:var(--encre);
+  padding:.15rem .45rem; align-self:flex-start;
+}
+.module h3{font-family:var(--display); font-weight:600; font-size:1.08rem; line-height:1.2;}
+.module p{font-size:.92rem; color:#33342F;}
+
+/* ---------- Galerie ---------- */
+.galerie{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
+.galerie .cadre{aspect-ratio:4/3;}
+.galerie .cadre img{transition:transform .45s cubic-bezier(.2,.8,.3,1);}
+.galerie .cadre:hover img{transform:scale(1.04);}
+.galerie .cadre.pleine{grid-column:1 / -1; aspect-ratio:21/9;}
+
+/* ---------- Encadré retenue ---------- */
+.retenue{
+  border-left:4px solid var(--jaune);
+  background:var(--papier-2);
+  padding:1.2rem 1.4rem; max-width:64ch;
+}
+.retenue h3{font-family:var(--display); font-weight:600; font-size:1.05rem; margin-bottom:.4rem;}
+
+/* ---------- Navigation entre expériences ---------- */
+.exp-nav{
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+  border-top:1.5px solid var(--encre); padding-top:1.6rem; margin-top:1rem;
+}
+.exp-nav a{
+  font-family:var(--tech); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; text-decoration:none;
+}
+.exp-nav a:hover{color:var(--bleu);}
