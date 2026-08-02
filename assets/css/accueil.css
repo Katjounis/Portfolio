@@ -1,6 +1,6 @@
-/* v14 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v15 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
-   ACCUEIL : héros, parcours en élévation, projets, nomenclature
+   ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
 
 /* ==========================================================================
@@ -60,90 +60,155 @@
 .actions{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2rem;}
 
 /* ==========================================================================
-   DÉCOR DE FOND DU PARCOURS
-   Ciel dégradé, grain fin, trame de plan, ligne d'horizon urbaine,
-   puis texture de terre sous le terrain naturel.
+   PARCOURS : un itineraire
+   Une voie en pointilles descend dans la gouttiere de gauche. Chaque etape
+   porte son propre segment, donc l'alignement suit la hauteur des cartes.
+   Les bornes indiquent la distance depuis l'etape precedente.
    ========================================================================== */
 
 .parcours{
   position:relative; isolation:isolate;
-  background:
-    linear-gradient(180deg,
-      #B9D6F2 0%,
-      #D6E7F7 26%,
-      #EEF3F6 48%,
-      #F7F1E4 60%,
-      var(--terre-haut) 74%,
-      var(--terre-bas) 100%);
+  background:linear-gradient(180deg,#EDF2F7 0%, #F5F6F1 44%, #F8F5ED 100%);
 }
-/* trame de plan très discrète */
 .parcours::before{
   content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(25,27,31,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(25,27,31,.045) 1px, transparent 1px);
-  background-size:52px 52px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='620'%20height='440'%20viewBox='0%200%20620%20440'%3E%3Cg%20fill='none'%20stroke='%231B4FD8'%20stroke-width='1.2'%20opacity='0.10'%3E%3Cpath%20d=%22M0%2030C70%2034,140%2023,210%2032C280%2017,350%2018,420%2037C490%2022,560%2039,630%2040%22/%3E%3Cpath%20d=%22M0%2080C70%2067,140%2096,210%2076C280%2064,350%2067,420%2081C490%2089,560%2067,630%2076%22/%3E%3Cpath%20d=%22M0%20124C70%20113,140%20135,210%20115C280%20112,350%20119,420%20131C490%20111,560%20133,630%20115%22/%3E%3Cpath%20d=%22M0%20167C70%20165,140%20153,210%20174C280%20161,350%20171,420%20172C490%20163,560%20161,630%20178%22/%3E%3Cpath%20d=%22M0%20218C70%20221,140%20213,210%20211C280%20211,350%20222,420%20208C490%20200,560%20199,630%20221%22/%3E%3Cpath%20d=%22M0%20261C70%20258,140%20276,210%20268C280%20274,350%20267,420%20267C490%20277,560%20271,630%20263%22/%3E%3Cpath%20d=%22M0%20309C70%20308,140%20304,210%20306C280%20297,350%20311,420%20314C490%20325,560%20315,630%20314%22/%3E%3Cpath%20d=%22M0%20357C70%20359,140%20345,210%20350C280%20370,350%20364,420%20349C490%20357,560%20345,630%20357%22/%3E%3Cpath%20d=%22M0%20399C70%20409,140%20385,210%20391C280%20400,350%20401,420%20397C490%20411,560%20409,630%20388%22/%3E%3C/g%3E%3C/svg%3E");
+  background-size:620px 440px; background-repeat:repeat;
 }
-/* grain de papier */
 .parcours::after{
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  opacity:.35; mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
-}
-
-/* Silhouettes d'immeubles voisins, calées sur la ligne de terrain naturel */
-.coupe.aerien{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='170'%3E%3Cg fill='%238FA9C4' opacity='0.34'%3E%3Crect x='0' y='72' width='62' height='98'/%3E%3Crect x='68' y='34' width='48' height='136'/%3E%3Crect x='122' y='88' width='74' height='82'/%3E%3Crect x='202' y='52' width='42' height='118'/%3E%3Crect x='250' y='100' width='66' height='70'/%3E%3Crect x='322' y='64' width='52' height='106'/%3E%3Crect x='380' y='92' width='80' height='78'/%3E%3C/g%3E%3Cg fill='%23F4F8FC' opacity='0.42'%3E%3Crect x='10' y='84' width='7' height='10'/%3E%3Crect x='24' y='84' width='7' height='10'/%3E%3Crect x='38' y='84' width='7' height='10'/%3E%3Crect x='10' y='104' width='7' height='10'/%3E%3Crect x='24' y='104' width='7' height='10'/%3E%3Crect x='78' y='48' width='7' height='11'/%3E%3Crect x='92' y='48' width='7' height='11'/%3E%3Crect x='78' y='70' width='7' height='11'/%3E%3Crect x='92' y='70' width='7' height='11'/%3E%3Crect x='78' y='92' width='7' height='11'/%3E%3Crect x='134' y='100' width='8' height='11'/%3E%3Crect x='152' y='100' width='8' height='11'/%3E%3Crect x='170' y='100' width='8' height='11'/%3E%3Crect x='134' y='124' width='8' height='11'/%3E%3Crect x='152' y='124' width='8' height='11'/%3E%3Crect x='212' y='66' width='7' height='10'/%3E%3Crect x='226' y='66' width='7' height='10'/%3E%3Crect x='212' y='88' width='7' height='10'/%3E%3Crect x='262' y='112' width='8' height='11'/%3E%3Crect x='280' y='112' width='8' height='11'/%3E%3Crect x='298' y='112' width='8' height='11'/%3E%3Crect x='332' y='78' width='7' height='10'/%3E%3Crect x='348' y='78' width='7' height='10'/%3E%3Crect x='332' y='100' width='7' height='10'/%3E%3Crect x='392' y='106' width='8' height='11'/%3E%3Crect x='412' y='106' width='8' height='11'/%3E%3Crect x='432' y='106' width='8' height='11'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat:repeat-x;
-  background-position:bottom left;
-}
-
-/* Texture de terre sous le terrain naturel */
-.coupe.enterre{
   background-image:
-    radial-gradient(circle at 3px 4px, rgba(90,66,38,.16) 1.3px, transparent 1.8px),
-    radial-gradient(circle at 14px 11px, rgba(90,66,38,.11) 1.1px, transparent 1.6px);
-  background-size:22px 18px, 30px 24px;
+    linear-gradient(rgba(25,27,31,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25,27,31,.04) 1px, transparent 1px);
+  background-size:58px 58px;
 }
 
 .notice{
   font-family:var(--tech); font-size:.7rem; letter-spacing:.05em;
   line-height:1.75; color:#33352E;
   max-width:none; text-align:justify;
-  margin-bottom:2rem;
-  border-block:1.5px solid rgba(25,27,31,.28); padding-block:.9rem;
+  margin-bottom:1.4rem;
+  border-block:1.5px solid rgba(25,27,31,.25); padding-block:.9rem;
 }
+
+/* ---------- Resume de l'itineraire ---------- */
+.resume{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2.2rem;}
+.resume span{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--gris);
+  border:1.5px solid var(--trait); border-radius:999px;
+  background:var(--papier); padding:.42rem .95rem;
+}
+.resume span b{color:var(--encre); font-weight:500;}
 
 /* ==========================================================================
-   CARTES DE NIVEAU
+   LA VOIE
    ========================================================================== */
-
-.coupe{
-  --gouttiere:clamp(4.2rem,11vw,6.6rem);
-  --decalage:clamp(5.6rem,14.5vw,8.7rem);
-  --brique:#A0452F;
-  --pierre:#D2C8B4;
-  --pierre-ombre:#7C7263;
-  --beton:#C6C3BB;
-  --ferronnerie:#1E2126;
-  position:relative;
-  padding-left:var(--decalage);
+.itineraire{
+  --gouttiere:clamp(3.4rem,9vw,5rem);
+  --decalage:clamp(4.6rem,12vw,6.8rem);
+  position:relative; padding-left:var(--decalage);
 }
 
-.niveau{
+.etape{
   --teinte:var(--bleu);
-  --ecart:1.9rem;
+  --ecart:2.1rem;
   position:relative; z-index:3;
   margin-bottom:var(--ecart);
-  border:1.5px solid var(--encre);
-  border-left:5px solid var(--teinte);
+  border:1.5px solid var(--encre); border-radius:22px;
   background:var(--papier);
-  padding:1.1rem 1.25rem 1.2rem;
-  box-shadow:4px 4px 0 rgba(25,27,31,.13);
+  padding:1.15rem 1.3rem 1.25rem;
+  box-shadow:0 12px 28px rgba(25,27,31,.08);
 }
-.coupe > .niveau:last-child{margin-bottom:0;}
+.itineraire > .etape:last-child{margin-bottom:0;}
 
-/* Corps de carte : texte à gauche, emplacement logo à droite */
+.voie{
+  position:absolute; z-index:0; pointer-events:none;
+  left:calc(-1 * var(--decalage)); width:var(--gouttiere);
+  top:0; bottom:calc(-1 * var(--ecart));
+}
+.itineraire > .etape:last-child .voie{bottom:0;}
+.voie::before{
+  content:''; position:absolute; left:50%; transform:translateX(-50%);
+  top:0; bottom:0; width:4px; border-radius:999px;
+  background:repeating-linear-gradient(to bottom,
+    var(--encre) 0 10px, transparent 10px 19px);
+  opacity:.42;
+}
+.voie.fin::before{
+  background:repeating-linear-gradient(to bottom,
+    var(--rouge) 0 7px, transparent 7px 15px);
+  opacity:.6;
+}
+
+.borne{
+  /* la borne se place dans l'intervalle entre deux etapes */
+  position:absolute; left:50%; bottom:calc(var(--ecart) / 2);
+  transform:translate(-50%,50%);
+  font-family:var(--tech); font-size:.55rem; letter-spacing:.06em;
+  text-transform:uppercase; white-space:nowrap;
+  background:var(--papier); color:var(--gris);
+  border:1.5px solid var(--trait); border-radius:999px;
+  padding:.28rem .5rem;
+}
+
+.jalon{
+  position:absolute; z-index:5;
+  left:calc(-1 * var(--decalage)); width:var(--gouttiere);
+  top:1.1rem; display:grid; place-items:center;
+}
+.jalon i{
+  display:grid; place-items:center;
+  width:34px; height:34px;
+  background:var(--teinte); color:var(--papier);
+  border:1.5px solid var(--encre);
+  border-radius:50% 50% 50% 5px;
+  transform:rotate(-45deg);
+  font-family:var(--tech); font-size:.6rem; font-style:normal;
+  box-shadow:0 6px 14px rgba(25,27,31,.22);
+}
+.jalon i b{display:block; transform:rotate(45deg); font-weight:500;}
+
+.balise{
+  position:absolute; z-index:5;
+  left:calc(-1 * var(--decalage)); width:var(--gouttiere);
+  top:3.6rem; display:grid; place-items:center;
+}
+.balise span{
+  display:block; width:15px; height:24px;
+  background:linear-gradient(to bottom,
+    var(--rouge) 0 33%, var(--papier) 33% 67%, var(--rouge) 67% 100%);
+  border:1.2px solid var(--encre); border-radius:3px;
+}
+
+.lieu-etape{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem .8rem;
+  margin-bottom:.55rem;
+}
+.lieu-etape .ville{
+  font-family:var(--display); font-weight:800; font-size:.92rem;
+  text-transform:uppercase; letter-spacing:.02em;
+  border-bottom:2.5px solid var(--teinte); padding-bottom:.1rem;
+}
+.lieu-etape .quand{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gris);
+}
+
+.etape h3{font-family:var(--display); font-weight:600; font-size:1.18rem; letter-spacing:-.01em; line-height:1.25;}
+.etape .lieu{font-family:var(--tech); font-size:.66rem; letter-spacing:.07em; text-transform:uppercase; color:var(--gris); margin-top:.2rem;}
+.etape p{margin-top:.6rem;}
+.etape ul{margin-top:.6rem; padding-left:1.1rem;}
+.etape li{margin-bottom:.25rem;}
+
+.marqueur{
+  display:inline-block; font-family:var(--tech); font-size:.58rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  background:var(--teinte); color:var(--papier);
+  border-radius:999px; padding:.18rem .55rem;
+  margin-left:.5rem; vertical-align:middle;
+}
+
 .niveau-corps{display:grid; grid-template-columns:1fr; gap:1.1rem;}
 @media(min-width:680px){
   .niveau-corps{grid-template-columns:minmax(0,1fr) 112px; align-items:start;}
@@ -152,9 +217,8 @@
 .logo-exp{
   position:relative; aspect-ratio:1/1; width:100%; max-width:150px;
   margin-inline:auto;
-  border:1.5px solid var(--encre);
-  background:repeating-linear-gradient(45deg,
-    #F0EEE7 0 7px, var(--papier) 7px 14px);
+  border:1.5px solid var(--encre); border-radius:18px;
+  background:repeating-linear-gradient(45deg, #F0EEE7 0 7px, var(--papier) 7px 14px);
   overflow:hidden;
 }
 .logo-exp img{width:100%; height:100%; object-fit:contain; padding:8px; position:relative; z-index:1;}
@@ -174,256 +238,71 @@
   text-transform:uppercase; color:var(--gris);
 }
 
-.niveau .altitude{
-  position:absolute; left:calc(-1 * var(--decalage) - 1.5px); top:1rem;
-  z-index:5;
-  font-family:var(--tech); font-size:.68rem; font-weight:500;
-  background:var(--papier); border:1.5px solid var(--encre);
-  padding:.1rem .4rem; white-space:nowrap;
-}
-.niv-tag{
-  position:absolute; left:calc(-1 * var(--decalage) - 1.5px); bottom:.9rem;
-  z-index:5;
-  font-family:var(--tech); font-size:.56rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--papier);
-  background:var(--teinte); padding:.12rem .4rem; white-space:nowrap;
-}
-.niveau::before{
-  content:''; position:absolute;
-  left:calc(var(--gouttiere) - var(--decalage) - 5px); top:1.35rem;
-  width:10px; height:10px; background:var(--teinte);
-  border:1.5px solid var(--encre); transform:rotate(45deg); z-index:5;
-}
-
-.niveau h3{font-family:var(--display); font-weight:600; font-size:1.18rem; letter-spacing:-.01em; line-height:1.25;}
-.niveau .lieu{font-family:var(--tech); font-size:.66rem; letter-spacing:.07em; text-transform:uppercase; color:var(--gris); margin-top:.2rem;}
-.niveau p{margin-top:.6rem;}
-.niveau ul{margin-top:.6rem; padding-left:1.1rem;}
-.niveau li{margin-bottom:.25rem;}
-
-.balise{
-  display:inline-block; font-family:var(--tech); font-size:.6rem;
-  letter-spacing:.1em; text-transform:uppercase;
-  background:var(--teinte); color:var(--papier);
-  padding:.15rem .45rem; margin-left:.5rem; vertical-align:middle;
-}
-
-/* ---------- Carte cliquable ---------- */
-.niveau.cliquable{transition:transform .2s ease, box-shadow .2s ease;}
-.niveau.cliquable h3 a{
+.etape.cliquable{transition:transform .22s ease, box-shadow .22s ease;}
+.etape.cliquable h3 a{
   text-decoration:none;
   background-image:linear-gradient(var(--teinte),var(--teinte));
   background-size:0 2px; background-repeat:no-repeat; background-position:0 100%;
   transition:background-size .25s ease;
 }
-.niveau.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
-.niveau.cliquable:hover{transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--encre);}
-.niveau.cliquable:hover h3 a{background-size:100% 2px;}
-.niveau.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:3px;}
+.etape.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
+.etape.cliquable:hover{transform:translateY(-4px); box-shadow:0 18px 38px rgba(25,27,31,.16);}
+.etape.cliquable:hover h3 a{background-size:100% 2px;}
+.etape.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:3px;}
 
 .voir-plus{
   display:inline-block; margin-top:.9rem;
   font-family:var(--tech); font-size:.64rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--teinte);
 }
-.voir-plus::after{content:' →'; display:inline-block; transition:margin-left .2s ease;}
-.niveau.cliquable:hover .voir-plus::after{margin-left:.35rem;}
+.voir-plus::after{content:' \2192'; display:inline-block; transition:margin-left .2s ease;}
+.etape.cliquable:hover .voir-plus::after{margin-left:.35rem;}
 
 /* ==========================================================================
-   L'OUVRAGE : immeuble de brique
+   DESTINATION : le PFE recherche
    ========================================================================== */
-
-.etage{
-  position:absolute; z-index:1; pointer-events:none;
-  left:calc(-1 * var(--decalage)); width:var(--gouttiere);
-  top:0; bottom:calc(-1 * var(--ecart));
-}
-.coupe > .niveau:last-child .etage{bottom:0;}
-
-/* Mur de brique appareillé */
-.etage::before{
-  content:''; position:absolute; inset:0;
-  background-color:var(--brique);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='26'%3E%3Crect width='54' height='26' fill='%23A0452F'/%3E%3Cg fill='%23E9E0CF'%3E%3Crect width='54' height='2'/%3E%3Crect y='13' width='54' height='2'/%3E%3Crect x='0' y='2' width='2' height='11'/%3E%3Crect x='27' y='2' width='2' height='11'/%3E%3Crect x='13' y='15' width='2' height='11'/%3E%3Crect x='40' y='15' width='2' height='11'/%3E%3C/g%3E%3C/svg%3E");
-  border-inline:2px solid var(--encre);
-  box-shadow:inset 0 0 24px rgba(40,12,4,.3);
-}
-
-/* Fenêtre à guillotine, linteau et appui en pierre */
-.fenetre{
-  position:absolute; left:23%; right:23%; top:26%; height:44%; min-height:38px;
-  background:#2A3038;
-  border:2px solid var(--encre);
-  background-image:
-    linear-gradient(90deg, transparent calc(50% - 1px), #737C86 calc(50% - 1px), #737C86 calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(0deg, transparent calc(50% - 1px), #737C86 calc(50% - 1px), #737C86 calc(50% + 1px), transparent calc(50% + 1px));
-  box-shadow:0 0 0 3px var(--pierre);
-}
-.fenetre::before{
-  content:''; position:absolute; left:-24%; right:-24%; top:-14px; height:9px;
-  background:var(--pierre); border:1.5px solid var(--pierre-ombre);
-}
-.fenetre::after{
-  content:''; position:absolute; left:-24%; right:-24%; bottom:-13px; height:7px;
-  background:var(--pierre); border:1.5px solid var(--pierre-ombre);
-}
-
-/* Corniche du dernier niveau */
-.etage-toit::before{border-top:none;}
-.corniche{
-  position:absolute; left:-8%; right:-8%; top:-17px; height:17px; z-index:3;
-  background:var(--pierre);
-  border:2px solid var(--pierre-ombre);
-  box-shadow:0 5px 0 -2px #BCB29E;
-}
-.corniche::after{
-  content:''; position:absolute; left:5%; right:5%; bottom:-7px; height:7px;
-  background:repeating-linear-gradient(90deg,
-    var(--pierre-ombre) 0 2px, transparent 2px 8px);
-}
-
-/* Niveau en chantier : dalle hachurée et rubalise */
-.chantier::before{
-  background-color:#E4DAC6;
-  background-image:repeating-linear-gradient(45deg,
-    #E4DAC6 0 7px, #CFC3A9 7px 14px);
-}
-.rubalise{
-  position:absolute; left:-4%; right:-4%; top:44%; height:13px; z-index:4;
-  background:repeating-linear-gradient(-45deg,
-    var(--jaune) 0 8px, var(--encre) 8px 16px);
-  border-block:1.5px solid var(--encre);
-  transform:rotate(-4deg);
-}
-
-/* ---------- Rez-de-chaussée : porte, perron, soubassement béton ---------- */
-.etage-rdc::before{
-  border-bottom:9px solid var(--encre);
-  background-image:
-    linear-gradient(180deg,
-      transparent 0 54%,
-      #706C63 54% 54.9%,
-      #CDCAC2 54.9% 70%,
-      #A8A59D 70% 70.7%,
-      #C6C3BB 70.7% 85%,
-      #A8A59D 85% 85.7%,
-      #BFBCB4 85.7% 100%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='26'%3E%3Crect width='54' height='26' fill='%23A0452F'/%3E%3Cg fill='%23E9E0CF'%3E%3Crect width='54' height='2'/%3E%3Crect y='13' width='54' height='2'/%3E%3Crect x='0' y='2' width='2' height='11'/%3E%3Crect x='27' y='2' width='2' height='11'/%3E%3Crect x='13' y='15' width='2' height='11'/%3E%3Crect x='40' y='15' width='2' height='11'/%3E%3C/g%3E%3C/svg%3E");
-}
-.porte{
-  position:absolute; left:29%; right:29%; top:14%; bottom:50%;
-  background:#1E2A24; border:2px solid var(--encre);
-  box-shadow:0 0 0 3px var(--pierre);
-}
-.porte::before{
-  content:''; position:absolute; left:10%; right:10%; top:8%; height:22%;
-  background:#59646C; border:1px solid var(--encre);
-}
-.perron{
-  position:absolute; left:19%; right:19%; bottom:9px; height:42%;
-  background:repeating-linear-gradient(to bottom,
-    var(--pierre) 0 6px, var(--pierre-ombre) 6px 7.4px);
-  border:1.5px solid var(--pierre-ombre); border-bottom:none;
-}
-.perron::before, .perron::after{
-  content:''; position:absolute; top:-7px; bottom:0; width:3px;
-  background:repeating-linear-gradient(to bottom,
-    var(--ferronnerie) 0 3px, transparent 3px 6px);
-  border-top:2px solid var(--ferronnerie);
-}
-.perron::before{left:-5px;}
-.perron::after{right:-5px;}
-.semelle{
-  position:absolute; left:1%; right:1%; bottom:0; height:9px;
-  background:var(--encre);
-}
-
-/* ---------- Strates de sol ---------- */
-.etage-sol::before{
-  background-image:none; border-inline:2px solid var(--encre);
-  border-bottom:1px solid rgba(25,27,31,.4);
-  box-shadow:none;
-}
-.etage-sol .figure{
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-50%) rotate(-90deg);
-  font-family:var(--tech); font-size:.52rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--encre); opacity:.5; white-space:nowrap;
-}
-.sol-remblai::before{
-  background-color:#D6CDB6;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(25,27,31,.35) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(-45deg, rgba(25,27,31,.35) 0 1px, transparent 1px 9px);
-}
-.sol-argile::before{
-  background-color:#C3CCC3;
-  background-image:repeating-linear-gradient(
-    to bottom, rgba(25,27,31,.45) 0 1.2px, transparent 1.2px 9px);
-}
-.sol-rocher::before{
-  background-color:#AFB3B8;
-  background-image:repeating-linear-gradient(
-    45deg, rgba(25,27,31,.5) 0 1.5px, transparent 1.5px 11px);
-}
-.pieu{
-  position:absolute; top:0; bottom:0; left:50%;
-  transform:translateX(-50%);
-  width:clamp(24px,5vw,34px);
-  background:#EDEBE4;
-  border-inline:1.5px solid var(--encre);
-  background-image:repeating-linear-gradient(
-    to bottom, transparent 0 13px, rgba(25,27,31,.4) 13px 14.2px);
-}
-.pieu.pointe{
-  bottom:14%;
-  border-bottom:1.5px solid var(--encre);
-  border-radius:0 0 17px 17px;
-}
-
-/* ---------- Ligne de terrain naturel ---------- */
-.terrain-naturel{
-  position:relative; display:flex; align-items:center; gap:.7rem;
-  margin-block:.4rem 1.6rem;
-}
-.tn-cote{font-family:var(--tech); font-size:.7rem; font-weight:500; white-space:nowrap;}
-.tn-hachure{
-  flex:1; height:15px;
-  border-top:2.5px solid var(--encre);
-  background:repeating-linear-gradient(-45deg, var(--encre) 0 1px, transparent 1px 7px);
-  opacity:.85;
-}
-.tn-libelle{
-  font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
-  text-transform:uppercase; color:#3E3F38; white-space:nowrap;
-}
-
-/* ==========================================================================
-   CARTE « RECHERCHE DE PFE »
-   ========================================================================== */
-.niveau.recherche{
+.etape.destination{
   border:2.5px dashed var(--rouge);
-  border-left:6px solid var(--rouge);
   background:linear-gradient(180deg,#FFFFFF 0%, #FFF4F2 100%);
-  box-shadow:5px 5px 0 rgba(217,65,47,.2);
+  box-shadow:0 16px 34px rgba(217,65,47,.16);
 }
+.destination .jalon i{
+  background:var(--rouge);
+  border-radius:5px 50% 50% 50%;
+  transform:rotate(45deg);
+}
+.destination .jalon i b{transform:rotate(-45deg);}
 .badge-recherche{
   display:inline-block; vertical-align:middle; margin-left:.55rem;
   font-family:var(--tech); font-size:.58rem; letter-spacing:.14em;
   text-transform:uppercase; font-weight:500;
   background:var(--rouge); color:var(--papier);
-  padding:.22rem .55rem;
+  border-radius:999px; padding:.22rem .6rem;
   animation:battement 2.6s ease-in-out infinite;
 }
 @keyframes battement{
   0%,100%{box-shadow:0 0 0 0 rgba(217,65,47,.55);}
   55%{box-shadow:0 0 0 7px rgba(217,65,47,0);}
 }
-.niveau.recherche .bouton{background:var(--rouge); border-color:var(--rouge);}
-.niveau.recherche .bouton:hover{background:var(--encre); border-color:var(--encre); color:var(--papier);}
-.niveau.recherche .etiquettes span{border-color:var(--rouge); color:var(--rouge);}
-.niveau.recherche .logo-exp{border-style:dashed; border-color:var(--rouge);}
-.niveau.recherche .logo-exp::after{color:var(--rouge);}
+.destination .bouton{background:var(--rouge); border-color:var(--rouge); border-radius:999px;}
+.destination .bouton:hover{background:var(--encre); border-color:var(--encre); color:var(--papier);}
+.destination .etiquettes span{border-color:var(--rouge); color:var(--rouge);}
+.destination .logo-exp{border-style:dashed; border-color:var(--rouge);}
+.destination .logo-exp::after{color:var(--rouge);}
+.destination .lieu-etape .ville{border-bottom-color:var(--rouge);}
+
+/* ---------- Telephone ---------- */
+@media(max-width:620px){
+  .itineraire{--gouttiere:2.6rem; --decalage:2.9rem;}
+  .jalon{top:.9rem;}
+  .jalon i{width:28px; height:28px; font-size:.52rem;}
+  .balise{display:none;}
+  .borne{font-size:.46rem; padding:.2rem .3rem;}
+  .etape{padding:1rem 1rem 1.1rem; border-radius:18px;}
+  .logo-exp{max-width:96px; margin-inline:0;}
+  .notice{text-align:left; font-size:.68rem;}
+  .resume span{font-size:.55rem;}
+}
 
 /* ==========================================================================
    PROJETS
@@ -495,28 +374,6 @@
   text-transform:uppercase; letter-spacing:-.03em; line-height:1;
 }
 .renvoi p{max-width:42ch; margin-top:.6rem; color:var(--gris);}
-
-/* ==========================================================================
-   TÉLÉPHONE
-   Sous 620 px, l'immeuble disparaît : la gouttière mangerait la moitié de
-   la largeur. Les cotes et les repères de niveau repassent dans le flux.
-   ========================================================================== */
-@media(max-width:620px){
-  .coupe{padding-left:0;}
-  .etage{display:none;}
-  .niveau::before{display:none;}
-  .niveau{padding:1rem 1rem 1.1rem; box-shadow:3px 3px 0 rgba(25,27,31,.12);}
-  .niveau .altitude,
-  .niv-tag{
-    position:static; display:inline-block;
-    margin:0 .4rem .6rem 0; vertical-align:middle;
-  }
-  .niveau .altitude{border:1.5px solid var(--encre); background:var(--papier);}
-  .logo-exp{max-width:96px; margin-inline:0;}
-  .niveau-corps{gap:.9rem;}
-  .terrain-naturel{margin-block:.2rem 1.2rem;}
-  .notice{text-align:left; font-size:.68rem; line-height:1.7;}
-}
 
 @media(max-width:700px){
   /* Le tableau de compétences devient une liste de blocs */
