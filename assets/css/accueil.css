@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ACCUEIL — héros, parcours en coupe, projets, nomenclature
+   ACCUEIL : héros, parcours en coupe géotechnique, projets, nomenclature
    ========================================================================== */
 
 /* ---------- Héros ---------- */
@@ -24,27 +24,56 @@
 
 .actions{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2rem;}
 
-/* ---------- Parcours — coupe verticale ---------- */
-.coupe{position:relative; padding-left:clamp(4.5rem,13vw,7.5rem);}
+/* ==========================================================================
+   PARCOURS
+   La coupe est découpée en deux : une partie aérienne, la ligne de terrain
+   naturel, puis une partie enterrée où le log de sondage apparaît.
+   ========================================================================== */
+
+.notice{
+  font-family:var(--tech); font-size:.68rem; letter-spacing:.07em;
+  color:var(--gris); max-width:58ch; margin-bottom:1.8rem;
+}
+
+.coupe{
+  --gouttiere:clamp(3.6rem,10vw,5.8rem);
+  --decalage:clamp(5rem,13.5vw,7.9rem);
+  position:relative;
+  padding-left:var(--decalage);
+}
 .coupe::before{
   content:''; position:absolute;
-  left:clamp(3.4rem,10vw,5.6rem); top:.6rem; bottom:.6rem;
-  width:1.5px; background:var(--encre);
+  left:var(--gouttiere); top:.6rem; bottom:.6rem;
+  width:1.5px; background:var(--encre); z-index:2;
 }
-.niveau{position:relative; padding-bottom:2.8rem;}
+.coupe.sous-sol{padding-top:1.6rem; padding-bottom:2.4rem;}
+.coupe.sous-sol::before{top:0; bottom:1.5rem;}
+
+/* ---------- Cartes de niveau ---------- */
+.niveau{position:relative; z-index:3; padding-bottom:2.6rem;}
 .niveau:last-child{padding-bottom:0;}
+
 .niveau .altitude{
-  position:absolute; left:calc(-1 * clamp(4.5rem,13vw,7.5rem)); top:.15rem;
-  width:clamp(3.4rem,10vw,5.6rem); text-align:right; padding-right:.55rem;
+  position:absolute; left:calc(-1 * var(--decalage)); top:.1rem;
+  width:var(--gouttiere); text-align:right; padding-right:.5rem;
   font-family:var(--tech); font-size:.7rem; font-weight:500;
+  background:var(--papier); box-shadow:0 0 0 3px var(--papier);
 }
+.fond-alt .niveau .altitude{background:var(--papier-2); box-shadow:0 0 0 3px var(--papier-2);}
+.sous-sol .niveau .altitude{
+  background:var(--papier); box-shadow:0 0 0 2px var(--papier);
+  border:1px solid var(--trait);
+  padding:.05rem .35rem .05rem 0;
+}
+
 .niveau::before{
   content:''; position:absolute;
-  left:calc(-1 * clamp(1.1rem,3vw,1.9rem) - 4.5px); top:.5rem;
+  left:calc(var(--gouttiere) - var(--decalage) - 4.5px); top:.45rem;
   width:9px; height:9px; background:var(--papier);
   border:1.5px solid var(--encre); transform:rotate(45deg);
 }
 .niveau.actif::before{background:var(--jaune);}
+
 .niveau h3{font-family:var(--display); font-weight:600; font-size:1.18rem; letter-spacing:-.01em; line-height:1.25;}
 .niveau .lieu{font-family:var(--tech); font-size:.67rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gris); margin-top:.15rem;}
 .niveau p{margin-top:.6rem; max-width:62ch;}
@@ -54,36 +83,133 @@
   background:var(--jaune); padding:.15rem .45rem; margin-left:.5rem; vertical-align:middle;
 }
 
-/* Bloc Erasmus développé */
-.erasmus{
-  margin-top:1.1rem; border:1.5px solid var(--encre);
-  background:var(--papier); padding:1.2rem;
+/* ---------- Carte cliquable ---------- */
+.niveau.cliquable{
+  border:1.5px solid var(--encre);
+  background:var(--papier);
+  padding:1.1rem 1.2rem 1.2rem;
+  margin-bottom:2.6rem;
+  transition:transform .2s ease, box-shadow .2s ease;
 }
-.erasmus-tete{display:flex; align-items:center; gap:.9rem; margin-bottom:.9rem;}
-.blason{
-  width:60px; height:60px; flex:0 0 60px;
-  border:1.5px solid var(--encre); background:var(--papier-2);
-  display:grid; place-items:center; overflow:hidden;
+.niveau.cliquable:last-child{margin-bottom:0;}
+.niveau.cliquable .altitude{top:1.15rem;}
+.niveau.cliquable::before{top:1.5rem;}
+.niveau.cliquable h3 a{
+  text-decoration:none;
+  background-image:linear-gradient(var(--bleu),var(--bleu));
+  background-size:0 2px; background-repeat:no-repeat;
+  background-position:0 100%;
+  transition:background-size .25s ease;
 }
-.blason img{width:100%; height:100%; object-fit:contain;}
-.blason.vide img{display:none;}
-.blason.vide::after{
-  content:'blason'; font-family:var(--tech); font-size:.5rem;
-  letter-spacing:.1em; text-transform:uppercase; color:var(--gris);
-}
-.erasmus-tete p{font-family:var(--tech); font-size:.66rem; letter-spacing:.09em; text-transform:uppercase; color:var(--gris); margin:0;}
-.erasmus-tete strong{display:block; font-family:var(--display); font-size:1.02rem; letter-spacing:-.01em; color:var(--encre); text-transform:none;}
+/* La carte entière devient cliquable sans casser l'accessibilité */
+.niveau.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
+.niveau.cliquable:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--encre);}
+.niveau.cliquable:hover h3 a{background-size:100% 2px;}
+.niveau.cliquable:focus-within{outline:2.5px solid var(--bleu); outline-offset:3px;}
 
-.modules{list-style:none; display:grid; gap:.65rem; margin-top:.4rem;}
-.modules li{padding-left:1.5rem; position:relative; font-size:.95rem;}
-.modules li::before{
-  content:''; position:absolute; left:0; top:.62em;
-  width:9px; height:1.5px; background:var(--bleu);
+.voir-plus{
+  display:inline-block; margin-top:.9rem;
+  font-family:var(--tech); font-size:.64rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--bleu);
 }
-.modules b{font-weight:600;}
+.voir-plus::after{content:' →'; transition:margin-left .2s ease; display:inline-block;}
+.niveau.cliquable:hover .voir-plus::after{margin-left:.35rem;}
 
-.galerie-mini{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:.7rem; margin-top:1.1rem;}
-.galerie-mini .cadre{aspect-ratio:4/3;}
+/* ---------- Ligne de terrain naturel ---------- */
+.terrain-naturel{
+  position:relative; display:flex; align-items:center; gap:.7rem;
+  margin-block:.6rem 0;
+  padding-left:calc(clamp(3.6rem,10vw,5.8rem) - 3.2rem);
+}
+.tn-cote{
+  font-family:var(--tech); font-size:.7rem; font-weight:500;
+  white-space:nowrap;
+}
+.tn-hachure{
+  flex:1; height:16px;
+  border-top:2px solid var(--encre);
+  background:repeating-linear-gradient(
+    -45deg, var(--encre) 0 1px, transparent 1px 7px);
+  opacity:.85;
+}
+.tn-libelle{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--gris); white-space:nowrap;
+}
+
+/* ---------- Log de sondage : les strates ---------- */
+.forage{
+  position:absolute; left:0; top:0; bottom:0;
+  width:var(--gouttiere);
+  display:flex; flex-direction:column;
+  border-right:1.5px solid var(--encre);
+  z-index:0; overflow:hidden;
+}
+.strate{
+  flex:var(--p,1);
+  position:relative;
+  border-bottom:1px solid rgba(28,30,34,.35);
+  min-height:38px;
+}
+.strate:last-child{border-bottom:none;}
+.strate span{
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%) rotate(-90deg);
+  transform-origin:center;
+  font-family:var(--tech); font-size:.53rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--encre);
+  white-space:nowrap; opacity:.55;
+}
+
+/* Figurés géotechniques */
+.strate.vegetale{
+  background:#C9C0A8;
+  background-image:radial-gradient(circle at 3px 3px, rgba(28,30,34,.5) 1px, transparent 1.4px);
+  background-size:9px 9px;
+}
+.strate.remblai{
+  background:#D8D2C2;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(28,30,34,.35) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(-45deg, rgba(28,30,34,.35) 0 1px, transparent 1px 9px);
+}
+.strate.argile{
+  background:#C7CEC6;
+  background-image:repeating-linear-gradient(
+    to bottom, rgba(28,30,34,.45) 0 1.2px, transparent 1.2px 8px);
+}
+.strate.sable{
+  background:#E4D9BC;
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(28,30,34,.45) 1px, transparent 1.3px),
+    radial-gradient(circle at 8px 7px, rgba(28,30,34,.3) 1px, transparent 1.3px);
+  background-size:11px 11px;
+}
+.strate.rocher{
+  background:#B9BCC0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(28,30,34,.5) 0 1.4px, transparent 1.4px 10px);
+}
+
+/* ---------- Fondation qui descend dans le sol ---------- */
+.fondation{
+  position:absolute; left:0; top:0; bottom:0;
+  width:var(--gouttiere); z-index:1; pointer-events:none;
+}
+.semelle{
+  position:absolute; top:0; left:10%; right:10%; height:22px;
+  background:#EDEBE4; border:1.5px solid var(--encre);
+}
+.pieu{
+  position:absolute; top:22px; bottom:16%;
+  left:50%; transform:translateX(-50%);
+  width:clamp(20px,4vw,28px);
+  background:#EDEBE4;
+  border:1.5px solid var(--encre); border-top:none;
+  border-radius:0 0 14px 14px;
+  background-image:repeating-linear-gradient(
+    to bottom, transparent 0 13px, rgba(28,30,34,.35) 13px 14.2px);
+}
 
 /* ---------- Projets ---------- */
 .grille{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:1.6rem;}
@@ -103,11 +229,12 @@
 }
 .fiche h3{font-family:var(--display); font-weight:600; font-size:1.2rem; line-height:1.2; letter-spacing:-.015em;}
 .fiche p{font-size:.94rem; flex:1;}
-.etiquettes{display:flex; flex-wrap:wrap; gap:.35rem;}
+
+.etiquettes{display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.7rem;}
 .etiquettes span{
   font-family:var(--tech); font-size:.6rem; letter-spacing:.08em;
   text-transform:uppercase; border:1px solid var(--trait);
-  padding:.2rem .45rem; color:var(--gris);
+  padding:.2rem .45rem; color:var(--gris); background:var(--papier);
 }
 
 /* ---------- Nomenclature ---------- */
