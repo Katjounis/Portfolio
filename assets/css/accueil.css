@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ACCUEIL : héros, parcours en coupe géotechnique, projets, nomenclature
+   ACCUEIL : héros, parcours en élévation, projets, nomenclature
    ========================================================================== */
 
 /* ---------- Héros ---------- */
@@ -17,208 +17,233 @@
   margin-block:.35rem;
 }
 .nom span{display:block;}
-.nom .creux{color:transparent; -webkit-text-stroke:1.6px var(--encre);}
+.nom .creux{color:transparent; -webkit-text-stroke:1.8px var(--bleu);}
 
 .accroche{max-width:47ch; margin-top:1.7rem;}
-.accroche strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(255,197,61,.5);}
+.accroche strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(255,197,61,.55);}
 
 .actions{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2rem;}
 
 /* ==========================================================================
-   PARCOURS
-   La coupe est découpée en deux : une partie aérienne, la ligne de terrain
-   naturel, puis une partie enterrée où le log de sondage apparaît.
+   PARCOURS : une élévation de bâtiment
+   Chaque carte porte son propre morceau d'ouvrage dans la gouttière de
+   gauche. Empilées, elles forment le bâtiment complet : toit-terrasse en
+   haut, dalle du RDC à ±0.00, strates de sol et pieu en dessous.
    ========================================================================== */
+
+.parcours{
+  background:linear-gradient(180deg,
+    var(--ciel-haut) 0%,
+    var(--ciel-bas) 34%,
+    #F6F2E8 58%,
+    var(--terre-haut) 72%,
+    var(--terre-bas) 100%);
+}
 
 .notice{
   font-family:var(--tech); font-size:.68rem; letter-spacing:.07em;
-  color:var(--gris); max-width:58ch; margin-bottom:1.8rem;
+  color:#4A4B44; max-width:58ch; margin-bottom:1.8rem;
 }
 
 .coupe{
-  --gouttiere:clamp(3.6rem,10vw,5.8rem);
-  --decalage:clamp(5rem,13.5vw,7.9rem);
+  --gouttiere:clamp(4.2rem,11vw,6.4rem);
+  --decalage:clamp(5.6rem,14.5vw,8.5rem);
   position:relative;
   padding-left:var(--decalage);
 }
-.coupe::before{
-  content:''; position:absolute;
-  left:var(--gouttiere); top:.6rem; bottom:.6rem;
-  width:1.5px; background:var(--encre); z-index:2;
-}
-.coupe.sous-sol{padding-top:1.6rem; padding-bottom:2.4rem;}
-.coupe.sous-sol::before{top:0; bottom:1.5rem;}
 
 /* ---------- Cartes de niveau ---------- */
-.niveau{position:relative; z-index:3; padding-bottom:2.6rem;}
-.niveau:last-child{padding-bottom:0;}
+.niveau{
+  --teinte:var(--bleu);
+  --ecart:1.9rem;
+  position:relative; z-index:3;
+  margin-bottom:var(--ecart);
+  border:1.5px solid var(--encre);
+  border-left:5px solid var(--teinte);
+  background:var(--papier);
+  padding:1.1rem 1.25rem 1.2rem;
+  box-shadow:3px 3px 0 rgba(25,27,31,.09);
+}
+.coupe > .niveau:last-child{margin-bottom:0;}
 
 .niveau .altitude{
-  position:absolute; left:calc(-1 * var(--decalage)); top:.1rem;
-  width:var(--gouttiere); text-align:right; padding-right:.5rem;
-  font-family:var(--tech); font-size:.7rem; font-weight:500;
-  background:var(--papier); box-shadow:0 0 0 3px var(--papier);
+  position:absolute; left:calc(-1 * var(--decalage) - 1.5px); top:1rem;
+  z-index:5;
+  font-family:var(--tech); font-size:.68rem; font-weight:500;
+  background:var(--papier); border:1.5px solid var(--encre);
+  padding:.1rem .4rem; white-space:nowrap;
 }
-.fond-alt .niveau .altitude{background:var(--papier-2); box-shadow:0 0 0 3px var(--papier-2);}
-.sous-sol .niveau .altitude{
-  background:var(--papier); box-shadow:0 0 0 2px var(--papier);
-  border:1px solid var(--trait);
-  padding:.05rem .35rem .05rem 0;
+.niv-tag{
+  position:absolute; left:calc(-1 * var(--decalage) - 1.5px); bottom:.9rem;
+  z-index:5;
+  font-family:var(--tech); font-size:.56rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--papier);
+  background:var(--teinte); padding:.12rem .4rem; white-space:nowrap;
 }
-
 .niveau::before{
   content:''; position:absolute;
-  left:calc(var(--gouttiere) - var(--decalage) - 4.5px); top:.45rem;
-  width:9px; height:9px; background:var(--papier);
-  border:1.5px solid var(--encre); transform:rotate(45deg);
+  left:calc(var(--gouttiere) - var(--decalage) - 5px); top:1.35rem;
+  width:10px; height:10px; background:var(--teinte);
+  border:1.5px solid var(--encre); transform:rotate(45deg); z-index:5;
 }
-.niveau.actif::before{background:var(--jaune);}
 
 .niveau h3{font-family:var(--display); font-weight:600; font-size:1.18rem; letter-spacing:-.01em; line-height:1.25;}
 .niveau .lieu{font-family:var(--tech); font-size:.67rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gris); margin-top:.15rem;}
 .niveau p{margin-top:.6rem; max-width:62ch;}
+
 .balise{
   display:inline-block; font-family:var(--tech); font-size:.6rem;
   letter-spacing:.1em; text-transform:uppercase;
-  background:var(--jaune); padding:.15rem .45rem; margin-left:.5rem; vertical-align:middle;
+  background:var(--teinte); color:var(--papier);
+  padding:.15rem .45rem; margin-left:.5rem; vertical-align:middle;
 }
 
 /* ---------- Carte cliquable ---------- */
-.niveau.cliquable{
-  border:1.5px solid var(--encre);
-  background:var(--papier);
-  padding:1.1rem 1.2rem 1.2rem;
-  margin-bottom:2.6rem;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.niveau.cliquable:last-child{margin-bottom:0;}
-.niveau.cliquable .altitude{top:1.15rem;}
-.niveau.cliquable::before{top:1.5rem;}
+.niveau.cliquable{transition:transform .2s ease, box-shadow .2s ease;}
 .niveau.cliquable h3 a{
   text-decoration:none;
-  background-image:linear-gradient(var(--bleu),var(--bleu));
-  background-size:0 2px; background-repeat:no-repeat;
-  background-position:0 100%;
+  background-image:linear-gradient(var(--teinte),var(--teinte));
+  background-size:0 2px; background-repeat:no-repeat; background-position:0 100%;
   transition:background-size .25s ease;
 }
-/* La carte entière devient cliquable sans casser l'accessibilité */
 .niveau.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
-.niveau.cliquable:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--encre);}
+.niveau.cliquable:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--encre);}
 .niveau.cliquable:hover h3 a{background-size:100% 2px;}
-.niveau.cliquable:focus-within{outline:2.5px solid var(--bleu); outline-offset:3px;}
+.niveau.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:3px;}
 
 .voir-plus{
   display:inline-block; margin-top:.9rem;
   font-family:var(--tech); font-size:.64rem; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--bleu);
+  text-transform:uppercase; color:var(--teinte);
 }
-.voir-plus::after{content:' →'; transition:margin-left .2s ease; display:inline-block;}
+.voir-plus::after{content:' →'; display:inline-block; transition:margin-left .2s ease;}
 .niveau.cliquable:hover .voir-plus::after{margin-left:.35rem;}
+
+/* ==========================================================================
+   L'OUVRAGE : morceau de bâtiment porté par chaque carte
+   ========================================================================== */
+
+.etage{
+  position:absolute; z-index:1; pointer-events:none;
+  left:calc(-1 * var(--decalage)); width:var(--gouttiere);
+  top:0; bottom:calc(-1 * var(--ecart));
+}
+.coupe > .niveau:last-child .etage{bottom:0;}
+
+/* Corps de l'étage : façade béton, plancher épais en bas */
+.etage::before{
+  content:''; position:absolute; inset:0;
+  background:#EDEDE8;
+  border-inline:1.5px solid var(--encre);
+  border-bottom:5px solid var(--encre);
+}
+/* Baie vitrée teintée selon la famille d'expérience */
+.etage::after{
+  content:''; position:absolute;
+  left:24%; right:24%; top:24%; height:36%; min-height:26px;
+  background:var(--teinte);
+  border:1.5px solid var(--encre);
+  background-image:linear-gradient(90deg,
+    transparent calc(50% - .75px), var(--encre) calc(50% - .75px),
+    var(--encre) calc(50% + .75px), transparent calc(50% + .75px));
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.45);
+  opacity:.9;
+}
+
+/* ---------- Toit-terrasse ---------- */
+.etage-toit::before{
+  border-top:6px solid var(--encre);
+  background:linear-gradient(180deg,#D8E2E6 0 16px, #EDEDE8 16px);
+}
+.rambarde{
+  position:absolute; left:4%; right:4%; top:-15px; height:15px;
+  border-top:2px solid var(--encre);
+  background:repeating-linear-gradient(90deg,
+    var(--encre) 0 1.6px, transparent 1.6px 10px);
+}
+.etage-toit::after{top:38%; height:30%;}
+
+/* ---------- Rez-de-chaussée : dalle du terrain naturel ---------- */
+.etage-rdc::before{border-bottom:9px solid var(--encre);}
+.etage-rdc::after{
+  left:32%; right:32%; top:34%; bottom:9px; height:auto;
+  background:var(--teinte); opacity:.85;
+  background-image:none;
+}
+.semelle{
+  position:absolute; left:2%; right:2%; bottom:0; height:9px;
+  background:var(--encre);
+}
+
+/* ---------- Strates de sol ---------- */
+.etage-sol::before{border-bottom:1px solid rgba(25,27,31,.4);}
+.etage-sol::after{display:none;}
+.etage-sol .figure{
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%) rotate(-90deg);
+  font-family:var(--tech); font-size:.52rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--encre); opacity:.5; white-space:nowrap;
+}
+.sol-remblai::before{
+  background:#D6CDB6;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(25,27,31,.35) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(-45deg, rgba(25,27,31,.35) 0 1px, transparent 1px 9px);
+}
+.sol-argile::before{
+  background:#C3CCC3;
+  background-image:repeating-linear-gradient(
+    to bottom, rgba(25,27,31,.45) 0 1.2px, transparent 1.2px 9px);
+}
+.sol-rocher::before{
+  background:#AFB3B8;
+  background-image:repeating-linear-gradient(
+    45deg, rgba(25,27,31,.5) 0 1.5px, transparent 1.5px 11px);
+}
+
+/* Le pieu traverse toutes les strates */
+.pieu{
+  position:absolute; top:0; bottom:0; left:50%;
+  transform:translateX(-50%);
+  width:clamp(22px,4.5vw,30px);
+  background:#EDEBE4;
+  border-inline:1.5px solid var(--encre);
+  background-image:repeating-linear-gradient(
+    to bottom, transparent 0 13px, rgba(25,27,31,.4) 13px 14.2px);
+}
+.pieu.pointe{
+  bottom:14%;
+  border-bottom:1.5px solid var(--encre);
+  border-radius:0 0 15px 15px;
+}
 
 /* ---------- Ligne de terrain naturel ---------- */
 .terrain-naturel{
   position:relative; display:flex; align-items:center; gap:.7rem;
-  margin-block:.6rem 0;
-  padding-left:calc(clamp(3.6rem,10vw,5.8rem) - 3.2rem);
+  margin-block:.4rem 1.6rem;
 }
-.tn-cote{
-  font-family:var(--tech); font-size:.7rem; font-weight:500;
-  white-space:nowrap;
-}
+.tn-cote{font-family:var(--tech); font-size:.7rem; font-weight:500; white-space:nowrap;}
 .tn-hachure{
-  flex:1; height:16px;
-  border-top:2px solid var(--encre);
-  background:repeating-linear-gradient(
-    -45deg, var(--encre) 0 1px, transparent 1px 7px);
+  flex:1; height:15px;
+  border-top:2.5px solid var(--encre);
+  background:repeating-linear-gradient(-45deg, var(--encre) 0 1px, transparent 1px 7px);
   opacity:.85;
 }
 .tn-libelle{
   font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--gris); white-space:nowrap;
+  text-transform:uppercase; color:#4A4B44; white-space:nowrap;
 }
 
-/* ---------- Log de sondage : les strates ---------- */
-.forage{
-  position:absolute; left:0; top:0; bottom:0;
-  width:var(--gouttiere);
-  display:flex; flex-direction:column;
-  border-right:1.5px solid var(--encre);
-  z-index:0; overflow:hidden;
-}
-.strate{
-  flex:var(--p,1);
-  position:relative;
-  border-bottom:1px solid rgba(28,30,34,.35);
-  min-height:38px;
-}
-.strate:last-child{border-bottom:none;}
-.strate span{
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-50%) rotate(-90deg);
-  transform-origin:center;
-  font-family:var(--tech); font-size:.53rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--encre);
-  white-space:nowrap; opacity:.55;
-}
-
-/* Figurés géotechniques */
-.strate.vegetale{
-  background:#C9C0A8;
-  background-image:radial-gradient(circle at 3px 3px, rgba(28,30,34,.5) 1px, transparent 1.4px);
-  background-size:9px 9px;
-}
-.strate.remblai{
-  background:#D8D2C2;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(28,30,34,.35) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(-45deg, rgba(28,30,34,.35) 0 1px, transparent 1px 9px);
-}
-.strate.argile{
-  background:#C7CEC6;
-  background-image:repeating-linear-gradient(
-    to bottom, rgba(28,30,34,.45) 0 1.2px, transparent 1.2px 8px);
-}
-.strate.sable{
-  background:#E4D9BC;
-  background-image:
-    radial-gradient(circle at 2px 2px, rgba(28,30,34,.45) 1px, transparent 1.3px),
-    radial-gradient(circle at 8px 7px, rgba(28,30,34,.3) 1px, transparent 1.3px);
-  background-size:11px 11px;
-}
-.strate.rocher{
-  background:#B9BCC0;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(28,30,34,.5) 0 1.4px, transparent 1.4px 10px);
-}
-
-/* ---------- Fondation qui descend dans le sol ---------- */
-.fondation{
-  position:absolute; left:0; top:0; bottom:0;
-  width:var(--gouttiere); z-index:1; pointer-events:none;
-}
-.semelle{
-  position:absolute; top:0; left:10%; right:10%; height:22px;
-  background:#EDEBE4; border:1.5px solid var(--encre);
-}
-.pieu{
-  position:absolute; top:22px; bottom:16%;
-  left:50%; transform:translateX(-50%);
-  width:clamp(20px,4vw,28px);
-  background:#EDEBE4;
-  border:1.5px solid var(--encre); border-top:none;
-  border-radius:0 0 14px 14px;
-  background-image:repeating-linear-gradient(
-    to bottom, transparent 0 13px, rgba(28,30,34,.35) 13px 14.2px);
-}
-
-/* ---------- Projets ---------- */
+/* ==========================================================================
+   PROJETS
+   ========================================================================== */
 .grille{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:1.6rem;}
 .fiche{
   background:var(--papier); border:1.5px solid var(--encre);
   display:flex; flex-direction:column;
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.fiche:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--encre);}
+.fiche:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--bleu);}
 .fiche .cadre{border:none; border-bottom:1.5px solid var(--encre); aspect-ratio:16/9;}
 .fiche-texte{padding:1.3rem; display:flex; flex-direction:column; gap:.65rem; flex:1;}
 .fiche .ref{
@@ -233,8 +258,8 @@
 .etiquettes{display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.7rem;}
 .etiquettes span{
   font-family:var(--tech); font-size:.6rem; letter-spacing:.08em;
-  text-transform:uppercase; border:1px solid var(--trait);
-  padding:.2rem .45rem; color:var(--gris); background:var(--papier);
+  text-transform:uppercase; border:1px solid var(--encre);
+  padding:.2rem .45rem; color:var(--encre); background:var(--papier);
 }
 
 /* ---------- Nomenclature ---------- */
@@ -256,6 +281,7 @@
 /* ---------- Renvoi vers la page Moi ---------- */
 .renvoi{
   border:1.5px solid var(--encre); background:var(--papier);
+  border-left:6px solid var(--rouge);
   padding:clamp(1.5rem,4vw,2.4rem);
   display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem;
 }
