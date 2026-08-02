@@ -4,12 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prénom Nom — Élève ingénieur BTP</title><!-- ✏️ -->
+<title>Prénom Nom, élève ingénieur BTP</title><!-- ✏️ -->
 <meta name="description" content="Portfolio d'élève ingénieur BTP à BUILDERS Lyon. Structure, BIM, calcul Eurocodes, sécurité incendie. En recherche de PFE 2027.">
 <meta name="author" content="Prénom Nom"><!-- ✏️ -->
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Prénom Nom — Élève ingénieur BTP"><!-- ✏️ -->
+<meta property="og:title" content="Prénom Nom, élève ingénieur BTP"><!-- ✏️ -->
 <meta property="og:description" content="Structure, BIM, calcul Eurocodes. En recherche de PFE 2027.">
 <meta property="og:image" content="assets/img/moi/portrait.jpg">
 
@@ -24,7 +24,7 @@
 
 <header class="bandeau">
   <div class="bandeau-int">
-    <span class="sigle">P.N. — PORTFOLIO</span><!-- ✏️ tes initiales -->
+    <span class="sigle">P.N. · PORTFOLIO</span><!-- ✏️ tes initiales -->
     <nav>
       <a href="#parcours">Parcours</a>
       <a href="#projets">Projets</a>
@@ -44,7 +44,7 @@
     <line x1="1" y1="4" x2="1" y2="22"/><line x1="999" y1="4" x2="999" y2="22"/>
   </svg>
 
-  <p class="role">Élève ingénieur BTP · <b>Recherche PFE — février 2027</b></p><!-- ✏️ -->
+  <p class="role">Élève ingénieur BTP · <b>Recherche PFE, février 2027</b></p><!-- ✏️ -->
 
   <h1 class="nom"><!-- ✏️ -->
     <span>Prénom</span>
@@ -78,10 +78,16 @@
   <div class="cartouche revele">
     <span class="num">01</span>
     <h2>Parcours</h2>
-    <span class="meta">Coupe verticale — éch. 1:100</span>
+    <span class="meta">Coupe verticale · éch. 1:100</span>
   </div>
 
-  <div class="coupe">
+  <p class="notice revele">
+    Chaque expérience est une carte cliquable. Le parcours se lit du haut vers
+    le bas, de l'actuel jusqu'aux fondations.
+  </p>
+
+  <!-- ─────── PARTIE AÉRIENNE ─────── -->
+  <div class="coupe aerien">
 
     <article class="niveau actif revele">
       <span class="altitude">+12.60</span>
@@ -92,85 +98,85 @@
       développement d'outils métier. Ouvert à la mobilité.</p>
     </article>
 
-    <!-- ── ERASMUS : bloc développé ── -->
-    <article class="niveau revele">
+    <article class="niveau cliquable revele">
       <span class="altitude">+9.40</span>
-      <h3>Échange Erasmus — University of Edinburgh</h3>
-      <p class="lieu">Édimbourg, Écosse · Un semestre · School of Engineering</p>
-      <p>Un semestre complet de génie civil enseigné en anglais, dans une
-      université classée parmi les meilleures d'Europe. Au-delà des cours :
-      travailler en équipes internationales, rendre des rapports techniques
-      dans une autre langue, et découvrir une approche de l'ingénierie très
-      différente de la formation française.</p>
-
-      <div class="erasmus">
-        <div class="erasmus-tete">
-          <div class="blason">
-            <!-- ✏️ Dépose le blason de l'université ici : assets/img/logos/edinburgh.png -->
-            <img src="assets/img/logos/edinburgh.png" alt="Blason de l'University of Edinburgh">
-          </div>
-          <p>
-            <strong>The University of Edinburgh</strong>
-            School of Engineering · Semestre d'échange
-          </p>
-        </div>
-
-        <ul class="modules">
-          <li><b>Fire Safety Engineering (FSE3)</b> — modélisation des temps
-          d'évacuation RSET/ASET, classement au feu des matériaux selon
-          EN 13501-1, échauffement d'un profilé acier protégé sous courbe
-          ISO 834 calculé en Python, distances de sécurité BR 187, analyse de
-          conformité réglementaire sur le cas Grenfell, accès des services de
-          secours.</li>
-          <li><b>Auscultation géophysique (GPR)</b> — campagne de radar de sol
-          sur la dalle du William Rankine Building au géoradar GSSI SIR-4000,
-          traitement des données et rapport d'interprétation.</li>
-          <li><b>Travail en anglais technique</b> — rapports, notes de calcul
-          et soutenances rédigés et présentés intégralement en anglais.</li>
-          <li><b>Vie étudiante et voyages</b> — Écosse, Highlands, sociétés
-          étudiantes et rencontres avec des étudiants d'une quinzaine de pays.</li>
-        </ul>
-
-        <div class="galerie-mini">
-          <!-- ✏️ Tes photos d'Édimbourg -->
-          <figure class="cadre" data-legende="edimbourg-01.jpg">
-            <img src="assets/img/parcours/edimbourg-01.jpg" alt="Édimbourg" loading="lazy">
-          </figure>
-          <figure class="cadre" data-legende="edimbourg-02.jpg">
-            <img src="assets/img/parcours/edimbourg-02.jpg" alt="Campus de l'université" loading="lazy">
-          </figure>
-          <figure class="cadre" data-legende="edimbourg-03.jpg">
-            <img src="assets/img/parcours/edimbourg-03.jpg" alt="Sortie en Écosse" loading="lazy">
-          </figure>
-        </div>
+      <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
+      <p class="lieu">Édimbourg, Écosse · Semestre 2, 2025-2026 · School of Engineering</p>
+      <p>Un semestre complet de génie civil enseigné en anglais : construction
+      numérique, sécurité incendie, auscultation géophysique, énergie durable
+      et supply chain. Cinq modules, cinq façons différentes de regarder un
+      ouvrage.</p>
+      <div class="etiquettes">
+        <span>CIVE10032</span><span>CIVE09023</span><span>CIVE11050</span>
+        <span>MAEE10002</span><span>MECE09026</span>
       </div>
+      <span class="voir-plus">Voir le détail du semestre</span>
     </article>
 
-    <article class="niveau revele">
+    <article class="niveau cliquable revele">
       <span class="altitude">+6.20</span>
-      <h3>Stage assistant ingénieur — Guivibat Ingénierie</h3>
+      <h3><a href="exp-guivibat.html">Stage assistant ingénieur, Guivibat Ingénierie</a></h3>
       <p class="lieu">Andrézieux-Bouthéon · 15 semaines · Bureau d'études structure</p>
       <p>Notes de calcul sous Eurocodes, dimensionnement d'assemblages selon
-      EN 1993-1-8, production de plans et suivi de dossiers en lien direct avec
-      l'équipe conception. Première immersion complète dans le rythme et les
-      exigences d'un bureau d'études.</p>
+      EN 1993-1-8, production de plans et suivi de dossiers avec l'équipe
+      conception. Première immersion complète dans le rythme d'un bureau
+      d'études.</p>
+      <span class="voir-plus">Voir les missions</span>
     </article>
 
-    <article class="niveau revele">
+    <article class="niveau cliquable revele">
       <span class="altitude">+3.00</span>
-      <h3>Cycle ingénieur BTP — BUILDERS École d'Ingénieurs</h3>
+      <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a></h3>
       <p class="lieu">Lyon · Génie civil, structure, BIM</p>
       <p>Béton armé, construction métallique, thermique, gestion de chantier,
       maquette numérique. En parallèle : création d'un nouveau BDE avec mon
       équipe, de la campagne au montage opérationnel.</p>
+      <span class="voir-plus">Voir la formation</span>
+    </article>
+
+  </div>
+
+  <!-- ─────── LIGNE DE TERRAIN NATUREL ─────── -->
+  <div class="terrain-naturel revele">
+    <span class="tn-cote">±0.00</span>
+    <span class="tn-hachure" aria-hidden="true"></span>
+    <span class="tn-libelle">Terrain naturel</span>
+  </div>
+
+  <!-- ─────── PARTIE ENTERRÉE ─────── -->
+  <div class="coupe sous-sol">
+
+    <!-- Log de sondage : les strates se dessinent derrière les cartes -->
+    <div class="forage" aria-hidden="true">
+      <div class="strate vegetale" style="--p:.6"><span>Terre végétale</span></div>
+      <div class="strate remblai"  style="--p:1.1"><span>Remblais</span></div>
+      <div class="strate argile"   style="--p:1.5"><span>Argile limoneuse</span></div>
+      <div class="strate sable"    style="--p:1.3"><span>Sables et graviers</span></div>
+      <div class="strate rocher"   style="--p:1.6"><span>Substratum</span></div>
+    </div>
+
+    <!-- Fondation : semelle + pieu qui descend le long de la coupe -->
+    <div class="fondation" aria-hidden="true">
+      <span class="semelle"></span>
+      <span class="pieu"></span>
+    </div>
+
+    <article class="niveau cliquable revele">
+      <span class="altitude">-1.20</span>
+      <h3><a href="exp-ouvrier.html">Stage ouvrier</a></h3>
+      <p class="lieu">Chantier · 3 semaines · Exécution</p>
+      <p>Le niveau où l'on creuse. Comprendre ce qui se passe réellement entre
+      le plan et l'ouvrage fini, outil en main.</p>
+      <span class="voir-plus">Voir le chantier</span>
     </article>
 
     <article class="niveau revele">
-      <span class="altitude">±0.00</span>
-      <h3>Stage ouvrier</h3>
-      <p class="lieu">Chantier · 3 semaines</p>
-      <p>Le niveau du sol. Comprendre ce qui se passe réellement entre le plan
-      et l'ouvrage fini, côté exécution.</p>
+      <span class="altitude">-4.50</span>
+      <h3>Fondations</h3>
+      <p class="lieu">Avant tout le reste</p>
+      <p><!-- ✏️ Raconte ici ce qui t'a amené au BTP : un bac, un chantier de
+      famille, une passion pour le dessin technique, une maison suivie de A à
+      Z. Trois lignes suffisent, c'est ce qui donne de la chair au reste. --></p>
     </article>
 
   </div>
@@ -183,7 +189,7 @@
   <div class="cartouche revele">
     <span class="num">02</span>
     <h2>Projets</h2>
-    <span class="meta">Sélection — 4 dossiers</span>
+    <span class="meta">Sélection · 4 dossiers</span>
   </div>
 
   <div class="grille">
@@ -242,7 +248,7 @@
       </figure>
       <div class="fiche-texte">
         <div class="ref"><span>PR-04</span><span>2026</span></div>
-        <h3>Auscultation GPR — William Rankine Building</h3>
+        <h3>Auscultation GPR, William Rankine Building</h3>
         <p>Campagne de radar de sol sur dalle béton au GSSI SIR-4000 :
         protocole de mesure, acquisition en maillage, traitement des
         radargrammes et localisation des armatures et réseaux noyés. Rapport
@@ -326,16 +332,16 @@
     <div class="liens"><!-- ✏️ tes vrais liens -->
       <a class="bouton" href="mailto:prenom.nom@email.com">prenom.nom@email.com</a>
       <a class="bouton vide" href="https://www.linkedin.com/in/tonprofil" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="bouton vide" href="https://github.com/katjounis" target="_blank" rel="noopener">GitHub</a>
+      <a class="bouton vide" href="https://github.com/Katjounis" target="_blank" rel="noopener">GitHub</a>
     </div>
 
     <div class="bloc-grille">
-      <div class="cellule"><span class="cle">Formation</span><span class="val">BUILDERS — Lyon</span></div>
+      <div class="cellule"><span class="cle">Formation</span><span class="val">BUILDERS, Lyon</span></div>
       <div class="cellule"><span class="cle">Spécialité</span><span class="val">Structure / BIM</span></div>
-      <div class="cellule"><span class="cle">Recherche</span><span class="val">PFE — 6 mois</span></div>
+      <div class="cellule"><span class="cle">Recherche</span><span class="val">PFE, 6 mois</span></div>
       <div class="cellule"><span class="cle">Disponible</span><span class="val">Février 2027</span></div>
       <div class="cellule"><span class="cle">Mobilité</span><span class="val">France / Europe</span></div>
-      <div class="cellule"><span class="cle">Indice</span><span class="val">A — 2026</span></div>
+      <div class="cellule"><span class="cle">Indice</span><span class="val">B, 2026</span></div>
     </div>
   </div>
 </footer>
