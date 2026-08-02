@@ -4,10 +4,13 @@
    ========================================================================== */
 
 .page-moi{
-  --rouge-flash:#D9412F;
-  --vert-flash:#2E7D4F;
-  --or:#E0A032;
+  --rouge-flash:#B8412F;
+  --vert-flash:#4E7B5C;
+  --or:#B0873C;
   --papier-flash:#FFFCF5;
+  /* Encre de tatouage : un bleu-noir profond, jamais du noir pur */
+  --encre-tat:#33406B;
+  --encre-tat-pale:#5A6899;
 
   background:var(--papier-flash);
   background-image:
@@ -19,8 +22,9 @@
 /* ==========================================================================
    ORNEMENTS À L'ENCRE
    ========================================================================== */
+.encre{max-width:100%; height:auto;}
 .encre path, .encre circle, .encre line, .encre ellipse{
-  fill:none; stroke:var(--encre); stroke-width:2;
+  fill:none; stroke:var(--encre-tat); stroke-width:2;
   stroke-linecap:round; stroke-linejoin:round;
   stroke-dasharray:1400; stroke-dashoffset:1400;
 }
@@ -31,7 +35,7 @@
 .encre .vert{stroke:var(--vert-flash);}
 .encre .or{stroke:var(--or); stroke-width:2.6;}
 .encre .plein{fill:var(--rouge-flash); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
-.encre .plein-noir{fill:var(--encre); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
+.encre .plein-noir{fill:var(--encre-tat); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
 .encre [data-d="1"]{animation-delay:.18s;}
 .encre [data-d="2"]{animation-delay:.36s;}
 .encre [data-d="3"]{animation-delay:.54s;}
@@ -40,14 +44,16 @@
 @keyframes tracer-encre{to{stroke-dashoffset:0;}}
 
 /* ---------- Fleurs fixées dans les marges ---------- */
+/* Les fleurs restent cantonnées aux marges. Elles ne sont affichées que
+   s'il y a réellement de la place à gauche et à droite du contenu. */
 .marge{
-  position:fixed; top:50%; z-index:1; pointer-events:none;
-  width:130px; opacity:.9;
   display:none;
+  position:fixed; top:50%; z-index:1; pointer-events:none;
+  width:118px; max-width:118px; height:auto; opacity:.55;
 }
 .marge.gauche{left:14px; transform:translateY(-50%); animation:flotter 13s ease-in-out infinite;}
 .marge.droite{right:14px; transform:translateY(-50%) scaleX(-1); animation:flotter 16s ease-in-out infinite reverse;}
-@media(min-width:1240px){.marge{display:block;}}
+@media(min-width:1320px){.marge{display:block;}}
 @keyframes flotter{
   0%,100%{transform:translateY(-50%) rotate(0deg);}
   50%{transform:translateY(calc(-50% - 16px)) rotate(-2.5deg);}
@@ -59,13 +65,14 @@
 }
 
 /* ---------- Filigrane séparateur ---------- */
-.filigrane{display:block; width:min(100%,420px); margin:2.6rem auto; height:auto;}
+.filigrane{display:block; width:min(100%,400px); max-width:400px; margin:2.6rem auto; height:auto;}
 
 /* ---------- Banderole de titre ---------- */
 .banderole{position:relative; max-width:520px; margin-bottom:1.6rem;}
 .banderole svg{display:block; width:100%; height:auto; overflow:visible;}
-.banderole .ruban{fill:var(--rouge-flash); stroke:var(--encre); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
-.banderole .queue{fill:#B02F20; stroke:var(--encre); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
+.banderole svg{max-width:100%;}
+.banderole .ruban{fill:var(--rouge-flash); stroke:var(--encre-tat); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
+.banderole .queue{fill:#8E2F22; stroke:var(--encre-tat); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
 .banderole span{
   position:absolute; inset:0;
   display:grid; place-items:center;
@@ -92,7 +99,7 @@
 }
 .moi-titre em{
   font-style:normal; display:block; color:var(--rouge-flash);
-  -webkit-text-stroke:2px var(--encre);
+  -webkit-text-stroke:2px var(--encre-tat);
   paint-order:stroke fill;
   animation:vibrer 7s ease-in-out infinite;
 }
@@ -107,7 +114,7 @@
   box-shadow:inset 0 -.45em 0 rgba(217,65,47,.24);
 }
 
-.ornement-heros{width:100%; max-width:330px; margin-top:1.4rem; height:auto; overflow:visible;}
+.ornement-heros{width:100%; max-width:320px; margin-top:1.4rem; height:auto;}
 
 /* ---------- Portrait ---------- */
 .polaroid{
@@ -270,7 +277,7 @@
 /* ---------- Gouttes d'encre décoratives ---------- */
 .goutte{
   position:absolute; border-radius:50%;
-  background:var(--encre); opacity:.14;
+  background:var(--encre-tat); opacity:.16;
   animation:respirer 6s ease-in-out infinite;
 }
 @keyframes respirer{
