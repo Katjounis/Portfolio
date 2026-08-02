@@ -1,24 +1,69 @@
-/* v6 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v7 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en élévation, projets, nomenclature
    ========================================================================== */
 
-/* ---------- Héros ---------- */
-.heros{padding-block:clamp(3rem,8vw,6rem) clamp(2.5rem,6vw,4.5rem);}
+/* ==========================================================================
+   HÉROS : fond habillé d'une trame de plan et d'une axonométrie au trait
+   ========================================================================== */
+.heros{
+  position:relative; overflow:hidden;
+  padding-block:clamp(3rem,8vw,6.5rem) clamp(2.5rem,6vw,4.5rem);
+  border-bottom:1.5px solid var(--trait);
+  background:
+    radial-gradient(120% 90% at 88% 8%, rgba(27,79,216,.09), transparent 62%),
+    radial-gradient(70% 60% at 4% 96%, rgba(255,197,61,.13), transparent 65%),
+    linear-gradient(180deg,#F7F8FA 0%, var(--papier) 72%);
+}
+.heros::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(25,27,31,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25,27,31,.05) 1px, transparent 1px);
+  background-size:46px 46px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.15));
+}
+.heros-int{position:relative; z-index:2;}
+
+/* Axonométrie décorative, tracée au chargement */
+.deco-heros{
+  position:absolute; right:-3%; top:50%; transform:translateY(-50%);
+  width:min(44%,540px); height:auto; z-index:1; pointer-events:none;
+  display:none;
+}
+@media(min-width:960px){.deco-heros{display:block;}}
+.deco-heros g{fill:none; stroke-linecap:round; stroke-linejoin:round;}
+.deco-heros .trait-bleu{stroke:var(--bleu); stroke-width:1.6; opacity:.22;}
+.deco-heros .trait-bleu.pale{opacity:.13;}
+.deco-heros .trait-jaune{stroke:#C8912A; stroke-width:1.4; opacity:.4;}
+.deco-heros .pastille{fill:var(--bleu); stroke:none; opacity:.3;}
+.deco-heros path{
+  stroke-dasharray:900; stroke-dashoffset:900;
+  animation:tracer-axo 2.4s cubic-bezier(.25,.8,.3,1) forwards;
+}
+.deco-heros .pale path{animation-delay:.45s;}
+.deco-heros .trait-jaune path{animation-delay:.85s;}
+@keyframes tracer-axo{to{stroke-dashoffset:0;}}
 .heros .role{
   font-family:var(--tech); font-size:.72rem; letter-spacing:.2em;
   text-transform:uppercase; margin-bottom:1rem;
 }
 .heros .role b{background:var(--jaune); padding:.2rem .5rem; font-weight:500;}
 
+/* Le nom utilise une grotesque industrielle plus franche que le reste du site */
 .nom{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(2.9rem,12vw,8.5rem);
-  line-height:.86; letter-spacing:-.035em; text-transform:uppercase;
-  margin-block:.35rem;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-weight:900;
+  font-size:clamp(2.7rem,11vw,7.6rem);
+  line-height:.92; letter-spacing:-.012em; text-transform:uppercase;
+  margin-block:.4rem;
 }
 .nom span{display:block;}
-.nom .creux{color:transparent; -webkit-text-stroke:1.8px var(--bleu);}
+.nom .creux{
+  color:transparent;
+  -webkit-text-stroke:2.2px var(--bleu);
+  paint-order:stroke fill;
+}
 
 .accroche{max-width:47ch; margin-top:1.7rem;}
 .accroche strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(255,197,61,.55);}
@@ -434,6 +479,19 @@
 .jauge{display:flex; gap:3px; align-items:center;}
 .jauge i{width:15px; height:7px; background:var(--trait); display:block;}
 .jauge i.on{background:var(--bleu);}
+
+/* ---------- Fiches projet cliquables ---------- */
+.fiche.cliquable{position:relative;}
+.fiche.cliquable h3 a{
+  text-decoration:none;
+  background-image:linear-gradient(var(--bleu),var(--bleu));
+  background-size:0 2px; background-repeat:no-repeat; background-position:0 100%;
+  transition:background-size .25s ease;
+}
+.fiche.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
+.fiche.cliquable:hover h3 a{background-size:100% 2px;}
+.fiche.cliquable:focus-within{outline:2.5px solid var(--bleu); outline-offset:3px;}
+.fiche .voir-plus{color:var(--bleu); margin-top:.4rem;}
 
 /* ---------- Renvoi vers la page Moi ---------- */
 .renvoi{
