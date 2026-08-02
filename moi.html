@@ -10,15 +10,20 @@
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=10">
-<link rel="stylesheet" href="assets/css/moi.css?v=10">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css?v=11">
+<link rel="stylesheet" href="assets/css/moi.css?v=11">
 </head>
 <body class="page-moi">
 
+<!-- Blobs de fond -->
+<div class="m-fond" aria-hidden="true">
+  <span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span>
+</div>
+
 <header class="bandeau">
-  <div class="bandeau-int">
-    <span class="sigle">S.C. · PORTFOLIO</span>
+  <div class="bandeau-int enveloppe">
+    <span class="sigle">S.C.</span>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="index.html#parcours">Parcours</a>
@@ -33,17 +38,22 @@
 
 <!-- ══════════════ HÉROS ══════════════ -->
 <section class="m-heros enveloppe">
+  <span class="m-goutte" aria-hidden="true"
+        style="width:46px;height:46px;background:var(--m-jaune);right:6%;top:12%"></span>
+  <span class="m-goutte" aria-hidden="true"
+        style="width:28px;height:28px;background:var(--m-cyan);left:2%;bottom:14%;animation-delay:1.8s"></span>
+
   <div class="m-heros-int">
     <div>
-      <span class="m-tag">Mode hors chantier</span>
+      <span class="m-pill violet">Mode hors chantier</span>
 
-      <h1 class="m-titre">Hors<br><em>chantier</em></h1>
+      <h1 class="m-titre">Hors<br><span class="bulle">chantier</span></h1>
 
       <p class="m-intro">
         Il y a le portfolio, et il y a le reste. Le reste, c'est du papier, des
         crayons, un ballon et pas mal de musique. Je voulais faire de la
-        modélisation <strong>avant même de savoir que ça portait un nom</strong>,
-        et je dessine depuis à peu près aussi longtemps.<span class="m-curseur" aria-hidden="true"></span>
+        modélisation <strong>avant de savoir que ça portait un nom</strong>, et
+        je dessine depuis à peu près aussi longtemps.
       </p>
     </div>
 
@@ -52,13 +62,12 @@
         <!-- ✏️ assets/img/moi/portrait.jpg -->
         <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
       </div>
-      <figcaption>Villeurbanne · 2026</figcaption>
     </figure>
   </div>
 </section>
 
 <!-- ══════════════ FICHE ══════════════ -->
-<section class="section enveloppe" style="padding-top:0">
+<section class="m-section enveloppe" style="padding-top:0">
   <div class="m-fiche revele">
     <div>
       <h2>Samuel Chaux</h2>
@@ -73,41 +82,42 @@
     </div>
 
     <div class="m-jauges">
-      <!-- ✏️ ajuste : class="on" = segment rempli, sur 8 -->
-      <div class="m-jauge or">
+      <!-- ✏️ ajuste : class="on" = segment rempli, sur 6 -->
+      <div class="m-jauge jaune">
         <span class="lib">Dessin</span>
-        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
       </div>
-      <div class="m-jauge">
+      <div class="m-jauge violet">
         <span class="lib">Volumes 3D</span>
-        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
       </div>
-      <div class="m-jauge rouge">
+      <div class="m-jauge rose">
         <span class="lib">Terrain</span>
-        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+      </div>
+      <div class="m-jauge cyan">
+        <span class="lib">Voyage</span>
+        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
       </div>
       <div class="m-jauge vert">
-        <span class="lib">Voyage</span>
-        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="m-jauge or">
         <span class="lib">Collectif</span>
-        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
       </div>
     </div>
   </div>
 </section>
 
+<div class="m-degoulinade" style="--c:var(--m-rose)" aria-hidden="true"></div>
+
 <!-- ══════════════ 01 · LE TRAIT ══════════════ -->
-<section class="section fond-alt">
- <div class="enveloppe">
+<section class="m-section enveloppe" style="padding-top:3.6rem">
   <div class="m-tete revele">
-    <span class="m-tag bleu">Niv. 01</span>
-    <h2 class="m-h2">Le <em>trait</em></h2>
+    <span class="m-pill rose">01</span>
+    <h2 class="m-h2 rose">Le <em>trait</em></h2>
   </div>
 
   <div class="m-duo">
-    <div class="m-texte revele">
+    <div class="m-texte rose revele">
       <p>Je ne tatoue pas, je dessine. Des projets de tatouage conçus pour des
       gens qui vont ensuite les faire encrer chez un tatoueur. Old school et
       ornemental surtout : deux écoles opposées que j'aime pour la même raison,
@@ -123,28 +133,27 @@
       BDE, des affiches, des mises en page. Un plan de coffrage demande au fond
       la même discipline.</p>
 
-      <p style="margin-top:1.2rem">
-        <a class="bouton vide" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir sur TikTok</a>
+      <p style="margin-top:1.3rem">
+        <a class="m-rond" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir sur TikTok</a>
       </p>
     </div>
 
     <div class="revele">
       <div class="m-slots">
         <!-- ✏️ tes planches dans assets/img/moi/ -->
-        <figure class="m-slot"><span class="n">01</span><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-slot"><span class="n">02</span><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-slot"><span class="n">03</span><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-slot"><span class="n">04</span><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-slot"><span class="n">05</span><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-slot"><span class="n">06</span><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">1</span><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">2</span><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">3</span><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">4</span><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">5</span><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-slot"><span class="n">6</span><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════ SCORES ══════════════ -->
-<section class="section enveloppe">
+<!-- ══════════════ BULLES DE SCORE ══════════════ -->
+<section class="m-section enveloppe">
   <div class="m-scores revele">
     <div class="m-score"><span class="n" data-vers="50">0</span><span class="q">designs en 50 jours</span></div>
     <div class="m-score"><span class="n" data-vers="9">0</span><span class="q">pays visités</span></div>
@@ -153,11 +162,12 @@
   </div>
 </section>
 
+<div class="m-degoulinade" style="--c:var(--m-violet)" aria-hidden="true"></div>
+
 <!-- ══════════════ 02 · LES VOLUMES ══════════════ -->
-<section class="section fond-alt">
- <div class="enveloppe">
+<section class="m-section enveloppe" style="padding-top:3.6rem">
   <div class="m-tete revele">
-    <span class="m-tag">Niv. 02</span>
+    <span class="m-pill violet">02</span>
     <h2 class="m-h2">Les <em>volumes</em></h2>
   </div>
 
@@ -166,13 +176,13 @@
       <figure class="m-image">
         <div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div>
       </figure>
-      <div class="m-paire" style="margin-top:.8rem">
-        <figure class="m-image"><div class="cadre" data-legende="3d-02.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
+      <div class="m-paire" style="margin-top:.9rem">
+        <figure class="m-image alt"><div class="cadre" data-legende="3d-02.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
         <figure class="m-image"><div class="cadre" data-legende="design-01.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </div>
 
-    <div class="m-texte revele">
+    <div class="m-texte violet revele">
       <p>L'envie de modéliser est arrivée bien avant les études. Tourner un
       volume, le couper, comprendre comment il tient : c'est resté la même
       curiosité, elle a juste changé de logiciel en cours de route.</p>
@@ -187,19 +197,20 @@
       fait partie.</p>
     </div>
   </div>
- </div>
 </section>
 
 <!-- ══════════════ 03 · LE TERRAIN ══════════════ -->
-<section class="section">
- <div class="enveloppe">
+<section class="m-section enveloppe">
+  <span class="m-goutte" aria-hidden="true"
+        style="width:34px;height:34px;background:var(--m-vert);right:4%;top:8%;animation-delay:.9s"></span>
+
   <div class="m-tete revele">
-    <span class="m-tag rouge">Niv. 03</span>
-    <h2 class="m-h2">Le <em>terrain</em></h2>
+    <span class="m-pill cyan">03</span>
+    <h2 class="m-h2 cyan">Le <em>terrain</em></h2>
   </div>
 
   <div class="m-duo">
-    <div class="m-texte revele">
+    <div class="m-texte cyan revele">
       <p>Rugby en universitaire, et surtout en passionné : Top 14, Coupe du
       monde, tournées, je ne rate pas grand chose. C'est le sport qui apprend à
       pousser dans le même sens que les autres, ce qui reste à peu de choses
@@ -215,27 +226,27 @@
     </div>
 
     <div class="revele">
-      <figure class="m-image">
+      <figure class="m-image alt">
         <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
       </figure>
     </div>
   </div>
- </div>
 </section>
 
+<div class="m-degoulinade" style="--c:var(--m-orange)" aria-hidden="true"></div>
+
 <!-- ══════════════ 04 · AILLEURS ══════════════ -->
-<section class="section fond-alt">
- <div class="enveloppe">
+<section class="m-section enveloppe" style="padding-top:3.6rem">
   <div class="m-tete revele">
-    <span class="m-tag vert">Niv. 04</span>
-    <h2 class="m-h2">Aller voir <em>ailleurs</em></h2>
+    <span class="m-pill">04</span>
+    <h2 class="m-h2 orange">Aller voir <em>ailleurs</em></h2>
   </div>
 
   <div class="m-duo inverse">
     <div class="revele">
       <div class="m-paire">
         <figure class="m-image"><div class="cadre" data-legende="voyage-01.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-image"><div class="cadre" data-legende="voyage-02.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="m-image alt"><div class="cadre" data-legende="voyage-02.jpg" style="aspect-ratio:3/4"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </div>
 
@@ -256,59 +267,33 @@
       </div>
     </div>
   </div>
- </div>
 </section>
 
 <!-- ══════════════ SUCCÈS ══════════════ -->
-<section class="section enveloppe">
+<section class="m-section enveloppe">
   <div class="m-tete revele">
-    <span class="m-tag creux">Succès</span>
-    <h2 class="m-h2">Débloqués</h2>
+    <span class="m-pill vert">Bonus</span>
+    <h2 class="m-h2">Le <em>reste</em></h2>
   </div>
 
   <div class="m-cartes revele">
     <article class="m-carte">
-      <span class="ico" aria-hidden="true">★</span>
+      <span class="ico" aria-hidden="true"><span>★</span></span>
       <div>
         <h3>Marathon</h3>
         <p>Cinquante designs livrés en cinquante jours, sans en sauter un seul.</p>
       </div>
     </article>
     <article class="m-carte">
-      <span class="ico bleu" aria-hidden="true">▲</span>
+      <span class="ico rose" aria-hidden="true"><span>▲</span></span>
       <div>
-        <h3>Fondateur</h3>
-        <p>Responsable communication du Riptide, le premier BDE du campus AURA.</p>
+        <h3>Le Riptide</h3>
+        <p>Responsable communication du premier BDE du campus AURA : identité
+        visuelle, affiches, réseaux.</p>
       </div>
     </article>
     <article class="m-carte">
-      <span class="ico vert" aria-hidden="true">◆</span>
-      <div>
-        <h3>Polyglotte</h3>
-        <p>TOEIC 905 sur 990 et un semestre entier suivi et soutenu en anglais.</p>
-      </div>
-    </article>
-    <article class="m-carte">
-      <span class="ico rouge" aria-hidden="true">■</span>
-      <div>
-        <h3>Conducteur</h3>
-        <p>Douze semaines en conduite de travaux sur un chantier à 400 000 euros.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ══════════════ EN VRAC ══════════════ -->
-<section class="section fond-alt">
- <div class="enveloppe">
-  <div class="m-tete revele">
-    <span class="m-tag creux">Bonus</span>
-    <h2 class="m-h2">En vrac</h2>
-  </div>
-
-  <div class="m-cartes revele">
-    <article class="m-carte">
-      <span class="ico bleu" aria-hidden="true">♪</span>
+      <span class="ico violet" aria-hidden="true"><span>♪</span></span>
       <div>
         <h3>Musique</h3>
         <p>Rarement le silence quand je modélise. C'est ce qui fait tenir les
@@ -316,15 +301,7 @@
       </div>
     </article>
     <article class="m-carte">
-      <span class="ico" aria-hidden="true">▶</span>
-      <div>
-        <h3>TikTok</h3>
-        <p>Un compte centré sur le dessin, où je publie mes planches et
-        l'avancée de mes défis, sous le pseudo Katjounis.</p>
-      </div>
-    </article>
-    <article class="m-carte">
-      <span class="ico vert" aria-hidden="true">◆</span>
+      <span class="ico cyan" aria-hidden="true"><span>◆</span></span>
       <div>
         <h3>Code</h3>
         <p>J'écris des petits outils quand un tableur ne suffit plus. Python la
@@ -333,10 +310,9 @@
     </article>
   </div>
 
-  <p class="m-citation revele" style="margin-top:2.4rem">
+  <p class="m-citation revele" style="margin-top:3rem">
     Un plan et un dessin, c'est le même métier : <em>décider quoi garder.</em>
   </p>
- </div>
 </section>
 
 </main>
@@ -353,7 +329,7 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=10"></script>
-<script src="assets/js/moi.js?v=10"></script>
+<script src="assets/js/app.js?v=11"></script>
+<script src="assets/js/moi.js?v=11"></script>
 </body>
 </html>
