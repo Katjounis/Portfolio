@@ -1,4 +1,4 @@
-/* v8 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v10 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    BASE : variables, typographie, composants partagés par toutes les pages
    Ne touche à ce fichier que si tu veux changer les couleurs ou les polices.
@@ -188,3 +188,31 @@ a{color:inherit;}
   .cote .ligne{animation:none; stroke-dashoffset:0;}
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
 }
+
+/* ==========================================================================
+   TÉLÉPHONE : règles communes à toutes les pages
+   ========================================================================== */
+@media(max-width:640px){
+  .bandeau-int{
+    flex-direction:column; align-items:flex-start;
+    gap:.45rem; padding-block:.6rem;
+  }
+  .bandeau nav{gap:.9rem; row-gap:.35rem;}
+  .bandeau nav a{font-size:.62rem;}
+
+  .cartouche{flex-wrap:wrap;}
+  .cartouche h2{font-size:1.05rem; padding:.55rem .8rem;}
+
+  .bloc-grille{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .cellule:nth-child(2n){border-right:none;}
+
+  .liens{flex-direction:column; align-items:stretch;}
+  .liens .bouton{text-align:center;}
+
+  .contact-titre{font-size:clamp(1.6rem,9vw,2.4rem);}
+  .section{padding-block:2.2rem;}
+}
+
+/* Rien ne doit pouvoir déborder horizontalement sur un écran étroit */
+html, body{max-width:100%; overflow-x:hidden;}
+img, svg, video, table{max-width:100%;}
