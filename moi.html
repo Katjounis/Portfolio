@@ -10,20 +10,15 @@
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=8">
-<link rel="stylesheet" href="assets/css/moi.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css?v=9">
+<link rel="stylesheet" href="assets/css/moi.css?v=9">
 </head>
-<body class="zine">
-
-<!-- Rail latéral, écrans très larges -->
-<div class="z-rail" aria-hidden="true">
-  <div class="z-rail-texte">Hors chantier · Samuel Chaux · Édition 01 · Hors chantier · Samuel Chaux · Édition 01 · </div>
-</div>
+<body class="arcade">
 
 <header class="bandeau">
   <div class="bandeau-int">
-    <span class="sigle">S.C. · PORTFOLIO</span>
+    <span class="sigle">S.C.</span>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="index.html#parcours">Parcours</a>
@@ -36,44 +31,76 @@
 
 <main>
 
-<!-- ══════════════════ COUVERTURE ══════════════════ -->
-<section class="z-couv">
-  <span class="repere hg" aria-hidden="true"></span>
-  <span class="repere hd" aria-hidden="true"></span>
+<!-- ══════════════════ ÉCRAN TITRE ══════════════════ -->
+<section class="a-titre-ecran enveloppe">
+  <p class="a-mini">◆ Mode hors chantier ◆</p>
 
-  <div class="enveloppe z-couv-int">
+  <h1 class="a-titre">
+    <span>Samuel Chaux</span>
+    <span class="cyan">La face B</span>
+  </h1>
+
+  <p class="a-sous">
+    Il y a le portfolio, et il y a le reste. Le reste, c'est du papier, des
+    crayons, un ballon, des trains et pas mal de musique. Je voulais faire de
+    la modélisation <b>avant même de savoir que ça portait un nom</b>. Cette
+    page raconte cette moitié-là.
+  </p>
+
+  <p class="a-start">▼ Continuer</p>
+</section>
+
+<!-- ══════════════════ FICHE PERSONNAGE ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-fiche px-cadre revele">
+    <figure class="a-avatar">
+      <!-- ✏️ assets/img/moi/portrait.jpg -->
+      <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
+    </figure>
+
     <div>
-      <p class="z-surtitre">Édition 01 · Tirage unique · Deux encres</p>
+      <p class="a-nom">Samuel Chaux</p>
+      <p class="a-classe">Classe : modélisateur BIM · Niv. bac+4</p>
 
-      <h1 class="z-titre">
-        <span class="decale" data-mot="Hors">Hors</span>
-        <span class="ital">chantier</span>
-      </h1>
+      <div class="a-infos">
+        <span>Base : <b>Villeurbanne</b></span>
+        <span>Origine : <b>Mably</b></span>
+        <span>Arme de prédilection : <b>Revit</b></span>
+        <span>Arme secondaire : <b>Procreate</b></span>
+        <span>Langues : <b>FR · EN · IT</b></span>
+        <span>Quête en cours : <b>PFE mars 2027</b></span>
+      </div>
 
-      <p class="z-chapo">
-        Il y a le portfolio, et il y a le reste. Le reste, c'est du papier, des
-        crayons, un ballon, des trains et pas mal de musique. Je voulais faire
-        de la modélisation <b>avant même de savoir que ça portait un nom</b>,
-        et je dessine depuis à peu près aussi longtemps. Cette page raconte
-        cette moitié-là.
-      </p>
-
-      <p class="z-filet">Samuel Chaux · Villeurbanne · 2026</p>
-    </div>
-
-    <div style="position:relative">
-      <figure class="z-portrait">
-        <!-- ✏️ assets/img/moi/portrait.jpg -->
-        <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
-      </figure>
-      <span class="z-sticker sur-portrait">50 designs<br>en 50 jours</span>
+      <div class="a-jauges">
+        <!-- ✏️ ajuste : class="on" = segment rempli, sur 8 -->
+        <div class="a-jauge or">
+          <span class="lib">Dessin</span>
+          <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        </div>
+        <div class="a-jauge">
+          <span class="lib">Volumes 3D</span>
+          <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        </div>
+        <div class="a-jauge chaud">
+          <span class="lib">Terrain</span>
+          <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+        </div>
+        <div class="a-jauge">
+          <span class="lib">Exploration</span>
+          <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="a-jauge or">
+          <span class="lib">Collectif</span>
+          <span class="barre"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ BANDE ══════════════════ -->
-<div class="z-bande" aria-hidden="true">
-  <div class="z-bande-piste">
+<!-- ══════════════════ BANDEAU ══════════════════ -->
+<div class="a-defile" aria-hidden="true">
+  <div class="a-defile-piste">
     <span>Design de tatouages</span>
     <span>Old school</span>
     <span>Ornemental</span>
@@ -86,22 +113,20 @@
   </div>
 </div>
 
-<!-- ══════════════════ 01 · DESSIN ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-tete">
-    <span class="z-num">01</span>
-    <h2 class="z-titre-sec">Le <em>trait</em></h2>
-    <span class="z-etiquette">Procreate · papier</span>
+<!-- ══════════════════ NIVEAU 1 ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag or">Niveau 01</span>
+    <h2 class="a-h2">Le trait</h2>
   </div>
 
-  <div class="z-double">
-    <div class="z-texte revele">
-      <p class="lettrine">Je ne tatoue pas, je dessine. Des projets de tatouage
-      conçus pour des gens qui vont ensuite les faire encrer chez un tatoueur.
-      Old school et ornemental surtout : deux écoles opposées que j'aime pour
-      la même raison, le trait ne pardonne rien. Pas de calque, pas de retour
-      arrière, pas de « on verra au rendu ».</p>
+  <div class="a-duo">
+    <div class="a-dialogue px-cadre revele">
+      <p>Je ne tatoue pas, je dessine. Des projets de tatouage conçus pour des
+      gens qui vont ensuite les faire encrer chez un tatoueur. Old school et
+      ornemental surtout : deux écoles opposées que j'aime pour la même
+      raison, le trait ne pardonne rien. Pas de calque, pas de retour arrière,
+      pas de « on verra au rendu ».</p>
 
       <p>Pour tenir le rythme, je me suis imposé un défi : <b>50 designs en 50
       jours</b>. Cinquante planches, une par jour, publiées au fur et à mesure.
@@ -109,101 +134,90 @@
       compris qu'un dessin se juge d'abord à ce qu'on en enlève.</p>
 
       <p>Le reste du temps, le dessin sert ailleurs : l'identité visuelle du
-      BDE, des affiches, des mises en page. Et un plan de coffrage, au fond,
-      demande la même discipline.</p>
+      BDE, des affiches, des mises en page. Un plan de coffrage demande au fond
+      la même discipline.</p>
 
-      <p style="margin-top:1.3rem">
-        <a class="z-lien" style="border-color:var(--z-bleu); color:var(--z-bleu)"
-           href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir sur TikTok</a>
+      <span class="fleche" aria-hidden="true">▼</span>
+    </div>
+
+    <div class="a-inventaire px-cadre clair revele">
+      <p class="a-inv-titre">Inventaire · 6 / 50</p>
+      <div class="a-slots">
+        <!-- ✏️ tes planches dans assets/img/moi/ -->
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"><span class="n">01</span></figure>
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"><span class="n">02</span></figure>
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"><span class="n">03</span></figure>
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"><span class="n">04</span></figure>
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"><span class="n">05</span></figure>
+        <figure class="a-slot"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"><span class="n">06</span></figure>
+      </div>
+      <p style="margin-top:1rem">
+        <a class="a-bouton" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
       </p>
     </div>
-
-    <!-- Planche contact -->
-    <div class="z-contact revele">
-      <span class="z-perfos haut" aria-hidden="true"></span>
-      <span class="z-perfos bas" aria-hidden="true"></span>
-      <div class="z-grille-contact">
-        <!-- ✏️ tes planches dans assets/img/moi/ -->
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"><span>01</span></figure>
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"><span>02</span></figure>
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"><span>03</span></figure>
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"><span>04</span></figure>
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"><span>05</span></figure>
-        <figure class="z-vignette"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"><span>06</span></figure>
-      </div>
-      <p class="z-legende-contact">Planche contact · sélection sur 50</p>
-    </div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════════ COMPTEURS ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-compteurs revele">
-    <div class="z-compteur"><span class="n" data-vers="50">0</span><span class="q">designs en 50 jours</span></div>
-    <div class="z-compteur"><span class="n" data-vers="9">0</span><span class="q">pays visités</span></div>
-    <div class="z-compteur"><span class="n" data-vers="5">0</span><span class="q">saisons de basket</span></div>
-    <div class="z-compteur"><span class="n" data-vers="1">0</span><span class="q">BDE créé de zéro</span></div>
+<!-- ══════════════════ SCORES ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-scores px-cadre revele">
+    <div class="a-score"><span class="n" data-vers="50">0</span><span class="q">designs<br>en 50 jours</span></div>
+    <div class="a-score"><span class="n" data-vers="9">0</span><span class="q">pays<br>visités</span></div>
+    <div class="a-score"><span class="n" data-vers="5">0</span><span class="q">saisons<br>de basket</span></div>
+    <div class="a-score"><span class="n" data-vers="1">0</span><span class="q">BDE créé<br>de zéro</span></div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════════ 02 · VOLUMES ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-tete">
-    <span class="z-num">02</span>
-    <h2 class="z-titre-sec">Les <em>volumes</em></h2>
-    <span class="z-etiquette">Depuis le CE2</span>
+<!-- ══════════════════ NIVEAU 2 ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag">Niveau 02</span>
+    <h2 class="a-h2">Les volumes</h2>
   </div>
 
-  <div class="z-double inverse">
+  <div class="a-duo inverse">
     <div class="revele">
-      <figure class="z-image" data-legende="3d-01.jpg">
+      <figure class="a-ecran" data-legende="3d-01.jpg">
         <img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy">
       </figure>
-      <div class="z-duo" style="margin-top:.8rem">
-        <figure class="z-image haute" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></figure>
-        <figure class="z-image haute" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></figure>
+      <div class="a-paire" style="margin-top:.9rem">
+        <figure class="a-ecran haut" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></figure>
+        <figure class="a-ecran haut" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></figure>
       </div>
     </div>
 
-    <div class="z-texte revele">
-      <p class="lettrine">L'envie de modéliser est arrivée bien avant les
-      études. Tourner un volume, le couper, comprendre comment il tient : c'est
-      resté la même curiosité, elle a juste changé de logiciel en cours de
-      route.</p>
+    <div class="a-dialogue px-cadre revele">
+      <p>L'envie de modéliser est arrivée bien avant les études. Tourner un
+      volume, le couper, comprendre comment il tient : c'est resté la même
+      curiosité, elle a juste changé de logiciel en cours de route.</p>
 
-      <p>Aujourd'hui ça s'appelle du BIM et ça se fait sous Revit, mais le
-      plaisir n'a pas bougé. Modéliser, c'est encore la seule façon que je
+      <p>Aujourd'hui ça s'appelle du BIM et ça se fait sous <b>Revit</b>, mais
+      le plaisir n'a pas bougé. Modéliser, c'est encore la seule façon que je
       connaisse de voir un bâtiment avant qu'il existe, et de repérer ce qui
       cloche avant que le béton soit coulé.</p>
 
       <p>À côté, il y a le design pur : mise en page, typographie,
       composition. J'ai porté l'identité visuelle du <b>Riptide</b>, et ce site
       en fait partie.</p>
+
+      <span class="fleche" aria-hidden="true">▼</span>
     </div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════════ 03 · TERRAIN ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-tete">
-    <span class="z-num">03</span>
-    <h2 class="z-titre-sec">Le <em>terrain</em></h2>
-    <span class="z-etiquette">Collectif</span>
+<!-- ══════════════════ NIVEAU 3 ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag rose">Niveau 03</span>
+    <h2 class="a-h2">Le terrain</h2>
   </div>
 
-  <div class="z-double">
-    <div class="z-texte revele">
-      <p class="lettrine">Rugby en universitaire, et surtout en passionné :
-      Top 14, Coupe du monde, tournées, je ne rate pas grand chose. C'est le
-      sport qui apprend à pousser dans le même sens que les autres, ce qui
-      reste à peu de choses près la compétence la plus utile en bureau
-      d'études.</p>
+  <div class="a-duo">
+    <div class="a-dialogue px-cadre revele">
+      <p>Rugby en universitaire, et surtout en passionné : Top 14, Coupe du
+      monde, tournées, je ne rate pas grand chose. C'est le sport qui apprend à
+      pousser dans le même sens que les autres, ce qui reste à peu de choses
+      près la compétence la plus utile en bureau d'études.</p>
 
       <p>Avant ça, <b>cinq saisons de basket à Mably</b>. Le collectif ne date
       pas d'hier, et l'habitude de rendre du travail sans se cacher derrière
@@ -212,132 +226,148 @@
       <p>Aujourd'hui je suis passé de l'autre côté de la ligne de touche, comme
       jeune dirigeant au sein du club. On y apprend surtout que rien ne se fait
       sans quelqu'un pour tenir le calendrier.</p>
+
+      <span class="fleche" aria-hidden="true">▼</span>
     </div>
 
     <div class="revele">
-      <figure class="z-image" data-legende="rugby-01.jpg">
+      <figure class="a-ecran" data-legende="rugby-01.jpg">
         <img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy">
       </figure>
     </div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════════ 04 · AILLEURS ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-tete">
-    <span class="z-num">04</span>
-    <h2 class="z-titre-sec">Aller <em>voir ailleurs</em></h2>
-    <span class="z-etiquette">9 pays</span>
+<!-- ══════════════════ NIVEAU 4 ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag vert">Niveau 04</span>
+    <h2 class="a-h2">Aller voir ailleurs</h2>
   </div>
 
-  <div class="z-double inverse">
+  <div class="a-duo inverse">
     <div class="revele">
-      <div class="z-duo">
-        <figure class="z-image haute" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></figure>
-        <figure class="z-image haute" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></figure>
+      <div class="a-paire">
+        <figure class="a-ecran haut" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></figure>
+        <figure class="a-ecran haut" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></figure>
       </div>
     </div>
 
-    <div class="z-texte revele">
-      <p class="lettrine">Neuf pays au compteur. Le semestre à Édimbourg a
-      servi de rampe de lancement : Highlands, côtes écossaises, et pas mal
-      d'allers-retours en Europe entre deux rendus.</p>
+    <div class="a-dialogue px-cadre revele">
+      <p>Neuf zones débloquées. Le semestre à Édimbourg a servi de rampe de
+      lancement : Highlands, côtes écossaises, et pas mal d'allers-retours en
+      Europe entre deux rendus.</p>
 
       <p>J'ai pris l'habitude de photographier les bâtiments avant les
       paysages, ce qui en dit probablement long. Un porche, un appareillage de
       brique, une charpente laissée apparente : je repars rarement d'une ville
       sans une centaine de photos dont personne ne veut.</p>
 
-      <div class="z-timbres" style="margin-top:1.2rem">
+      <div class="a-pays" style="margin-top:1.2rem">
         <!-- ✏️ remplace par tes vrais pays -->
-        <span class="z-timbre">France</span>
-        <span class="z-timbre">Écosse</span>
-        <span class="z-timbre">Angleterre</span>
-        <span class="z-timbre">Irlande</span>
-        <span class="z-timbre">Italie</span>
-        <span class="z-timbre">Espagne</span>
-        <span class="z-timbre">Portugal</span>
-        <span class="z-timbre">Pays-Bas</span>
-        <span class="z-timbre">Allemagne</span>
+        <span>France</span><span>Écosse</span><span>Angleterre</span>
+        <span>Irlande</span><span>Italie</span><span>Espagne</span>
+        <span>Portugal</span><span>Pays-Bas</span><span>Allemagne</span>
+      </div>
+
+      <span class="fleche" aria-hidden="true">▼</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SUCCÈS ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag or">Succès</span>
+    <h2 class="a-h2">Débloqués</h2>
+  </div>
+
+  <div class="a-succes revele">
+    <div class="a-trophee px-cadre">
+      <span class="ico" aria-hidden="true">★</span>
+      <div>
+        <h3>Marathon</h3>
+        <p>Cinquante designs livrés en cinquante jours, sans en sauter un seul.</p>
+      </div>
+    </div>
+    <div class="a-trophee px-cadre">
+      <span class="ico cyan" aria-hidden="true">▲</span>
+      <div>
+        <h3>Fondateur</h3>
+        <p>Responsable communication du Riptide, le premier BDE du campus AURA.</p>
+      </div>
+    </div>
+    <div class="a-trophee px-cadre">
+      <span class="ico vert" aria-hidden="true">◆</span>
+      <div>
+        <h3>Polyglotte</h3>
+        <p>TOEIC 905 sur 990 et un semestre entier suivi et soutenu en anglais.</p>
+      </div>
+    </div>
+    <div class="a-trophee px-cadre">
+      <span class="ico rose" aria-hidden="true">■</span>
+      <div>
+        <h3>Chef de chantier</h3>
+        <p>Douze semaines en conduite de travaux sur un chantier à 400 000 euros.</p>
       </div>
     </div>
   </div>
- </div>
 </section>
 
-<!-- ══════════════════ 05 · EN VRAC ══════════════════ -->
-<section class="z-planche">
- <div class="enveloppe">
-  <div class="z-tete">
-    <span class="z-num">05</span>
-    <h2 class="z-titre-sec">En <em>vrac</em></h2>
-    <span class="z-etiquette">Notes de bas de page</span>
+<!-- ══════════════════ EN VRAC ══════════════════ -->
+<section class="a-niveau enveloppe">
+  <div class="a-tete revele">
+    <span class="a-tag">Bonus</span>
+    <h2 class="a-h2">En vrac</h2>
   </div>
 
-  <div class="z-notes revele">
-    <article class="z-note">
-      <span class="puce" aria-hidden="true"></span>
-      <h3>Le Riptide</h3>
-      <p>Responsable communication du premier BDE du campus AURA. Identité
-      visuelle, affiches, réseaux, et beaucoup de logistique invisible.</p>
-    </article>
-    <article class="z-note">
-      <span class="puce" aria-hidden="true"></span>
-      <h3>Musique</h3>
-      <p>Rarement le silence quand je modélise. C'est ce qui fait tenir les
-      sessions de six heures sur une maquette.</p>
-    </article>
-    <article class="z-note">
-      <span class="puce" aria-hidden="true"></span>
-      <h3>TikTok</h3>
-      <p>Un compte centré sur le dessin, où je publie mes planches et
-      l'avancée de mes défis, sous le pseudo Katjounis.</p>
-    </article>
-    <article class="z-note">
-      <span class="puce" aria-hidden="true"></span>
-      <h3>Code</h3>
-      <p>J'écris des petits outils quand un tableur ne suffit plus. Python la
-      plupart du temps, du web quand il faut que ça se voie.</p>
-    </article>
-  </div>
- </div>
-</section>
-
-<!-- ══════════════════ CITATION ══════════════════ -->
-<section class="z-citation">
-  <span class="repere bg" aria-hidden="true"></span>
-  <span class="repere bd" aria-hidden="true"></span>
-  <div class="enveloppe">
-    <blockquote>Un plan et un dessin, c'est le même métier :
-      <em>décider quoi garder.</em></blockquote>
-    <p class="signature">Fin de l'édition 01</p>
+  <div class="a-succes revele">
+    <div class="a-trophee px-cadre clair">
+      <span class="ico cyan" aria-hidden="true">♪</span>
+      <div>
+        <h3>Musique</h3>
+        <p>Rarement le silence quand je modélise. C'est ce qui fait tenir les sessions de six heures sur une maquette.</p>
+      </div>
+    </div>
+    <div class="a-trophee px-cadre clair">
+      <span class="ico" aria-hidden="true">▶</span>
+      <div>
+        <h3>TikTok</h3>
+        <p>Un compte centré sur le dessin, où je publie mes planches et l'avancée de mes défis, sous le pseudo Katjounis.</p>
+      </div>
+    </div>
+    <div class="a-trophee px-cadre clair">
+      <span class="ico vert" aria-hidden="true">&lt;/&gt;</span>
+      <div>
+        <h3>Code</h3>
+        <p>J'écris des petits outils quand un tableur ne suffit plus. Python la plupart du temps, du web quand il faut que ça se voie.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 </main>
 
-<!-- ══════════════════ COLOPHON ══════════════════ -->
-<footer class="z-colophon">
-  <div class="enveloppe">
-    <h2>On en <em>discute ?</em></h2>
-    <div class="z-liens">
-      <a class="z-lien plein" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
-      <a class="z-lien" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="z-lien" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
-      <a class="z-lien" href="index.html">Retour au portfolio</a>
-    </div>
-    <div class="z-ours">
-      <span><b>Édition</b> 01, tirage unique</span>
-      <span><b>Encres</b> bleu profond et rouge orangé</span>
-      <span><b>Composition</b> Instrument Serif et Archivo</span>
-      <span><b>Atelier</b> Villeurbanne, 2026</span>
-    </div>
+<!-- ══════════════════ ÉCRAN DE FIN ══════════════════ -->
+<footer class="a-fin enveloppe">
+  <h2 class="a-titre">
+    <span>Continuer ?</span>
+  </h2>
+
+  <div class="a-boutons">
+    <a class="a-bouton or" href="mailto:chaux.samuel@gmail.com">Écrire un message</a>
+    <a class="a-bouton" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="a-bouton" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
+    <a class="a-bouton" href="index.html">Retour au portfolio</a>
   </div>
+
+  <p class="a-credits">
+    Samuel Chaux · Villeurbanne · 2026<br>
+    Conception, textes et mise en page : moi
+  </p>
 </footer>
 
-<script src="assets/js/app.js?v=8"></script>
-<script src="assets/js/moi.js?v=8"></script>
+<script src="assets/js/app.js?v=9"></script>
+<script src="assets/js/moi.js?v=9"></script>
 </body>
 </html>
