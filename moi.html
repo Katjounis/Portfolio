@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!-- ✏️ = les seuls endroits à modifier. Voir README.md à la racine. -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moi — Prénom Nom</title><!-- ✏️ -->
+<meta name="description" content="Tatouage, modélisation 3D, rugby, voyages et vie associative. La partie qui ne rentre pas dans un CV.">
+<link rel="icon" href="assets/img/logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/moi.css">
+</head>
+<body class="page-moi">
+
+<header class="bandeau">
+  <div class="bandeau-int">
+    <span class="sigle">P.N. — PORTFOLIO</span><!-- ✏️ -->
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#projets">Projets</a>
+      <a href="moi.html">Moi</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ HÉROS ══════════════ -->
+<section class="moi-heros enveloppe">
+  <div class="moi-heros-int">
+    <div>
+      <h1 class="moi-titre">Hors<em>chantier</em></h1>
+
+      <p class="moi-intro"><!-- ✏️ réécris ce paragraphe avec tes mots -->
+        Je dessine autant que je calcule. Le trait d'un <strong>tatouage
+        ornemental</strong> et celui d'un plan de coffrage demandent la même
+        chose : de la précision, et savoir où s'arrêter. Cette page, c'est tout
+        ce qui ne rentre pas dans une case de CV.
+      </p>
+
+      <!-- Ornement dessiné : le trait se trace tout seul au chargement -->
+      <svg class="ornement" viewBox="0 0 340 165" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M170 18 L191 56 L170 94 L149 56 Z"/>
+        <path class="r2" d="M149 56 C 111 28, 70 38, 38 62 C 72 74, 114 72, 149 56"/>
+        <path class="r2" d="M191 56 C 229 28, 270 38, 302 62 C 268 74, 226 72, 191 56"/>
+        <path d="M170 94 C 158 116, 158 138, 170 155 C 182 138, 182 116, 170 94"/>
+        <path class="r3" d="M120 78 C 140 92, 150 108, 152 128"/>
+        <path class="r3" d="M220 78 C 200 92, 190 108, 188 128"/>
+        <circle cx="25" cy="62" r="4"/>
+        <circle cx="315" cy="62" r="4"/>
+        <circle class="r2" cx="170" cy="56" r="7"/>
+      </svg>
+    </div>
+
+    <figure class="polaroid">
+      <div class="cadre" data-legende="portrait.jpg">
+        <!-- ✏️ Ta photo : assets/img/moi/portrait.jpg -->
+        <img src="assets/img/moi/portrait.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <figcaption>Lyon — 2026</figcaption><!-- ✏️ -->
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ BANDEAU DÉFILANT ══════════════ -->
+<div class="defilant" aria-hidden="true">
+  <div class="defilant-piste"><!-- ✏️ ajoute ou retire des <span> -->
+    <span>Tatouage old school</span>
+    <span>Ornemental</span>
+    <span>Modélisation 3D</span>
+    <span>Rugby</span>
+    <span>Voyages</span>
+    <span>Jeux vidéo</span>
+    <span>Design</span>
+    <span>Vie associative</span>
+  </div>
+</div>
+
+<!-- ══════════════ COMPTEURS ══════════════ -->
+<section class="section enveloppe">
+  <div class="compteurs revele"><!-- ✏️ change les data-vers et les libellés -->
+    <div class="compteur">
+      <span class="chiffre" data-vers="50">0</span>
+      <span class="quoi">tatouages en 50 jours</span>
+    </div>
+    <div class="compteur">
+      <span class="chiffre" data-vers="1">0</span>
+      <span class="quoi">semestre en Écosse</span>
+    </div>
+    <div class="compteur">
+      <span class="chiffre" data-vers="1">0</span>
+      <span class="quoi">BDE créé de zéro</span>
+    </div>
+    <div class="compteur">
+      <span class="chiffre" data-vers="12">0</span>
+      <span class="quoi">pays visités</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PASSIONS ══════════════ -->
+<section class="section enveloppe">
+  <div class="cartouche revele">
+    <span class="num">A</span>
+    <h2>Ce qui m'occupe</h2>
+    <span class="meta">Hors heures ouvrées</span>
+  </div>
+
+  <div class="passions">
+
+    <!-- ── Tatouage ── -->
+    <article class="passion revele">
+      <div class="passion-texte">
+        <span class="surtitre">Depuis 2024</span>
+        <h3>Tatouage</h3>
+        <p>Old school et ornemental. Deux écoles opposées que j'aime pour la
+        même raison : le trait ne pardonne rien. Pas de calque, pas de retour
+        arrière, pas de « on verra au rendu ».</p>
+        <p>Pour tenir le rythme, je me suis imposé un défi : <strong>50
+        tatouages en 50 jours</strong>. Cinquante flashs dessinés, un par jour,
+        publiés au fur et à mesure. C'est ce qui m'a fait progresser le plus
+        vite, et ce que je documente sur TikTok.</p>
+        <!-- ✏️ ton lien TikTok / Instagram -->
+        <p><a class="bouton vide" href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener">Voir sur TikTok</a></p>
+      </div>
+      <div class="passion-visuel">
+        <div class="eventail"><!-- ✏️ dépose tes flashs dans assets/img/moi/ -->
+          <figure class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="Flash de tatouage" loading="lazy"></figure>
+          <figure class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="Flash de tatouage" loading="lazy"></figure>
+          <figure class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="Flash de tatouage" loading="lazy"></figure>
+          <figure class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="Flash de tatouage" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── 3D & design ── -->
+    <article class="passion inverse revele">
+      <div class="passion-texte">
+        <span class="surtitre">Écrans et volumes</span>
+        <h3>Modélisation 3D<br>&amp; design</h3>
+        <p>De la maquette technique à l'objet dessiné pour le plaisir. C'est
+        cette envie de manipuler des volumes qui m'a amené au BIM autant que
+        l'inverse : quand un bâtiment tient dans une maquette numérique, on
+        peut le tourner, le couper et comprendre ce qui cloche avant que le
+        béton soit coulé.</p>
+        <p>Le même réflexe s'applique à l'identité visuelle : mise en page,
+        typographie, composition. Ce site en fait partie.</p>
+      </div>
+      <div class="passion-visuel">
+        <figure class="cadre large" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="Rendu 3D" loading="lazy"></figure>
+        <div class="duo">
+          <figure class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="Rendu 3D" loading="lazy"></figure>
+          <figure class="cadre" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="Travail de design" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Rugby ── -->
+    <article class="passion revele">
+      <div class="passion-texte">
+        <span class="surtitre">Terrain</span>
+        <h3>Rugby</h3>
+        <p>Le sport qui apprend à pousser dans le même sens que les autres — ce
+        qui reste, à peu de choses près, la compétence la plus utile en bureau
+        d'études. On y prend aussi l'habitude de rendre du travail sans se
+        cacher derrière l'équipe.</p>
+      </div>
+      <div class="passion-visuel">
+        <figure class="cadre large" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="Rugby" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <!-- ── Voyages ── -->
+    <article class="passion inverse revele">
+      <div class="passion-texte">
+        <span class="surtitre">Sac à dos</span>
+        <h3>Voyages</h3>
+        <p>Le semestre à Édimbourg a servi de rampe de lancement : Highlands,
+        côtes écossaises, et pas mal d'allers-retours en Europe. J'ai pris
+        l'habitude de photographier les bâtiments avant les paysages, ce qui en
+        dit probablement long.</p>
+      </div>
+      <div class="passion-visuel">
+        <div class="duo">
+          <figure class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="Voyage" loading="lazy"></figure>
+          <figure class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="Voyage" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══════════════ EN VRAC ══════════════ -->
+<section class="section enveloppe">
+  <div class="cartouche revele">
+    <span class="num">B</span>
+    <h2>En vrac</h2>
+    <span class="meta">Le reste</span>
+  </div>
+
+  <div class="vrac revele"><!-- ✏️ ajoute ou retire des blocs .jeton -->
+    <div class="jeton">
+      <h4>Vie associative</h4>
+      <p>Création d'un nouveau BDE à BUILDERS avec mon équipe : campagne,
+      budget, événements, et surtout beaucoup de logistique.</p>
+    </div>
+    <div class="jeton">
+      <h4>Jeux vidéo</h4>
+      <p>Surtout pour le level design et l'architecture des mondes. Déformation
+      professionnelle assumée.</p>
+    </div>
+    <div class="jeton">
+      <h4>TikTok</h4>
+      <p>Un compte centré sur le dessin et le tatouage, où je publie mes
+      planches et l'avancée de mes défis.</p>
+    </div>
+    <div class="jeton">
+      <h4>Code</h4>
+      <p>J'écris des petits outils quand un tableur ne suffit plus. Python la
+      plupart du temps, du web quand il faut que ça se voie.</p>
+    </div>
+  </div>
+
+  <p class="citation revele" style="margin-top:2.5rem;"><!-- ✏️ ta phrase -->
+    Un plan et un flash de tatouage, c'est le même métier :
+    décider quoi garder.
+  </p>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="pied-int">
+    <h2 class="contact-titre">On en<br>discute ?</h2>
+    <div class="liens"><!-- ✏️ -->
+      <a class="bouton" href="mailto:prenom.nom@email.com">prenom.nom@email.com</a>
+      <a class="bouton vide" href="https://www.linkedin.com/in/tonprofil" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="bouton vide" href="index.html">Retour au portfolio</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/moi.js"></script>
+</body>
+</html>

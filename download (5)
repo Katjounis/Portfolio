@@ -1,0 +1,37 @@
+# ==========================================================================
+# .gitignore — tout ce qui est listé ici ne partira JAMAIS sur GitHub.
+# Un repo GitHub Pages est PUBLIC : ce garde-fou n'est pas optionnel.
+# ==========================================================================
+
+# --- Secrets : rien de tout ça n'a sa place dans un site statique ---
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+config.local.*
+
+# --- Fichiers système ---
+.DS_Store
+Thumbs.db
+desktop.ini
+._*
+
+# --- Éditeurs ---
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Outils / dépendances (au cas où tu en ajoutes plus tard) ---
+node_modules/
+__pycache__/
+*.log
+.cache/
+dist/
+
+# --- Documents privés ou confidentiels ---
+# Range ici tout ce qui vient d'un stage ou d'une entreprise.
+prive/
+confidentiel/
+*.dwg.bak

@@ -1,0 +1,140 @@
+/* ==========================================================================
+   ACCUEIL — héros, parcours en coupe, projets, nomenclature
+   ========================================================================== */
+
+/* ---------- Héros ---------- */
+.heros{padding-block:clamp(3rem,8vw,6rem) clamp(2.5rem,6vw,4.5rem);}
+.heros .role{
+  font-family:var(--tech); font-size:.72rem; letter-spacing:.2em;
+  text-transform:uppercase; margin-bottom:1rem;
+}
+.heros .role b{background:var(--jaune); padding:.2rem .5rem; font-weight:500;}
+
+.nom{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(2.9rem,12vw,8.5rem);
+  line-height:.86; letter-spacing:-.035em; text-transform:uppercase;
+  margin-block:.35rem;
+}
+.nom span{display:block;}
+.nom .creux{color:transparent; -webkit-text-stroke:1.6px var(--encre);}
+
+.accroche{max-width:47ch; margin-top:1.7rem;}
+.accroche strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(255,197,61,.5);}
+
+.actions{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2rem;}
+
+/* ---------- Parcours — coupe verticale ---------- */
+.coupe{position:relative; padding-left:clamp(4.5rem,13vw,7.5rem);}
+.coupe::before{
+  content:''; position:absolute;
+  left:clamp(3.4rem,10vw,5.6rem); top:.6rem; bottom:.6rem;
+  width:1.5px; background:var(--encre);
+}
+.niveau{position:relative; padding-bottom:2.8rem;}
+.niveau:last-child{padding-bottom:0;}
+.niveau .altitude{
+  position:absolute; left:calc(-1 * clamp(4.5rem,13vw,7.5rem)); top:.15rem;
+  width:clamp(3.4rem,10vw,5.6rem); text-align:right; padding-right:.55rem;
+  font-family:var(--tech); font-size:.7rem; font-weight:500;
+}
+.niveau::before{
+  content:''; position:absolute;
+  left:calc(-1 * clamp(1.1rem,3vw,1.9rem) - 4.5px); top:.5rem;
+  width:9px; height:9px; background:var(--papier);
+  border:1.5px solid var(--encre); transform:rotate(45deg);
+}
+.niveau.actif::before{background:var(--jaune);}
+.niveau h3{font-family:var(--display); font-weight:600; font-size:1.18rem; letter-spacing:-.01em; line-height:1.25;}
+.niveau .lieu{font-family:var(--tech); font-size:.67rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gris); margin-top:.15rem;}
+.niveau p{margin-top:.6rem; max-width:62ch;}
+.balise{
+  display:inline-block; font-family:var(--tech); font-size:.6rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  background:var(--jaune); padding:.15rem .45rem; margin-left:.5rem; vertical-align:middle;
+}
+
+/* Bloc Erasmus développé */
+.erasmus{
+  margin-top:1.1rem; border:1.5px solid var(--encre);
+  background:var(--papier); padding:1.2rem;
+}
+.erasmus-tete{display:flex; align-items:center; gap:.9rem; margin-bottom:.9rem;}
+.blason{
+  width:60px; height:60px; flex:0 0 60px;
+  border:1.5px solid var(--encre); background:var(--papier-2);
+  display:grid; place-items:center; overflow:hidden;
+}
+.blason img{width:100%; height:100%; object-fit:contain;}
+.blason.vide img{display:none;}
+.blason.vide::after{
+  content:'blason'; font-family:var(--tech); font-size:.5rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--gris);
+}
+.erasmus-tete p{font-family:var(--tech); font-size:.66rem; letter-spacing:.09em; text-transform:uppercase; color:var(--gris); margin:0;}
+.erasmus-tete strong{display:block; font-family:var(--display); font-size:1.02rem; letter-spacing:-.01em; color:var(--encre); text-transform:none;}
+
+.modules{list-style:none; display:grid; gap:.65rem; margin-top:.4rem;}
+.modules li{padding-left:1.5rem; position:relative; font-size:.95rem;}
+.modules li::before{
+  content:''; position:absolute; left:0; top:.62em;
+  width:9px; height:1.5px; background:var(--bleu);
+}
+.modules b{font-weight:600;}
+
+.galerie-mini{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:.7rem; margin-top:1.1rem;}
+.galerie-mini .cadre{aspect-ratio:4/3;}
+
+/* ---------- Projets ---------- */
+.grille{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:1.6rem;}
+.fiche{
+  background:var(--papier); border:1.5px solid var(--encre);
+  display:flex; flex-direction:column;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.fiche:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--encre);}
+.fiche .cadre{border:none; border-bottom:1.5px solid var(--encre); aspect-ratio:16/9;}
+.fiche-texte{padding:1.3rem; display:flex; flex-direction:column; gap:.65rem; flex:1;}
+.fiche .ref{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--gris);
+  display:flex; justify-content:space-between; gap:.75rem;
+  border-bottom:1px solid var(--trait); padding-bottom:.5rem;
+}
+.fiche h3{font-family:var(--display); font-weight:600; font-size:1.2rem; line-height:1.2; letter-spacing:-.015em;}
+.fiche p{font-size:.94rem; flex:1;}
+.etiquettes{display:flex; flex-wrap:wrap; gap:.35rem;}
+.etiquettes span{
+  font-family:var(--tech); font-size:.6rem; letter-spacing:.08em;
+  text-transform:uppercase; border:1px solid var(--trait);
+  padding:.2rem .45rem; color:var(--gris);
+}
+
+/* ---------- Nomenclature ---------- */
+.nomenclature{width:100%; border-collapse:collapse; background:var(--papier); border:1.5px solid var(--encre); font-size:.93rem;}
+.nomenclature th{
+  font-family:var(--tech); font-size:.62rem; letter-spacing:.12em;
+  text-transform:uppercase; text-align:left; padding:.7rem .9rem;
+  background:var(--encre); color:var(--papier); font-weight:500;
+}
+.nomenclature td{padding:.75rem .9rem; border-top:1px solid var(--trait); vertical-align:top;}
+.nomenclature td:first-child{
+  font-family:var(--tech); font-size:.67rem; letter-spacing:.07em;
+  text-transform:uppercase; white-space:nowrap; color:var(--gris); width:1%;
+}
+.jauge{display:flex; gap:3px; align-items:center;}
+.jauge i{width:15px; height:7px; background:var(--trait); display:block;}
+.jauge i.on{background:var(--bleu);}
+
+/* ---------- Renvoi vers la page Moi ---------- */
+.renvoi{
+  border:1.5px solid var(--encre); background:var(--papier);
+  padding:clamp(1.5rem,4vw,2.4rem);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem;
+}
+.renvoi h2{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.5rem,4.5vw,2.4rem);
+  text-transform:uppercase; letter-spacing:-.03em; line-height:1;
+}
+.renvoi p{max-width:42ch; margin-top:.6rem; color:var(--gris);}
