@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MOI — page personnelle. Même famille graphique que l'accueil,
+   MOI : page personnelle. Même famille graphique que l'accueil,
    mais accent rouge, ornements dessinés et plus d'animation.
    ========================================================================== */
 
@@ -29,7 +29,7 @@
 .moi-intro{max-width:44ch; margin-top:1.4rem; font-size:1.05rem;}
 .moi-intro strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(217,65,47,.22);}
 
-/* Ornement dessiné — trait qui se trace au chargement */
+/* Ornement dessiné : trait qui se trace au chargement */
 .ornement{width:100%; max-width:340px; height:auto; margin-top:1.2rem; overflow:visible;}
 .ornement path, .ornement circle, .ornement line{
   fill:none; stroke:var(--rouge); stroke-width:1.6;
