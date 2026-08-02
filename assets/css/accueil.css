@@ -1,4 +1,4 @@
-/* v16 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v17 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
@@ -68,19 +68,21 @@
 
 .parcours{
   position:relative; isolation:isolate;
-  background:linear-gradient(180deg,#EDF2F7 0%, #F5F6F1 44%, #F8F5ED 100%);
+  background:linear-gradient(180deg,#EFF3F7 0%, #F6F5F0 46%, #F8F4EA 100%);
 }
+/* Trame de report : un carroyage fin double d'un carroyage large */
 .parcours::before{
   content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='620'%20height='440'%20viewBox='0%200%20620%20440'%3E%3Cg%20fill='none'%20stroke='%231B4FD8'%20stroke-width='1.2'%20opacity='0.10'%3E%3Cpath%20d=%22M0%2030C70%2034,140%2023,210%2032C280%2017,350%2018,420%2037C490%2022,560%2039,630%2040%22/%3E%3Cpath%20d=%22M0%2080C70%2067,140%2096,210%2076C280%2064,350%2067,420%2081C490%2089,560%2067,630%2076%22/%3E%3Cpath%20d=%22M0%20124C70%20113,140%20135,210%20115C280%20112,350%20119,420%20131C490%20111,560%20133,630%20115%22/%3E%3Cpath%20d=%22M0%20167C70%20165,140%20153,210%20174C280%20161,350%20171,420%20172C490%20163,560%20161,630%20178%22/%3E%3Cpath%20d=%22M0%20218C70%20221,140%20213,210%20211C280%20211,350%20222,420%20208C490%20200,560%20199,630%20221%22/%3E%3Cpath%20d=%22M0%20261C70%20258,140%20276,210%20268C280%20274,350%20267,420%20267C490%20277,560%20271,630%20263%22/%3E%3Cpath%20d=%22M0%20309C70%20308,140%20304,210%20306C280%20297,350%20311,420%20314C490%20325,560%20315,630%20314%22/%3E%3Cpath%20d=%22M0%20357C70%20359,140%20345,210%20350C280%20370,350%20364,420%20349C490%20357,560%20345,630%20357%22/%3E%3Cpath%20d=%22M0%20399C70%20409,140%20385,210%20391C280%20400,350%20401,420%20397C490%20411,560%20409,630%20388%22/%3E%3C/g%3E%3C/svg%3E");
-  background-size:620px 440px; background-repeat:repeat;
+  background-image:
+    linear-gradient(rgba(27,79,216,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,79,216,.055) 1px, transparent 1px),
+    linear-gradient(rgba(27,79,216,.10) 1.2px, transparent 1.2px),
+    linear-gradient(90deg, rgba(27,79,216,.10) 1.2px, transparent 1.2px);
+  background-size:26px 26px, 26px 26px, 130px 130px, 130px 130px;
 }
 .parcours::after{
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(25,27,31,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(25,27,31,.04) 1px, transparent 1px);
-  background-size:58px 58px;
+  background:radial-gradient(120% 80% at 50% 40%, transparent 55%, rgba(25,27,31,.055) 100%);
 }
 
 .notice{
@@ -114,22 +116,22 @@
 /* ---------- Segments de sentier ---------- */
 .lien{
   position:relative; display:block;
-  height:clamp(96px,13vw,150px);
-  margin-block:-4px;
+  height:var(--h,116px);
+  margin-block:-6px;
 }
 .lien svg{display:block; width:100%; height:100%; overflow:visible;}
 .lien path{fill:none; vector-effect:non-scaling-stroke; stroke-linecap:round;}
-.lien .assise{stroke:rgba(25,27,31,.20); stroke-width:22;}
-.lien .sentier{stroke:#FBF8F0; stroke-width:18;}
+.lien .assise{stroke:rgba(25,27,31,.18); stroke-width:17;}
+.lien .sentier{stroke:#FCFAF4; stroke-width:13.5;}
 .lien .axe{
-  stroke:rgba(25,27,31,.55); stroke-width:2.4;
-  stroke-dasharray:9 12;
+  stroke:rgba(25,27,31,.5); stroke-width:2;
+  stroke-dasharray:8 11;
 }
 .lien .droit{display:none;}
 @media(max-width:899px){
   .lien .courbe{display:none;}
   .lien .droit{display:block;}
-  .lien{height:74px;}
+  .lien{height:62px;}
 }
 
 /* Borne kilometrique posee sur le sentier */
@@ -150,19 +152,19 @@
   position:relative; z-index:3;
   border:1.5px solid var(--encre); border-radius:24px;
   background:var(--papier);
-  padding:1.5rem 1.35rem 1.3rem;
+  padding:2.15rem 1.35rem 1.3rem;
   box-shadow:0 14px 30px rgba(25,27,31,.10);
   transition:transform .22s ease, box-shadow .22s ease;
 }
 @media(min-width:900px){
-  .etape.a-gauche{width:46%; margin-right:auto;}
-  .etape.a-droite{width:46%; margin-left:auto;}
+  .etape.a-gauche{width:44%; margin-right:auto;}
+  .etape.a-droite{width:44%; margin-left:auto;}
 }
 
 /* Epingle plantee sur le haut de la carte */
 .jalon{
   position:absolute; z-index:6;
-  left:50%; top:-21px; transform:translateX(-50%);
+  left:50%; top:-20px; transform:translateX(-50%);
 }
 .jalon i{
   display:grid; place-items:center;
@@ -190,7 +192,7 @@
 
 .lieu-etape{
   display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem .8rem;
-  margin-bottom:.55rem; margin-top:.4rem;
+  margin-bottom:.55rem;
 }
 .lieu-etape .ville{
   font-family:var(--display); font-weight:800; font-size:.94rem;
@@ -271,7 +273,7 @@
   border:2.5px dashed var(--rouge);
   background:linear-gradient(180deg,#FFFFFF 0%, #FFF4F2 100%);
   box-shadow:0 18px 40px rgba(217,65,47,.18);
-  padding-top:1.9rem;
+  padding-top:2.4rem;
 }
 .destination .jalon i{
   width:48px; height:48px;
