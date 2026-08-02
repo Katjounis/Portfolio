@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=18">
-<link rel="stylesheet" href="assets/css/accueil.css?v=18">
+<link rel="stylesheet" href="assets/css/base.css?v=19">
+<link rel="stylesheet" href="assets/css/accueil.css?v=19">
 </head>
 <body>
 
@@ -101,6 +101,66 @@
   </div>
 
   <div class="chemin">
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <symbol id="d-sapin" viewBox="0 0 40 62">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M20 3 L29 22 H23 L33 40 H7 L17 22 H11 Z"/>
+          <path d="M20 40 V59"/><path d="M12 52 H28"/>
+        </g>
+      </symbol>
+      <symbol id="d-arbre" viewBox="0 0 40 62">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M20 4 C30 4 37 12 37 21 C37 30 30 37 20 37 C10 37 3 30 3 21 C3 12 10 4 20 4Z"/>
+          <path d="M20 37 V59"/><path d="M20 47 L12 41"/><path d="M20 50 L28 44"/>
+        </g>
+      </symbol>
+      <symbol id="d-touffe" viewBox="0 0 40 30">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linecap="round">
+          <path d="M5 28 C7 16 11 11 13 3"/>
+          <path d="M14 28 C15 14 18 9 22 2"/>
+          <path d="M23 28 C24 16 28 11 32 6"/>
+          <path d="M2 28 H36"/>
+        </g>
+      </symbol>
+      <symbol id="d-rocher" viewBox="0 0 44 34">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M3 31 L11 12 L23 7 L37 17 L41 31 Z"/>
+          <path d="M11 12 L21 22 L37 17"/><path d="M21 22 L23 31"/>
+        </g>
+      </symbol>
+      <symbol id="d-panneau" viewBox="0 0 40 62">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M20 59 V24"/><path d="M13 59 H27"/>
+          <path d="M4 6 H30 L37 15 L30 24 H4 Z"/>
+          <path d="M9 12 H24"/><path d="M9 18 H20"/>
+        </g>
+      </symbol>
+      <symbol id="d-cairn" viewBox="0 0 34 44">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M4 42 H30"/>
+          <path d="M6 42 L9 32 H26 L29 42 Z"/>
+          <path d="M10 32 L12 23 H23 L25 32 Z"/>
+          <path d="M13 23 L15 15 H20 L22 23 Z"/>
+          <path d="M15 15 L17 8 L19 15"/>
+        </g>
+      </symbol>
+      <symbol id="d-vagues" viewBox="0 0 60 34">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linecap="round">
+          <path d="M2 8 C9 1 16 15 23 8 C30 1 37 15 44 8 C50 3 55 8 58 10"/>
+          <path d="M2 20 C9 13 16 27 23 20 C30 13 37 27 44 20 C50 15 55 20 58 22"/>
+          <path d="M14 31 C20 26 27 33 33 30"/>
+        </g>
+      </symbol>
+      <symbol id="d-poteau" viewBox="0 0 34 60">
+        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
+          <path d="M17 58 V8"/>
+          <path d="M17 14 H31 L27 20 H17 Z"/>
+          <path d="M17 26 H3 L7 32 H17 Z"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
   <article class="etape destination revele" style="--teinte:var(--rouge)">
     <span class="jalon" aria-hidden="true"><i><b>★</b></i></span>
     <div class="niveau-corps">
@@ -135,6 +195,8 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco" width="30" height="46" viewBox="0 0 40 62" style="left:74%;top:8%" aria-hidden="true"><use href="#d-sapin"/></svg>
+      <svg class="deco pale" width="34" height="26" viewBox="0 0 40 30" style="left:62%;top:58%" aria-hidden="true"><use href="#d-touffe"/></svg>
     <span class="borne longue"><b>Prochaine étape</b><i>Mars 2027 · destination à écrire</i></span>
   </div>
   <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
@@ -169,6 +231,9 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco" width="62" height="35" viewBox="0 0 60 34" style="left:40%;top:40%" aria-hidden="true"><use href="#d-vagues"/></svg>
+      <svg class="deco pale" width="36" height="28" viewBox="0 0 44 34" style="left:8%;top:12%" aria-hidden="true"><use href="#d-rocher"/></svg>
+      <svg class="deco pale" width="30" height="22" viewBox="0 0 40 30" style="left:88%;top:68%" aria-hidden="true"><use href="#d-touffe"/></svg>
     <span class="borne"><b>1 400 km</b><i>Retour de Grande-Bretagne</i></span>
   </div>
   <article class="etape a-droite cliquable revele" style="--teinte:var(--vert)">
@@ -206,6 +271,9 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco" width="32" height="50" viewBox="0 0 40 62" style="left:14%;top:8%" aria-hidden="true"><use href="#d-arbre"/></svg>
+      <svg class="deco" width="26" height="34" viewBox="0 0 34 44" style="left:72%;top:56%" aria-hidden="true"><use href="#d-cairn"/></svg>
+      <svg class="deco pale" width="30" height="22" viewBox="0 0 40 30" style="left:40%;top:78%" aria-hidden="true"><use href="#d-touffe"/></svg>
     <span class="borne"><b>1 500 km</b><i>Cap au nord, direction l'Écosse</i></span>
   </div>
   <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
@@ -240,6 +308,8 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco pale" width="28" height="43" viewBox="0 0 40 62" style="left:8%;top:12%" aria-hidden="true"><use href="#d-sapin"/></svg>
+      <svg class="deco" width="30" height="46" viewBox="0 0 40 62" style="left:84%;top:52%" aria-hidden="true"><use href="#d-panneau"/></svg>
     <span class="borne"><b>12 km</b><i>De l'école au chantier</i></span>
   </div>
   <article class="etape a-droite cliquable revele" style="--teinte:var(--bleu)">
@@ -275,6 +345,9 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco" width="34" height="53" viewBox="0 0 40 62" style="left:12%;top:10%" aria-hidden="true"><use href="#d-arbre"/></svg>
+      <svg class="deco pale" width="26" height="40" viewBox="0 0 40 62" style="left:26%;top:22%" aria-hidden="true"><use href="#d-sapin"/></svg>
+      <svg class="deco pale" width="32" height="24" viewBox="0 0 40 30" style="left:74%;top:62%" aria-hidden="true"><use href="#d-touffe"/></svg>
     <span class="borne"><b>170 km</b><i>Clermont-Ferrand, puis Lyon</i></span>
   </div>
   <article class="etape a-gauche revele" style="--teinte:var(--bleu)">
@@ -308,6 +381,8 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco pale" width="34" height="26" viewBox="0 0 44 34" style="left:82%;top:14%" aria-hidden="true"><use href="#d-rocher"/></svg>
+      <svg class="deco" width="28" height="49" viewBox="0 0 34 60" style="left:10%;top:46%" aria-hidden="true"><use href="#d-poteau"/></svg>
     <span class="borne"><b>90 km</b><i>Roanne, puis la prépa</i></span>
   </div>
   <article class="etape a-droite revele" style="--teinte:var(--bleu)">
@@ -341,6 +416,9 @@
         <path class="axe" d="M50 0 V100"/>
       </g>
     </svg>
+      <svg class="deco" width="32" height="50" viewBox="0 0 40 62" style="left:84%;top:10%" aria-hidden="true"><use href="#d-sapin"/></svg>
+      <svg class="deco pale" width="24" height="31" viewBox="0 0 34 44" style="left:10%;top:50%" aria-hidden="true"><use href="#d-cairn"/></svg>
+      <svg class="deco pale" width="30" height="22" viewBox="0 0 40 30" style="left:46%;top:74%" aria-hidden="true"><use href="#d-touffe"/></svg>
     <span class="borne longue"><b>4 ans</b><i>Même ville, même envie</i></span>
   </div>
   <article class="etape depart revele" style="--teinte:var(--jaune)">
@@ -564,6 +642,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=18"></script>
+<script src="assets/js/app.js?v=19"></script>
 </body>
 </html>
