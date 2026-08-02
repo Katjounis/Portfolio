@@ -1,159 +1,279 @@
 /* ==========================================================================
-   MOI : page personnelle. Même famille graphique que l'accueil,
-   mais accent rouge, ornements dessinés et plus d'animation.
+   MOI : page personnelle en encre et flash de tatouage.
+   Même ossature que le reste du site, mais une identité à part.
    ========================================================================== */
 
-.page-moi{background:#FFFDF7;}
+.page-moi{
+  --rouge-flash:#D9412F;
+  --vert-flash:#2E7D4F;
+  --or:#E0A032;
+  --papier-flash:#FFFCF5;
 
-/* ---------- Héros ---------- */
-.moi-heros{
-  position:relative; overflow:hidden;
-  padding-block:clamp(2.5rem,7vw,5rem) clamp(2rem,5vw,3.5rem);
+  background:var(--papier-flash);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(25,27,31,.055) 1px, transparent 1.6px),
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(217,65,47,.06), transparent 70%);
+  background-size:14px 14px, 100% 100%;
 }
-.moi-heros-int{
-  display:grid; gap:clamp(1.8rem,5vw,3rem);
-  grid-template-columns:1fr;
-  align-items:center;
+
+/* ==========================================================================
+   ORNEMENTS À L'ENCRE
+   ========================================================================== */
+.encre path, .encre circle, .encre line, .encre ellipse{
+  fill:none; stroke:var(--encre); stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:1400; stroke-dashoffset:1400;
 }
-@media(min-width:860px){.moi-heros-int{grid-template-columns:1.25fr .75fr;}}
+.encre.vu path, .encre.vu circle, .encre.vu line, .encre.vu ellipse{
+  animation:tracer-encre 1.8s cubic-bezier(.25,.8,.3,1) forwards;
+}
+.encre .rouge{stroke:var(--rouge-flash);}
+.encre .vert{stroke:var(--vert-flash);}
+.encre .or{stroke:var(--or); stroke-width:2.6;}
+.encre .plein{fill:var(--rouge-flash); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
+.encre .plein-noir{fill:var(--encre); stroke:none; stroke-dasharray:none; stroke-dashoffset:0;}
+.encre [data-d="1"]{animation-delay:.18s;}
+.encre [data-d="2"]{animation-delay:.36s;}
+.encre [data-d="3"]{animation-delay:.54s;}
+.encre [data-d="4"]{animation-delay:.72s;}
+.encre [data-d="5"]{animation-delay:.9s;}
+@keyframes tracer-encre{to{stroke-dashoffset:0;}}
+
+/* ---------- Fleurs fixées dans les marges ---------- */
+.marge{
+  position:fixed; top:50%; z-index:1; pointer-events:none;
+  width:130px; opacity:.9;
+  display:none;
+}
+.marge.gauche{left:14px; transform:translateY(-50%); animation:flotter 13s ease-in-out infinite;}
+.marge.droite{right:14px; transform:translateY(-50%) scaleX(-1); animation:flotter 16s ease-in-out infinite reverse;}
+@media(min-width:1240px){.marge{display:block;}}
+@keyframes flotter{
+  0%,100%{transform:translateY(-50%) rotate(0deg);}
+  50%{transform:translateY(calc(-50% - 16px)) rotate(-2.5deg);}
+}
+.marge.droite{animation-name:flotter-droite;}
+@keyframes flotter-droite{
+  0%,100%{transform:translateY(-50%) scaleX(-1) rotate(0deg);}
+  50%{transform:translateY(calc(-50% - 20px)) scaleX(-1) rotate(2.5deg);}
+}
+
+/* ---------- Filigrane séparateur ---------- */
+.filigrane{display:block; width:min(100%,420px); margin:2.6rem auto; height:auto;}
+
+/* ---------- Banderole de titre ---------- */
+.banderole{position:relative; max-width:520px; margin-bottom:1.6rem;}
+.banderole svg{display:block; width:100%; height:auto; overflow:visible;}
+.banderole .ruban{fill:var(--rouge-flash); stroke:var(--encre); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
+.banderole .queue{fill:#B02F20; stroke:var(--encre); stroke-width:2.5; stroke-dasharray:none; stroke-dashoffset:0;}
+.banderole span{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.1rem,3.6vw,1.75rem);
+  letter-spacing:.02em; text-transform:uppercase;
+  color:var(--papier-flash);
+  padding-bottom:.15rem;
+  text-shadow:0 2px 0 rgba(0,0,0,.25);
+}
+
+/* ==========================================================================
+   HÉROS
+   ========================================================================== */
+.moi-heros{position:relative; padding-block:clamp(2.2rem,6vw,4rem) clamp(1.6rem,4vw,2.6rem);}
+.moi-heros-int{display:grid; gap:clamp(1.8rem,5vw,3rem); grid-template-columns:1fr; align-items:center;}
+@media(min-width:880px){.moi-heros-int{grid-template-columns:1.2fr .8fr;}}
 
 .moi-titre{
   font-family:var(--display); font-weight:800;
-  font-size:clamp(3.4rem,15vw,9rem);
+  font-size:clamp(3rem,13vw,7.6rem);
   line-height:.82; letter-spacing:-.045em; text-transform:uppercase;
   position:relative; z-index:2;
 }
 .moi-titre em{
-  font-style:normal; display:block; color:var(--rouge);
+  font-style:normal; display:block; color:var(--rouge-flash);
+  -webkit-text-stroke:2px var(--encre);
+  paint-order:stroke fill;
+  animation:vibrer 7s ease-in-out infinite;
 }
-.moi-intro{max-width:44ch; margin-top:1.4rem; font-size:1.05rem;}
-.moi-intro strong{font-weight:600; box-shadow:inset 0 -.45em 0 rgba(217,65,47,.22);}
-
-/* Ornement dessiné : trait qui se trace au chargement */
-.ornement{width:100%; max-width:340px; height:auto; margin-top:1.2rem; overflow:visible;}
-.ornement path, .ornement circle, .ornement line{
-  fill:none; stroke:var(--rouge); stroke-width:1.6;
-  stroke-linecap:round; stroke-linejoin:round;
-  stroke-dasharray:900; stroke-dashoffset:900;
-  animation:trait 2.4s cubic-bezier(.25,.8,.3,1) forwards;
+@keyframes vibrer{
+  0%,92%,100%{transform:rotate(0deg);}
+  94%{transform:rotate(-1.2deg);}
+  97%{transform:rotate(1deg);}
 }
-.ornement .r2{stroke:var(--encre); animation-delay:.35s;}
-.ornement .r3{stroke:var(--jaune); stroke-width:2.4; animation-delay:.7s;}
-@keyframes trait{to{stroke-dashoffset:0;}}
+.moi-intro{max-width:44ch; margin-top:1.3rem; font-size:1.05rem;}
+.moi-intro strong{
+  font-weight:600;
+  box-shadow:inset 0 -.45em 0 rgba(217,65,47,.24);
+}
 
-/* Portrait en polaroid */
+.ornement-heros{width:100%; max-width:330px; margin-top:1.4rem; height:auto; overflow:visible;}
+
+/* ---------- Portrait ---------- */
 .polaroid{
-  background:#fff; padding:.75rem .75rem 3rem;
-  border:1.5px solid var(--encre);
-  box-shadow:7px 7px 0 rgba(28,30,34,.12);
+  position:relative; max-width:330px; margin-inline:auto;
+  background:#fff; padding:.8rem .8rem 3rem;
+  border:2px solid var(--encre);
+  box-shadow:8px 8px 0 rgba(25,27,31,.16);
   transform:rotate(-2.5deg);
-  transition:transform .35s cubic-bezier(.2,.8,.3,1);
-  position:relative; max-width:340px; margin-inline:auto;
+  transition:transform .4s cubic-bezier(.2,.8,.3,1), box-shadow .4s ease;
 }
-.polaroid:hover{transform:rotate(0.5deg) scale(1.02);}
-.polaroid .cadre{aspect-ratio:4/5; border:1px solid var(--trait);}
+.polaroid:hover{transform:rotate(1deg) scale(1.025); box-shadow:12px 12px 0 var(--rouge-flash);}
+.polaroid .cadre{aspect-ratio:4/5; border:1.5px solid var(--encre);}
 .polaroid .cadre::after{display:none;}
 .polaroid figcaption{
-  position:absolute; left:0; right:0; bottom:.9rem; text-align:center;
-  font-family:var(--tech); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gris);
+  position:absolute; left:0; right:0; bottom:.95rem; text-align:center;
+  font-family:var(--tech); font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gris);
+}
+.punaise{
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  width:26px; height:26px; border-radius:50%;
+  background:var(--rouge-flash); border:2px solid var(--encre);
+  box-shadow:inset -3px -3px 0 rgba(0,0,0,.18);
 }
 
-/* ---------- Bandeau défilant ---------- */
+/* ==========================================================================
+   BANDEAU DÉFILANT
+   ========================================================================== */
 .defilant{
-  border-block:1.5px solid var(--encre);
+  border-block:2.5px solid var(--encre);
   background:var(--jaune);
-  overflow:hidden; padding-block:.55rem;
+  overflow:hidden; padding-block:.6rem;
   --duree:26s;
+  box-shadow:0 4px 0 rgba(25,27,31,.12);
 }
 .defilant-piste{display:flex; width:max-content; animation:glisser var(--duree) linear infinite;}
 .defilant:hover .defilant-piste{animation-play-state:paused;}
 .defilant span{
-  font-family:var(--display); font-weight:600; font-size:.95rem;
-  letter-spacing:.03em; text-transform:uppercase;
+  font-family:var(--display); font-weight:800; font-size:1rem;
+  letter-spacing:.02em; text-transform:uppercase;
   padding-inline:1.1rem; white-space:nowrap;
 }
-.defilant span::after{content:'◆'; margin-left:1.1rem; font-size:.6rem; vertical-align:middle; opacity:.55;}
+.defilant span::after{content:'✦'; margin-left:1.1rem; font-size:.7rem; vertical-align:middle; color:var(--rouge-flash);}
 @keyframes glisser{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
-/* ---------- Compteurs ---------- */
+/* ==========================================================================
+   COMPTEURS
+   ========================================================================== */
 .compteurs{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));
-  border:1.5px solid var(--encre); background:var(--papier);
+  border:2.5px solid var(--encre); background:#fff;
+  box-shadow:6px 6px 0 rgba(25,27,31,.14);
 }
-.compteur{padding:1.3rem 1rem; border-right:1px solid var(--trait); text-align:center;}
+.compteur{padding:1.4rem 1rem; border-right:1.5px solid var(--encre); text-align:center; position:relative;}
 .compteur:last-child{border-right:none;}
 .compteur .chiffre{
   font-family:var(--display); font-weight:800;
-  font-size:clamp(2.1rem,6vw,3rem); line-height:1;
-  letter-spacing:-.04em; color:var(--rouge);
+  font-size:clamp(2.2rem,6.5vw,3.2rem); line-height:1;
+  letter-spacing:-.04em; color:var(--rouge-flash);
   font-variant-numeric:tabular-nums;
+  -webkit-text-stroke:1.5px var(--encre); paint-order:stroke fill;
 }
 .compteur .quoi{
-  display:block; margin-top:.35rem;
+  display:block; margin-top:.4rem;
   font-family:var(--tech); font-size:.62rem; letter-spacing:.12em;
   text-transform:uppercase; color:var(--gris);
 }
 
-/* ---------- Blocs passion ---------- */
-.passions{display:grid; gap:clamp(2rem,5vw,3.2rem);}
-.passion{
-  display:grid; gap:clamp(1.2rem,3.5vw,2.2rem);
-  grid-template-columns:1fr; align-items:start;
-}
-@media(min-width:800px){
+/* ==========================================================================
+   BLOCS PASSION
+   ========================================================================== */
+.passions{display:grid; gap:clamp(2.4rem,6vw,4rem);}
+.passion{display:grid; gap:clamp(1.2rem,3.5vw,2.2rem); grid-template-columns:1fr; align-items:start;}
+@media(min-width:820px){
   .passion{grid-template-columns:1fr 1fr;}
   .passion.inverse .passion-visuel{order:-1;}
 }
-.passion-texte h3{
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(1.6rem,4.5vw,2.2rem);
-  text-transform:uppercase; letter-spacing:-.03em; line-height:1;
-  margin-bottom:.25rem;
-}
 .passion-texte .surtitre{
   font-family:var(--tech); font-size:.63rem; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--rouge); display:block; margin-bottom:.55rem;
+  text-transform:uppercase; color:var(--rouge-flash); display:block; margin-bottom:.5rem;
 }
+.moi-sous-titre{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.6rem,4.5vw,2.3rem);
+  text-transform:uppercase; letter-spacing:-.03em; line-height:1;
+  position:relative; display:inline-block;
+}
+.moi-sous-titre::after{
+  content:''; position:absolute; left:0; right:0; bottom:-6px;
+  height:4px; background:var(--rouge-flash);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .45s cubic-bezier(.2,.8,.3,1);
+}
+.passion.vu .moi-sous-titre::after{transform:scaleX(1);}
 .passion-texte p{margin-top:.7rem; max-width:52ch;}
 .passion-texte p + p{margin-top:.6rem;}
 
-.passion-visuel{display:grid; gap:.7rem;}
-.duo{display:grid; grid-template-columns:1fr 1fr; gap:.7rem;}
-.passion-visuel .cadre{aspect-ratio:1/1;}
+.passion-visuel{display:grid; gap:.8rem;}
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:.8rem;}
+.passion-visuel .cadre{aspect-ratio:1/1; border:2px solid var(--encre);}
 .passion-visuel .cadre.large{aspect-ratio:16/10;}
 .passion-visuel .cadre img{transition:transform .5s cubic-bezier(.2,.8,.3,1);}
-.passion-visuel .cadre:hover img{transform:scale(1.05);}
+.passion-visuel .cadre:hover img{transform:scale(1.06);}
 
-/* Vignettes en éventail (galerie tatouage) */
-.eventail{display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center;}
-.eventail .cadre{
-  width:clamp(120px,26vw,170px); aspect-ratio:3/4;
-  box-shadow:4px 4px 0 rgba(28,30,34,.1);
-  transition:transform .3s cubic-bezier(.2,.8,.3,1);
+/* ---------- Planche de flashs ---------- */
+.eventail{display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;}
+.flash{
+  position:relative;
+  width:clamp(125px,27vw,175px);
+  background:#fff; border:2px solid var(--encre);
+  padding:.5rem .5rem .5rem;
+  box-shadow:5px 5px 0 rgba(25,27,31,.14);
+  transition:transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s ease;
 }
-.eventail .cadre:nth-child(odd){transform:rotate(-2deg);}
-.eventail .cadre:nth-child(even){transform:rotate(2deg);}
-.eventail .cadre:hover{transform:rotate(0) translateY(-6px); z-index:3;}
+.flash:nth-child(odd){transform:rotate(-2.5deg);}
+.flash:nth-child(even){transform:rotate(2.5deg);}
+.flash:hover{transform:rotate(0) translateY(-8px) scale(1.03); box-shadow:8px 8px 0 var(--rouge-flash); z-index:4;}
+.flash .cadre{aspect-ratio:3/4; border:1.5px solid var(--encre);}
+.flash .num{
+  position:absolute; top:-11px; right:-11px;
+  width:30px; height:30px; border-radius:50%;
+  background:var(--rouge-flash); color:#fff;
+  border:2px solid var(--encre);
+  display:grid; place-items:center;
+  font-family:var(--tech); font-size:.65rem; font-weight:500;
+}
 
-/* ---------- Carte "en vrac" ---------- */
-.vrac{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:1rem;}
+/* ==========================================================================
+   EN VRAC
+   ========================================================================== */
+.vrac{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr)); gap:1.1rem;}
 .jeton{
-  border:1.5px solid var(--encre); background:var(--papier);
-  padding:1.1rem; position:relative; overflow:hidden;
+  border:2px solid var(--encre); background:#fff;
+  padding:1.2rem; position:relative; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 .jeton::before{
-  content:''; position:absolute; inset:auto auto -22px -22px;
-  width:60px; height:60px; background:var(--jaune); transform:rotate(45deg);
-  transition:transform .3s ease;
+  content:''; position:absolute; inset:auto auto -26px -26px;
+  width:64px; height:64px; background:var(--jaune);
+  border:2px solid var(--encre); transform:rotate(45deg);
+  transition:transform .35s cubic-bezier(.2,.8,.3,1);
 }
-.jeton:hover::before{transform:rotate(45deg) scale(1.6);}
-.jeton h4{font-family:var(--display); font-weight:600; font-size:1.05rem; margin-bottom:.3rem; position:relative;}
-.jeton p{font-size:.9rem; color:var(--gris); position:relative;}
+.jeton:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--encre);}
+.jeton:hover::before{transform:rotate(45deg) scale(1.5);}
+.jeton h4{font-family:var(--display); font-weight:800; font-size:1.08rem; margin-bottom:.35rem; position:relative; text-transform:uppercase; letter-spacing:-.01em;}
+.jeton p{font-size:.9rem; color:#3A3B35; position:relative;}
 
-/* ---------- Citation ---------- */
+/* ==========================================================================
+   CITATION EN BANDEROLE
+   ========================================================================== */
+.citation-bloc{position:relative; margin-top:3rem; text-align:center;}
 .citation{
-  border-left:4px solid var(--rouge); padding:.4rem 0 .4rem 1.4rem;
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(1.15rem,3.5vw,1.6rem); line-height:1.35;
-  letter-spacing:-.015em; max-width:34ch;
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(1.15rem,3.6vw,1.75rem); line-height:1.3;
+  letter-spacing:-.02em; max-width:30ch;
+  margin:1.2rem auto 0;
+}
+.citation em{font-style:normal; color:var(--rouge-flash);}
+
+/* ---------- Gouttes d'encre décoratives ---------- */
+.goutte{
+  position:absolute; border-radius:50%;
+  background:var(--encre); opacity:.14;
+  animation:respirer 6s ease-in-out infinite;
+}
+@keyframes respirer{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.35);}
 }
