@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ✏️ = les seuls endroits à modifier. Voir README.md à la racine. -->
+<!-- ✏️ = les endroits à personnaliser. Voir README.md à la racine. -->
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -14,6 +14,46 @@
 <link rel="stylesheet" href="assets/css/moi.css">
 </head>
 <body class="page-moi">
+
+<!-- ══════════ FLEURS DANS LES MARGES (écrans larges) ══════════ -->
+<svg class="marge gauche encre vu" viewBox="0 0 130 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- rose ornementale -->
+  <path d="M65 26 C42 26 26 43 26 66 C26 92 44 112 65 112 C86 112 104 92 104 66 C104 43 88 26 65 26Z"/>
+  <path class="rouge" data-d="1" d="M34 58 C43 40 56 32 65 34"/>
+  <path class="rouge" data-d="1" d="M96 58 C87 40 74 32 65 34"/>
+  <path class="rouge" data-d="2" d="M32 80 C42 96 54 105 65 105"/>
+  <path class="rouge" data-d="2" d="M98 80 C88 96 76 105 65 105"/>
+  <path data-d="3" d="M48 66 C48 51 62 44 74 51 C86 58 86 76 74 83 C62 90 48 82 48 70 C48 62 56 57 63 60 C70 63 71 73 64 76"/>
+  <!-- feuilles -->
+  <path class="vert" data-d="3" d="M65 118 C46 114 30 124 24 141 C43 148 59 137 65 118Z"/>
+  <path class="vert" data-d="4" d="M65 132 C84 128 100 138 106 155 C87 162 71 151 65 132Z"/>
+  <path class="vert" data-d="4" d="M64 158 C48 156 36 166 33 180 C48 184 61 172 64 158Z"/>
+  <!-- tige -->
+  <path class="vert" data-d="5" d="M65 112 C67 152 65 196 60 236"/>
+  <circle class="plein" cx="65" cy="248" r="4"/>
+</svg>
+
+<svg class="marge droite encre vu" viewBox="0 0 130 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- branche fleurie ornementale -->
+  <path class="vert" d="M64 252 C58 206 62 152 72 106 C80 68 74 34 62 8"/>
+  <path class="vert" data-d="1" d="M66 214 C46 210 32 192 32 174 C53 177 65 194 66 214Z"/>
+  <path class="vert" data-d="2" d="M69 176 C89 172 103 154 103 136 C82 139 70 156 69 176Z"/>
+  <path class="vert" data-d="3" d="M73 138 C53 134 39 116 39 98 C60 101 72 118 73 138Z"/>
+  <!-- petites fleurs -->
+  <g data-d="4">
+    <circle class="rouge" cx="62" cy="30" r="7"/>
+    <path class="rouge" d="M62 12 C71 18 73 30 62 40 C51 30 53 18 62 12Z"/>
+    <path class="rouge" d="M44 30 C50 21 62 19 72 30 C62 41 50 39 44 30Z"/>
+  </g>
+  <g data-d="5">
+    <circle class="or" cx="94" cy="62" r="5"/>
+    <path class="or" d="M94 48 C101 53 102 62 94 70 C86 62 87 53 94 48Z"/>
+  </g>
+  <g data-d="5">
+    <circle class="or" cx="34" cy="66" r="5"/>
+    <path class="or" d="M34 52 C41 57 42 66 34 74 C26 66 27 57 34 52Z"/>
+  </g>
+</svg>
 
 <header class="bandeau">
   <div class="bandeau-int">
@@ -34,7 +74,16 @@
 <section class="moi-heros enveloppe">
   <div class="moi-heros-int">
     <div>
-      <h1 class="moi-titre">Hors<em>chantier</em></h1>
+      <div class="banderole revele">
+        <svg viewBox="0 0 460 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="queue" d="M56 26 L14 8 L26 48 L14 88 L56 70 Z"/>
+          <path class="queue" d="M404 26 L446 8 L434 48 L446 88 L404 70 Z"/>
+          <path class="ruban" d="M56 24 C170 12 290 12 404 24 L404 72 C290 84 170 84 56 72 Z"/>
+        </svg>
+        <span>Hors chantier</span>
+      </div>
+
+      <h1 class="moi-titre">Le trait<em>avant tout</em></h1>
 
       <p class="moi-intro"><!-- ✏️ réécris ce paragraphe avec tes mots -->
         Je dessine autant que je calcule. Le trait d'un <strong>tatouage
@@ -43,21 +92,23 @@
         ce qui ne rentre pas dans une case de CV.
       </p>
 
-      <!-- Ornement dessiné : le trait se trace tout seul au chargement -->
-      <svg class="ornement" viewBox="0 0 340 165" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M170 18 L191 56 L170 94 L149 56 Z"/>
-        <path class="r2" d="M149 56 C 111 28, 70 38, 38 62 C 72 74, 114 72, 149 56"/>
-        <path class="r2" d="M191 56 C 229 28, 270 38, 302 62 C 268 74, 226 72, 191 56"/>
-        <path d="M170 94 C 158 116, 158 138, 170 155 C 182 138, 182 116, 170 94"/>
-        <path class="r3" d="M120 78 C 140 92, 150 108, 152 128"/>
-        <path class="r3" d="M220 78 C 200 92, 190 108, 188 128"/>
-        <circle cx="25" cy="62" r="4"/>
-        <circle cx="315" cy="62" r="4"/>
-        <circle class="r2" cx="170" cy="56" r="7"/>
+      <!-- Ornement principal : dague ailée stylisée -->
+      <svg class="ornement-heros encre revele" viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M170 12 L182 52 L170 128 L158 52 Z"/>
+        <path class="rouge" data-d="1" d="M148 56 L192 56"/>
+        <path class="rouge" data-d="1" d="M154 64 L186 64"/>
+        <path data-d="2" d="M158 52 C120 24 74 32 38 60 C76 76 124 74 158 52"/>
+        <path data-d="2" d="M182 52 C220 24 266 32 302 60 C264 76 216 74 182 52"/>
+        <path class="or" data-d="3" d="M120 68 C138 84 150 102 154 124"/>
+        <path class="or" data-d="3" d="M220 68 C202 84 190 102 186 124"/>
+        <circle class="rouge" data-d="4" cx="26" cy="62" r="5"/>
+        <circle class="rouge" data-d="4" cx="314" cy="62" r="5"/>
+        <path class="vert" data-d="5" d="M170 128 C164 136 164 144 170 148 C176 144 176 136 170 128Z"/>
       </svg>
     </div>
 
-    <figure class="polaroid">
+    <figure class="polaroid revele">
+      <span class="punaise" aria-hidden="true"></span>
       <div class="cadre" data-legende="portrait.jpg">
         <!-- ✏️ Ta photo : assets/img/moi/portrait.jpg -->
         <img src="assets/img/moi/portrait.jpg" alt="Portrait" loading="lazy">
@@ -101,14 +152,29 @@
       <span class="quoi">pays visités</span>
     </div>
   </div>
+
+  <!-- filigrane séparateur -->
+  <svg class="filigrane encre revele" viewBox="0 0 420 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M30 23 C74 23 84 7 116 7 C140 7 148 24 128 29 C112 33 106 19 120 14"/>
+    <path d="M390 23 C346 23 336 7 304 7 C280 7 272 24 292 29 C308 33 314 19 300 14"/>
+    <path d="M132 23 H186"/><path d="M234 23 H288"/>
+    <path class="rouge" data-d="1" d="M210 8 L221 23 L210 38 L199 23 Z"/>
+    <circle class="plein-noir" cx="190" cy="23" r="3.5"/>
+    <circle class="plein-noir" cx="230" cy="23" r="3.5"/>
+    <circle class="plein" cx="14" cy="23" r="4"/>
+    <circle class="plein" cx="406" cy="23" r="4"/>
+  </svg>
 </section>
 
 <!-- ══════════════ PASSIONS ══════════════ -->
 <section class="section enveloppe">
-  <div class="cartouche revele">
-    <span class="num">A</span>
-    <h2>Ce qui m'occupe</h2>
-    <span class="meta">Hors heures ouvrées</span>
+  <div class="banderole revele" style="margin-inline:auto">
+    <svg viewBox="0 0 460 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="queue" d="M56 26 L14 8 L26 48 L14 88 L56 70 Z"/>
+      <path class="queue" d="M404 26 L446 8 L434 48 L446 88 L404 70 Z"/>
+      <path class="ruban" d="M56 24 C170 12 290 12 404 24 L404 72 C290 84 170 84 56 72 Z"/>
+    </svg>
+    <span>Ce qui m'occupe</span>
   </div>
 
   <div class="passions">
@@ -116,8 +182,8 @@
     <!-- ── Tatouage ── -->
     <article class="passion revele">
       <div class="passion-texte">
-        <span class="surtitre">Depuis 2024</span>
-        <h3>Tatouage</h3>
+        <span class="surtitre">Encre · depuis 2024</span>
+        <h3 class="moi-sous-titre">Tatouage</h3>
         <p>Old school et ornemental. Deux écoles opposées que j'aime pour la
         même raison : le trait ne pardonne rien. Pas de calque, pas de retour
         arrière, pas de « on verra au rendu ».</p>
@@ -125,15 +191,22 @@
         tatouages en 50 jours</strong>. Cinquante flashs dessinés, un par jour,
         publiés au fur et à mesure. C'est ce qui m'a fait progresser le plus
         vite, et ce que je documente sur TikTok.</p>
-        <!-- ✏️ ton lien TikTok / Instagram -->
-        <p><a class="bouton vide" href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener">Voir sur TikTok</a></p>
+        <p><a class="bouton vide" href="https://www.tiktok.com/@toncompte" target="_blank" rel="noopener">Voir sur TikTok</a></p><!-- ✏️ -->
       </div>
       <div class="passion-visuel">
         <div class="eventail"><!-- ✏️ dépose tes flashs dans assets/img/moi/ -->
-          <figure class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="Flash de tatouage" loading="lazy"></figure>
-          <figure class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="Flash de tatouage" loading="lazy"></figure>
-          <figure class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="Flash de tatouage" loading="lazy"></figure>
-          <figure class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="Flash de tatouage" loading="lazy"></figure>
+          <figure class="flash"><span class="num">01</span>
+            <div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="Flash de tatouage" loading="lazy"></div>
+          </figure>
+          <figure class="flash"><span class="num">02</span>
+            <div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="Flash de tatouage" loading="lazy"></div>
+          </figure>
+          <figure class="flash"><span class="num">03</span>
+            <div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="Flash de tatouage" loading="lazy"></div>
+          </figure>
+          <figure class="flash"><span class="num">04</span>
+            <div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="Flash de tatouage" loading="lazy"></div>
+          </figure>
         </div>
       </div>
     </article>
@@ -142,7 +215,7 @@
     <article class="passion inverse revele">
       <div class="passion-texte">
         <span class="surtitre">Écrans et volumes</span>
-        <h3>Modélisation 3D<br>&amp; design</h3>
+        <h3 class="moi-sous-titre">Modélisation 3D<br>&amp; design</h3>
         <p>De la maquette technique à l'objet dessiné pour le plaisir. C'est
         cette envie de manipuler des volumes qui m'a amené au BIM autant que
         l'inverse : quand un bâtiment tient dans une maquette numérique, on
@@ -164,9 +237,9 @@
     <article class="passion revele">
       <div class="passion-texte">
         <span class="surtitre">Terrain</span>
-        <h3>Rugby</h3>
+        <h3 class="moi-sous-titre">Rugby</h3>
         <p>Le sport qui apprend à pousser dans le même sens que les autres, ce
-        qui reste, à peu de choses près, la compétence la plus utile en bureau
+        qui reste à peu de choses près la compétence la plus utile en bureau
         d'études. On y prend aussi l'habitude de rendre du travail sans se
         cacher derrière l'équipe.</p>
       </div>
@@ -179,7 +252,7 @@
     <article class="passion inverse revele">
       <div class="passion-texte">
         <span class="surtitre">Sac à dos</span>
-        <h3>Voyages</h3>
+        <h3 class="moi-sous-titre">Voyages</h3>
         <p>Le semestre à Édimbourg a servi de rampe de lancement : Highlands,
         côtes écossaises, et pas mal d'allers-retours en Europe. J'ai pris
         l'habitude de photographier les bâtiments avant les paysages, ce qui en
@@ -198,10 +271,22 @@
 
 <!-- ══════════════ EN VRAC ══════════════ -->
 <section class="section enveloppe">
-  <div class="cartouche revele">
-    <span class="num">B</span>
-    <h2>En vrac</h2>
-    <span class="meta">Le reste</span>
+  <svg class="filigrane encre revele" viewBox="0 0 420 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M30 23 C74 23 84 7 116 7 C140 7 148 24 128 29 C112 33 106 19 120 14"/>
+    <path d="M390 23 C346 23 336 7 304 7 C280 7 272 24 292 29 C308 33 314 19 300 14"/>
+    <path d="M132 23 H186"/><path d="M234 23 H288"/>
+    <path class="rouge" data-d="1" d="M210 8 L221 23 L210 38 L199 23 Z"/>
+    <circle class="plein-noir" cx="190" cy="23" r="3.5"/>
+    <circle class="plein-noir" cx="230" cy="23" r="3.5"/>
+  </svg>
+
+  <div class="banderole revele" style="margin-inline:auto">
+    <svg viewBox="0 0 460 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="queue" d="M56 26 L14 8 L26 48 L14 88 L56 70 Z"/>
+      <path class="queue" d="M404 26 L446 8 L434 48 L446 88 L404 70 Z"/>
+      <path class="ruban" d="M56 24 C170 12 290 12 404 24 L404 72 C290 84 170 84 56 72 Z"/>
+    </svg>
+    <span>En vrac</span>
   </div>
 
   <div class="vrac revele"><!-- ✏️ ajoute ou retire des blocs .jeton -->
@@ -212,8 +297,8 @@
     </div>
     <div class="jeton">
       <h4>Jeux vidéo</h4>
-      <p>Surtout pour le level design et l'architecture des mondes. Déformation
-      professionnelle assumée.</p>
+      <p>Surtout pour le level design et l'architecture des mondes.
+      Déformation professionnelle assumée.</p>
     </div>
     <div class="jeton">
       <h4>TikTok</h4>
@@ -227,10 +312,20 @@
     </div>
   </div>
 
-  <p class="citation revele" style="margin-top:2.5rem;"><!-- ✏️ ta phrase -->
-    Un plan et un flash de tatouage, c'est le même métier :
-    décider quoi garder.
-  </p>
+  <div class="citation-bloc revele">
+    <span class="goutte" style="width:14px;height:14px;left:12%;top:-8px"></span>
+    <span class="goutte" style="width:9px;height:9px;right:18%;top:12px;animation-delay:1.6s"></span>
+    <svg class="filigrane encre revele" style="max-width:200px;margin-bottom:0" viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 15 H78"/><path d="M122 15 H180"/>
+      <path class="rouge" d="M100 4 L110 15 L100 26 L90 15 Z"/>
+      <circle class="plein-noir" cx="84" cy="15" r="3"/>
+      <circle class="plein-noir" cx="116" cy="15" r="3"/>
+    </svg>
+    <p class="citation"><!-- ✏️ ta phrase -->
+      Un plan et un flash de tatouage, c'est le même métier :
+      <em>décider quoi garder.</em>
+    </p>
+  </div>
 </section>
 
 </main>
