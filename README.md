@@ -58,7 +58,7 @@ endroit à personnaliser.
 | Prénom, nom, initiales | toutes les pages : `<title>`, `.sigle`, `.nom` |
 | E-mail, LinkedIn, GitHub, TikTok | pieds de page |
 | Phrase d'accroche | `.accroche` (accueil), `.moi-intro` (Moi) |
-| Bloc « Fondations » | `index.html`, dernier niveau du parcours |
+| Prépa PCSI, bac, point d'ancrage | `index.html`, les 3 niveaux sous le terrain naturel |
 | Missions et détails d'expérience | les 4 fichiers `exp-*.html` |
 | Niveaux de compétences | tableau `.nomenclature`, `class="on"` = case remplie |
 | Compteurs de la page Moi | attribut `data-vers` |
@@ -165,6 +165,18 @@ Passe toujours par le serveur local plutôt que par un double-clic sur
 3. Si l'expérience est sous le niveau du sol, place-la dans le bloc
    `<div class="coupe sous-sol">` avec une cote négative.
 
-Les strates du sol s'étirent automatiquement pour remplir la hauteur de la
-partie enterrée : leurs proportions se règlent avec la variable `--p` dans
-`index.html` (`style="--p:1.5"`).
+Chaque carte porte son propre morceau de bâtiment dans la gouttière de gauche,
+via un `<span class="etage">`. Les variantes disponibles :
+
+| Classe | Rendu |
+|---|---|
+| `etage etage-toit` | toit-terrasse avec acrotère et garde-corps |
+| `etage` | étage courant avec baie vitrée |
+| `etage etage-rdc` | rez-de-chaussée avec porte et dalle épaisse à ±0.00 |
+| `etage etage-sol sol-remblai` | strate de remblais |
+| `etage etage-sol sol-argile` | strate d'argile |
+| `etage etage-sol sol-rocher` | substratum rocheux |
+
+La couleur d'un niveau se règle avec `style="--teinte:var(--vert)"` sur
+l'`<article>` : bleu pour la formation, jaune pour les stages, vert pour
+l'international, rouge pour l'objectif.
