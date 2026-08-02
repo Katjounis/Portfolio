@@ -1,4 +1,4 @@
-/* v7 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v8 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en élévation, projets, nomenclature
    ========================================================================== */
@@ -25,30 +25,15 @@
 }
 .heros-int{position:relative; z-index:2;}
 
-/* Axonométrie décorative, tracée au chargement */
-.deco-heros{
-  position:absolute; right:-3%; top:50%; transform:translateY(-50%);
-  width:min(44%,540px); height:auto; z-index:1; pointer-events:none;
-  display:none;
+/* Bande de hachures très pâle sur la droite, pour meubler sans figurer d'objet */
+.heros::after{
+  content:''; position:absolute; top:0; bottom:0; right:0; width:42%;
+  pointer-events:none; z-index:0;
+  background:repeating-linear-gradient(-58deg,
+    rgba(27,79,216,.09) 0 2px, transparent 2px 22px);
+  mask-image:radial-gradient(120% 90% at 100% 40%, rgba(0,0,0,.9), transparent 72%);
 }
-@media(min-width:960px){.deco-heros{display:block;}}
-.deco-heros g{fill:none; stroke-linecap:round; stroke-linejoin:round;}
-.deco-heros .trait-bleu{stroke:var(--bleu); stroke-width:1.6; opacity:.22;}
-.deco-heros .trait-bleu.pale{opacity:.13;}
-.deco-heros .trait-jaune{stroke:#C8912A; stroke-width:1.4; opacity:.4;}
-.deco-heros .pastille{fill:var(--bleu); stroke:none; opacity:.3;}
-.deco-heros path{
-  stroke-dasharray:900; stroke-dashoffset:900;
-  animation:tracer-axo 2.4s cubic-bezier(.25,.8,.3,1) forwards;
-}
-.deco-heros .pale path{animation-delay:.45s;}
-.deco-heros .trait-jaune path{animation-delay:.85s;}
-@keyframes tracer-axo{to{stroke-dashoffset:0;}}
-.heros .role{
-  font-family:var(--tech); font-size:.72rem; letter-spacing:.2em;
-  text-transform:uppercase; margin-bottom:1rem;
-}
-.heros .role b{background:var(--jaune); padding:.2rem .5rem; font-weight:500;}
+@media(max-width:860px){.heros::after{display:none;}}
 
 /* Le nom utilise une grotesque industrielle plus franche que le reste du site */
 .nom{
