@@ -5,14 +5,24 @@
 
 :root{
   /* Couleurs : palette claire */
-  --papier:#FCFBF8;
-  --papier-2:#F3F2EC;
-  --encre:#1C1E22;
-  --gris:#6B6C68;
-  --trait:#D2D1C9;
-  --bleu:#1B4FD8;
-  --jaune:#FFC53D;
-  --rouge:#D9412F;
+  --papier:#FCFBF9;
+  --papier-2:#F1F0EA;
+  --encre:#191B1F;
+  --gris:#67685F;
+  --trait:#CFCEC6;
+
+  /* Accents : un par famille d'expérience */
+  --bleu:#1B4FD8;     /* formation */
+  --jaune:#FFC53D;    /* stage */
+  --vert:#1B8A5A;     /* international */
+  --rouge:#D9412F;    /* objectif, page Moi */
+  --violet:#6B4BD6;
+
+  /* Ciel et terre pour la coupe du parcours */
+  --ciel-haut:#CBE1F6;
+  --ciel-bas:#EDF4FB;
+  --terre-haut:#E7DCC6;
+  --terre-bas:#C9B896;
 
   /* Polices */
   --display:'Bricolage Grotesque', system-ui, sans-serif;
