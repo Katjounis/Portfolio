@@ -1,4 +1,4 @@
-/* v24 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v25 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
@@ -324,17 +324,17 @@
 .exp-carte .texte + .texte{margin-top:.7rem;}
 
 .exp-vignette{
-  position:relative; flex:0 0 76px; width:76px; aspect-ratio:1/1;
-  border:1.5px solid var(--encre); border-radius:20px;
+  position:relative; flex:0 0 122px; width:122px; aspect-ratio:1/1;
+  border:1.5px solid var(--encre); border-radius:24px;
   background:repeating-linear-gradient(45deg, #F0EEE7 0 6px, var(--papier) 6px 12px);
   overflow:hidden;
 }
-.exp-vignette img{width:100%; height:100%; object-fit:contain; padding:8px; position:relative; z-index:1;}
+.exp-vignette img{width:100%; height:100%; object-fit:contain; padding:12px; position:relative; z-index:1;}
 .exp-vignette.vide img{display:none;}
 .exp-vignette.vide::before{
   content:'logo'; position:absolute; inset:0;
   display:grid; place-items:center;
-  font-family:var(--tech); font-size:.5rem; letter-spacing:.12em;
+  font-family:var(--tech); font-size:.58rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--gris);
 }
 
@@ -363,7 +363,8 @@
 .destination .exp-carte::before{background:var(--rouge); width:7px;}
 .destination .exp-lieu b{border-bottom-color:var(--rouge);}
 .destination .exp-vignette{border-style:dashed; border-color:var(--rouge);}
-.destination .exp-vignette.vide::before{content:'?'; font-size:1rem; color:var(--rouge);}
+.destination .exp-vignette{flex:0 0 146px; width:146px;}
+.destination .exp-vignette.vide::before{content:'?'; font-size:1.6rem; color:var(--rouge);}
 .badge-recherche{
   display:inline-block; vertical-align:middle; margin-left:.6rem;
   font-family:var(--tech); font-size:.56rem; letter-spacing:.14em;
@@ -387,5 +388,5 @@
   .exp-carte{padding:1.4rem 1.25rem 1.35rem; border-radius:22px;}
   .exp-carte::before{width:5px; top:16px; bottom:16px;}
   .exp-entete{flex-direction:column; gap:.9rem;}
-  .exp-vignette{flex:0 0 66px; width:66px;}
+  .exp-vignette, .destination .exp-vignette{flex:0 0 104px; width:104px;}
 }
