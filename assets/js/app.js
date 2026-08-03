@@ -22,9 +22,10 @@
   }
 
   /* --- 2. Image absente : on affiche le repère hachuré au lieu d'une icône cassée --- */
-  document.querySelectorAll('.cadre img, .blason img, .logo-exp img').forEach(function (img) {
+  document.querySelectorAll('.cadre img, .blason img, .logo-exp img, .exp-vignette img').forEach(function (img) {
     var marquerVide = function () {
-      var boite = img.closest('.cadre') || img.closest('.blason') || img.closest('.logo-exp');
+      var boite = img.closest('.cadre') || img.closest('.blason')
+              || img.closest('.logo-exp') || img.closest('.exp-vignette');
       if (boite) boite.classList.add('vide');
     };
     img.addEventListener('error', marquerVide);
