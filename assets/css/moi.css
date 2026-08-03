@@ -1,4 +1,4 @@
-/* v14 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v22 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    MOI : la rondeur, mais tirée de l'architecture plutôt que du gadget.
    Le motif est l'arche : portrait, photos et dessins sont cintrés en haut.
@@ -29,8 +29,8 @@
 /* Grain de points, pour que le fond ne soit jamais un aplat */
 .page-moi::after{
   content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background-image:radial-gradient(circle at 1px 1px, rgba(25,27,31,.075) 1px, transparent 1.5px);
-  background-size:17px 17px;
+  background-image:radial-gradient(circle at 1px 1px, rgba(25,27,31,.038) 1px, transparent 1.5px);
+  background-size:26px 26px;
 }
 
 /* ---------- Navigation en capsule ---------- */
@@ -174,14 +174,7 @@
   box-shadow:0 20px 46px rgba(25,27,31,.07);
 }
 @media(max-width:640px){.m-section.panneau{border-radius:28px; padding-inline:1.1rem;}}
-.m-tete{position:relative; margin-bottom:2rem;}
-.m-chiffre{
-  position:absolute; left:-.06em; top:-.42em; z-index:0;
-  font-family:var(--display); font-weight:800;
-  font-size:clamp(4.5rem,13vw,9rem); line-height:1;
-  color:transparent; -webkit-text-stroke:1.6px rgba(25,27,31,.13);
-  letter-spacing:-.04em; pointer-events:none;
-}
+.m-tete{position:relative; margin-bottom:1.9rem;}
 .m-tete-int{position:relative; z-index:1; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
 .m-h2{
   font-family:var(--display); font-weight:800;
