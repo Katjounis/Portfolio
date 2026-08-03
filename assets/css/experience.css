@@ -1,4 +1,4 @@
-/* v30 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v31 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    EXPERIENCE : pages de détail d'une expérience ou d'un projet.
    Bandeau d'ouverture en panneau arrondi, blocs avec ombres douces,
@@ -23,7 +23,7 @@
   padding:.5rem 1.1rem; background:rgba(255,255,255,.8);
   transition:background .22s, color .22s, border-color .22s, transform .22s;
 }
-.retour::before{content:'\\2190'; display:inline-block; transition:margin-right .2s;}
+.retour::before{content:'\2190'; display:inline-block; transition:margin-right .2s;}
 .retour:hover{
   background:var(--encre); color:var(--papier); border-color:var(--encre);
   transform:translateY(-2px);
@@ -124,7 +124,7 @@
   box-shadow:0 10px 24px rgba(25,27,31,.18);
   transition:transform .22s, background .22s, color .22s, gap .22s;
 }
-.bouton-site::after{content:'\\2197';}
+.bouton-site::after{content:'\2197';}
 .bouton-site:hover{transform:translateY(-3px); background:var(--bleu); border-color:var(--bleu); gap:.9rem;}
 .bouton-site.vide{background:transparent; color:var(--encre); box-shadow:none;}
 .bouton-site.vide::after{content:'';}
@@ -232,7 +232,7 @@
   box-shadow:0 16px 36px rgba(25,27,31,.09);
 }
 .retenue::before{
-  content:'\\201C'; position:absolute; top:-.06em; right:.32em;
+  content:'\201C'; position:absolute; top:-.06em; right:.32em;
   font-family:var(--display); font-weight:800;
   font-size:5.4rem; line-height:1; color:var(--jaune); opacity:.55;
 }
