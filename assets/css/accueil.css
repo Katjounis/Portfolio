@@ -1,4 +1,4 @@
-/* v22 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v23 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
@@ -355,27 +355,29 @@
 
 /* ==========================================================================
    CARTOUCHES DE SECTION
-   Meme ecriture que les titres de la page Moi : une pastille, un titre
-   souligne, un filet, puis une pastille de contexte.
+   Meme ecriture que la page Moi : un gros chiffre en contour gris pose
+   derriere le titre, un filet, puis une pastille de contexte.
    ========================================================================== */
-.parcours .cartouche,
-.section .cartouche{
+.cartouche{
+  position:relative;
   display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
-  border:none; background:none; margin-bottom:2rem;
+  border:none; background:none;
+  padding-top:.6rem; margin-bottom:2.2rem;
 }
 .cartouche .num{
-  font-family:var(--tech); font-size:.6rem;
-  letter-spacing:.18em; text-transform:uppercase;
-  padding:.5rem 1.05rem; border-radius:999px;
-  background:var(--encre); color:var(--papier);
-  display:inline-block;
+  position:absolute; left:-.06em; top:-.42em; z-index:0;
+  padding:0; background:none; color:transparent;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(4.5rem,13vw,9rem); line-height:1;
+  -webkit-text-stroke:1.6px rgba(25,27,31,.13);
+  letter-spacing:-.04em; pointer-events:none;
 }
 .cartouche h2{
-  flex:0 0 auto; padding:0;
+  position:relative; z-index:1; flex:0 0 auto; padding:0;
   font-family:var(--display); font-weight:800;
   font-size:clamp(1.8rem,5.2vw,2.8rem);
   text-transform:uppercase; letter-spacing:-.035em; line-height:1;
-  position:relative; display:inline-block;
+  display:inline-block;
 }
 .cartouche h2::after{
   content:''; position:absolute; left:-.03em; right:-.03em; bottom:.05em;
@@ -384,10 +386,12 @@
 }
 .parcours .cartouche h2::after{background:var(--rouge); opacity:.3;}
 .cartouche .fil{
+  position:relative; z-index:1;
   flex:1; min-width:40px; height:1.5px; border-radius:999px;
   background:var(--trait);
 }
 .cartouche .meta{
+  position:relative; z-index:1;
   display:inline-flex; align-items:center;
   border:1.5px solid var(--encre); border-radius:999px;
   padding:.42rem 1rem;
@@ -396,6 +400,146 @@
   background:var(--papier); white-space:nowrap;
 }
 @media(max-width:640px){
+  .cartouche .num{font-size:4.5rem; top:-.3em;}
   .cartouche .fil{display:none;}
   .cartouche .meta{font-size:.53rem; padding:.35rem .8rem;}
+}
+
+/* ==========================================================================
+   EXPERIENCES : composition decalee
+   Chaque experience est adossee a son annee ecrite en tres grand, en
+   contour gris. La fiche se pose par dessus, alternativement a droite
+   et a gauche.
+   ========================================================================== */
+.experiences{display:grid; gap:clamp(1.6rem,4vw,3rem);}
+
+.exp-item{--teinte:var(--bleu); position:relative;}
+.exp-fond{
+  position:absolute; z-index:0; top:-.34em; pointer-events:none;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(5rem,15vw,11.5rem); line-height:.82;
+  color:transparent; -webkit-text-stroke:2px rgba(25,27,31,.14);
+  letter-spacing:-.05em; white-space:nowrap;
+}
+.exp-item.gauche .exp-fond{left:-.04em;}
+.exp-item.droite .exp-fond{right:-.04em;}
+.exp-item.pleine .exp-fond{left:50%; transform:translateX(-50%);}
+
+.exp-carte{
+  position:relative; z-index:2;
+  border:1.5px solid var(--encre); border-radius:28px;
+  background:rgba(255,255,255,.93);
+  backdrop-filter:blur(4px);
+  padding:1.7rem 1.8rem 1.6rem;
+  box-shadow:0 18px 40px rgba(25,27,31,.11);
+  transition:transform .28s cubic-bezier(.2,.8,.3,1), box-shadow .28s;
+}
+.exp-carte::before{
+  content:''; position:absolute; left:0; top:24px; bottom:24px; width:6px;
+  border-radius:0 999px 999px 0; background:var(--teinte);
+}
+@media(min-width:900px){
+  .exp-item{padding-top:2.6rem;}
+  .exp-item.gauche .exp-carte{width:70%; margin-left:auto;}
+  .exp-item.droite .exp-carte{width:70%; margin-right:auto;}
+  .exp-item.pleine .exp-carte{width:88%; margin-inline:auto;}
+}
+
+/* ---------- En-tete de fiche ---------- */
+.exp-entete{display:flex; align-items:flex-start; gap:1.2rem; justify-content:space-between;}
+.exp-lieu{
+  font-family:var(--tech); font-size:.63rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--gris); margin-bottom:.5rem;
+}
+.exp-lieu b{
+  color:var(--encre); font-weight:500;
+  border-bottom:2.5px solid var(--teinte); padding-bottom:.12rem;
+}
+.exp-carte h3{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.2rem,2.5vw,1.6rem); line-height:1.14;
+  letter-spacing:-.028em;
+}
+.exp-carte h3 a{
+  text-decoration:none;
+  background-image:linear-gradient(var(--teinte),var(--teinte));
+  background-size:0 2.5px; background-repeat:no-repeat; background-position:0 100%;
+  transition:background-size .28s ease;
+}
+.exp-carte h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
+.exp-carte.cliquable:hover{transform:translateY(-6px); box-shadow:0 26px 54px rgba(25,27,31,.17);}
+.exp-carte.cliquable:hover h3 a{background-size:100% 2.5px;}
+.exp-carte.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:4px;}
+.exp-carte .fonction{
+  font-family:var(--tech); font-size:.63rem; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--gris); margin-top:.55rem;
+}
+.exp-carte .texte{margin-top:1rem; line-height:1.78;}
+.exp-carte .texte + .texte{margin-top:.7rem;}
+
+.exp-vignette{
+  position:relative; flex:0 0 76px; width:76px; aspect-ratio:1/1;
+  border:1.5px solid var(--encre); border-radius:20px;
+  background:repeating-linear-gradient(45deg, #F0EEE7 0 6px, var(--papier) 6px 12px);
+  overflow:hidden;
+}
+.exp-vignette img{width:100%; height:100%; object-fit:contain; padding:8px; position:relative; z-index:1;}
+.exp-vignette.vide img{display:none;}
+.exp-vignette.vide::before{
+  content:'logo'; position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-family:var(--tech); font-size:.5rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gris);
+}
+
+.marqueur{
+  display:inline-block; font-family:var(--tech); font-size:.55rem;
+  letter-spacing:.11em; text-transform:uppercase;
+  background:var(--teinte); color:var(--papier);
+  border-radius:999px; padding:.2rem .6rem;
+  margin-left:.5rem; vertical-align:middle;
+}
+.voir-plus{
+  display:inline-block; margin-top:1.1rem;
+  font-family:var(--tech); font-size:.63rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--teinte);
+}
+.voir-plus::after{content:' \2192'; display:inline-block; transition:margin-left .2s ease;}
+.exp-carte.cliquable:hover .voir-plus::after{margin-left:.4rem;}
+
+/* ---------- Le PFE, en tete ---------- */
+.exp-item.destination .exp-fond{-webkit-text-stroke-color:rgba(217,65,47,.28);}
+.destination .exp-carte{
+  border:2.5px dashed var(--rouge);
+  background:linear-gradient(150deg,rgba(255,255,255,.96) 0%, rgba(255,244,242,.96) 100%);
+  box-shadow:0 22px 50px rgba(217,65,47,.18);
+}
+.destination .exp-carte::before{background:var(--rouge); width:7px;}
+.destination .exp-lieu b{border-bottom-color:var(--rouge);}
+.destination .exp-vignette{border-style:dashed; border-color:var(--rouge);}
+.destination .exp-vignette.vide::before{content:'?'; font-size:1rem; color:var(--rouge);}
+.badge-recherche{
+  display:inline-block; vertical-align:middle; margin-left:.6rem;
+  font-family:var(--tech); font-size:.56rem; letter-spacing:.14em;
+  text-transform:uppercase; font-weight:500;
+  background:var(--rouge); color:var(--papier);
+  border-radius:999px; padding:.24rem .65rem;
+  animation:battement 2.6s ease-in-out infinite;
+}
+@keyframes battement{
+  0%,100%{box-shadow:0 0 0 0 rgba(217,65,47,.5);}
+  55%{box-shadow:0 0 0 8px rgba(217,65,47,0);}
+}
+.destination .bouton{background:var(--rouge); border-color:var(--rouge); border-radius:999px;}
+.destination .bouton:hover{background:var(--encre); border-color:var(--encre); color:var(--papier);}
+.destination .etiquettes span{border-color:var(--rouge); color:var(--rouge);}
+
+/* ---------- Telephone ---------- */
+@media(max-width:899px){
+  .exp-item{padding-top:3.2rem;}
+  .exp-fond{font-size:clamp(4.4rem,19vw,7rem); top:-.1em; left:0 !important; right:auto !important; transform:none !important;}
+  .exp-carte{padding:1.4rem 1.25rem 1.35rem; border-radius:22px;}
+  .exp-carte::before{width:5px; top:16px; bottom:16px;}
+  .exp-entete{flex-direction:column; gap:.9rem;}
+  .exp-vignette{flex:0 0 66px; width:66px;}
 }
