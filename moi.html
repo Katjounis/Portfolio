@@ -11,105 +11,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=30">
-<link rel="stylesheet" href="assets/css/moi.css?v=30">
+<link rel="stylesheet" href="assets/css/base.css?v=32">
+<link rel="stylesheet" href="assets/css/moi.css?v=32">
 </head>
 <body class="page-moi">
-
-<!-- ══════════════ LE JARDIN EN ARRIÈRE-PLAN ══════════════ -->
-<div class="jardin" aria-hidden="true">
-  <svg class="sprite" width="0" height="0" focusable="false">
-    <defs>
-
-      <!-- Étagère A : monstera et petit pot -->
-      <symbol id="et-a" viewBox="0 0 260 210">
-        <g class="feuille">
-          <path d="M66 150 C44 132 42 96 66 72 C90 96 88 132 66 150Z"/>
-          <path d="M66 150 V74"/>
-          <path d="M66 124 L50 112 M66 124 L82 112 M66 106 L54 94 M66 106 L78 94"/>
-          <path d="M96 150 C112 138 116 116 104 100 C88 112 84 136 96 150Z"/>
-          <path d="M96 150 C100 130 102 114 104 102"/>
-          <path d="M40 150 C26 140 22 122 32 108 C46 118 50 138 40 150Z"/>
-        </g>
-        <path class="pot" d="M42 150 H100 L92 190 H50 Z"/>
-        <path class="pot" d="M36 150 H106"/>
-        <path class="terre" d="M46 154 H96 L94 164 H48 Z"/>
-        <g class="feuille">
-          <path d="M186 156 C176 146 174 130 184 120 C194 130 196 146 186 156Z"/>
-          <path d="M204 156 C214 148 216 134 208 124 C198 132 196 148 204 156Z"/>
-          <path d="M195 156 V128"/>
-        </g>
-        <path class="pot" d="M176 156 H216 L211 188 H181 Z"/>
-        <path class="pot" d="M171 156 H221"/>
-        <g class="bois">
-          <path d="M8 190 H252 V202 H8 Z"/>
-          <path d="M34 202 V210 M226 202 V210"/>
-        </g>
-      </symbol>
-
-      <!-- Étagère B : plante retombante et cactus -->
-      <symbol id="et-b" viewBox="0 0 260 230">
-        <g class="feuille">
-          <path d="M58 120 C50 104 56 86 70 82 C78 96 74 114 58 120Z"/>
-          <path d="M86 118 C96 104 92 86 78 82"/>
-          <path d="M72 118 V88"/>
-        </g>
-        <path class="pot" d="M52 120 H94 L88 156 H58 Z"/>
-        <path class="pot" d="M47 120 H99"/>
-        <g class="feuille">
-          <path d="M60 152 C52 172 44 190 34 206 C28 216 26 224 28 230"/>
-          <path d="M86 152 C92 172 96 190 92 208"/>
-          <path d="M52 176 C46 172 40 174 38 180 C44 184 50 182 52 176Z"/>
-          <path d="M44 196 C38 192 32 194 30 200 C36 204 42 202 44 196Z"/>
-          <path d="M92 178 C98 174 104 176 106 182 C100 186 94 184 92 178Z"/>
-          <path d="M94 200 C100 196 106 198 108 204 C102 208 96 206 94 200Z"/>
-        </g>
-        <g class="feuille">
-          <path d="M188 152 V116 C188 104 204 104 204 116 V152"/>
-          <path d="M204 130 C214 126 222 132 220 142 C218 150 210 152 204 148"/>
-          <path d="M188 138 C178 134 170 140 172 150 C174 158 182 160 188 156"/>
-        </g>
-        <path class="pot" d="M180 152 H212 L207 184 H185 Z"/>
-        <path class="pot" d="M175 152 H217"/>
-        <g class="bois">
-          <path d="M8 184 H252 V196 H8 Z"/>
-          <path d="M32 196 V206 M228 196 V206"/>
-        </g>
-      </symbol>
-
-      <!-- Étagère C : sansevière et boule -->
-      <symbol id="et-c" viewBox="0 0 240 200">
-        <g class="feuille">
-          <path d="M62 140 C56 112 58 84 66 58"/>
-          <path d="M74 140 C74 110 78 82 88 60"/>
-          <path d="M52 140 C48 116 46 94 48 74"/>
-          <path d="M66 58 C70 68 70 78 66 88 C62 78 62 68 66 58Z"/>
-          <path d="M88 60 C90 72 88 82 82 90 C80 78 82 68 88 60Z"/>
-        </g>
-        <path class="pot" d="M46 140 H88 L82 176 H52 Z"/>
-        <path class="pot" d="M41 140 H93"/>
-        <path class="terre" d="M50 144 H84 L83 152 H51 Z"/>
-        <g class="feuille">
-          <path d="M172 138 C152 138 142 122 148 106 C156 90 180 88 192 100 C204 112 196 136 172 138Z"/>
-          <path d="M172 138 V150"/>
-          <path class="vert" d="M172 138 C152 138 142 122 148 106 C156 90 180 88 192 100 C204 112 196 136 172 138Z"/>
-        </g>
-        <path class="pot" d="M156 150 H190 L186 176 H160 Z"/>
-        <path class="pot" d="M151 150 H195"/>
-        <g class="bois">
-          <path d="M8 176 H232 V188 H8 Z"/>
-          <path d="M30 188 V198 M210 188 V198"/>
-        </g>
-      </symbol>
-
-    </defs>
-  </svg>
-
-  <svg class="etagere e1" viewBox="0 0 260 210"><use href="#et-a"/></svg>
-  <svg class="etagere e2 pale" viewBox="0 0 260 230"><use href="#et-b"/></svg>
-  <svg class="etagere e3" viewBox="0 0 240 200"><use href="#et-c"/></svg>
-  <svg class="etagere e4 pale" viewBox="0 0 260 210"><use href="#et-a"/></svg>
-</div>
 
 <header class="bandeau">
   <div class="bandeau-int">
@@ -130,7 +35,7 @@
 <section class="m-hero enveloppe">
   <div class="m-hero-grille">
     <div>
-      <span class="m-badge">Hors chantier</span>
+      <span class="m-pill plein">Hors chantier</span>
 
       <h1 class="m-titre">Le reste<br><em>du temps</em></h1>
 
@@ -150,254 +55,264 @@
       </div>
     </div>
 
-    <figure class="m-portrait">
-      <div class="cadre" data-legende="portrait.jpg">
-        <!-- ✏️ assets/img/moi/portrait.jpg -->
-        <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
+    <div class="m-portrait-zone">
+      <figure class="m-photo haute arche m-portrait">
+        <div class="cadre" data-legende="portrait.jpg">
+          <!-- ✏️ assets/img/moi/portrait.jpg -->
+          <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
+        </div>
+        <span class="m-jeton bg"><b>2026</b><span>Villeurbanne</span></span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 01 · LE TRAIT ══════════════ -->
+<section class="m-section enveloppe" id="trait">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">01</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Le <em>trait</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">Design de tatouages</span>
+    </div>
+  </div>
+
+  <div class="m-duo serre">
+    <div class="m-carte flotte revele">
+      <div class="m-texte"><!-- ✏️ -->
+        <p>Je ne tatoue pas, je dessine. Des projets que d'autres iront faire
+        encrer chez un tatoueur. Old school et ornemental surtout : deux écoles
+        opposées que j'aime pour la même raison, le trait ne pardonne rien. Pas
+        de calque, pas de retour arrière, pas de « on verra au rendu ».</p>
+
+        <p>Pour tenir le rythme, je me suis imposé un défi : <strong>50 designs
+        en 50 jours</strong>. Cinquante planches, une par jour, publiées au fur
+        et à mesure. C'est là que j'ai compris qu'un dessin se juge d'abord à ce
+        qu'on en enlève.</p>
+
+        <div class="m-tags">
+          <span>Procreate</span><span>Old school</span><span>Ornemental</span><span>Encre</span>
+        </div>
+
+        <a class="m-lien" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir les planches</a>
       </div>
-      <figcaption>Villeurbanne · 2026</figcaption>
+    </div>
+
+    <div class="m-planche revele"><!-- ✏️ tes planches dans assets/img/moi/ -->
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
+      <figure class="m-photo"><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 02 · LES VOLUMES ══════════════ -->
+<section class="m-section enveloppe" id="volumes">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">02</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Les <em>volumes</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">3D et design</span>
+    </div>
+  </div>
+
+  <div class="m-duo serre inverse">
+    <div class="m-carte flotte revele">
+      <div class="m-texte"><!-- ✏️ -->
+        <p>L'envie de modéliser est arrivée bien avant les études. Tourner un
+        volume, le couper, comprendre comment il tient : c'est resté la même
+        curiosité, elle a juste changé de logiciel en cours de route.</p>
+
+        <p>Aujourd'hui ça s'appelle du BIM et ça se fait sous
+        <strong>Revit</strong>, mais le plaisir n'a pas bougé. Modéliser, c'est
+        encore la seule façon que je connaisse de voir un bâtiment avant qu'il
+        existe.</p>
+
+        <p>À côté, il y a le design pur : mise en page, typographie,
+        composition. J'ai porté l'identité visuelle du <strong>Riptide</strong>
+        et celle de SAN Horizons.</p>
+
+        <div class="m-tags">
+          <span>Revit</span><span>Twinmotion</span><span>Procreate</span><span>Canva</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-pile revele">
+      <figure class="m-photo galet principale">
+        <div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div>
+      </figure>
+      <figure class="m-photo carre seconde">
+        <div class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 03 · LE TERRAIN ══════════════ -->
+<section class="m-section enveloppe" id="terrain">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">03</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Le <em>terrain</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">Rugby et basket</span>
+    </div>
+  </div>
+
+  <div class="m-duo serre">
+    <div class="m-carte flotte revele">
+      <div class="m-texte"><!-- ✏️ -->
+        <p>Rugby en universitaire, et surtout en passionné : Top 14, Coupe du
+        monde, tournées, je ne rate pas grand chose. C'est le sport qui apprend
+        à pousser dans le même sens que les autres, ce qui reste à peu de choses
+        près la compétence la plus utile en bureau d'études.</p>
+
+        <p>Avant ça, <strong>cinq saisons de basket à Mably</strong>. Le
+        collectif ne date pas d'hier, et l'habitude de rendre du travail sans se
+        cacher derrière l'équipe non plus.</p>
+
+        <p>Aujourd'hui je suis passé de l'autre côté de la ligne de touche,
+        comme jeune dirigeant au sein du club.</p>
+
+        <div class="m-tags"><span>Rugby</span><span>Basket</span><span>Jeune dirigeant</span></div>
+      </div>
+    </div>
+
+    <figure class="m-photo revele">
+      <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
+      <span class="m-jeton bd"><b>5</b><span>saisons<br>à Mably</span></span>
     </figure>
   </div>
 </section>
 
-<!-- ══════════════ RUBRIQUES ══════════════ -->
-<section class="enveloppe">
-  <div class="m-rubriques">
+<!-- ══════════════ 04 · AILLEURS ══════════════ -->
+<section class="m-section enveloppe" id="ailleurs">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">04</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Aller voir <em>ailleurs</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">Neuf pays</span>
+    </div>
+  </div>
 
-    <!-- ─── 01 ─── -->
-    <details class="rubrique" open>
-      <summary>
-        <span class="r-num">01</span>
-        <span class="r-intitule">
-          <span class="r-titre">Le trait</span>
-          <span class="r-sous">Design de tatouages · depuis 2024</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="r-grille">
-          <div class="r-texte"><!-- ✏️ -->
-            <p>Je ne tatoue pas, je dessine. Des projets que d'autres iront faire
-            encrer chez un tatoueur. Old school et ornemental surtout : deux
-            écoles opposées que j'aime pour la même raison, le trait ne pardonne
-            rien. Pas de calque, pas de retour arrière.</p>
-            <p>Pour tenir le rythme, je me suis imposé un défi : <strong>50 designs
-            en 50 jours</strong>. Cinquante planches, une par jour. C'est là que
-            j'ai compris qu'un dessin se juge d'abord à ce qu'on en enlève.</p>
-            <div class="r-tags">
-              <span>Procreate</span><span>Old school</span><span>Ornemental</span><span>Encre</span>
-            </div>
-            <a class="r-lien" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir les planches</a>
-          </div>
+  <div class="m-duo serre inverse">
+    <div class="m-carte flotte revele">
+      <div class="m-texte"><!-- ✏️ -->
+        <p>Le semestre à Édimbourg a servi de rampe de lancement : Highlands,
+        côtes écossaises, et pas mal d'allers-retours en Europe entre deux
+        rendus.</p>
 
-          <div class="r-planche"><!-- ✏️ tes planches dans assets/img/moi/ -->
-            <figure><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
-            <figure><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
-            <figure><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
-            <figure><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
-            <figure><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
-            <figure><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
-          </div>
-        </div>
+        <p>Le premier réflexe en arrivant quelque part, c'est de lever la tête.
+        Un porche, un appareillage de brique, une charpente laissée apparente :
+        je repars rarement d'une ville sans une centaine de photos dont personne
+        ne veut.</p>
+
+        <ol class="m-index" style="margin-top:1.2rem"><!-- ✏️ tes vrais pays -->
+          <li><span class="n">01</span><span class="lib">France</span><span class="pt"></span><span class="val">base</span></li>
+          <li><span class="n">02</span><span class="lib">Écosse</span><span class="pt"></span><span class="val">2026</span></li>
+          <li><span class="n">03</span><span class="lib">Angleterre</span><span class="pt"></span><span class="val">2026</span></li>
+          <li><span class="n">04</span><span class="lib">Irlande</span><span class="pt"></span><span class="val">✏️</span></li>
+          <li><span class="n">05</span><span class="lib">Italie</span><span class="pt"></span><span class="val">✏️</span></li>
+          <li><span class="n">06</span><span class="lib">Espagne</span><span class="pt"></span><span class="val">✏️</span></li>
+          <li><span class="n">07</span><span class="lib">Portugal</span><span class="pt"></span><span class="val">✏️</span></li>
+          <li><span class="n">08</span><span class="lib">Pays-Bas</span><span class="pt"></span><span class="val">✏️</span></li>
+          <li><span class="n">09</span><span class="lib">Allemagne</span><span class="pt"></span><span class="val">✏️</span></li>
+        </ol>
       </div>
+    </div>
+
+    <div class="m-pile revele">
+      <figure class="m-photo haute arche principale">
+        <div class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div>
+      </figure>
+      <figure class="m-photo carre seconde">
+        <div class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 05 · LA FAQ ══════════════ -->
+<section class="m-section enveloppe" id="questions">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">05</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Six <em>questions</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">À déplier</span>
+    </div>
+  </div>
+
+  <div class="m-faq revele"><!-- ✏️ réécris toutes les réponses -->
+    <details class="q-item" open>
+      <summary><span class="n">01</span><span class="q">Ce que je dessine quand je ne réfléchis pas</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>Des <b>roses</b>. Toujours. J'en ai fait plus de deux cents et je rate encore une pétale sur trois.</p></div>
     </details>
-
-    <!-- ─── 02 ─── -->
-    <details class="rubrique">
-      <summary>
-        <span class="r-num">02</span>
-        <span class="r-intitule">
-          <span class="r-titre">Les volumes</span>
-          <span class="r-sous">3D, BIM et design graphique</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="r-grille inverse">
-          <div>
-            <figure class="r-photo galet">
-              <div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div>
-            </figure>
-            <div class="r-duo" style="margin-top:.9rem">
-              <figure class="r-photo"><div class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
-              <figure class="r-photo"><div class="cadre" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div></figure>
-            </div>
-          </div>
-
-          <div class="r-texte"><!-- ✏️ -->
-            <p>L'envie de modéliser est arrivée bien avant les études. Tourner un
-            volume, le couper, comprendre comment il tient : c'est resté la même
-            curiosité, elle a juste changé de logiciel en cours de route.</p>
-            <p>Aujourd'hui ça s'appelle du BIM et ça se fait sous
-            <strong>Revit</strong>, mais le plaisir n'a pas bougé. Modéliser,
-            c'est encore la seule façon que je connaisse de voir un bâtiment
-            avant qu'il existe.</p>
-            <p>À côté, il y a le design pur : mise en page, typographie,
-            composition. J'ai porté l'identité visuelle du
-            <strong>Riptide</strong> et celle de SAN Horizons.</p>
-            <div class="r-tags">
-              <span>Revit</span><span>Twinmotion</span><span>Procreate</span><span>Canva</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <details class="q-item">
+      <summary><span class="n">02</span><span class="q">Le truc que je fais mal</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>Estimer le temps qu'un rendu va me prendre. Je multiplie par deux, et ce n'est toujours pas assez.</p></div>
     </details>
-
-    <!-- ─── 03 ─── -->
-    <details class="rubrique">
-      <summary>
-        <span class="r-num">03</span>
-        <span class="r-intitule">
-          <span class="r-titre">Le terrain</span>
-          <span class="r-sous">Rugby, basket, vie de club</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="r-grille">
-          <div class="r-texte"><!-- ✏️ -->
-            <p>Rugby en universitaire, et surtout en passionné : Top 14, Coupe du
-            monde, tournées, je ne rate pas grand chose. C'est le sport qui
-            apprend à pousser dans le même sens que les autres, ce qui reste à peu
-            de choses près la compétence la plus utile en bureau d'études.</p>
-            <p>Avant ça, <strong>cinq saisons de basket à Mably</strong>. Le
-            collectif ne date pas d'hier, et l'habitude de rendre du travail sans
-            se cacher derrière l'équipe non plus.</p>
-            <p>Aujourd'hui je suis passé de l'autre côté de la ligne de touche,
-            comme jeune dirigeant au sein du club.</p>
-            <div class="r-tags"><span>Rugby</span><span>Basket</span><span>Jeune dirigeant</span></div>
-          </div>
-
-          <figure class="r-photo arche">
-            <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
-          </figure>
-        </div>
-      </div>
+    <details class="q-item">
+      <summary><span class="n">03</span><span class="q">Ma manie sur un chantier</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>Photographier les détails d'assemblage. J'ai plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p></div>
     </details>
-
-    <!-- ─── 04 ─── -->
-    <details class="rubrique">
-      <summary>
-        <span class="r-num">04</span>
-        <span class="r-intitule">
-          <span class="r-titre">Aller voir ailleurs</span>
-          <span class="r-sous">Neuf pays, une centaine de photos de porches</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="r-grille inverse">
-          <div class="r-duo">
-            <figure class="r-photo arche"><div class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div></figure>
-            <figure class="r-photo arche"><div class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
-          </div>
-
-          <div class="r-texte"><!-- ✏️ -->
-            <p>Le semestre à Édimbourg a servi de rampe de lancement : Highlands,
-            côtes écossaises, et pas mal d'allers-retours en Europe entre deux
-            rendus.</p>
-            <p>Le premier réflexe en arrivant quelque part, c'est de lever la
-            tête. Un porche, un appareillage de brique, une charpente laissée
-            apparente : je repars rarement d'une ville sans une centaine de photos
-            dont personne ne veut.</p>
-
-            <ol class="m-index" style="margin-top:1.2rem"><!-- ✏️ tes vrais pays -->
-              <li><span class="n">01</span><span class="lib">France</span><span class="pt"></span><span class="val">base</span></li>
-              <li><span class="n">02</span><span class="lib">Écosse</span><span class="pt"></span><span class="val">2026</span></li>
-              <li><span class="n">03</span><span class="lib">Angleterre</span><span class="pt"></span><span class="val">2026</span></li>
-              <li><span class="n">04</span><span class="lib">Irlande</span><span class="pt"></span><span class="val">✏️</span></li>
-              <li><span class="n">05</span><span class="lib">Italie</span><span class="pt"></span><span class="val">✏️</span></li>
-              <li><span class="n">06</span><span class="lib">Espagne</span><span class="pt"></span><span class="val">✏️</span></li>
-              <li><span class="n">07</span><span class="lib">Portugal</span><span class="pt"></span><span class="val">✏️</span></li>
-              <li><span class="n">08</span><span class="lib">Pays-Bas</span><span class="pt"></span><span class="val">✏️</span></li>
-              <li><span class="n">09</span><span class="lib">Allemagne</span><span class="pt"></span><span class="val">✏️</span></li>
-            </ol>
-          </div>
-        </div>
-      </div>
+    <details class="q-item">
+      <summary><span class="n">04</span><span class="q">Le bâtiment qui m'a scotché</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>✏️ Le tien, avec le lieu et la raison.</p></div>
     </details>
-
-    <!-- ─── 05 ─── -->
-    <details class="rubrique">
-      <summary>
-        <span class="r-num">05</span>
-        <span class="r-intitule">
-          <span class="r-titre">Le questionnaire</span>
-          <span class="r-sous">Six réponses, à déplier</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="q-liste"><!-- ✏️ réécris toutes les réponses -->
-          <details class="q-item" open>
-            <summary><span class="n">01</span><span class="q">Ce que je dessine quand je ne réfléchis pas</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>Des <b>roses</b>. Toujours. J'en ai fait plus de deux cents et je rate encore une pétale sur trois.</p></div>
-          </details>
-          <details class="q-item">
-            <summary><span class="n">02</span><span class="q">Le truc que je fais mal</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>Estimer le temps qu'un rendu va me prendre. Je multiplie par deux, et ce n'est toujours pas assez.</p></div>
-          </details>
-          <details class="q-item">
-            <summary><span class="n">03</span><span class="q">Ma manie sur un chantier</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>Photographier les détails d'assemblage. J'ai plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p></div>
-          </details>
-          <details class="q-item">
-            <summary><span class="n">04</span><span class="q">Le bâtiment qui m'a scotché</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>✏️ Le tien, avec le lieu et la raison.</p></div>
-          </details>
-          <details class="q-item">
-            <summary><span class="n">05</span><span class="q">Ce que je ferais si je n'étais pas ingénieur</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>Tatoueur, probablement. Ou les deux, ce qui reste mon plan de secours préféré.</p></div>
-          </details>
-          <details class="q-item">
-            <summary><span class="n">06</span><span class="q">La question qu'on me pose toujours en entretien</span><span class="plus" aria-hidden="true"></span></summary>
-            <div class="r"><p>Pourquoi le BTP quand on aime autant dessiner. Réponse courte : parce que c'est du dessin qui tient debout.</p></div>
-          </details>
-        </div>
-      </div>
+    <details class="q-item">
+      <summary><span class="n">05</span><span class="q">Ce que je ferais si je n'étais pas ingénieur</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>Tatoueur, probablement. Ou les deux, ce qui reste mon plan de secours préféré.</p></div>
     </details>
-
-    <!-- ─── 06 ─── -->
-    <details class="rubrique">
-      <summary>
-        <span class="r-num">06</span>
-        <span class="r-intitule">
-          <span class="r-titre">Sur mon bureau</span>
-          <span class="r-sous">Inventaire, plantes comprises</span>
-        </span>
-        <span class="r-chevron" aria-hidden="true"></span>
-      </summary>
-      <div class="r-contenu">
-        <div class="r-grille">
-          <ol class="m-index"><!-- ✏️ ce qu'il y a vraiment sur ton bureau -->
-            <li><span class="n">01</span><span class="lib">iPad et Procreate</span><span class="pt"></span><span class="val">dessin</span></li>
-            <li><span class="n">02</span><span class="lib">Carnet à carreaux</span><span class="pt"></span><span class="val">jamais fini</span></li>
-            <li><span class="n">03</span><span class="lib">Deux écrans</span><span class="pt"></span><span class="val">dont un pour Revit</span></li>
-            <li><span class="n">04</span><span class="lib">Casque</span><span class="pt"></span><span class="val">permanent</span></li>
-            <li><span class="n">05</span><span class="lib">Feutres pointe fine</span><span class="pt"></span><span class="val">0,05</span></li>
-            <li><span class="n">06</span><span class="lib">Deux plantes</span><span class="pt"></span><span class="val">encore vivantes</span></li>
-          </ol>
-
-          <div class="r-texte">
-            <p>Le carnet sert autant aux croquis de flash qu'aux descentes de
-            charges, ce qui explique assez bien le reste de cette page. Les deux
-            demandent la même chose : décider vite, puis assumer le trait.</p>
-            <p class="m-citation" style="margin-top:1.6rem">
-              Un plan et un dessin, c'est le même métier :
-              <em>décider quoi garder.</em>
-            </p>
-          </div>
-        </div>
-      </div>
+    <details class="q-item">
+      <summary><span class="n">06</span><span class="q">La question qu'on me pose toujours en entretien</span><span class="plus" aria-hidden="true"></span></summary>
+      <div class="r"><p>Pourquoi le BTP quand on aime autant dessiner. Réponse courte : parce que c'est du dessin qui tient debout.</p></div>
     </details>
+  </div>
+</section>
 
+<!-- ══════════════ 06 · LE BUREAU ══════════════ -->
+<section class="m-section enveloppe" id="bureau">
+  <div class="m-tete revele">
+    <span class="m-chiffre" aria-hidden="true">06</span>
+    <div class="m-tete-int">
+      <h2 class="m-h2">Sur mon <em>bureau</em></h2>
+      <span class="m-fil" aria-hidden="true"></span>
+      <span class="m-pill">Inventaire</span>
+    </div>
+  </div>
+
+  <div class="m-duo">
+    <div class="m-carte flotte revele">
+      <ol class="m-index"><!-- ✏️ ce qu'il y a vraiment sur ton bureau -->
+        <li><span class="n">01</span><span class="lib">iPad et Procreate</span><span class="pt"></span><span class="val">dessin</span></li>
+        <li><span class="n">02</span><span class="lib">Carnet à carreaux</span><span class="pt"></span><span class="val">jamais fini</span></li>
+        <li><span class="n">03</span><span class="lib">Deux écrans</span><span class="pt"></span><span class="val">dont un pour Revit</span></li>
+        <li><span class="n">04</span><span class="lib">Casque</span><span class="pt"></span><span class="val">permanent</span></li>
+        <li><span class="n">05</span><span class="lib">Feutres pointe fine</span><span class="pt"></span><span class="val">0,05</span></li>
+        <li><span class="n">06</span><span class="lib">Un café</span><span class="pt"></span><span class="val">froid</span></li>
+      </ol>
+    </div>
+
+    <div class="m-citation revele">
+      <p>Un plan et un dessin, c'est le même métier :
+      <em>décider quoi garder.</em></p>
+      <span class="signe">Samuel Chaux</span>
+    </div>
   </div>
 </section>
 
 </main>
 
-<footer class="p-colophon enveloppe">
-  <div class="p-colophon-grille">
+<footer class="m-colophon enveloppe">
+  <div class="m-colophon-grille">
     <h2>On en<br>discute ?</h2>
     <div>
       <div class="liens">
@@ -414,6 +329,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=30"></script>
+<script src="assets/js/app.js?v=32"></script>
 </body>
 </html>
