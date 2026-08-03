@@ -46,4 +46,30 @@
     var cible = a.getAttribute('href');
     if (cible === page) a.classList.add('ici');
   });
+   /* --- 4. Lightbox : clic sur une photo pour l'afficher en grand --- */
+  var boiteLightbox = document.createElement('div');
+  boiteLightbox.className = 'lightbox';
+  boiteLightbox.innerHTML = '<img alt="">';
+  document.body.appendChild(boiteLightbox);
+  var imgLightbox = boiteLightbox.querySelector('img');
+
+  function ouvrirLightbox(src, alt) {
+    imgLightbox.src = src;
+    imgLightbox.alt = alt || '';
+    boiteLightbox.classList.add('ouverte');
+  }
+  function fermerLightbox() {
+    boiteLightbox.classList.remove('ouverte');
+    imgLightbox.src = '';
+  }
+
+  document.querySelectorAll('.cadre img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      ouvrirLightbox(img.src, img.alt);
+    });
+  });
+  boiteLightbox.addEventListener('click', fermerLightbox);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') fermerLightbox();
+  });
 })();
