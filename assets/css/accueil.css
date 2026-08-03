@@ -66,18 +66,7 @@
    Les bornes indiquent la distance depuis l'etape precedente.
    ========================================================================== */
 
-.parcours{
-  position:relative; isolation:isolate;
-  background:linear-gradient(180deg,
-    #FBFAF5 0%, #F1F4FA 32%, #F8F5ED 66%, #F0F2F7 100%);
-}
-.parcours::before{
-  content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
-  background:
-    radial-gradient(58% 38% at 86% 3%, rgba(27,79,216,.11), transparent 66%),
-    radial-gradient(46% 32% at 3% 40%, rgba(255,197,61,.13), transparent 68%),
-    radial-gradient(50% 34% at 94% 76%, rgba(27,138,90,.09), transparent 66%);
-}
+css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .parcours::after{
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
   opacity:.26; mix-blend-mode:multiply;
