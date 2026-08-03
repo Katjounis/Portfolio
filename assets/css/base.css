@@ -208,6 +208,8 @@ a{color:inherit;}
 
   .contact-titre{font-size:clamp(1.6rem,9vw,2.4rem);}
   .section{padding-block:2.2rem;}
+
+   .enveloppe, .bandeau-int, .pied-int{padding-inline:1.25rem;}
 }
 /* ---------- Lightbox photos ---------- */
 .cadre img{cursor:zoom-in;}
