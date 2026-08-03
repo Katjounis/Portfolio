@@ -1,4 +1,4 @@
-/* v20 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v22 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    ACCUEIL : héros, parcours en itinéraire, projets, nomenclature
    ========================================================================== */
@@ -69,27 +69,20 @@
 .parcours{
   position:relative; isolation:isolate;
   background:linear-gradient(180deg,
-    #B9D6F2 0%,
-    #D6E7F7 24%,
-    #EDF2F5 46%,
-    #F6F0E2 62%,
-    var(--terre-haut) 80%,
-    var(--terre-bas) 100%);
+    #FBFAF5 0%, #F1F4FA 32%, #F8F5ED 66%, #F0F2F7 100%);
 }
-/* Trame de plan, très discrète */
 .parcours::before{
   content:''; position:absolute; inset:0; z-index:-2; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(25,27,31,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(25,27,31,.045) 1px, transparent 1px);
-  background-size:54px 54px;
+  background:
+    radial-gradient(58% 38% at 86% 3%, rgba(27,79,216,.11), transparent 66%),
+    radial-gradient(46% 32% at 3% 40%, rgba(255,197,61,.13), transparent 68%),
+    radial-gradient(50% 34% at 94% 76%, rgba(27,138,90,.09), transparent 66%);
 }
-/* Grain de papier */
 .parcours::after{
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  opacity:.34; mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%2523g)'%20opacity='0.22'/%3E%3C/svg%3E");
-  background-size:160px 160px;
+  opacity:.26; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='170'%20height='170'%20filter='url(%2523g)'%20opacity='0.18'/%3E%3C/svg%3E");
+  background-size:170px 170px;
 }
 
 .notice{
@@ -97,252 +90,170 @@
   line-height:1.75; color:#33352E;
   max-width:none; text-align:justify;
   margin-bottom:1.4rem;
-  border-block:1.5px solid rgba(25,27,31,.25); padding-block:.9rem;
+  border-block:1.5px solid rgba(25,27,31,.22); padding-block:.9rem;
 }
 
-/* ---------- Resume de l'itineraire ---------- */
-.resume{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2.2rem;}
+.resume{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2.4rem;}
 .resume span{
   font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--gris);
   border:1.5px solid var(--trait); border-radius:999px;
-  background:var(--papier); padding:.42rem .95rem;
+  background:rgba(255,255,255,.7); padding:.42rem .95rem;
 }
 .resume span b{color:var(--encre); font-weight:500;}
 
 /* ==========================================================================
-   LE CHEMIN
-   Un sentier serpente du haut vers le bas. Les cartes s'accrochent
-   alternativement a gauche et a droite, et les segments de sentier sont des
-   courbes SVG etirees. vector-effect garde une epaisseur de trait constante
-   quelle que soit la largeur de l'ecran.
+   EXPERIENCES : fiches editoriales
+   Colonne de gauche pour l'annee, la ville et le logo. Colonne de droite
+   pour le contenu. Bandeau d'accent arrondi sur le bord gauche.
    ========================================================================== */
 
-.chemin{position:relative;}
+.experiences{display:grid; gap:1.5rem;}
 
-/* ---------- Segments de sentier ---------- */
-.lien{
-  position:relative; display:block;
-  height:var(--h,140px);
-  margin-block:-14px;
-}
-.lien svg{display:block; width:100%; height:100%; overflow:visible;}
-.lien path{fill:none; vector-effect:non-scaling-stroke; stroke-linecap:round;}
-.lien .bordure{stroke:#191B1F; stroke-width:56;}
-.lien .rive{stroke:#F2EEE3; stroke-width:50;}
-.lien .assise{stroke:#3D4149; stroke-width:44;}
-.lien .axe{
-  stroke:#F2EEE3; stroke-width:3.4;
-  stroke-dasharray:17 20;
-}
-.lien .droit{display:none;}
-@media(max-width:899px){
-  .lien .courbe{display:none;}
-  .lien .droit{display:block;}
-  .lien{height:62px;}
-}
-
-/* Mobilier de bord de route : arbres, rochers, touffes, panneaux */
-.deco{
-  position:absolute; z-index:1; pointer-events:none;
-  opacity:.34;
-}
-.deco.pale{opacity:.2;}
-@media(max-width:899px){.deco{display:none;}}
-
-/* Borne kilometrique posee sur le sentier */
-.lien .borne{
-  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  z-index:3; display:grid; gap:.12rem; text-align:center;
-  white-space:nowrap;
-  background:var(--papier);
-  border:1.5px solid var(--encre); border-radius:16px;
-  padding:.42rem .85rem;
-  box-shadow:0 6px 16px rgba(25,27,31,.16);
-}
-.lien .borne b{
-  font-family:var(--display); font-weight:800; font-size:.82rem;
-  letter-spacing:-.01em; color:var(--encre);
-}
-.lien .borne i{
-  font-style:normal;
-  font-family:var(--tech); font-size:.52rem; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--gris);
-}
-.lien .borne.longue{border-radius:999px;}
-.lien .borne.longue b{font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;}
-
-/* ---------- Cartes accrochees au sentier ---------- */
-.etape{
+.exp-carte{
   --teinte:var(--bleu);
-  position:relative; z-index:3;
-  border:1.5px solid var(--encre); border-radius:24px;
-  background:var(--papier);
-  padding:2.4rem 1.7rem 1.6rem;
-  box-shadow:0 14px 30px rgba(25,27,31,.10);
-  transition:transform .22s ease, box-shadow .22s ease;
+  position:relative; overflow:hidden;
+  display:grid; grid-template-columns:1fr; gap:1.3rem;
+  border:1.5px solid var(--encre); border-radius:30px;
+  background:rgba(255,255,255,.9);
+  padding:1.8rem 1.8rem 1.7rem;
+  box-shadow:0 14px 34px rgba(25,27,31,.09);
+  transition:transform .28s cubic-bezier(.2,.8,.3,1), box-shadow .28s;
 }
-@media(min-width:900px){
-  .etape.a-gauche{width:49.5%; margin-right:auto;}
-  .etape.a-droite{width:49.5%; margin-left:auto;}
+@media(min-width:880px){
+  .exp-carte{grid-template-columns:200px minmax(0,1fr); gap:2.4rem; align-items:start;}
 }
-
-/* Epingle plantee sur le haut de la carte */
-.jalon{
-  position:absolute; z-index:6;
-  left:50%; top:-20px; transform:translateX(-50%);
-}
-.jalon i{
-  display:grid; place-items:center;
-  width:42px; height:42px;
-  background:var(--teinte); color:var(--papier);
-  border:2px solid var(--encre);
-  border-radius:50% 50% 50% 6px;
-  transform:rotate(-45deg);
-  font-style:normal;
-  box-shadow:0 7px 16px rgba(25,27,31,.28);
-}
-.jalon i b{
-  display:block; transform:rotate(45deg);
-  font-family:var(--tech); font-size:.56rem; font-weight:500;
+.exp-carte::before{
+  content:''; position:absolute; left:0; top:22px; bottom:22px; width:7px;
+  border-radius:0 999px 999px 0; background:var(--teinte);
 }
 
-/* Balise de sentier, blanc et rouge */
-.balise{
-  position:absolute; z-index:6; top:-14px; right:22px;
-  width:14px; height:22px; border-radius:3px;
-  border:1.2px solid var(--encre);
-  background:linear-gradient(to bottom,
-    var(--rouge) 0 33%, var(--papier) 33% 67%, var(--rouge) 67% 100%);
+/* ---------- Colonne de gauche ---------- */
+.exp-annee{display:flex; flex-wrap:wrap; align-items:center; gap:1rem;}
+@media(min-width:880px){.exp-annee{display:block;}}
+.exp-annee .an{
+  display:block;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(2.3rem,5vw,3.4rem); line-height:.86;
+  letter-spacing:-.045em; color:var(--encre);
 }
-
-.lieu-etape{
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem .8rem;
-  margin-bottom:.55rem;
-}
-.lieu-etape .ville{
-  font-family:var(--display); font-weight:800; font-size:1.02rem;
-  text-transform:uppercase; letter-spacing:.02em;
-  border-bottom:2.5px solid var(--teinte); padding-bottom:.1rem;
-}
-.lieu-etape .quand{
-  font-family:var(--tech); font-size:.62rem; letter-spacing:.1em;
+.exp-annee .ville{
+  display:block; margin-top:.5rem;
+  font-family:var(--tech); font-size:.63rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--gris);
+  max-width:16ch;
+}
+.exp-annee .duree{
+  display:inline-block; margin-top:.8rem;
+  font-family:var(--tech); font-size:.56rem; letter-spacing:.12em;
+  text-transform:uppercase;
+  border:1.5px solid var(--trait); border-radius:999px;
+  padding:.32rem .7rem; color:var(--gris); background:var(--papier);
 }
 
-.etape h3{font-family:var(--display); font-weight:600; font-size:1.26rem; letter-spacing:-.01em; line-height:1.25;}
-.etape .lieu{font-family:var(--tech); font-size:.65rem; letter-spacing:.07em; text-transform:uppercase; color:var(--gris); margin-top:.2rem;}
-.etape p{margin-top:.7rem; line-height:1.72;}
-
-.marqueur{
-  display:inline-block; font-family:var(--tech); font-size:.56rem;
-  letter-spacing:.1em; text-transform:uppercase;
-  background:var(--teinte); color:var(--papier);
-  border-radius:999px; padding:.18rem .55rem;
-  margin-left:.45rem; vertical-align:middle;
-}
-
-.niveau-corps{display:grid; grid-template-columns:1fr; gap:1rem;}
-@media(min-width:1100px){
-  .niveau-corps{grid-template-columns:minmax(0,1fr) 96px; align-items:start;}
-}
-
-.logo-exp{
-  position:relative; aspect-ratio:1/1; width:100%; max-width:130px;
-  margin-inline:auto;
-  border:1.5px solid var(--encre); border-radius:16px;
+.exp-vignette{
+  position:relative; margin-top:1.1rem;
+  width:100%; max-width:118px; aspect-ratio:1/1;
+  border:1.5px solid var(--encre); border-radius:22px;
   background:repeating-linear-gradient(45deg, #F0EEE7 0 7px, var(--papier) 7px 14px);
   overflow:hidden;
 }
-.logo-exp img{width:100%; height:100%; object-fit:contain; padding:8px; position:relative; z-index:1;}
-.logo-exp.vide img{display:none;}
-.logo-exp::after{
+.exp-vignette img{width:100%; height:100%; object-fit:contain; padding:10px; position:relative; z-index:1;}
+.exp-vignette.vide img{display:none;}
+.exp-vignette::after{
   content:attr(data-legende);
   position:absolute; inset:auto 0 0 0;
-  font-family:var(--tech); font-size:.48rem; letter-spacing:.06em;
+  font-family:var(--tech); font-size:.46rem; letter-spacing:.05em;
   text-transform:uppercase; color:var(--gris);
   background:var(--papier); border-top:1px solid var(--trait);
-  padding:.2rem .25rem; text-align:center;
+  padding:.2rem .2rem; text-align:center;
 }
-.logo-exp.vide::before{
+.exp-vignette.vide::before{
   content:'logo'; position:absolute; inset:0 0 14px 0;
   display:grid; place-items:center;
   font-family:var(--tech); font-size:.55rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--gris);
 }
 
-/* ---------- Carte cliquable ---------- */
-.etape.cliquable h3 a{
-  text-decoration:none;
-  background-image:linear-gradient(var(--teinte),var(--teinte));
-  background-size:0 2px; background-repeat:no-repeat; background-position:0 100%;
-  transition:background-size .25s ease;
+/* ---------- Colonne de droite ---------- */
+.exp-contenu h3{
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.2rem,2.6vw,1.55rem); line-height:1.15;
+  letter-spacing:-.025em;
 }
-.etape.cliquable h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
-.etape.cliquable:hover{transform:translateY(-5px); box-shadow:0 22px 42px rgba(25,27,31,.18);}
-.etape.cliquable:hover h3 a{background-size:100% 2px;}
-.etape.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:3px;}
+.exp-contenu h3 a{
+  text-decoration:none; position:relative; display:inline;
+  background-image:linear-gradient(var(--teinte),var(--teinte));
+  background-size:0 2.5px; background-repeat:no-repeat; background-position:0 100%;
+  transition:background-size .28s ease;
+}
+.exp-contenu h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
+.exp-carte.cliquable:hover{transform:translateY(-5px); box-shadow:0 22px 48px rgba(25,27,31,.16);}
+.exp-carte.cliquable:hover h3 a{background-size:100% 2.5px;}
+.exp-carte.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:4px;}
+
+.exp-contenu .fonction{
+  font-family:var(--tech); font-size:.64rem; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--gris);
+  margin-top:.5rem;
+}
+.exp-contenu p.texte{margin-top:.9rem; line-height:1.78; max-width:66ch;}
+.exp-contenu p.texte + p.texte{margin-top:.7rem;}
+
+.marqueur{
+  display:inline-block; font-family:var(--tech); font-size:.55rem;
+  letter-spacing:.11em; text-transform:uppercase;
+  background:var(--teinte); color:var(--papier);
+  border-radius:999px; padding:.2rem .6rem;
+  margin-left:.55rem; vertical-align:middle;
+}
 
 .voir-plus{
-  display:inline-block; margin-top:.85rem;
+  display:inline-block; margin-top:1.1rem;
   font-family:var(--tech); font-size:.63rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--teinte);
 }
 .voir-plus::after{content:' \2192'; display:inline-block; transition:margin-left .2s ease;}
-.etape.cliquable:hover .voir-plus::after{margin-left:.35rem;}
+.exp-carte.cliquable:hover .voir-plus::after{margin-left:.4rem;}
 
 /* ==========================================================================
-   DESTINATION : la carte de tete
+   LA CARTE DU PFE, EN TETE
    ========================================================================== */
-.etape.destination{
-  width:100%; margin-inline:auto;
+.exp-carte.destination{
   border:2.5px dashed var(--rouge);
-  background:linear-gradient(180deg,#FFFFFF 0%, #FFF4F2 100%);
-  box-shadow:0 18px 40px rgba(217,65,47,.18);
-  padding-top:2.4rem;
+  background:linear-gradient(150deg,#FFFFFF 0%, #FFF5F2 100%);
+  box-shadow:0 20px 46px rgba(217,65,47,.16);
+  margin-bottom:.9rem;
 }
-.destination .jalon i{
-  width:48px; height:48px;
-  background:var(--rouge);
-  border-radius:50% 50% 50% 6px;
-}
-.destination .jalon i b{font-size:.8rem;}
-.destination .lieu-etape .ville{border-bottom-color:var(--rouge);}
+.destination::before{background:var(--rouge); top:26px; bottom:26px; width:8px;}
+.destination .an{color:var(--rouge); font-size:clamp(1.7rem,3.6vw,2.3rem); line-height:1.05;}
+.destination .duree{border-color:var(--rouge); color:var(--rouge);}
+.destination .exp-vignette{border-style:dashed; border-color:var(--rouge);}
+.destination .exp-vignette::after{color:var(--rouge);}
 .badge-recherche{
-  display:inline-block; vertical-align:middle; margin-left:.55rem;
-  font-family:var(--tech); font-size:.57rem; letter-spacing:.14em;
+  display:inline-block; vertical-align:middle; margin-left:.6rem;
+  font-family:var(--tech); font-size:.56rem; letter-spacing:.14em;
   text-transform:uppercase; font-weight:500;
   background:var(--rouge); color:var(--papier);
-  border-radius:999px; padding:.22rem .6rem;
+  border-radius:999px; padding:.24rem .65rem;
   animation:battement 2.6s ease-in-out infinite;
 }
 @keyframes battement{
-  0%,100%{box-shadow:0 0 0 0 rgba(217,65,47,.55);}
-  55%{box-shadow:0 0 0 7px rgba(217,65,47,0);}
+  0%,100%{box-shadow:0 0 0 0 rgba(217,65,47,.5);}
+  55%{box-shadow:0 0 0 8px rgba(217,65,47,0);}
 }
 .destination .bouton{background:var(--rouge); border-color:var(--rouge); border-radius:999px;}
 .destination .bouton:hover{background:var(--encre); border-color:var(--encre); color:var(--papier);}
 .destination .etiquettes span{border-color:var(--rouge); color:var(--rouge);}
-.destination .logo-exp{border-style:dashed; border-color:var(--rouge);}
-.destination .logo-exp::after{color:var(--rouge);}
-@media(min-width:900px){
-  .destination .niveau-corps{grid-template-columns:minmax(0,1fr) 130px;}
-  .etape.destination .logo-exp{max-width:150px;}
-}
-
-/* ---------- Depart : le point zero ---------- */
-.etape.depart{border-style:solid; border-width:2.5px;}
-.depart .jalon i{border-radius:50%; transform:none;}
-.depart .jalon i b{transform:none;}
 
 /* ---------- Telephone ---------- */
-@media(max-width:620px){
-  .etape{padding:1.4rem 1.05rem 1.15rem; border-radius:18px;}
-  .jalon i{width:36px; height:36px;}
-  .balise{right:14px;}
+@media(max-width:640px){
+  .exp-carte{padding:1.35rem 1.2rem 1.3rem; border-radius:22px;}
+  .exp-carte::before{width:5px; top:16px; bottom:16px;}
+  .exp-annee .an{font-size:2.1rem;}
+  .exp-vignette{max-width:96px; margin-top:0;}
   .notice{text-align:left; font-size:.68rem;}
   .resume span{font-size:.55rem;}
-  .logo-exp{max-width:110px;}
 }
 
 /* ==========================================================================
@@ -440,4 +351,51 @@
   .actions .bouton{text-align:center;}
   .renvoi{flex-direction:column; align-items:flex-start;}
   .fiche-texte{padding:1.05rem;}
+}
+
+/* ==========================================================================
+   CARTOUCHES DE SECTION
+   Meme ecriture que les titres de la page Moi : une pastille, un titre
+   souligne, un filet, puis une pastille de contexte.
+   ========================================================================== */
+.parcours .cartouche,
+.section .cartouche{
+  display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+  border:none; background:none; margin-bottom:2rem;
+}
+.cartouche .num{
+  font-family:var(--tech); font-size:.6rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  padding:.5rem 1.05rem; border-radius:999px;
+  background:var(--encre); color:var(--papier);
+  display:inline-block;
+}
+.cartouche h2{
+  flex:0 0 auto; padding:0;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(1.8rem,5.2vw,2.8rem);
+  text-transform:uppercase; letter-spacing:-.035em; line-height:1;
+  position:relative; display:inline-block;
+}
+.cartouche h2::after{
+  content:''; position:absolute; left:-.03em; right:-.03em; bottom:.05em;
+  height:.13em; border-radius:999px;
+  background:var(--bleu); opacity:.26; z-index:-1;
+}
+.parcours .cartouche h2::after{background:var(--rouge); opacity:.3;}
+.cartouche .fil{
+  flex:1; min-width:40px; height:1.5px; border-radius:999px;
+  background:var(--trait);
+}
+.cartouche .meta{
+  display:inline-flex; align-items:center;
+  border:1.5px solid var(--encre); border-radius:999px;
+  padding:.42rem 1rem;
+  font-family:var(--tech); font-size:.6rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gris);
+  background:var(--papier); white-space:nowrap;
+}
+@media(max-width:640px){
+  .cartouche .fil{display:none;}
+  .cartouche .meta{font-size:.53rem; padding:.35rem .8rem;}
 }
