@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<!-- ✏️ = à personnaliser. -->
+<!-- ✏️ = textes à réécrire avec les tiens. La forme, elle, est en place. -->
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += " js";</script>
 <title>Moi · Samuel Chaux</title>
-<meta name="description" content="Dessin, volumes, terrain, voyages et collectif. La partie qui ne rentre pas dans un CV.">
+<meta name="description" content="Dessin, volumes, terrain, voyages. La partie qui ne rentre pas dans un CV.">
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=25">
-<link rel="stylesheet" href="assets/css/moi.css?v=25">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css?v=26">
+<link rel="stylesheet" href="assets/css/moi.css?v=26">
 </head>
 <body class="page-moi">
 
-<!-- Rail de navigation, grands écrans -->
-<nav class="m-rail" aria-label="Sections de la page">
-  <a href="#trait" data-titre="Le trait"></a>
-  <a href="#volumes" data-titre="Les volumes"></a>
-  <a href="#terrain" data-titre="Le terrain"></a>
-  <a href="#ailleurs" data-titre="Ailleurs"></a>
-  <a href="#reste" data-titre="Le reste"></a>
+<nav class="p-rail" aria-label="Sections">
+  <ol>
+    <li><a href="#trait">01 Le trait</a></li>
+    <li><a href="#volumes">02 Les volumes</a></li>
+    <li><a href="#terrain">03 Le terrain</a></li>
+    <li><a href="#ailleurs">04 Ailleurs</a></li>
+    <li><a href="#questions">05 Questionnaire</a></li>
+    <li><a href="#bureau">06 Le bureau</a></li>
+  </ol>
 </nav>
 
 <header class="bandeau">
-  <div class="bandeau-int enveloppe">
-    <span class="sigle">S.C.</span>
+  <div class="bandeau-int">
+    <span class="sigle">S.C. · PORTFOLIO</span>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="index.html#parcours">Parcours</a>
@@ -40,365 +42,293 @@
 
 <main>
 
-<!-- ══════════════ HÉROS ══════════════ -->
-<section class="m-heros enveloppe">
-  <div class="m-heros-int">
-    <div>
-      <span class="m-pill plein">Hors chantier</span>
+<!-- ══════════════════ OUVERTURE ══════════════════ -->
+<section class="p-hero enveloppe">
+  <div class="p-hero-grille">
+    <div class="p-hero-texte">
+      <p class="p-surtitre">Hors chantier · Édition 2026</p>
+      <h1 class="p-titre">Le reste<em>du temps</em></h1>
 
-      <h1 class="m-titre">Le reste<br>du <em>temps</em></h1>
-
-      <p class="m-intro">
-        En CE2, je passais mes récréations à dessiner des plans de maisons sur
-        du papier à carreaux. Vingt ans plus tard je fais à peu près la même
-        chose, avec <strong>Revit</strong> à la place du crayon et des gens qui
-        me paient pour ça. Entre les deux, il y a eu du dessin, beaucoup de
-        sport collectif et quelques milliers de kilomètres.
+      <p class="p-chapeau"><!-- ✏️ -->
+        En CE2, je dessinais des plans de maisons sur du papier à carreaux
+        pendant les récréations. Vingt ans plus tard je fais à peu près la
+        même chose, avec <strong>Revit</strong> à la place du crayon. Entre les
+        deux, il y a eu beaucoup de dessin, du sport collectif et quelques
+        milliers de kilomètres.
       </p>
 
-      <div class="m-meta">
-        <span>Villeurbanne</span>
-        <span>Né à Mably</span>
-        <span>Revit &amp; Procreate</span>
-        <span>FR · EN · IT</span>
+      <div class="p-reperes">
+        <div><span class="cle">Base</span><span class="val">Villeurbanne</span></div>
+        <div><span class="cle">Origine</span><span class="val">Mably</span></div>
+        <div><span class="cle">Outils</span><span class="val">Revit, Procreate</span></div>
+        <div><span class="cle">Langues</span><span class="val">FR · EN · IT</span></div>
       </div>
     </div>
 
-    <figure class="m-portrait m-arche">
+    <figure class="p-fig haute p-hero-image">
       <div class="cadre" data-legende="portrait.jpg">
         <!-- ✏️ assets/img/moi/portrait.jpg -->
         <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
       </div>
+      <figcaption class="p-legende"><b>fig. 00</b> Villeurbanne, 2026.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ══════════════ BANDEAU ══════════════ -->
-<section class="enveloppe" style="padding-bottom:1rem">
-  <div class="m-bande" aria-hidden="true">
-    <div class="m-bande-piste">
-      <span>Design de tatouages</span><span>Old school</span><span>Ornemental</span>
-      <span>Modélisation 3D</span><span>Rugby</span><span>Basket</span>
-      <span>Musique</span><span>Voyages</span><span>Identité visuelle</span>
-      <span>Design de tatouages</span><span>Old school</span><span>Ornemental</span>
-      <span>Modélisation 3D</span><span>Rugby</span><span>Basket</span>
-      <span>Musique</span><span>Voyages</span><span>Identité visuelle</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ 01 · LE TRAIT ══════════════ -->
-<section class="m-section enveloppe" id="trait">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">01</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Le <em>trait</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">Dessin</span>
-    </div>
+<!-- ══════════════════ 01 · LE TRAIT ══════════════════ -->
+<section class="p-section enveloppe" id="trait">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">01</span>
+    <h2 class="p-titre-sec">Le <em>trait</em></h2>
+    <span class="p-etiquette">Dessin</span>
   </div>
 
-  <div class="m-duo">
-    <div class="m-texte revele">
-      <p class="exergue">Je ne tatoue pas, je dessine. Des projets que d'autres
-      iront faire encrer chez un tatoueur.</p>
+  <div class="p-corps">
+    <div class="p-texte deux-colonnes c-1-6 revele"><!-- ✏️ -->
+      <p>Je ne tatoue pas, je dessine. Des projets que d'autres iront faire
+      encrer chez un tatoueur. Old school et ornemental surtout : deux écoles
+      opposées que j'aime pour la même raison, le trait ne pardonne rien. Pas
+      de calque, pas de retour arrière, pas de « on verra au rendu ».</p>
 
-      <p>Old school et ornemental surtout : deux écoles opposées que j'aime
-      pour la même raison, le trait ne pardonne rien. Pas de calque, pas de
-      retour arrière, pas de « on verra au rendu ».</p>
+      <p>Pour tenir le rythme, je me suis imposé un défi : <strong>50 designs en
+      50 jours</strong>. Cinquante planches, une par jour, publiées au fur et à
+      mesure. C'est ce qui m'a fait progresser le plus vite, et c'est là que
+      j'ai compris qu'un dessin se juge d'abord à ce qu'on en enlève.</p>
 
-      <p>Pour tenir le rythme, je me suis imposé un défi : <strong>50 designs
-      en 50 jours</strong>. Cinquante planches, une par jour, publiées au fur
-      et à mesure. C'est ce qui m'a fait progresser le plus vite, et c'est là
-      que j'ai compris qu'un dessin se juge d'abord à ce qu'on en enlève.</p>
-
-      <p>Le reste du temps, le dessin sert ailleurs : l'identité visuelle du
-      BDE, des affiches, des mises en page. Un plan de coffrage demande au fond
-      la même discipline.</p>
-
-      <a class="m-rond" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir sur TikTok</a>
-
-      <span class="note">Le jour 37 m'a pris quatre heures. Personne ne l'a remarqué.</span><!-- ✏️ -->
+      <a class="p-lien" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">Voir les planches</a>
     </div>
 
-    <div class="revele">
-      <div class="m-planche">
-        <!-- ✏️ tes planches dans assets/img/moi/ -->
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div><span class="n">01</span></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div><span class="n">02</span></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div><span class="n">03</span></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div><span class="n">04</span></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div><span class="n">05</span></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div><span class="n">06</span></figure>
-      </div>
-      <span class="legende">Six planches sur les cinquante du défi. Les autres sont sur TikTok.</span><!-- ✏️ -->
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ CHIFFRES ══════════════ -->
-<section class="enveloppe" style="padding-block:1rem 2.4rem">
-  <div class="m-scores revele">
-    <div class="m-score"><span class="n" data-vers="50">0</span><span class="q">designs en 50 jours</span></div>
-    <div class="m-score"><span class="n" data-vers="9">0</span><span class="q">pays visités</span></div>
-    <div class="m-score"><span class="n" data-vers="5">0</span><span class="q">saisons de basket</span></div>
-    <div class="m-score"><span class="n" data-vers="1">0</span><span class="q">BDE créé de zéro</span></div>
-  </div>
-</section>
-
-<!-- ══════════════ 02 · LES VOLUMES ══════════════ -->
-<section class="m-section panneau enveloppe" id="volumes">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">02</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Les <em>volumes</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">3D</span>
-    </div>
-  </div>
-
-  <div class="m-duo inverse">
-    <div class="revele">
-      <figure class="m-arche basse" style="aspect-ratio:4/3">
-        <div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div>
-      </figure>
-      <div class="m-paire" style="margin-top:1rem">
-        <figure class="m-arche"><div class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div></figure>
+    <div class="c-7-13 revele">
+      <div class="p-planche"><!-- ✏️ tes planches dans assets/img/moi/ -->
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>01</b></figcaption></figure>
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>02</b></figcaption></figure>
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>03</b></figcaption></figure>
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>04</b></figcaption></figure>
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>05</b></figcaption></figure>
+        <figure class="p-fig"><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div><figcaption class="p-legende"><b>06</b></figcaption></figure>
       </div>
     </div>
 
-    <div class="m-texte revele">
-      <p class="exergue">Voir un bâtiment avant qu'il existe, et repérer ce qui
-      cloche avant que le béton soit coulé.</p>
+    <div class="p-exergue revele">
+      <p>Un dessin se juge d'abord à <em>ce qu'on en enlève.</em></p>
+      <span class="source">Défi 50 designs · jour 50</span>
+    </div>
+  </div>
+</section>
 
+<!-- ══════════════════ 02 · LES VOLUMES ══════════════════ -->
+<section class="p-section enveloppe" id="volumes">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">02</span>
+    <h2 class="p-titre-sec">Les <em>volumes</em></h2>
+    <span class="p-etiquette">3D</span>
+  </div>
+
+  <div class="p-corps">
+    <figure class="p-fig paysage c-1-7 deborde-gauche revele">
+      <div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 01</b> ✏️ Ce que tu vois sur l'image, en une ligne.</figcaption>
+    </figure>
+
+    <div class="p-texte c-8-13 decale-bas revele"><!-- ✏️ -->
       <p>L'envie de modéliser est arrivée bien avant les études. Tourner un
       volume, le couper, comprendre comment il tient : c'est resté la même
       curiosité, elle a juste changé de logiciel en cours de route.</p>
 
       <p>Aujourd'hui ça s'appelle du BIM et ça se fait sous <strong>Revit</strong>,
-      mais le plaisir n'a pas bougé.</p>
+      mais le plaisir n'a pas bougé. Modéliser, c'est encore la seule façon que
+      je connaisse de voir un bâtiment avant qu'il existe.</p>
 
       <p>À côté, il y a le design pur : mise en page, typographie, composition.
-      J'ai porté l'identité visuelle du <strong>Riptide</strong>, et ce site en
-      fait partie, jusqu'à la dernière ligne de code.</p>
-
-      <span class="note droite">Oui, j'ai passé plus de temps sur ce site que sur mon CV.</span>
+      J'ai porté l'identité visuelle du <strong>Riptide</strong>.</p>
     </div>
+
+    <figure class="p-fig carre c-1-5 revele">
+      <div class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 02</b> ✏️ Légende.</figcaption>
+    </figure>
+
+    <figure class="p-fig carre c-6-13 revele">
+      <div class="cadre" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 03</b> ✏️ Légende.</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ══════════════ 03 · LE TERRAIN ══════════════ -->
-<section class="m-section enveloppe" id="terrain">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">03</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Le <em>terrain</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">Collectif</span>
-    </div>
+<!-- ══════════════════ 03 · LE TERRAIN ══════════════════ -->
+<section class="p-section enveloppe" id="terrain">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">03</span>
+    <h2 class="p-titre-sec">Le <em>terrain</em></h2>
+    <span class="p-etiquette">Collectif</span>
   </div>
 
-  <div class="m-duo">
-    <div class="m-texte revele">
-      <p class="exergue">Le sport qui apprend à pousser dans le même sens que
-      les autres, soit la compétence la plus utile en bureau d'études.</p>
-
+  <div class="p-corps">
+    <div class="p-texte deux-colonnes c-1-6 revele"><!-- ✏️ -->
       <p>Rugby en universitaire, et surtout en passionné : Top 14, Coupe du
-      monde, tournées, je ne rate pas grand chose.</p>
+      monde, tournées, je ne rate pas grand chose. C'est le sport qui apprend à
+      pousser dans le même sens que les autres, ce qui reste à peu de choses
+      près la compétence la plus utile en bureau d'études.</p>
 
       <p>Avant ça, <strong>cinq saisons de basket à Mably</strong>. Le collectif
       ne date pas d'hier, et l'habitude de rendre du travail sans se cacher
       derrière l'équipe non plus.</p>
 
       <p>Aujourd'hui je suis passé de l'autre côté de la ligne de touche, comme
-      jeune dirigeant au sein du club. On y apprend surtout que rien ne se fait
-      sans quelqu'un pour tenir le calendrier.</p>
-
-      <span class="note">Mably, cinq saisons. J'ai encore le maillot.</span><!-- ✏️ -->
+      jeune dirigeant au sein du club.</p>
     </div>
 
-    <div class="revele">
-      <figure class="m-arche basse" style="aspect-ratio:4/5">
-        <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
-      </figure>
-    </div>
+    <figure class="p-fig paysage c-7-13 deborde-droite revele">
+      <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 04</b> ✏️ Légende.</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ══════════════ 04 · AILLEURS ══════════════ -->
-<section class="m-section panneau enveloppe" id="ailleurs">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">04</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Aller voir <em>ailleurs</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">9 pays</span>
-    </div>
+<!-- ══════════════════ 04 · AILLEURS ══════════════════ -->
+<section class="p-section enveloppe" id="ailleurs">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">04</span>
+    <h2 class="p-titre-sec">Aller voir <em>ailleurs</em></h2>
+    <span class="p-etiquette">9 pays</span>
   </div>
 
-  <div class="m-duo inverse">
-    <div class="revele">
-      <div class="m-paire">
-        <figure class="m-arche"><div class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="m-arche"><div class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
-      </div>
-      <span class="legende">Écosse, entre deux rendus.</span><!-- ✏️ -->
-    </div>
-
-    <div class="m-texte revele">
-      <p class="exergue">Je photographie les bâtiments avant les paysages, ce
-      qui en dit probablement long.</p>
-
+  <div class="p-corps">
+    <div class="p-texte c-1-5 revele"><!-- ✏️ -->
       <p>Neuf pays au compteur. Le semestre à Édimbourg a servi de rampe de
       lancement : Highlands, côtes écossaises, et pas mal d'allers-retours en
       Europe entre deux rendus.</p>
 
-      <p>Un porche, un appareillage de brique, une charpente laissée apparente :
-      je repars rarement d'une ville sans une centaine de photos dont personne
-      ne veut.</p>
-
-      <span class="note">Le premier réflexe en arrivant quelque part : lever la tête.</span>
-
-      <div class="m-pays"><!-- ✏️ remplace par tes vrais pays -->
-        <span>France</span><span>Écosse</span><span>Angleterre</span>
-        <span>Irlande</span><span>Italie</span><span>Espagne</span>
-        <span>Portugal</span><span>Pays-Bas</span><span>Allemagne</span>
-      </div>
+      <p>Le premier réflexe en arrivant quelque part, c'est de lever la tête.
+      Un porche, un appareillage de brique, une charpente laissée apparente : je
+      repars rarement d'une ville sans une centaine de photos dont personne ne
+      veut.</p>
     </div>
+
+    <div class="c-6-13 revele">
+      <ol class="p-index"><!-- ✏️ remplace par tes vrais pays et années -->
+        <li><span class="n">01</span><span class="lib">France</span><span class="pointille"></span><span class="val">base</span></li>
+        <li><span class="n">02</span><span class="lib">Écosse</span><span class="pointille"></span><span class="val">2026</span></li>
+        <li><span class="n">03</span><span class="lib">Angleterre</span><span class="pointille"></span><span class="val">2026</span></li>
+        <li><span class="n">04</span><span class="lib">Irlande</span><span class="pointille"></span><span class="val">✏️</span></li>
+        <li><span class="n">05</span><span class="lib">Italie</span><span class="pointille"></span><span class="val">✏️</span></li>
+        <li><span class="n">06</span><span class="lib">Espagne</span><span class="pointille"></span><span class="val">✏️</span></li>
+        <li><span class="n">07</span><span class="lib">Portugal</span><span class="pointille"></span><span class="val">✏️</span></li>
+        <li><span class="n">08</span><span class="lib">Pays-Bas</span><span class="pointille"></span><span class="val">✏️</span></li>
+        <li><span class="n">09</span><span class="lib">Allemagne</span><span class="pointille"></span><span class="val">✏️</span></li>
+      </ol>
+    </div>
+
+    <figure class="p-fig paysage c-1-6 revele">
+      <div class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 05</b> ✏️ Légende.</figcaption>
+    </figure>
+    <figure class="p-fig paysage c-7-13 revele">
+      <div class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div>
+      <figcaption class="p-legende"><b>fig. 06</b> ✏️ Légende.</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ══════════════ 05 · LE RESTE ══════════════ -->
-<section class="m-section enveloppe" id="reste">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">05</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Le <em>reste</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">En vrac</span>
-    </div>
+<!-- ══════════════════ 05 · QUESTIONNAIRE ══════════════════ -->
+<section class="p-section enveloppe" id="questions">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">05</span>
+    <h2 class="p-titre-sec">Le <em>questionnaire</em></h2>
+    <span class="p-etiquette">Six réponses</span>
   </div>
 
-  <div class="m-cartes revele">
-    <article class="m-carte">
-      <span class="ico" aria-hidden="true">◷</span>
-      <h3>Marathon</h3>
-      <p>Cinquante designs livrés en cinquante jours, sans en sauter un seul.</p>
-    </article>
-    <article class="m-carte">
-      <span class="ico" aria-hidden="true">◆</span>
-      <h3>Le Riptide</h3>
-      <p>Responsable communication du premier BDE du campus AURA : identité
-      visuelle, affiches, réseaux.</p>
-    </article>
-    <article class="m-carte">
-      <span class="ico" aria-hidden="true">♪</span>
-      <h3>Musique</h3>
-      <p>Rarement le silence quand je modélise. C'est ce qui fait tenir les
-      sessions de six heures sur une maquette.</p>
-    </article>
-    <article class="m-carte">
-      <span class="ico" aria-hidden="true">▤</span>
-      <h3>Code</h3>
-      <p>J'écris des petits outils quand un tableur ne suffit plus. Python la
-      plupart du temps, du web quand il faut que ça se voie.</p>
-    </article>
-  </div>
-</section>
-
-<!-- ══════════════ 06 · LE QUESTIONNAIRE ══════════════ -->
-<section class="m-section enveloppe" id="questions">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">06</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Le <em>questionnaire</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">Sans filtre</span>
-    </div>
-  </div>
-
-  <!-- ✏️ Réécris les réponses avec les tiennes, c'est la partie la plus lue -->
-  <div class="questions revele">
-    <div class="question">
+  <div class="p-questions revele"><!-- ✏️ réécris toutes les réponses -->
+    <div class="p-question">
+      <span class="n">01</span>
       <p class="q">Ce que je dessine quand je ne réfléchis pas</p>
-      <p class="r">Des <b>roses</b>. Toujours. Je crois en avoir fait plus de deux cents,
-      et je rate encore une pétale sur trois.</p>
+      <p class="r">Des <b>roses</b>. Toujours. J'en ai fait plus de deux cents et
+      je rate encore une pétale sur trois.</p>
     </div>
-    <div class="question">
+    <div class="p-question">
+      <span class="n">02</span>
       <p class="q">Le truc que je fais mal</p>
-      <p class="r">Estimer le temps qu'un rendu va me prendre. Je multiplie
-      systématiquement par deux, et ce n'est toujours pas assez.</p>
+      <p class="r">Estimer le temps qu'un rendu va me prendre. Je multiplie par
+      deux, et ce n'est toujours pas assez.</p>
     </div>
-    <div class="question">
+    <div class="p-question">
+      <span class="n">03</span>
       <p class="q">Ma manie sur un chantier</p>
-      <p class="r">Photographier les détails d'assemblage. J'ai un dossier de
-      plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p>
+      <p class="r">Photographier les détails d'assemblage. J'ai plusieurs
+      centaines de photos de nœuds que personne ne m'a demandées.</p>
     </div>
-    <div class="question">
+    <div class="p-question">
+      <span class="n">04</span>
       <p class="q">Le bâtiment qui m'a scotché</p>
-      <p class="r">✏️ Le tien. Un vrai, avec le lieu et pourquoi.</p>
+      <p class="r">✏️ Le tien, avec le lieu et la raison.</p>
     </div>
-    <div class="question">
+    <div class="p-question">
+      <span class="n">05</span>
       <p class="q">Ce que je ferais si je n'étais pas ingénieur</p>
-      <p class="r">Tatoueur, probablement. Ou les deux, ce qui reste
-      mon plan de secours préféré.</p>
+      <p class="r">Tatoueur, probablement. Ou les deux, ce qui reste mon plan de
+      secours préféré.</p>
     </div>
-    <div class="question">
+    <div class="p-question">
+      <span class="n">06</span>
       <p class="q">La question qu'on me pose toujours en entretien</p>
-      <p class="r">Pourquoi le BTP quand on aime autant dessiner. Réponse courte :
-      parce que c'est du dessin qui tient debout.</p>
+      <p class="r">Pourquoi le BTP quand on aime autant dessiner. Réponse
+      courte : parce que c'est du dessin qui tient debout.</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 07 · SUR MON BUREAU ══════════════ -->
-<section class="m-section panneau enveloppe" id="bureau">
-  <div class="m-tete revele">
-    <span class="m-chiffre" aria-hidden="true">07</span>
-    <div class="m-tete-int">
-      <h2 class="m-h2">Sur mon <em>bureau</em></h2>
-      <span class="m-fil" aria-hidden="true"></span>
-      <span class="m-pill">Inventaire</span>
+<!-- ══════════════════ 06 · LE BUREAU ══════════════════ -->
+<section class="p-section enveloppe" id="bureau">
+  <div class="p-ouverture revele">
+    <span class="p-num" aria-hidden="true">06</span>
+    <h2 class="p-titre-sec">Sur mon <em>bureau</em></h2>
+    <span class="p-etiquette">Inventaire</span>
+  </div>
+
+  <div class="p-corps">
+    <div class="c-1-6 revele">
+      <ol class="p-index"><!-- ✏️ ce qu'il y a vraiment sur ton bureau -->
+        <li><span class="n">01</span><span class="lib">iPad et Procreate</span><span class="pointille"></span><span class="val">dessin</span></li>
+        <li><span class="n">02</span><span class="lib">Carnet à carreaux</span><span class="pointille"></span><span class="val">jamais fini</span></li>
+        <li><span class="n">03</span><span class="lib">Deux écrans</span><span class="pointille"></span><span class="val">dont un pour Revit</span></li>
+        <li><span class="n">04</span><span class="lib">Casque</span><span class="pointille"></span><span class="val">permanent</span></li>
+        <li><span class="n">05</span><span class="lib">Feutres pointe fine</span><span class="pointille"></span><span class="val">0,05</span></li>
+        <li><span class="n">06</span><span class="lib">Un café</span><span class="pointille"></span><span class="val">froid</span></li>
+      </ol>
+    </div>
+
+    <div class="p-texte c-7-13 revele"><!-- ✏️ -->
+      <p>Le carnet sert autant aux croquis de flash qu'aux descentes de charges,
+      ce qui explique assez bien le reste de cette page. Les deux activités
+      demandent la même chose : décider vite, puis assumer le trait.</p>
+    </div>
+
+    <div class="p-exergue revele">
+      <p>Un plan et un dessin, c'est le même métier : <em>décider quoi garder.</em></p>
+      <span class="source">Samuel Chaux</span>
     </div>
   </div>
-
-  <!-- ✏️ Remplace par ce qu'il y a vraiment sur ton bureau -->
-  <div class="bureau revele">
-    <div class="objet"><span class="n">01</span><span>Un iPad et Procreate</span></div>
-    <div class="objet"><span class="n">02</span><span>Un carnet à carreaux, jamais fini</span></div>
-    <div class="objet"><span class="n">03</span><span>Deux écrans, dont un pour Revit seul</span></div>
-    <div class="objet"><span class="n">04</span><span>Un casque, en permanence</span></div>
-    <div class="objet"><span class="n">05</span><span>Des feutres à pointe fine</span></div>
-    <div class="objet"><span class="n">06</span><span>Un café qui refroidit</span></div>
-  </div>
-
-  <span class="note" style="margin-top:1.6rem">Le carnet sert autant aux croquis de flash qu'aux descentes de charges.</span>
-</section>
-
-<!-- ══════════════ CITATION ══════════════ -->
-<section class="m-citation enveloppe">
-  <div class="points" aria-hidden="true"><i></i><i></i><i></i></div>
-  <p>Un plan et un dessin, c'est le même métier : <em>décider quoi garder.</em></p>
-  <span class="signature-mot">À bientôt</span>
-  <span class="signature">Samuel</span>
 </section>
 
 </main>
 
-<footer class="pied">
-  <div class="pied-int">
-    <h2 class="contact-titre">On en<br>discute ?</h2>
+<!-- ══════════════════ COLOPHON ══════════════════ -->
+<footer class="p-colophon enveloppe">
+  <div class="p-colophon-grille">
+    <h2>On en<br>discute ?</h2>
     <div class="liens">
       <a class="bouton" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
       <a class="bouton vide" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="bouton vide" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
       <a class="bouton vide" href="index.html">Retour au portfolio</a>
     </div>
+    <p class="mentions">
+      Composition, textes et développement : Samuel Chaux<br>
+      Villeurbanne, 2026 · Édition 01
+    </p>
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=25"></script>
-<script src="assets/js/moi.js?v=25"></script>
+<script src="assets/js/app.js?v=26"></script>
 </body>
 </html>
