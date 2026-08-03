@@ -253,7 +253,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
   position:absolute; z-index:0; top:0; pointer-events:none;
   font-family:var(--display); font-weight:800;
   font-size:clamp(3.4rem,8.4vw,6.4rem); line-height:.82;
-  color:transparent; -webkit-text-stroke:1.8px rgba(25,27,31,.15);
+  color:transparent; -webkit-text-stroke:1.8px color-mix(in srgb, var(--teinte) 45%, transparent);
   letter-spacing:-.05em; white-space:nowrap;
 }
 .exp-item.gauche .exp-fond{left:-.04em;}
