@@ -29,7 +29,8 @@
   --display:'Bricolage Grotesque', system-ui, sans-serif;
   --corps:'Instrument Sans', system-ui, sans-serif;
   --tech:'IBM Plex Mono', ui-monospace, monospace;
-
+   
+   --marge:1.25rem;
   --marge:clamp(1.25rem, 5vw, 5rem);
   --max:1180px;
 }
