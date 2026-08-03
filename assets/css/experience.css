@@ -44,7 +44,7 @@
 }
 .exp-tete::before{
   content:''; position:absolute; inset:0 0 auto 0; height:7px;
-  background:linear-gradient(90deg, var(--bleu), var(--jaune) 55%, var(--rouge));
+  background:var(--teinte, linear-gradient(90deg, var(--bleu), var(--jaune) 55%, var(--rouge)));
   opacity:.85;
 }
 .exp-tete .retour{margin-top:.4rem;}
