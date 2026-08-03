@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=20">
-<link rel="stylesheet" href="assets/css/accueil.css?v=20">
+<link rel="stylesheet" href="assets/css/base.css?v=22">
+<link rel="stylesheet" href="assets/css/accueil.css?v=22">
 </head>
 <body>
 
@@ -81,375 +81,183 @@
   <div class="cartouche revele">
     <span class="num">01</span>
     <h2>Parcours</h2>
-    <span class="meta">Le chemin · 2018 à 2027</span>
+    <span class="fil" aria-hidden="true"></span>
+    <span class="meta">2018 à 2027</span>
   </div>
 
   <p class="notice revele">
-    Mon parcours lu comme un chemin. En haut, la destination : le PFE que je
-    cherche pour mars 2027. En dessous, le sentier redescend étape par étape
-    jusqu'au point de départ, un stage de troisième en cabinet d'architecture.
-    Les bornes indiquent la distance entre deux villes, et les cartes bordées
-    s'ouvrent sur le détail.
+    En tête, ce que je cherche : un PFE en modélisation et projection BIM à
+    partir de mars 2027. En dessous, les expériences et les formations qui m'y
+    ont mené, de la plus récente à la plus ancienne. Les fiches encadrées
+    s'ouvrent sur le détail des missions.
   </p>
 
   <div class="resume revele">
-    <span>Destination <b>PFE BIM</b></span>
+    <span>Objectif <b>PFE BIM</b></span>
     <span><b>7</b> étapes</span>
     <span><b>2</b> pays</span>
-    <span><b>3 200 km</b> environ</span>
-    <span>Départ <b>Roanne, 2018</b></span>
+    <span>Depuis <b>2018</b></span>
   </div>
 
-  <div class="chemin">
-  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-    <defs>
-      <symbol id="d-sapin" viewBox="0 0 40 62">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M20 3 L29 22 H23 L33 40 H7 L17 22 H11 Z"/>
-          <path d="M20 40 V59"/><path d="M12 52 H28"/>
-        </g>
-      </symbol>
-      <symbol id="d-arbre" viewBox="0 0 40 62">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M20 4 C30 4 37 12 37 21 C37 30 30 37 20 37 C10 37 3 30 3 21 C3 12 10 4 20 4Z"/>
-          <path d="M20 37 V59"/><path d="M20 47 L12 41"/><path d="M20 50 L28 44"/>
-        </g>
-      </symbol>
-      <symbol id="d-touffe" viewBox="0 0 40 30">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linecap="round">
-          <path d="M5 28 C7 16 11 11 13 3"/>
-          <path d="M14 28 C15 14 18 9 22 2"/>
-          <path d="M23 28 C24 16 28 11 32 6"/>
-          <path d="M2 28 H36"/>
-        </g>
-      </symbol>
-      <symbol id="d-rocher" viewBox="0 0 44 34">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M3 31 L11 12 L23 7 L37 17 L41 31 Z"/>
-          <path d="M11 12 L21 22 L37 17"/><path d="M21 22 L23 31"/>
-        </g>
-      </symbol>
-      <symbol id="d-panneau" viewBox="0 0 40 62">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M20 59 V24"/><path d="M13 59 H27"/>
-          <path d="M4 6 H30 L37 15 L30 24 H4 Z"/>
-          <path d="M9 12 H24"/><path d="M9 18 H20"/>
-        </g>
-      </symbol>
-      <symbol id="d-cairn" viewBox="0 0 34 44">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M4 42 H30"/>
-          <path d="M6 42 L9 32 H26 L29 42 Z"/>
-          <path d="M10 32 L12 23 H23 L25 32 Z"/>
-          <path d="M13 23 L15 15 H20 L22 23 Z"/>
-          <path d="M15 15 L17 8 L19 15"/>
-        </g>
-      </symbol>
-      <symbol id="d-vagues" viewBox="0 0 60 34">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linecap="round">
-          <path d="M2 8 C9 1 16 15 23 8 C30 1 37 15 44 8 C50 3 55 8 58 10"/>
-          <path d="M2 20 C9 13 16 27 23 20 C30 13 37 27 44 20 C50 15 55 20 58 22"/>
-          <path d="M14 31 C20 26 27 33 33 30"/>
-        </g>
-      </symbol>
-      <symbol id="d-poteau" viewBox="0 0 34 60">
-        <g fill="none" stroke="#191B1F" stroke-width="2" stroke-linejoin="round">
-          <path d="M17 58 V8"/>
-          <path d="M17 14 H31 L27 20 H17 Z"/>
-          <path d="M17 26 H3 L7 32 H17 Z"/>
-        </g>
-      </symbol>
-    </defs>
-  </svg>
-  <article class="etape destination revele" style="--teinte:var(--rouge)">
-    <span class="jalon" aria-hidden="true"><i><b>★</b></i></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Destination</span><span class="quand">1<sup>er</sup> mars 2027</span></p>
-        <h3>PFE, modélisateur et projeteur BIM <span class="badge-recherche">Recherche active</span></h3>
-        <p class="lieu">20 semaines minimum · Lyon, Toulouse, Roanne</p>
-        <p>Je cherche mon projet de fin d'études en <strong>modélisation et
-        projection BIM</strong>, de préférence en agence d'architecture ou dans
-        un service BIM intégré. Concrètement : produire et faire vivre la
-        maquette, sortir les plans, coordonner les modèles entre lots et faire
-        le lien avec la conception.</p>
-        <div class="etiquettes">
-          <span>Revit</span><span>Navisworks</span><span>Dynamo</span>
-          <span>Allplan</span><span>Twinmotion</span><span>Synthèse</span>
-        </div>
-        <p style="margin-top:1rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
-      </div>
-      <figure class="logo-exp" data-legende="Votre logo ici"></figure>
+  <div class="experiences">
+  <article class="exp-carte destination revele" style="--teinte:var(--rouge)">
+    <div class="exp-annee">
+      <span class="an">2027</span>
+      <span class="ville">Lyon · Toulouse · Roanne</span>
+      <span class="duree">20 semaines min.</span>
+      <figure class="exp-vignette" data-legende="Votre logo ici"></figure>
+    </div>
+    <div class="exp-contenu">
+      <h3>PFE, modélisateur et projeteur BIM<span class="badge-recherche">Recherche active</span></h3>
+      <p class="fonction">À partir du 1<sup>er</sup> mars 2027 · Agence d'architecture ou service BIM</p>
+      <p class="texte">Je cherche mon projet de fin d'études en <strong>modélisation et
+      projection BIM</strong>. Concrètement : produire et faire vivre la maquette,
+      sortir les plans, coordonner les modèles entre lots et faire le lien avec
+      la conception.</p>
+      <p class="texte">Revit est mon outil principal depuis trois ans, et j'ai
+      travaillé côté maîtrise d'ouvrage sur les nouveaux locaux de mon école,
+      avec des réunions hebdomadaires aux côtés de l'architecte du projet.</p>
+      <div class="etiquettes"><span>Revit</span><span>Navisworks</span><span>Dynamo</span><span>Allplan</span><span>Twinmotion</span><span>Synthèse</span></div>
+      <p style="margin-top:1.2rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:96px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M50 0 C50 62,22 34,22 100"/>
-        <path class="rive" d="M50 0 C50 62,22 34,22 100"/>
-        <path class="assise" d="M50 0 C50 62,22 34,22 100"/>
-        <path class="axe" d="M50 0 C50 62,22 34,22 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco" width="58" height="90" viewBox="0 0 40 62" style="left:74%;top:8%" aria-hidden="true"><use href="#d-sapin"/></svg>
-      <svg class="deco pale" width="46" height="34" viewBox="0 0 40 30" style="left:62%;top:58%" aria-hidden="true"><use href="#d-touffe"/></svg>
-    <span class="borne longue"><b>Prochaine étape</b><i>Mars 2027 · destination à écrire</i></span>
-  </div>
-  <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
-    <span class="jalon" aria-hidden="true"><i><b>2026</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Andrézieux-Bouthéon</span><span class="quand">Juin à septembre 2026</span></p>
-        <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span class="marqueur">En cours</span></h3>
-        <p class="lieu">Bureau d'études structure · 15 semaines</p>
-        <p>Suivi de dossiers de bout en bout : reprise des hypothèses, calculs
-        de structure sous Eurocodes, dimensionnement d'assemblages selon
-        EN 1993-1-8, puis production des plans de coffrage et de ferraillage
-        jusqu'à la livraison du dossier au client.</p>
-        <span class="voir-plus">Voir les missions</span>
-      </div>
-      <figure class="logo-exp" data-legende="guivibat.png">
-          <img src="assets/img/logos/guivibat.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele cliquable" style="--teinte:var(--jaune)">
+    <div class="exp-annee">
+      <span class="an">2026</span>
+      <span class="ville">Andrézieux-Bouthéon</span>
+      <span class="duree">15 semaines</span>
+      <figure class="exp-vignette" data-legende="guivibat.png">
+        <img src="assets/img/logos/guivibat.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span class="marqueur">En cours</span></h3>
+      <p class="fonction">Bureau d'études structure · Juin à septembre 2026</p>
+      <p class="texte">Suivi de dossiers de bout en bout : reprise des hypothèses,
+      calculs de structure sous Eurocodes, dimensionnement d'assemblages selon
+      EN 1993-1-8, puis production des plans de coffrage et de ferraillage
+      jusqu'à la livraison du dossier au client.</p>
+      <div class="etiquettes"><span>Eurocodes</span><span>EN 1993-1-8</span><span>AutoCAD</span><span>Plans de ferraillage</span></div>
+
+      <span class="voir-plus">Voir les missions</span>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:152px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M22 0 C22 34,84 72,78 100"/>
-        <path class="rive" d="M22 0 C22 34,84 72,78 100"/>
-        <path class="assise" d="M22 0 C22 34,84 72,78 100"/>
-        <path class="axe" d="M22 0 C22 34,84 72,78 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco" width="96" height="54" viewBox="0 0 60 34" style="left:40%;top:40%" aria-hidden="true"><use href="#d-vagues"/></svg>
-      <svg class="deco pale" width="52" height="40" viewBox="0 0 44 34" style="left:8%;top:12%" aria-hidden="true"><use href="#d-rocher"/></svg>
-      <svg class="deco pale" width="46" height="34" viewBox="0 0 40 30" style="left:88%;top:68%" aria-hidden="true"><use href="#d-touffe"/></svg>
-    <span class="borne"><b>1 400 km</b><i>Retour de Grande-Bretagne</i></span>
-  </div>
-  <article class="etape a-droite cliquable revele" style="--teinte:var(--vert)">
-    <span class="jalon" aria-hidden="true"><i><b>2026</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Édimbourg</span><span class="quand">Semestre 2, 2026</span></p>
-        <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
-        <p class="lieu">Old College, South Bridge · School of Engineering</p>
-        <p>Un semestre complet de génie civil enseigné en anglais :
-        construction numérique, sécurité incendie, auscultation au géoradar,
-        énergie durable et supply chain.</p>
-        <div class="etiquettes">
-          <span>CIVE10032</span><span>CIVE09023</span><span>CIVE11050</span>
-          <span>MAEE10002</span><span>MECE09026</span>
-        </div>
-        <span class="voir-plus">Voir le détail du semestre</span>
-      </div>
-      <figure class="logo-exp" data-legende="edinburgh.png">
-          <img src="assets/img/logos/edinburgh.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele cliquable" style="--teinte:var(--vert)">
+    <div class="exp-annee">
+      <span class="an">2026</span>
+      <span class="ville">Édimbourg, Écosse</span>
+      <span class="duree">Semestre 2</span>
+      <figure class="exp-vignette" data-legende="edinburgh.png">
+        <img src="assets/img/logos/edinburgh.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
+      <p class="fonction">School of Engineering · Old College, South Bridge</p>
+      <p class="texte">Un semestre complet de génie civil enseigné en anglais :
+      construction numérique, sécurité incendie, auscultation au géoradar,
+      énergie durable et supply chain. Cinq modules, cinq façons différentes de
+      regarder un ouvrage.</p>
+      <div class="etiquettes"><span>CIVE10032</span><span>CIVE09023</span><span>CIVE11050</span><span>MAEE10002</span><span>MECE09026</span></div>
+
+      <span class="voir-plus">Voir le détail du semestre</span>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:124px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M78 0 C78 74,17 26,22 100"/>
-        <path class="rive" d="M78 0 C78 74,17 26,22 100"/>
-        <path class="assise" d="M78 0 C78 74,17 26,22 100"/>
-        <path class="axe" d="M78 0 C78 74,17 26,22 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco" width="60" height="93" viewBox="0 0 40 62" style="left:14%;top:8%" aria-hidden="true"><use href="#d-arbre"/></svg>
-      <svg class="deco" width="40" height="52" viewBox="0 0 34 44" style="left:72%;top:56%" aria-hidden="true"><use href="#d-cairn"/></svg>
-      <svg class="deco pale" width="46" height="34" viewBox="0 0 40 30" style="left:40%;top:78%" aria-hidden="true"><use href="#d-touffe"/></svg>
-    <span class="borne"><b>1 500 km</b><i>Cap au nord, direction l'Écosse</i></span>
-  </div>
-  <article class="etape a-gauche cliquable revele" style="--teinte:var(--jaune)">
-    <span class="jalon" aria-hidden="true"><i><b>2025</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Chassieu</span><span class="quand">2025</span></p>
-        <h3><a href="exp-ouvrier.html">Stage ouvrier puis conduite de travaux, STAL TP</a></h3>
-        <p class="lieu">3 semaines en exécution puis 12 en conduite</p>
-        <p>Trois semaines outil à la main, puis douze semaines côté conduite
-        de travaux. J'ai suivi le chantier de l'Intermarché de
-        Saint-Bonnet-de-Mure, environ 400 000 euros, avec une large autonomie
-        sur la coordination des équipes, les devis et les sous-traitants.</p>
-        <span class="voir-plus">Voir le chantier</span>
-      </div>
-      <figure class="logo-exp" data-legende="stal-tp.png">
-          <img src="assets/img/logos/stal-tp.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele cliquable" style="--teinte:var(--jaune)">
+    <div class="exp-annee">
+      <span class="an">2025</span>
+      <span class="ville">Chassieu</span>
+      <span class="duree">3 + 12 semaines</span>
+      <figure class="exp-vignette" data-legende="stal-tp.png">
+        <img src="assets/img/logos/stal-tp.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3><a href="exp-ouvrier.html">Stage ouvrier puis conduite de travaux, STAL TP</a></h3>
+      <p class="fonction">Travaux publics · Exécution puis pilotage</p>
+      <p class="texte">Trois semaines outil à la main, puis douze semaines côté
+      conduite de travaux. J'ai suivi le chantier de l'Intermarché de
+      Saint-Bonnet-de-Mure, environ 400 000 euros, avec une large autonomie sur
+      la coordination des équipes, les devis et les sous-traitants.</p>
+      <div class="etiquettes"><span>Conduite de travaux</span><span>Devis</span><span>Sous-traitants</span><span>Planning</span></div>
+
+      <span class="voir-plus">Voir le chantier</span>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:102px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M22 0 C22 26,78 78,78 100"/>
-        <path class="rive" d="M22 0 C22 26,78 78,78 100"/>
-        <path class="assise" d="M22 0 C22 26,78 78,78 100"/>
-        <path class="axe" d="M22 0 C22 26,78 78,78 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco pale" width="58" height="90" viewBox="0 0 40 62" style="left:8%;top:12%" aria-hidden="true"><use href="#d-sapin"/></svg>
-      <svg class="deco" width="50" height="78" viewBox="0 0 40 62" style="left:84%;top:52%" aria-hidden="true"><use href="#d-panneau"/></svg>
-    <span class="borne"><b>12 km</b><i>De l'école au chantier</i></span>
-  </div>
-  <article class="etape a-droite cliquable revele" style="--teinte:var(--bleu)">
-    <span class="jalon" aria-hidden="true"><i><b>2024</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Vaulx-en-Velin</span><span class="quand">Depuis 2024</span></p>
-        <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a><span class="marqueur">En cours</span></h3>
-        <p class="lieu">Campus AURA · Orientation bâtiment</p>
-        <p>Béton armé, construction métallique, étude de prix et métré, gestion
-        de chantier, maquette numérique. J'ai monté la maquette 3D des nouveaux
-        locaux de l'école, avec des réunions hebdomadaires aux côtés de
-        l'architecte et de la maîtrise d'ouvrage. En parallèle : responsable
-        communication du <strong>Riptide</strong>, le premier BDE du campus.</p>
-        <span class="voir-plus">Voir la formation</span>
-      </div>
-      <figure class="logo-exp" data-legende="builders.png">
-          <img src="assets/img/logos/builders.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele cliquable" style="--teinte:var(--bleu)">
+    <div class="exp-annee">
+      <span class="an">2024</span>
+      <span class="ville">Vaulx-en-Velin</span>
+      <span class="duree">Depuis 2024</span>
+      <figure class="exp-vignette" data-legende="builders.png">
+        <img src="assets/img/logos/builders.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3><a href="exp-builders.html">Cycle ingénieur BTP, BUILDERS</a><span class="marqueur">En cours</span></h3>
+      <p class="fonction">Campus AURA · Orientation bâtiment</p>
+      <p class="texte">Béton armé, construction métallique, étude de prix et métré,
+      gestion de chantier, maquette numérique. J'ai monté la maquette 3D des
+      nouveaux locaux de l'école, avec des réunions hebdomadaires aux côtés de
+      l'architecte et de la maîtrise d'ouvrage.</p>
+      <p class="texte">En parallèle : responsable communication du
+      <strong>Riptide</strong>, le premier BDE du campus.</p>
+      <div class="etiquettes"><span>Revit</span><span>Étude de prix</span><span>Structure</span><span>BDE</span></div>
+
+      <span class="voir-plus">Voir la formation</span>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:140px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M78 0 C78 68,15 40,22 100"/>
-        <path class="rive" d="M78 0 C78 68,15 40,22 100"/>
-        <path class="assise" d="M78 0 C78 68,15 40,22 100"/>
-        <path class="axe" d="M78 0 C78 68,15 40,22 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco" width="60" height="93" viewBox="0 0 40 62" style="left:12%;top:10%" aria-hidden="true"><use href="#d-arbre"/></svg>
-      <svg class="deco pale" width="58" height="90" viewBox="0 0 40 62" style="left:26%;top:22%" aria-hidden="true"><use href="#d-sapin"/></svg>
-      <svg class="deco pale" width="46" height="34" viewBox="0 0 40 30" style="left:74%;top:62%" aria-hidden="true"><use href="#d-touffe"/></svg>
-    <span class="borne"><b>170 km</b><i>Clermont-Ferrand, puis Lyon</i></span>
-  </div>
-  <article class="etape a-gauche revele" style="--teinte:var(--bleu)">
-    <span class="jalon" aria-hidden="true"><i><b>2022</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Clermont-Ferrand</span><span class="quand">2022 à 2024</span></p>
-        <h3>CPGE PCSI puis PSI</h3>
-        <p class="lieu">Lycée Blaise Pascal · TIPE et concours</p>
-        <p>Maths, physique et sciences de l'ingénieur à haute dose, et surtout
-        une méthode de travail : découper un problème, poser les hypothèses,
-        vérifier les ordres de grandeur avant de calculer. Entre deux années,
-        une mission d'intérim chez <strong>Eiffage Route</strong>.</p>
-      </div>
-      <figure class="logo-exp" data-legende="blaise-pascal.png">
-          <img src="assets/img/logos/blaise-pascal.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele" style="--teinte:var(--bleu)">
+    <div class="exp-annee">
+      <span class="an">2022</span>
+      <span class="ville">Clermont-Ferrand</span>
+      <span class="duree">2022 à 2024</span>
+      <figure class="exp-vignette" data-legende="blaise-pascal.png">
+        <img src="assets/img/logos/blaise-pascal.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3>CPGE PCSI puis PSI</h3>
+      <p class="fonction">Lycée Blaise Pascal · TIPE et concours</p>
+      <p class="texte">Maths, physique et sciences de l'ingénieur à haute dose, et
+      surtout une méthode de travail : découper un problème, poser les
+      hypothèses, vérifier les ordres de grandeur avant de calculer. Entre deux
+      années, une mission d'intérim chez <strong>Eiffage Route</strong>.</p>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:92px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M22 0 C22 44,78 66,78 100"/>
-        <path class="rive" d="M22 0 C22 44,78 66,78 100"/>
-        <path class="assise" d="M22 0 C22 44,78 66,78 100"/>
-        <path class="axe" d="M22 0 C22 44,78 66,78 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco pale" width="52" height="40" viewBox="0 0 44 34" style="left:82%;top:14%" aria-hidden="true"><use href="#d-rocher"/></svg>
-      <svg class="deco" width="46" height="81" viewBox="0 0 34 60" style="left:10%;top:46%" aria-hidden="true"><use href="#d-poteau"/></svg>
-    <span class="borne"><b>90 km</b><i>Roanne, puis la prépa</i></span>
-  </div>
-  <article class="etape a-droite revele" style="--teinte:var(--bleu)">
-    <span class="jalon" aria-hidden="true"><i><b>2022</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2022</span></p>
-        <h3>Baccalauréat général, mention bien</h3>
-        <p class="lieu">Lycée Hippolyte Carnot</p>
-        <p>Spécialités mathématiques, physique-chimie et sciences de la vie et
-        de la Terre, cette dernière abandonnée en fin de première pour viser une
-        prépa. La même année, un stage volontaire chez <strong>Nexter
-        Systems</strong>.</p>
-      </div>
-      <figure class="logo-exp" data-legende="carnot.png">
-          <img src="assets/img/logos/carnot.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele" style="--teinte:var(--bleu)">
+    <div class="exp-annee">
+      <span class="an">2022</span>
+      <span class="ville">Roanne</span>
+      <span class="duree">Mention bien</span>
+      <figure class="exp-vignette" data-legende="carnot.png">
+        <img src="assets/img/logos/carnot.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3>Baccalauréat général</h3>
+      <p class="fonction">Lycée Hippolyte Carnot</p>
+      <p class="texte">Spécialités mathématiques, physique-chimie et sciences de la
+      vie et de la Terre, cette dernière abandonnée en fin de première pour viser
+      une prépa. La même année, un stage volontaire chez <strong>Nexter
+      Systems</strong>.</p>
     </div>
   </article>
-  <div class="lien" aria-hidden="true" style="--h:118px">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <g class="courbe">
-        <path class="bordure" d="M78 0 C78 60,45 44,50 100"/>
-        <path class="rive" d="M78 0 C78 60,45 44,50 100"/>
-        <path class="assise" d="M78 0 C78 60,45 44,50 100"/>
-        <path class="axe" d="M78 0 C78 60,45 44,50 100"/>
-      </g>
-      <g class="droit">
-        <path class="bordure" d="M50 0 V100"/>
-        <path class="rive" d="M50 0 V100"/>
-        <path class="assise" d="M50 0 V100"/>
-        <path class="axe" d="M50 0 V100"/>
-      </g>
-    </svg>
-      <svg class="deco" width="58" height="90" viewBox="0 0 40 62" style="left:84%;top:10%" aria-hidden="true"><use href="#d-sapin"/></svg>
-      <svg class="deco pale" width="40" height="52" viewBox="0 0 34 44" style="left:10%;top:50%" aria-hidden="true"><use href="#d-cairn"/></svg>
-      <svg class="deco pale" width="46" height="34" viewBox="0 0 40 30" style="left:46%;top:74%" aria-hidden="true"><use href="#d-touffe"/></svg>
-    <span class="borne longue"><b>4 ans</b><i>Même ville, même envie</i></span>
-  </div>
-  <article class="etape depart revele" style="--teinte:var(--jaune)">
-    <span class="jalon" aria-hidden="true"><i><b>2018</b></i></span>
-    <span class="balise" aria-hidden="true"></span>
-    <div class="niveau-corps">
-      <div>
-        <p class="lieu-etape"><span class="ville">Roanne</span><span class="quand">2018</span></p>
-        <h3>Le point de départ</h3>
-        <p class="lieu">Maisons Foyer Roannais · Stage de troisième · Cabinet d'architecture</p>
-        <p>Je voulais faire de la modélisation avant même de savoir que ça
-        portait un nom. Ce stage de troisième en cabinet d'architecture a
-        confirmé la direction, et je ne l'ai plus lâchée depuis.</p>
-      </div>
-      <figure class="logo-exp" data-legende="maisons-foyer.png">
-          <img src="assets/img/logos/maisons-foyer.png" alt="" loading="lazy">
-        </figure>
+  <article class="exp-carte revele" style="--teinte:var(--jaune)">
+    <div class="exp-annee">
+      <span class="an">2018</span>
+      <span class="ville">Roanne</span>
+      <span class="duree">Stage de 3e</span>
+      <figure class="exp-vignette" data-legende="maisons-foyer.png">
+        <img src="assets/img/logos/maisons-foyer.png" alt="" loading="lazy">
+      </figure>
+    </div>
+    <div class="exp-contenu">
+      <h3>Le point de départ</h3>
+      <p class="fonction">Maisons Foyer Roannais · Cabinet d'architecture</p>
+      <p class="texte">Je voulais faire de la modélisation avant même de savoir que
+      ça portait un nom. Ce stage de troisième en cabinet d'architecture a
+      confirmé la direction, et je ne l'ai plus lâchée depuis.</p>
     </div>
   </article>
   </div>
@@ -462,6 +270,7 @@
   <div class="cartouche revele">
     <span class="num">02</span>
     <h2>Projets</h2>
+    <span class="fil" aria-hidden="true"></span>
     <span class="meta">Sélection · 4 dossiers</span>
   </div>
 
@@ -543,6 +352,7 @@
   <div class="cartouche revele">
     <span class="num">03</span>
     <h2>Compétences</h2>
+    <span class="fil" aria-hidden="true"></span>
     <span class="meta">Nomenclature</span>
   </div>
 
@@ -656,6 +466,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=20"></script>
+<script src="assets/js/app.js?v=22"></script>
 </body>
 </html>
