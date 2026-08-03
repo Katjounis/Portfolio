@@ -221,6 +221,7 @@ a{color:inherit;}
   transition:opacity .22s;
   padding:4vh 4vw;
 }
+.cadre-contain img{object-fit:contain; background:var(--papier-2);}
 .lightbox.ouverte{opacity:1; visibility:visible;}
 .lightbox img{
   max-width:100%; max-height:100%;
