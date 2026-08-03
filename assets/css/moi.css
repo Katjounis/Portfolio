@@ -1,4 +1,4 @@
-/* v22 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v23 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    MOI : la rondeur, mais tirée de l'architecture plutôt que du gadget.
    Le motif est l'arche : portrait, photos et dessins sont cintrés en haut.
@@ -174,7 +174,15 @@
   box-shadow:0 20px 46px rgba(25,27,31,.07);
 }
 @media(max-width:640px){.m-section.panneau{border-radius:28px; padding-inline:1.1rem;}}
-.m-tete{position:relative; margin-bottom:1.9rem;}
+.m-tete{position:relative; margin-bottom:2rem; padding-top:.6rem;}
+.m-chiffre{
+  position:absolute; left:-.06em; top:-.42em; z-index:0;
+  font-family:var(--display); font-weight:800;
+  font-size:clamp(4.5rem,13vw,9rem); line-height:1;
+  color:transparent; -webkit-text-stroke:1.6px rgba(25,27,31,.13);
+  letter-spacing:-.04em; pointer-events:none;
+}
+@media(max-width:640px){.m-chiffre{font-size:4.5rem; top:-.3em;}}
 .m-tete-int{position:relative; z-index:1; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
 .m-h2{
   font-family:var(--display); font-weight:800;
