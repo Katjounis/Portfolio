@@ -248,5 +248,5 @@ a{color:inherit;}
   cursor:zoom-out;
 }
 /* Rien ne doit pouvoir déborder horizontalement sur un écran étroit */
-html, body{max-width:100%; overflow-x:hidden;}
+html, body{max-width:100%; overflow-x:clip;}
 img, svg, video, table{max-width:100%;}
