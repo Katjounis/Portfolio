@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<!-- ✏️ = textes à remplacer par les tiens. -->
+<!-- ✏️ = textes ou images à remplacer par les tiens. -->
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += " js";</script>
 <title>Moi · Samuel Chaux</title>
-<meta name="description" content="Le trait, les volumes, le terrain, ailleurs. La partie qui ne rentre pas dans un CV.">
+<meta name="description" content="Le trait, les volumes, la musique, le terrain, ailleurs. La partie qui ne rentre pas dans un CV.">
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=41">
-<link rel="stylesheet" href="assets/css/moi.css?v=41">
+<link rel="stylesheet" href="assets/css/base.css?v=42">
+<link rel="stylesheet" href="assets/css/moi.css?v=42">
 </head>
 <body class="page-moi">
 
@@ -53,15 +53,15 @@
         En CE2, je dessinais des plans de maisons sur du papier à carreaux
         pendant les récréations. Vingt ans plus tard je fais à peu près la
         même chose, avec <strong>Revit</strong> à la place du crayon. Entre
-        les deux : beaucoup d'encre, du sport collectif et quelques milliers
-        de kilomètres.
+        les deux : beaucoup d'encre, du son dans les oreilles et quelques
+        milliers de kilomètres.
       </p>
 
       <ul class="mo-galets">
         <li class="mo-galet"><b class="n" data-vers="50">50</b><span>designs<br>en 50 jours</span></li>
         <li class="mo-galet"><b class="n" data-vers="9">9</b><span>pays<br>visités</span></li>
+        <li class="mo-galet"><b class="n" data-vers="12">12</b><span>concerts<br>vus</span></li><!-- ✏️ ton vrai chiffre -->
         <li class="mo-galet"><b class="n" data-vers="5">5</b><span>saisons<br>de basket</span></li>
-        <li class="mo-galet"><b class="n" data-vers="1">1</b><span>BDE<br>créé</span></li>
       </ul>
     </div>
 
@@ -71,7 +71,7 @@
           <path id="mo-cercle" d="M160,160 m-137,0 a137,137 0 1,1 274,0 a137,137 0 1,1 -274,0"></path>
         </defs>
         <text><textPath href="#mo-cercle" startOffset="0">
-          LE TRAIT · LES VOLUMES · LE TERRAIN · AILLEURS · LE TRAIT · LES VOLUMES · LE TERRAIN · AILLEURS ·
+          LE TRAIT · LES VOLUMES · LA MUSIQUE · LE TERRAIN · AILLEURS · LE TRAIT · LES VOLUMES · LA MUSIQUE · LE TERRAIN · AILLEURS ·
         </textPath></text>
       </svg>
 
@@ -88,7 +88,7 @@
               <div><dt>Base</dt><dd>Villeurbanne</dd></div>
               <div><dt>Origine</dt><dd>Roanne</dd></div>
               <div><dt>Outils</dt><dd>Revit + Procreate</dd></div>
-              <div><dt>Constante</dt><dd>un carnet à carreaux</dd></div>
+              <div><dt>Constante</dt><dd>un casque sur les oreilles</dd></div>
             </dl>
             <span class="mo-signe">S.C. — 2026</span>
           </div>
@@ -108,7 +108,7 @@
 <section class="mo-facettes enveloppe" id="facettes">
 
   <div class="mo-tete">
-    <h2 class="mo-h2">Quatre <em>facettes</em></h2>
+    <h2 class="mo-h2">Cinq <em>facettes</em></h2>
     <p class="mo-chapo">Choisis ce que tu veux voir</p>
   </div>
 
@@ -117,13 +117,15 @@
   <input class="mo-radio" type="radio" name="facette" id="f2">
   <input class="mo-radio" type="radio" name="facette" id="f3">
   <input class="mo-radio" type="radio" name="facette" id="f4">
+  <input class="mo-radio" type="radio" name="facette" id="f5">
 
   <div class="mo-onglets">
     <span class="mo-curseur" aria-hidden="true"></span>
     <label for="f1"><span class="ico" aria-hidden="true">✦</span><span class="lib">Le trait</span></label>
     <label for="f2"><span class="ico" aria-hidden="true">◈</span><span class="lib">Les volumes</span></label>
-    <label for="f3"><span class="ico" aria-hidden="true">◉</span><span class="lib">Le terrain</span></label>
-    <label for="f4"><span class="ico" aria-hidden="true">➤</span><span class="lib">Ailleurs</span></label>
+    <label for="f3"><span class="ico" aria-hidden="true">♪</span><span class="lib">La musique</span></label>
+    <label for="f4"><span class="ico" aria-hidden="true">◉</span><span class="lib">Le terrain</span></label>
+    <label for="f5"><span class="ico" aria-hidden="true">➤</span><span class="lib">Ailleurs</span></label>
   </div>
 
   <div class="mo-panneaux">
@@ -152,13 +154,13 @@
         </div>
       </div>
 
-      <div class="mo-planche"><!-- ✏️ tes planches dans assets/img/moi/ -->
-        <figure class="mo-photo arche"><div class="cadre" data-legende="tattoo-01.jpg"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo rond"><div class="cadre" data-legende="tattoo-02.jpg"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo goutte"><div class="cadre" data-legende="tattoo-03.jpg"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo rond"><div class="cadre" data-legende="tattoo-04.jpg"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo arche bas"><div class="cadre" data-legende="tattoo-05.jpg"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo goutte"><div class="cadre" data-legende="tattoo-06.jpg"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
+      <div class="mo-mosaique"><!-- ✏️ tes planches dans assets/img/moi/ -->
+        <figure class="mo-photo haute"><div class="cadre"><img src="assets/img/moi/tattoo-01.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo carre"><div class="cadre"><img src="assets/img/moi/tattoo-02.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo"><div class="cadre"><img src="assets/img/moi/tattoo-03.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo carre"><div class="cadre"><img src="assets/img/moi/tattoo-04.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo"><div class="cadre"><img src="assets/img/moi/tattoo-05.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo haute"><div class="cadre"><img src="assets/img/moi/tattoo-06.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </article>
 
@@ -186,15 +188,51 @@
         </div>
       </div>
 
-      <div class="mo-planche deux">
-        <figure class="mo-photo goutte"><div class="cadre" data-legende="3d-01.jpg"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo rond"><div class="cadre" data-legende="3d-02.jpg"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo arche large"><div class="cadre" data-legende="design-01.jpg"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div></figure>
+      <div class="mo-mosaique">
+        <figure class="mo-photo paysage"><div class="cadre"><img src="assets/img/moi/3d-01.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo carre"><div class="cadre"><img src="assets/img/moi/3d-02.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo"><div class="cadre"><img src="assets/img/moi/design-01.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </article>
 
-    <!-- ───── 03 · LE TERRAIN ───── -->
+    <!-- ───── 03 · LA MUSIQUE ───── -->
     <article class="mo-panneau" id="p3">
+      <div class="mo-carte">
+        <span class="mo-etiq">Écouter et y aller</span>
+        <div class="mo-texte"><!-- ✏️ tout ce paragraphe est à réécrire avec tes vrais goûts -->
+          <p>La musique tourne en permanence : sur un rendu Revit, dans le
+          train, sur un chantier quand le casque le permet. Je ne joue de rien,
+          j'écoute beaucoup, et je finis toujours par tomber dans un trou de
+          lapin d'artistes que personne autour de moi ne connaît.</p>
+
+          <p>Ce que je préfère, c'est le <strong>live</strong>. Une salle, un
+          son trop fort, une foule qui connaît les paroles : c'est le seul
+          endroit où je ne pense strictement à rien d'autre. Rap, rock,
+          électro, je ne suis pas difficile tant que ça se joue sur scène.</p>
+
+          <div class="mo-tags">
+            <span>Rap FR</span><span>Rock</span><span>Électro</span><span>Live</span>
+          </div>
+
+          <ol class="mo-setlist"><!-- ✏️ tes vrais concerts -->
+            <li><span class="an">2026</span><span class="nom">✏️ Artiste</span><span class="lieu">Halle Tony Garnier</span></li>
+            <li><span class="an">2025</span><span class="nom">✏️ Artiste</span><span class="lieu">Le Transbordeur</span></li>
+            <li><span class="an">2025</span><span class="nom">✏️ Festival</span><span class="lieu">✏️ Ville</span></li>
+            <li><span class="an">2024</span><span class="nom">✏️ Artiste</span><span class="lieu">Le Ninkasi Kao</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="mo-mosaique"><!-- ✏️ dépose tes photos de concert dans assets/img/moi/ -->
+        <figure class="mo-photo haute"><div class="cadre"><img src="assets/img/moi/musique-01.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo carre"><div class="cadre"><img src="assets/img/moi/musique-02.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo paysage"><div class="cadre"><img src="assets/img/moi/musique-03.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo"><div class="cadre"><img src="assets/img/moi/musique-04.jpg" alt="" loading="lazy"></div></figure>
+      </div>
+    </article>
+
+    <!-- ───── 04 · LE TERRAIN ───── -->
+    <article class="mo-panneau" id="p4">
       <div class="mo-carte">
         <span class="mo-etiq">Rugby et basket</span>
         <div class="mo-texte"><!-- ✏️ -->
@@ -214,16 +252,16 @@
         </div>
       </div>
 
-      <div class="mo-planche une">
-        <figure class="mo-photo arche large">
-          <div class="cadre" data-legende="rugby-01.jpg"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
+      <div class="mo-mosaique une">
+        <figure class="mo-photo paysage">
+          <div class="cadre"><img src="assets/img/moi/rugby-01.jpg" alt="" loading="lazy"></div>
           <span class="mo-jeton"><b>5</b><span>saisons<br>à Mably</span></span>
         </figure>
       </div>
     </article>
 
-    <!-- ───── 04 · AILLEURS ───── -->
-    <article class="mo-panneau" id="p4">
+    <!-- ───── 05 · AILLEURS ───── -->
+    <article class="mo-panneau" id="p5">
       <div class="mo-carte">
         <span class="mo-etiq">Neuf pays</span>
         <div class="mo-texte"><!-- ✏️ -->
@@ -244,19 +282,19 @@
         </div>
       </div>
 
-      <div class="mo-planche deux">
-        <figure class="mo-photo arche"><div class="cadre" data-legende="voyage-01.jpg"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div></figure>
-        <figure class="mo-photo rond"><div class="cadre" data-legende="voyage-02.jpg"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
+      <div class="mo-mosaique">
+        <figure class="mo-photo haute"><div class="cadre"><img src="assets/img/moi/voyage-01.jpg" alt="" loading="lazy"></div></figure>
+        <figure class="mo-photo carre"><div class="cadre"><img src="assets/img/moi/voyage-02.jpg" alt="" loading="lazy"></div></figure>
       </div>
     </article>
 
   </div>
 </section>
 
-<!-- ══════════════ SIX QUESTIONS (bloc sombre) ══════════════ -->
+<!-- ══════════════ SIX QUESTIONS ══════════════ -->
 <section class="mo-questions enveloppe" id="questions">
-  <div class="mo-bloc-sombre">
-    <div class="mo-tete sombre">
+  <div class="mo-bloc-clair">
+    <div class="mo-tete">
       <h2 class="mo-h2">Six <em>questions</em></h2>
       <p class="mo-chapo">Une seule s'ouvre à la fois</p>
     </div>
@@ -273,8 +311,8 @@
       </details>
 
       <details class="mo-q" name="faq">
-        <summary><span class="n">03</span><span class="q">Ma manie sur un chantier</span><span class="plus" aria-hidden="true"></span></summary>
-        <div class="r"><p>Photographier les détails d'assemblage. J'ai plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p></div>
+        <summary><span class="n">03</span><span class="q">Ce que j'écoute quand je modélise</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>✏️ Ton album ou ta playlist du moment, et pourquoi elle passe en boucle.</p></div>
       </details>
 
       <details class="mo-q" name="faq">
@@ -340,7 +378,7 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=41"></script>
-<script src="assets/js/moi.js?v=41"></script>
+<script src="assets/js/app.js?v=42"></script>
+<script src="assets/js/moi.js?v=42"></script>
 </body>
 </html>
