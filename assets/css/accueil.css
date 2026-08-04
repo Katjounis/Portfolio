@@ -276,7 +276,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
   border-radius:0 999px 999px 0; background:var(--teinte);
 }
 @media(min-width:900px){
-  .exp-item{padding-top:clamp(2.6rem,5.4vw,4.4rem);}
+  .exp-item{padding-top:0;}
   .exp-item.gauche .exp-carte{width:70%; margin-left:auto;}
   .exp-item.droite .exp-carte{width:70%; margin-right:auto;}
   .exp-item.pleine .exp-carte{width:88%; margin-inline:auto;}
@@ -377,7 +377,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 
 /* ---------- Telephone ---------- */
 @media(max-width:899px){
-  .exp-item{padding-top:3rem;}
+  .exp-item{padding-top:0;}
   .exp-fond{font-size:clamp(3rem,12vw,4.4rem); top:0; left:0 !important; right:auto !important; transform:none !important;}
   .exp-carte{padding:1.4rem 1.25rem 1.35rem; border-radius:22px;}
   .exp-carte::before{width:5px; top:16px; bottom:16px;}
