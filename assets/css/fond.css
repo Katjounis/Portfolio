@@ -19,6 +19,8 @@
   --f-papier-1:#FBFAF7;
   --f-papier-2:#F7F7F2;
   --f-papier-3:#FAF6EE;
+   --f-bande:rgba(241,240,234,.80);
+  --f-filet:rgba(25,27,31,.08);
 }
 
 /* ---------- 1. Le décor ---------- */
