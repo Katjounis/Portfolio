@@ -346,7 +346,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .exp-carte.cliquable:hover .voir-plus::after{margin-left:.4rem;}
 
 /* ---------- Le PFE, en tete ---------- */
-.exp-item.destination .exp-fond{-webkit-text-stroke-color:rgba(217,65,47,.28);}
+.exp-item.destination .exp-fond{-webkit-text-stroke-color:rgba(217,65,47,.75);}
 .destination .exp-carte{
   border:2.5px dashed var(--rouge);
   background:linear-gradient(150deg,rgba(255,255,255,.96) 0%, rgba(255,244,242,.96) 100%);
