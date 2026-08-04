@@ -33,7 +33,7 @@
 
   background:var(--mo-fond);
   color:var(--mo-encre);
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 .page-moi main, .page-moi footer{position:relative; z-index:1;}
 
