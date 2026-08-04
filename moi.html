@@ -6,38 +6,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += " js";</script>
 <title>Moi · Samuel Chaux</title>
-<meta name="description" content="Le verso du portfolio : le trait, les volumes, le terrain, ailleurs.">
+<meta name="description" content="Le trait, les volumes, le terrain, ailleurs. La partie qui ne rentre pas dans un CV.">
 <link rel="icon" href="assets/img/logos/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Cette page a sa propre typo : Fraunces. C'est volontaire, c'est le verso. -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css?v=40">
-<link rel="stylesheet" href="assets/css/moi.css?v=40">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css?v=41">
+<link rel="stylesheet" href="assets/css/moi.css?v=41">
 </head>
 <body class="page-moi">
 
+<!-- Le bandeau est strictement identique à celui des autres pages. -->
 <header class="bandeau">
   <div class="bandeau-int">
-    <span class="sigle">S.C. · VERSO</span>
+    <span class="sigle">S.C. · PORTFOLIO</span>
     <nav>
-      <a href="index.html">Accueil</a>
       <a href="index.html#parcours">Parcours</a>
       <a href="index.html#projets">Projets</a>
+      <a href="index.html#competences">Compétences</a>
       <a href="moi.html">Moi</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
 </header>
 
+<!-- Décor de fond : halos bleu/violet + grille. Purement décoratif. -->
+<div class="mo-fond" aria-hidden="true">
+  <span class="halo h1"></span>
+  <span class="halo h2"></span>
+  <span class="halo h3"></span>
+  <span class="grille"></span>
+</div>
+
 <main>
 
-<!-- ══════════════ OUVERTURE · LE MÉDAILLON ══════════════ -->
+<!-- ══════════════ OUVERTURE ══════════════ -->
 <section class="mo-hero enveloppe">
   <div class="mo-hero-grille">
 
     <div class="mo-hero-txt">
-      <span class="mo-pill">Planche nº 07 · hors chantier</span>
+      <span class="mo-pill"><span class="point"></span>Hors chantier</span>
 
       <h1 class="mo-titre">Le reste<br><em>du temps</em></h1>
 
@@ -58,10 +66,9 @@
     </div>
 
     <div class="mo-medaillon-zone">
-      <!-- l'anneau gravé tourne autour du portrait -->
       <svg class="mo-anneau" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
         <defs>
-          <path id="mo-cercle" d="M160,160 m-136,0 a136,136 0 1,1 272,0 a136,136 0 1,1 -272,0"></path>
+          <path id="mo-cercle" d="M160,160 m-137,0 a137,137 0 1,1 274,0 a137,137 0 1,1 -274,0"></path>
         </defs>
         <text><textPath href="#mo-cercle" startOffset="0">
           LE TRAIT · LES VOLUMES · LE TERRAIN · AILLEURS · LE TRAIT · LES VOLUMES · LE TERRAIN · AILLEURS ·
@@ -70,14 +77,12 @@
 
       <div class="mo-medaillon">
         <div class="mo-medaillon-int">
-          <!-- recto -->
           <figure class="mo-face mo-recto">
             <div class="cadre" data-legende="portrait.jpg">
               <!-- ✏️ assets/img/moi/portrait.jpg -->
               <img src="assets/img/moi/portrait.jpg" alt="Portrait de Samuel Chaux" loading="lazy">
             </div>
           </figure>
-          <!-- verso -->
           <div class="mo-face mo-verso">
             <dl><!-- ✏️ -->
               <div><dt>Base</dt><dd>Villeurbanne</dd></div>
@@ -92,19 +97,19 @@
 
       <button class="mo-retourner" type="button" data-retourner aria-pressed="false">
         <span class="fleche" aria-hidden="true">↻</span>
-        <span class="lib">Retourner la planche</span>
+        <span class="lib">Retourner</span>
       </button>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════ LES FACETTES (onglets) ══════════════ -->
+<!-- ══════════════ LES FACETTES ══════════════ -->
 <section class="mo-facettes enveloppe" id="facettes">
 
   <div class="mo-tete">
     <h2 class="mo-h2">Quatre <em>facettes</em></h2>
-    <p class="mo-chapo">Choisis la planche que tu veux voir.</p>
+    <p class="mo-chapo">Choisis ce que tu veux voir</p>
   </div>
 
   <!-- Les onglets fonctionnent sans JavaScript : ce sont des boutons radio. -->
@@ -114,10 +119,11 @@
   <input class="mo-radio" type="radio" name="facette" id="f4">
 
   <div class="mo-onglets">
-    <label for="f1"><span class="n">01</span><span class="lib">Le trait</span></label>
-    <label for="f2"><span class="n">02</span><span class="lib">Les volumes</span></label>
-    <label for="f3"><span class="n">03</span><span class="lib">Le terrain</span></label>
-    <label for="f4"><span class="n">04</span><span class="lib">Ailleurs</span></label>
+    <span class="mo-curseur" aria-hidden="true"></span>
+    <label for="f1"><span class="ico" aria-hidden="true">✦</span><span class="lib">Le trait</span></label>
+    <label for="f2"><span class="ico" aria-hidden="true">◈</span><span class="lib">Les volumes</span></label>
+    <label for="f3"><span class="ico" aria-hidden="true">◉</span><span class="lib">Le terrain</span></label>
+    <label for="f4"><span class="ico" aria-hidden="true">➤</span><span class="lib">Ailleurs</span></label>
   </div>
 
   <div class="mo-panneaux">
@@ -247,43 +253,45 @@
   </div>
 </section>
 
-<!-- ══════════════ SIX QUESTIONS ══════════════ -->
+<!-- ══════════════ SIX QUESTIONS (bloc sombre) ══════════════ -->
 <section class="mo-questions enveloppe" id="questions">
-  <div class="mo-tete">
-    <h2 class="mo-h2">Six <em>questions</em></h2>
-    <p class="mo-chapo">Une seule s'ouvre à la fois. Clique pour déplier.</p>
-  </div>
+  <div class="mo-bloc-sombre">
+    <div class="mo-tete sombre">
+      <h2 class="mo-h2">Six <em>questions</em></h2>
+      <p class="mo-chapo">Une seule s'ouvre à la fois</p>
+    </div>
 
-  <div class="mo-faq"><!-- ✏️ réécris les réponses -->
-    <details class="mo-q" name="faq" open>
-      <summary><span class="n">01</span><span class="q">Ce que je dessine quand je ne réfléchis pas</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>Des <b>roses</b>. Toujours. J'en ai fait plus de deux cents et je rate encore une pétale sur trois.</p></div>
-    </details>
+    <div class="mo-faq"><!-- ✏️ réécris les réponses -->
+      <details class="mo-q" name="faq" open>
+        <summary><span class="n">01</span><span class="q">Ce que je dessine quand je ne réfléchis pas</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>Des <b>roses</b>. Toujours. J'en ai fait plus de deux cents et je rate encore une pétale sur trois.</p></div>
+      </details>
 
-    <details class="mo-q" name="faq">
-      <summary><span class="n">02</span><span class="q">Le truc que je fais mal</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>Estimer le temps qu'un rendu va me prendre. Je multiplie par deux, et ce n'est toujours pas assez.</p></div>
-    </details>
+      <details class="mo-q" name="faq">
+        <summary><span class="n">02</span><span class="q">Le truc que je fais mal</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>Estimer le temps qu'un rendu va me prendre. Je multiplie par deux, et ce n'est toujours pas assez.</p></div>
+      </details>
 
-    <details class="mo-q" name="faq">
-      <summary><span class="n">03</span><span class="q">Ma manie sur un chantier</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>Photographier les détails d'assemblage. J'ai plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p></div>
-    </details>
+      <details class="mo-q" name="faq">
+        <summary><span class="n">03</span><span class="q">Ma manie sur un chantier</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>Photographier les détails d'assemblage. J'ai plusieurs centaines de photos de nœuds que personne ne m'a demandées.</p></div>
+      </details>
 
-    <details class="mo-q" name="faq">
-      <summary><span class="n">04</span><span class="q">Le bâtiment qui m'a scotché</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>✏️ Le tien, avec le lieu et la raison.</p></div>
-    </details>
+      <details class="mo-q" name="faq">
+        <summary><span class="n">04</span><span class="q">Le bâtiment qui m'a scotché</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>✏️ Le tien, avec le lieu et la raison.</p></div>
+      </details>
 
-    <details class="mo-q" name="faq">
-      <summary><span class="n">05</span><span class="q">Ce que je ferais si je n'étais pas ingénieur</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>Tatoueur, probablement. Ou les deux, ce qui reste mon plan de secours préféré.</p></div>
-    </details>
+      <details class="mo-q" name="faq">
+        <summary><span class="n">05</span><span class="q">Ce que je ferais si je n'étais pas ingénieur</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>Tatoueur, probablement. Ou les deux, ce qui reste mon plan de secours préféré.</p></div>
+      </details>
 
-    <details class="mo-q" name="faq">
-      <summary><span class="n">06</span><span class="q">La question qu'on me pose toujours en entretien</span><span class="plus" aria-hidden="true"></span></summary>
-      <div class="r"><p>Pourquoi le BTP quand on aime autant dessiner. Réponse courte : parce que c'est du dessin qui tient debout.</p></div>
-    </details>
+      <details class="mo-q" name="faq">
+        <summary><span class="n">06</span><span class="q">La question qu'on me pose toujours en entretien</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="r"><p>Pourquoi le BTP quand on aime autant dessiner. Réponse courte : parce que c'est du dessin qui tient debout.</p></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -291,7 +299,7 @@
 <section class="mo-bureau enveloppe" id="bureau">
   <div class="mo-tete">
     <h2 class="mo-h2">Sur mon <em>bureau</em></h2>
-    <p class="mo-chapo">Inventaire honnête, à l'instant où j'écris.</p>
+    <p class="mo-chapo">Inventaire honnête, à l'instant où j'écris</p>
   </div>
 
   <div class="mo-bureau-grille">
@@ -332,7 +340,7 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=40"></script>
-<script src="assets/js/moi.js?v=40"></script>
+<script src="assets/js/app.js?v=41"></script>
+<script src="assets/js/moi.js?v=41"></script>
 </body>
 </html>
