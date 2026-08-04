@@ -26,7 +26,7 @@
   /* La bande beige d'un bloc sur deux. Elle est translucide : les courbes
      continuent de passer dessous, en plus discret.
      Pour un beige plein qui masque complètement les courbes : #F1F0EA */
-  --f-bande:rgba(241,240,234,.80);
+  --f-bande:#F1F0EA;
   --f-filet:rgba(25,27,31,.08);
 }
 
