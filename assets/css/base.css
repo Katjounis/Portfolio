@@ -52,9 +52,28 @@ a{color:inherit;}
 
 :focus-visible{outline:2.5px solid var(--bleu); outline-offset:3px;}
 
-.enveloppe{max-width:var(--max); margin-inline:auto; padding-inline:var(--marge);}
-.section{padding-block:clamp(3rem,7vw,5.5rem);}
-.fond-alt{background:var(--papier-2);}
+.enveloppe{max-width:var(--max); margin-inline:auto; padding-inline:var(--marge); position:relative; z-index:1;}
+.section{
+  position:relative; overflow:hidden;
+  padding-block:clamp(3rem,7vw,5.5rem);
+  background:
+    radial-gradient(85% 65% at 10% 0%, rgba(27,79,216,.055), transparent 60%),
+    radial-gradient(70% 55% at 95% 100%, rgba(255,197,61,.08), transparent 65%);
+}
+.section::before{
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(25,27,31,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25,27,31,.045) 1px, transparent 1px);
+  background-size:46px 46px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.2));
+}
+.fond-alt{
+  background:
+    radial-gradient(90% 70% at 90% 0%, rgba(107,75,214,.07), transparent 62%),
+    radial-gradient(70% 60% at 6% 100%, rgba(27,138,90,.09), transparent 65%),
+    var(--papier-2);
+}
 
 /* ---------- Barre de navigation ---------- */
 .bandeau{
