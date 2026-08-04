@@ -1,7 +1,7 @@
 /* ==========================================================================
    MOI : deux comportements seulement.
    1. Les chiffres des galets montent quand ils apparaissent.
-   2. Le médaillon se retourne (recto photo / verso carte d'identité).
+   2. Le portrait se retourne (recto photo / verso carte d'identité).
    Le reste de la page (onglets, accordéon) fonctionne sans JavaScript.
    ========================================================================== */
 
@@ -37,7 +37,7 @@
     chiffres.forEach(compter);
   }
 
-  /* --- 2. Retournement du médaillon --- */
+  /* --- 2. Retournement du portrait --- */
   var bouton = document.querySelector('[data-retourner]');
   var medaillon = document.querySelector('.mo-medaillon');
   if (bouton && medaillon) {
@@ -45,7 +45,7 @@
     bouton.addEventListener('click', function () {
       var retournee = medaillon.classList.toggle('retournee');
       bouton.setAttribute('aria-pressed', retournee ? 'true' : 'false');
-      if (lib) lib.textContent = retournee ? 'Revenir au portrait' : 'Retourner la planche';
+      if (lib) lib.textContent = retournee ? 'Le portrait' : 'Retourner';
     });
   }
 })();
