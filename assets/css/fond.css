@@ -1,0 +1,75 @@
+/* v32 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* ==========================================================================
+   FOND : courbes de niveau.
+
+   Cette feuille ne touche QUE le fond. Elle ne modifie ni la navigation,
+   ni le pied de page, ni les cartes, ni la typographie.
+
+   Elle fait deux choses :
+     1. elle pose un décor unique, fixe, derrière toute la page ;
+     2. elle éteint l'ancien fond beige alterné et son quadrillage.
+
+   Elle se charge EN DERNIER, après base.css / accueil.css / experience.css.
+   Pour revenir en arrière : supprimer la ligne <link> dans les pages.
+   La page Moi ne charge pas cette feuille : elle garde son décor violet.
+   ========================================================================== */
+
+:root{
+  /* Les trois teintes du papier, du haut vers le bas */
+  --f-papier-1:#FBFAF7;
+  --f-papier-2:#F7F7F2;
+  --f-papier-3:#FAF6EE;
+}
+
+/* ---------- 1. Le décor ---------- */
+
+body:not(.page-moi){
+  background:linear-gradient(168deg,
+    var(--f-papier-1) 0%,
+    var(--f-papier-2) 50%,
+    var(--f-papier-3) 100%) fixed;
+}
+
+/* Les courbes de niveau : une seule image, fixe, qui couvre l'écran.
+   Le masque les efface doucement sur les bords. */
+body:not(.page-moi)::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:url("../img/fond/topo.svg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  -webkit-mask-image:radial-gradient(130% 100% at 50% 20%, #000 55%, rgba(0,0,0,.5) 85%, transparent 100%);
+          mask-image:radial-gradient(130% 100% at 50% 20%, #000 55%, rgba(0,0,0,.5) 85%, transparent 100%);
+}
+
+/* Un grain de papier très léger par-dessus.
+   Si tu le trouves inutile : supprime tout ce bloc. */
+body:not(.page-moi)::after{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.13'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+
+/* ---------- 2. On éteint l'ancien fond ---------- */
+
+/* Accueil : sections et alternance beige */
+.section{background:transparent;}
+.section::before{display:none;}          /* quadrillage recollé sur la section */
+.fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
+
+/* Héros : l'aplat opaque cachait le décor. On garde un voile clair sous le
+   grand titre pour le contraste, et la grue au trait reste en place. */
+.heros{
+  background:linear-gradient(180deg,
+    rgba(255,255,255,.72) 0%,
+    rgba(255,255,255,.25) 55%,
+    rgba(255,255,255,0) 100%);
+}
+.heros::before{display:none;}
+
+/* Parcours : son bruit faisait doublon avec le grain du fond */
+.parcours::after{display:none;}
+
+/* Pages de détail : blocs alternés en pleine largeur */
+.exp-bloc::before,
+.exp-bloc::after{display:none;}
