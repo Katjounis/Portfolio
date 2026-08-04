@@ -1,5 +1,8 @@
 /* ==========================================================================
-   MOI : compteurs de score. Les images sont gérées par app.js.
+   MOI : deux comportements seulement.
+   1. Les chiffres des galets montent quand ils apparaissent.
+   2. Le médaillon se retourne (recto photo / verso carte d'identité).
+   Le reste de la page (onglets, accordéon) fonctionne sans JavaScript.
    ========================================================================== */
 
 (function () {
@@ -7,11 +10,12 @@
 
   var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- 1. Compteurs --- */
   function compter(el) {
     var cible = parseInt(el.dataset.vers, 10);
     if (isNaN(cible)) return;
     if (reduit) { el.textContent = cible; return; }
-    var debut = null, duree = 1100;
+    var debut = null, duree = 1000;
     function pas(t) {
       if (!debut) debut = t;
       var p = Math.min((t - debut) / duree, 1);
@@ -21,15 +25,27 @@
     requestAnimationFrame(pas);
   }
 
-  var scores = document.querySelectorAll('.m-score .n[data-vers]');
+  var chiffres = document.querySelectorAll('[data-vers]');
   if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function (e) {
-      e.forEach(function (x) {
-        if (x.isIntersecting) { compter(x.target); obs.unobserve(x.target); }
+    var obs = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) {
+        if (e.isIntersecting) { compter(e.target); obs.unobserve(e.target); }
       });
     }, { threshold: 0.6 });
-    scores.forEach(function (s) { obs.observe(s); });
+    chiffres.forEach(function (el) { obs.observe(el); });
   } else {
-    scores.forEach(compter);
+    chiffres.forEach(compter);
+  }
+
+  /* --- 2. Retournement du médaillon --- */
+  var bouton = document.querySelector('[data-retourner]');
+  var medaillon = document.querySelector('.mo-medaillon');
+  if (bouton && medaillon) {
+    var lib = bouton.querySelector('.lib');
+    bouton.addEventListener('click', function () {
+      var retournee = medaillon.classList.toggle('retournee');
+      bouton.setAttribute('aria-pressed', retournee ? 'true' : 'false');
+      if (lib) lib.textContent = retournee ? 'Revenir au portrait' : 'Retourner la planche';
+    });
   }
 })();
