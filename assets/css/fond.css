@@ -53,7 +53,7 @@ body:not(.page-moi)::after{
 /* ---------- 2. On éteint l'ancien fond ---------- */
 
 /* Accueil : sections et alternance beige */
-.section{background:transparent;}
+.section{   background:var(--f-bande);   border-top:1px solid var(--f-filet);   border-bottom:1px solid var(--f-filet); }
 .section::before{display:none;}          /* quadrillage recollé sur la section */
 .fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
 
