@@ -1,4 +1,4 @@
-/* v33 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v35 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    FOND : courbes de niveau.
 
@@ -22,7 +22,7 @@
 
   /* La bande beige d'un bloc sur deux, et son filet.
      Pour un beige plein qui masque les courbes : --f-bande:#F1F0EA; */
-  --f-bande:rgba(241,240,234,.80);
+  --f-bande:rgba(235,233,223,.85);
   --f-filet:rgba(25,27,31,.08);
 }
 
@@ -62,13 +62,15 @@ body:not(.page-moi)::after{
 .section::before{display:none;}          /* quadrillage recollé sur la section */
 .fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
 
-/* Héros : l'aplat opaque cachait le décor. On garde un voile clair sous le
-   grand titre pour le contraste, et la grue au trait reste en place. */
+/* Héros : exactement la même bande beige que les sections, plus les deux
+   halos de couleur d'origine. Pas de voile blanc par-dessus, sinon il
+   efface le beige. La grue au trait reste en place. */
 .heros{
-  background:linear-gradient(180deg,
-    rgba(255,255,255,.72) 0%,
-    rgba(255,255,255,.25) 55%,
-    rgba(255,255,255,0) 100%);
+  background:
+    radial-gradient(120% 90% at 88% 8%, rgba(27,79,216,.10), transparent 62%),
+    radial-gradient(70% 60% at 4% 96%, rgba(255,197,61,.14), transparent 65%),
+    var(--f-bande);
+  border-bottom:1px solid var(--f-filet);
 }
 .heros::before{display:none;}
 
