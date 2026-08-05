@@ -72,9 +72,7 @@
   opacity:.6;
   mask-image:radial-gradient(closest-side, #000 52%, rgba(0,0,0,.35) 82%, transparent 100%);
   -webkit-mask-image:radial-gradient(closest-side, #000 52%, rgba(0,0,0,.35) 82%, transparent 100%);
-  animation:mo-tourne 240s linear infinite;
 }
-@keyframes mo-tourne{to{transform:translate(-50%,-50%) rotate(360deg);}}
 @keyframes mo-flotte1{50%{transform:translate(9vw,7vh) scale(1.12);}}
 @keyframes mo-flotte2{50%{transform:translate(-8vw,-6vh) scale(1.1);}}
 @keyframes mo-flotte3{50%{transform:translate(6vw,-8vh) scale(1.15);}}
