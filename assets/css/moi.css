@@ -161,6 +161,12 @@
 }
 .mo-mosaique.une{column-count:1;}
 
+/* Mosaïques bien remplies (concerts, voyages) : une colonne de plus dès qu'il
+   y a la place, pour que le mur de photos ne parte pas en hauteur tout seul. */
+@media(min-width:1180px){
+  .mo-mosaique.dense{column-count:3;}
+}
+
 .mo-photo{
   position:relative; display:block; margin:0 0 clamp(.8rem,1.8vw,1.1rem);
   break-inside:avoid; -webkit-column-break-inside:avoid;
