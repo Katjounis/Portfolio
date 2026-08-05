@@ -78,7 +78,7 @@ a{color:inherit;}
 /* ---------- Barre de navigation ---------- */
 .bandeau{
   position:sticky; top:0; z-index:60;
-   background:#E7E7E7;
+   background:#D6C5A6;
   border-bottom:1.5px solid var(--encre);
 }
 .bandeau-int{
