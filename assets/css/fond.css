@@ -1,4 +1,4 @@
-/* v37 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v38 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    FOND : courbes de niveau.
 
@@ -23,12 +23,11 @@
   /* La bande taupe d'un bloc sur deux, son filet et sa trame.
      Ces trois valeurs pilotent AUSSI l'en-tête et le héros : change
      --f-bande et tout suit. Quelques pistes :
-       taupe chaud (actuel) #E6DCCB
-       terre plus soutenue  #DED0B8
-       gris bleu de plan    #E3E6EC  (avec --f-filet/--f-trame en bleu) */
-  --f-bande:#E6DCCB;
-  --f-filet:rgba(74,56,34,.24);
-  --f-trame:rgba(74,56,34,.09);
+       taupe actuel        #D6C5A6
+       un cran plus clair  #E1D4BB
+       un cran plus foncé  #CBB794 */
+  --f-bande:#D6C5A6;
+  --f-filet:rgba(74,56,34,.30);
 }
 
 /* ---------- 1. Le décor ---------- */
@@ -71,13 +70,13 @@ body:not(.page-moi)::after{
 
 /* Accueil : sections et alternance beige */
 .section{   background:var(--f-bande);   border-top:1px solid var(--f-filet);   border-bottom:1px solid var(--f-filet); }
-/* Le quadrillage revient, mais uniquement sur les bandes taupe */
+/* La trame revient sur les bandes taupe, mais redessinée : des croix de
+   repère tous les 46 px, façon plan, plus une grille légère tous les
+   138 px. Beaucoup moins plat qu'un quadrillage plein. */
 .section::before{
   display:block;
-  background-image:
-    linear-gradient(var(--f-trame) 1px, transparent 1px),
-    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
-  background-size:46px 46px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='138'%3E%3Cg stroke='%234A3822' fill='none' stroke-linecap='round'%3E%3Cpath d='M0 .5H138M.5 0V138' stroke-width='1' opacity='.16'/%3E%3Cpath d='M18.5 23h9.0M23 18.5v9.0M18.5 69h9.0M23 64.5v9.0M18.5 115h9.0M23 110.5v9.0M64.5 23h9.0M69 18.5v9.0M64.5 69h9.0M69 64.5v9.0M64.5 115h9.0M69 110.5v9.0M110.5 23h9.0M115 18.5v9.0M110.5 69h9.0M115 64.5v9.0M110.5 115h9.0M115 110.5v9.0' stroke-width='1' opacity='.30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:138px 138px;
 }
 .fond-alt::before{display:none;}
 .fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
@@ -92,10 +91,8 @@ body:not(.page-moi)::after{
 }
 .heros::before{
   display:block;
-  background-image:
-    linear-gradient(var(--f-trame) 1px, transparent 1px),
-    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
-  background-size:46px 46px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='138'%3E%3Cg stroke='%234A3822' fill='none' stroke-linecap='round'%3E%3Cpath d='M0 .5H138M.5 0V138' stroke-width='1' opacity='.16'/%3E%3Cpath d='M18.5 23h9.0M23 18.5v9.0M18.5 69h9.0M23 64.5v9.0M18.5 115h9.0M23 110.5v9.0M64.5 23h9.0M69 18.5v9.0M64.5 69h9.0M69 64.5v9.0M64.5 115h9.0M69 110.5v9.0M110.5 23h9.0M115 18.5v9.0M110.5 69h9.0M115 64.5v9.0M110.5 115h9.0M115 110.5v9.0' stroke-width='1' opacity='.30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:138px 138px;
 }
 
 /* Parcours : son bruit faisait doublon avec le grain du fond */
@@ -115,8 +112,6 @@ body:not(.page-moi)::after{
 }
 .exp-bloc:nth-of-type(odd)::after{
   display:block;
-  background-image:
-    linear-gradient(var(--f-trame) 1px, transparent 1px),
-    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
-  background-size:46px 46px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='138'%3E%3Cg stroke='%234A3822' fill='none' stroke-linecap='round'%3E%3Cpath d='M0 .5H138M.5 0V138' stroke-width='1' opacity='.16'/%3E%3Cpath d='M18.5 23h9.0M23 18.5v9.0M18.5 69h9.0M23 64.5v9.0M18.5 115h9.0M23 110.5v9.0M64.5 23h9.0M69 18.5v9.0M64.5 69h9.0M69 64.5v9.0M64.5 115h9.0M69 110.5v9.0M110.5 23h9.0M115 18.5v9.0M110.5 69h9.0M115 64.5v9.0M110.5 115h9.0M115 110.5v9.0' stroke-width='1' opacity='.30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:138px 138px;
 }
