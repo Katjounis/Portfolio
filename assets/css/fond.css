@@ -1,4 +1,4 @@
-/* v32 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v33 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    FOND : courbes de niveau.
 
@@ -19,7 +19,10 @@
   --f-papier-1:#FBFAF7;
   --f-papier-2:#F7F7F2;
   --f-papier-3:#FAF6EE;
-   --f-bande:rgba(241,240,234,.80);
+
+  /* La bande beige d'un bloc sur deux, et son filet.
+     Pour un beige plein qui masque les courbes : --f-bande:#F1F0EA; */
+  --f-bande:rgba(241,240,234,.80);
   --f-filet:rgba(25,27,31,.08);
 }
 
@@ -72,6 +75,15 @@ body:not(.page-moi)::after{
 /* Parcours : son bruit faisait doublon avec le grain du fond */
 .parcours::after{display:none;}
 
-/* Pages de détail : blocs alternés en pleine largeur */
-.exp-bloc::before,
+/* Pages de détail : on éteint le quadrillage pleine largeur et l'aplat de
+   tous les blocs, puis on remet la bande beige un bloc sur deux.
+   odd = alternance inversée, comme sur l'accueil. Si le rythme tombe à
+   l'envers une fois en ligne, remplace odd par even. */
 .exp-bloc::after{display:none;}
+.exp-bloc::before{display:none;}
+.exp-bloc:nth-of-type(odd)::before{
+  display:block;
+  background:var(--f-bande);
+  border-top:1px solid var(--f-filet);
+  border-bottom:1px solid var(--f-filet);
+}
