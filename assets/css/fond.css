@@ -59,13 +59,6 @@ body:not(.page-moi)::after{
   background-size:180px 180px;
 }
 
-/* ---------- 2. L'en-tête prend la couleur des bandes ---------- */
-
-.bandeau{
-  background:var(--f-bande);
-  -webkit-backdrop-filter:none; backdrop-filter:none;
-}
-
 /* ---------- 3. On éteint l'ancien fond ---------- */
 
 /* Accueil : sections et alternance beige */
