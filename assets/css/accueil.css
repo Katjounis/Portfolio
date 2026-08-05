@@ -36,6 +36,7 @@
   background-repeat:no-repeat;
   background-position:right bottom;
   background-size:contain;
+   transform:scaleX(-1);
 }
 @media(max-width:1000px){.heros::after{display:none;}}
 
