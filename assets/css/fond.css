@@ -1,4 +1,4 @@
-/* v45 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v46 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    FOND : courbes de niveau.
 
@@ -76,12 +76,12 @@ body:not(.page-moi)::after{
     linear-gradient(180deg, rgba(255,251,242,.55) 0%, rgba(255,249,237,.20) 44%, rgba(255,246,228,0) 74%);
   background-size:auto 30%, auto 16%, 100% 100%;
   opacity:.62;   /* le décor recule derrière les cartes */
-  background-position:left bottom, left top, left top;
+  background-position:left 82%, left 24%, left top;
   background-repeat:repeat-x, repeat-x, no-repeat;
   -webkit-mask-image:none; mask-image:none;
 }
-.section:nth-of-type(3n)::before{background-position:-540px bottom, -300px top, left top;}
-.section:nth-of-type(3n+1)::before{background-position:-1180px bottom, -820px top, left top;}
+.section:nth-of-type(3n)::before{background-position:-540px 82%, -300px 24%, left top;}
+.section:nth-of-type(3n+1)::before{background-position:-1180px 82%, -820px 24%, left top;}
 .fond-alt::before{display:none;}
 .fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
 
@@ -102,7 +102,7 @@ body:not(.page-moi)::after{
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 260' width='1600' height='260'%3E%3Cpath d='M30.0 96q57.599999999999994 -28 108.80000000000001 -15.400000000000002q38.4 -22.400000000000002 96.0 -5.6000000000000005q64.0 -2.8000000000000003 115.19999999999999 21.0q32.0 11.200000000000001 -32.0 12.6Z' fill='%23FFFFFF' opacity='0.34'/%3E%3Cpath d='M81.19999999999999 111h192.0' stroke='%23FFFFFF' stroke-opacity='0.22' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Cpath d='M305.0 54q77.39999999999999 -32 146.20000000000002 -17.6q51.6 -25.6 129.0 -6.4q86.0 -3.2 154.79999999999998 24.0q43.0 12.8 -43.0 14.4Z' fill='%23FFFFFF' opacity='0.26'/%3E%3Cpath d='M373.79999999999995 69h258.0' stroke='%23FFFFFF' stroke-opacity='0.17' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Cpath d='M705.0 120q63.0 -26 119.00000000000001 -14.3q42.0 -20.8 105.0 -5.2q70.0 -2.6 126.0 19.5q35.0 10.4 -35.0 11.700000000000001Z' fill='%23FFFFFF' opacity='0.3'/%3E%3Cpath d='M761.0 135h210.0' stroke='%23FFFFFF' stroke-opacity='0.20' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Cpath d='M1030.0 68q54.0 -24 102.00000000000001 -13.200000000000001q36.0 -19.200000000000003 90.0 -4.800000000000001q60.0 -2.4000000000000004 108.0 18.0q30.0 9.600000000000001 -30.0 10.8Z' fill='%23FFFFFF' opacity='0.24'/%3E%3Cpath d='M1078.0 83h180.0' stroke='%23FFFFFF' stroke-opacity='0.16' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3Cpath d='M1310.0 132q50.4 -22 95.2 -12.100000000000001q33.6 -17.6 84.0 -4.4q56.0 -2.2 100.8 16.5q28.0 8.8 -28.0 9.9Z' fill='%23FFFFFF' opacity='0.28'/%3E%3Cpath d='M1354.8 147h168.0' stroke='%23FFFFFF' stroke-opacity='0.18' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"),
     linear-gradient(180deg, rgba(255,251,242,.55) 0%, rgba(255,249,237,.20) 44%, rgba(255,246,228,0) 74%);
   background-size:auto 46%, auto 20%, 100% 100%;
-  background-position:left bottom, left top, left top;
+  background-position:left bottom, left 22%, left top;
   background-repeat:repeat-x, repeat-x, no-repeat;
   -webkit-mask-image:none; mask-image:none;
 }
@@ -130,8 +130,8 @@ body:not(.page-moi)::after{
     linear-gradient(180deg, rgba(255,251,242,.55) 0%, rgba(255,249,237,.20) 44%, rgba(255,246,228,0) 74%);
   background-size:auto 28%, auto 16%, 100% 100%;
   opacity:.55;   /* le décor recule derrière les cartes */
-  background-position:left bottom, left top, left top;
+  background-position:left 84%, left 24%, left top;
   background-repeat:repeat-x, repeat-x, no-repeat;
   -webkit-mask-image:none; mask-image:none;
 }
-.exp-bloc:nth-of-type(4n+1)::after{background-position:-860px bottom, -500px top, left top;}
+.exp-bloc:nth-of-type(4n+1)::after{background-position:-860px 84%, -500px 24%, left top;}
