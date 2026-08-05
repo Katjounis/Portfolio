@@ -1,4 +1,4 @@
-/* v36 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v37 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
    FOND : courbes de niveau.
 
@@ -20,10 +20,15 @@
   --f-papier-2:#F7F7F2;
   --f-papier-3:#FAF6EE;
 
-  /* La bande beige d'un bloc sur deux, et son filet.
-     Pour un beige plein qui masque les courbes : --f-bande:#F1F0EA; */
-  --f-bande:rgba(235,233,223,.85);
-  --f-filet:rgba(25,27,31,.08);
+  /* La bande taupe d'un bloc sur deux, son filet et sa trame.
+     Ces trois valeurs pilotent AUSSI l'en-tête et le héros : change
+     --f-bande et tout suit. Quelques pistes :
+       taupe chaud (actuel) #E6DCCB
+       terre plus soutenue  #DED0B8
+       gris bleu de plan    #E3E6EC  (avec --f-filet/--f-trame en bleu) */
+  --f-bande:#E6DCCB;
+  --f-filet:rgba(74,56,34,.24);
+  --f-trame:rgba(74,56,34,.09);
 }
 
 /* ---------- 1. Le décor ---------- */
@@ -55,22 +60,43 @@ body:not(.page-moi)::after{
   background-size:180px 180px;
 }
 
-/* ---------- 2. On éteint l'ancien fond ---------- */
+/* ---------- 2. L'en-tête prend la couleur des bandes ---------- */
+
+.bandeau{
+  background:var(--f-bande);
+  -webkit-backdrop-filter:none; backdrop-filter:none;
+}
+
+/* ---------- 3. On éteint l'ancien fond ---------- */
 
 /* Accueil : sections et alternance beige */
 .section{   background:var(--f-bande);   border-top:1px solid var(--f-filet);   border-bottom:1px solid var(--f-filet); }
-.section::before{display:none;}          /* quadrillage recollé sur la section */
+/* Le quadrillage revient, mais uniquement sur les bandes taupe */
+.section::before{
+  display:block;
+  background-image:
+    linear-gradient(var(--f-trame) 1px, transparent 1px),
+    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
+  background-size:46px 46px;
+}
+.fond-alt::before{display:none;}
 .fond-alt{background:transparent;}       /* le beige foncé une section sur deux */
 
-/* Héros : beige uni et totalement opaque. Les courbes de niveau ne passent
+/* Héros : taupe uni et totalement opaque, quadrillé comme les bandes. Les courbes de niveau ne passent
    pas dessous, la grue se détache donc nettement.
    La grue est dessinée par-dessus ce fond (accueil.css, .heros::after),
    et le texte par-dessus la grue : rien à changer dans l'ordre des plans. */
 .heros{
-  background:#F1F0EA;
+  background:var(--f-bande);
   border-bottom:1px solid var(--f-filet);
 }
-.heros::before{display:none;}
+.heros::before{
+  display:block;
+  background-image:
+    linear-gradient(var(--f-trame) 1px, transparent 1px),
+    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
+  background-size:46px 46px;
+}
 
 /* Parcours : son bruit faisait doublon avec le grain du fond */
 .parcours::after{display:none;}
@@ -86,4 +112,11 @@ body:not(.page-moi)::after{
   background:var(--f-bande);
   border-top:1px solid var(--f-filet);
   border-bottom:1px solid var(--f-filet);
+}
+.exp-bloc:nth-of-type(odd)::after{
+  display:block;
+  background-image:
+    linear-gradient(var(--f-trame) 1px, transparent 1px),
+    linear-gradient(90deg, var(--f-trame) 1px, transparent 1px);
+  background-size:46px 46px;
 }
