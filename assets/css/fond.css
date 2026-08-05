@@ -66,10 +66,7 @@ body:not(.page-moi)::after{
    halos de couleur d'origine. Pas de voile blanc par-dessus, sinon il
    efface le beige. La grue au trait reste en place. */
 .heros{
-  background:
-    radial-gradient(120% 90% at 88% 8%, rgba(27,79,216,.10), transparent 62%),
-    radial-gradient(70% 60% at 4% 96%, rgba(255,197,61,.14), transparent 65%),
-    var(--f-bande);
+  background:#F1F0EA;
   border-bottom:1px solid var(--f-filet);
 }
 .heros::before{display:none;}
