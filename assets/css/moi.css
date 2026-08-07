@@ -388,9 +388,8 @@
 @media(min-width:900px){
   #f1:checked ~ .mo-panneaux #p1,
   #f2:checked ~ .mo-panneaux #p2,
-  #f3:checked ~ .mo-panneaux #p3,
-  #f4:checked ~ .mo-panneaux #p4,
-  #f5:checked ~ .mo-panneaux #p5{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  #f3:checked ~ .mo-panneaux #p3,#f4:checked ~ .mo-panneaux #p4,
+  #f5:checked ~ .mo-panneaux #p5{grid-template-columns:1fr;}
 }
 @keyframes mo-apparait{from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;}}
 
