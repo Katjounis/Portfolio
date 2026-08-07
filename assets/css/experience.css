@@ -480,7 +480,9 @@
 }
 
 .galerie .cadre.logo img{
-  transform:scale(1.35);
+  object-fit:contain;
+  padding:1.2rem;
+  background:var(--papier);
 }
 .galerie .cadre img{
   width:100%; height:100%; object-fit:cover; object-position:center;
