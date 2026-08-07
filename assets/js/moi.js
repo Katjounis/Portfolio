@@ -11,15 +11,16 @@
   var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* --- 1. Compteurs --- */
-  function compter(el) {
+function compter(el) {
     var cible = parseInt(el.dataset.vers, 10);
     if (isNaN(cible)) return;
-    if (reduit) { el.textContent = cible; return; }
+    var prefixe = el.dataset.prefixe || '';
+    if (reduit) { el.textContent = prefixe + cible; return; }
     var debut = null, duree = 1000;
     function pas(t) {
       if (!debut) debut = t;
       var p = Math.min((t - debut) / duree, 1);
-      el.textContent = Math.round(cible * (1 - Math.pow(1 - p, 3)));
+      el.textContent = prefixe + Math.round(cible * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(pas);
     }
     requestAnimationFrame(pas);
