@@ -156,7 +156,7 @@
    de la même façon, et il n'y a jamais de trou dans la grille.
    ========================================================================== */
 .mo-mosaique{
-  column-count:2;
+  column-count:3;
   column-gap:clamp(.8rem,1.8vw,1.1rem);
 }
 .mo-mosaique.une{column-count:1;}
