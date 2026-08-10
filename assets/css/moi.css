@@ -3,7 +3,7 @@
    MOI
    Direction : bleu / violet, noir bleuté, gris, blanc.
    Le fond n'est pas plat : trois halos colorés flottent lentement derrière
-   un mandala au trait qui tourne sur lui-même. Le contenu est posé par-dessus en cartes blanches.
+   un mandala au trait, fixe. Le contenu est posé par-dessus en cartes blanches.
 
    Le bandeau du haut n'est PAS retouché ici : il reste exactement celui de
    base.css, donc identique aux autres pages.
@@ -60,21 +60,19 @@
   background:radial-gradient(circle, rgba(93,120,255,.62), rgba(93,120,255,0) 70%);
   animation:mo-flotte3 38s ease-in-out infinite;
 }
-/* Le mandala : un seul grand dessin centré, qui tourne très lentement.
+/* Le mandala : un seul grand dessin centré, fixe.
    Pour l'agrandir ou le réduire, joue sur width. Pour l'atténuer, sur
-   opacity. Pour l'arrêter, supprime la ligne animation. */
+   opacity. Le dessin lui-même est dans assets/img/fond/mandala.svg. */
 .mo-fond .grille{
   position:absolute; top:50%; left:50%; display:block;
-  width:min(165vh, 165vw); aspect-ratio:1;
+  width:min(215vh, 215vw); aspect-ratio:1;
   transform:translate(-50%,-50%);
-  background-image:url("../img/fond/mandala.svg?v=44");
+  background-image:url("../img/fond/mandala.svg?v=46");
   background-size:contain; background-position:center; background-repeat:no-repeat;
-  opacity:.55;
-  animation:mo-tourne-fond 300s linear infinite;
+  opacity:.6;
   mask-image:radial-gradient(closest-side, #000 52%, rgba(0,0,0,.35) 82%, transparent 100%);
   -webkit-mask-image:radial-gradient(closest-side, #000 52%, rgba(0,0,0,.35) 82%, transparent 100%);
 }
-@keyframes mo-tourne-fond{to{transform:translate(-50%,-50%) rotate(360deg);}}
 @keyframes mo-flotte1{50%{transform:translate(9vw,7vh) scale(1.12);}}
 @keyframes mo-flotte2{50%{transform:translate(-8vw,-6vh) scale(1.1);}}
 @keyframes mo-flotte3{50%{transform:translate(6vw,-8vh) scale(1.15);}}
@@ -603,7 +601,7 @@
 }
 
 @media (prefers-reduced-motion:reduce){
-  .mo-fond .halo, .mo-fond .grille, .mo-anneau, .mo-pill .point{animation:none;}
+  .mo-fond .halo, .mo-anneau, .mo-pill .point{animation:none;}
   .mo-q .r, .mo-panneau{animation:none;}
   .mo-medaillon-int, .mo-curseur{transition:none;}
 }
