@@ -15,11 +15,11 @@
 body{padding-top:env(safe-area-inset-top)}
 .ro form,.ro .bacts,.ro .acts,.ro #jarvis,.ro #askbtn,.ro #talkbtn,.ro .tabbar .mid,.ro #sheet,.ro #searchbtn,.ro #briefbtn,.ro .card:has(#habmini),.ro .card:has(#bizmini),.ro [data-go=valider]{display:none!important}
 .ro input[type=checkbox]{pointer-events:none}
-#ro-pill{position:fixed;z-index:999;bottom:calc(env(safe-area-inset-bottom) + 92px);right:10px;font-size:10px!important;opacity:.92;display:flex;align-items:center;gap:6px;
+#ro-pill{position:fixed;z-index:999;top:calc(env(safe-area-inset-top) + 12px);right:10px;font-size:10px!important;opacity:.95;display:flex;align-items:center;gap:6px;
  font:12px/1 "Silkscreen",monospace;color:#cfd6ff;background:#141936;border:2px solid #2b3366;box-shadow:3px 3px 0 #05060f;padding:6px 9px;border-radius:0;cursor:pointer}
 #ro-pill i{width:8px;height:8px;background:#5cf28e;box-shadow:0 0 6px #5cf28e;animation:ro 1.6s steps(2) infinite}
 #ro-pill.err i{background:#ff5f6d;box-shadow:0 0 6px #ff5f6d}
-@media(min-width:901px){#ro-pill{bottom:14px}}
+
 @keyframes ro{50%{opacity:.35}}
 #ro-setup{position:fixed;inset:0;z-index:1000;background:rgba(5,6,15,.86);display:grid;place-items:center;padding:16px}
 #ro-setup form{display:block!important;max-width:380px;width:100%;background:#141936;border:2px solid #7c5cff;box-shadow:6px 6px 0 #05060f;padding:18px;color:#e8ecff;font:15px/1.45 Inter,system-ui,sans-serif}
@@ -487,6 +487,56 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;bac
 .ag.work{border-color:var(--c);box-shadow:0 0 12px var(--c)}.ag.work i{background:var(--ok);box-shadow:0 0 6px var(--ok);animation:blink 1s steps(2) infinite}
 .ag.bloque{border-color:var(--err)}.ag.bloque i{background:var(--err);box-shadow:0 0 6px var(--err)}
 .ag.dim canvas{filter:saturate(.4) brightness(.8)}
+
+/* ===== Passe mobile (téléphone) ===== */
+.office>*,#slot-bureau,#slot-home{min-width:0}
+@media (max-width:700px){
+  main{padding:10px 10px 104px}
+  .topbar{margin:2px 0 10px;gap:8px}
+  .topbar h1{font-size:21px;line-height:1.05}
+  #searchbtn{padding:6px 9px;font-size:0}
+  #searchbtn::before{content:"⌕";font-size:16px}
+  .card{padding:12px}
+  .hero{padding:14px;gap:10px}
+  .hero h2{font-size:25px}
+  .brief{font-size:16px;line-height:1.25;margin-top:8px}
+  .kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .kpi{padding:7px 6px;box-shadow:2px 2px 0 var(--edge)}
+  .kpi b{font-size:19px}
+  .kpi span{font-size:7.5px;line-height:1.15;display:block}
+  /* bureau : scène plus compacte, étiquettes réduites */
+  #cvbox{width:620px}
+  .now{padding:7px 8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .now::-webkit-scrollbar{display:none}
+  .now>*{flex:none;font-size:11px}
+  .ov .card{padding:3px 6px 3px 4px;gap:5px;border-width:1px;box-shadow:2px 2px 0 var(--edge)}
+  .ov .card i{width:12px;height:12px}
+  .ov .card b{font-size:10px}
+  .ov .card small{font-size:8.5px}
+  .bub{max-width:120px;padding:3px 6px 4px;border-width:1px}
+  .bub b{font-size:8px}
+  .bub span{font-size:10px;line-height:1.15}
+  .legend{font-size:11px;gap:6px 10px}
+  #tlog{font-size:15px}
+  /* planning : jours empilés, lecture verticale */
+  .week{grid-template-columns:1fr;overflow:visible;gap:8px}
+  .day{min-height:0;padding:10px;gap:6px}
+  .day h4{font-size:15px}
+  .day:not(.today):not(:has(.blk)){opacity:.6}
+  .blk{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;padding:7px 9px}
+  .blk>b,.blk>.bh{grid-column:1;grid-row:1/span 3}
+  .blk>b,.blk .bh b{font-size:15px!important;white-space:nowrap}
+  .blk>:not(b):not(.bh){grid-column:2}
+  .blk .bacts,.blk .resched{grid-column:1/-1}
+  .bacts .mini{flex:0 0 auto}
+  .squad{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .task time,.ev time{font-size:16px}
+  #p-planning>.card:first-child header{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
+  #wprev{grid-column:1;grid-row:1}#wtitle{grid-column:2;grid-row:1;font-size:15px;text-align:center}#wnext{grid-column:3;grid-row:1}
+  #wtoday{grid-column:1/-1;grid-row:2}#wsum{grid-column:1/-1;grid-row:3;text-align:center}
+  #p-planning>.card:first-child header .sp{display:none}
+  #p-planning .hint{display:none}
+}
 </style>
 
 <div class="app" id="app">
@@ -1266,7 +1316,7 @@ function go(r,noHash){if(!TITLES.hasOwnProperty(r))r="accueil";route=r;document.
  const stg=$("stage"),slot=$(r==="accueil"?"slot-home":"slot-bureau");if(slot&&stg.parentNode!==slot)slot.prepend(stg);
  if(r==="bureau"||r==="accueil"){kick();requestAnimationFrame(()=>{const sc=$("scroll");if(!sc.dataset.c){sc.scrollLeft=(sc.scrollWidth-sc.clientWidth)/2;sc.dataset.c=1}})}
  if(r==="planning")renderWeek();if(r==="etudes")renderEtudes();if(r==="business")renderBiz();if(r==="vie")renderVie();if(r==="notes")renderNotes();if(r==="systeme")renderSys();
- $("main").scrollTop=0;window.scrollTo(0,0)}
+ $("main").scrollTop=0;window.scrollTo(0,0);if(r==="planning"&&innerWidth<=700)setTimeout(()=>{const t=document.querySelector(".day.today");if(t)t.scrollIntoView({block:"start",behavior:"instant"})},60)}
 document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)go(g.dataset.go)});
 function greeting(){const h=new Date().getHours();return(h<6?"Bonne nuit":h<12?"Bonjour":h<18?"Bon après-midi":"Bonsoir")+" <em>Samuel</em>"}
 

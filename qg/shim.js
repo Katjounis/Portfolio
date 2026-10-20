@@ -67,8 +67,8 @@ window.claude={use:n=>Promise.resolve(n==="db"?db:n==="user"?user:n==="mcp"?mcp:
 /* Pastille d'état + réglage du jeton */
 function fmt(t){return t?new Date(t).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):"?"}
 function pill(msg,err){const p=document.getElementById("ro-pill");if(!p)return;
-  const m=state&&state.maj?" · données de "+new Date(state.maj).toLocaleString("fr-FR",{weekday:"short",hour:"2-digit",minute:"2-digit"}):"";
-  p.querySelector("span").textContent=msg?msg:(token?"En direct"+m:"Jeton manquant");p.classList.toggle("err",!!err||!token)}
+  const m=state&&state.maj?" · "+new Date(state.maj).toLocaleString("fr-FR",{hour:"2-digit",minute:"2-digit"}):"";
+  p.querySelector("span").textContent=msg?msg:(token?"Direct"+m:"Jeton manquant");p.classList.toggle("err",!!err||!token)}
 function setup(){
   const box=document.createElement("div");box.id="ro-setup";
   box.innerHTML='<form><h2>QG Katjounis</h2><p>Colle ton jeton GitHub (fine-grained, dépôt <b>cerveau</b> seulement, Contents en lecture). Il reste sur ce téléphone.</p><input type="password" autocomplete="off" placeholder="github_pat_..." required><div><button type="submit">Connecter</button> <button type="button" data-x>Annuler</button></div><small>Pour le changer plus tard : touche la pastille en haut.</small></form>';
