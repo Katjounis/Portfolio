@@ -488,6 +488,26 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;bac
 .ag.bloque{border-color:var(--err)}.ag.bloque i{background:var(--err);box-shadow:0 0 6px var(--err)}
 .ag.dim canvas{filter:saturate(.4) brightness(.8)}
 
+
+.bfnav{display:flex;align-items:center;gap:10px;margin-bottom:14px}.bfnav h3{flex:1;text-align:center;margin:0;font-family:var(--pix);font-size:18px}
+.bfhero{background:linear-gradient(135deg,#2a1f6b,#14193a 55%,#0f3b52);border-color:#3d3a8f;margin-bottom:14px}
+.bfkick{font-family:var(--tiny);font-size:10px;letter-spacing:.06em;color:var(--warn)}
+.bfhero h2{font-family:var(--pix);font-size:24px;margin:6px 0 10px;line-height:1.15}
+.bfprio{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.bfprio li{display:flex;gap:10px;align-items:center;background:#0e1230;border:2px solid var(--line);box-shadow:3px 3px 0 var(--edge);padding:9px 11px}
+.bfprio b{flex:none;width:28px;height:28px;display:grid;place-items:center;background:var(--warn);color:#14193a;font-family:var(--pix);font-size:17px}
+.bfprio span{font-size:15px}
+.bflist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.bflist li{display:flex;gap:10px;align-items:baseline;font-size:14px}
+.bflist time{flex:none;min-width:52px;font-family:var(--mono);font-size:17px;color:var(--accent2)}
+.bflist li.cours time{color:#9aa3bd}.bflist li.cours span{color:var(--muted)}
+.bfags{display:grid;gap:8px;margin-top:8px}
+.bfag{display:flex;gap:10px;align-items:center;border-left:3px solid var(--c);padding:4px 8px;background:#0e1230}
+.bfag canvas{width:34px;height:44px;image-rendering:pixelated;flex:none}
+.bfag b{display:block;font-family:var(--pix);font-size:14px}.bfag small{color:var(--muted);font-size:12.5px}
+.bfag.erreur{border-left-color:var(--err)}.bfag.erreur b{color:var(--err)}
+.bfdue{margin-top:14px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}.bfdue small{font-family:var(--tiny);font-size:10px;color:var(--muted);width:100%}.bfdue b{font-family:var(--pix);font-size:18px}
+.bfmsg{white-space:pre-wrap;margin:8px 0 0;font-size:14.5px;line-height:1.5}
 /* ===== Passe mobile (téléphone) ===== */
 .office>*,#slot-bureau,#slot-home{min-width:0}
 @media (max-width:700px){
@@ -623,6 +643,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;bac
       <div class="card" style="margin-bottom:14px"><header><button class="mini" id="wprev">←</button><h3 id="wtitle">Semaine</h3><button class="mini" id="wnext">→</button><button class="mini ghost" id="wtoday">Cette semaine</button><span class="sp"></span><small id="wsum"></small></header>
         <p class="hint" style="margin:0">Les cours et événements viennent de Google Agenda. Les blocs de travail sont tes tâches : clique pour cocher, reporter ou replanifier. Le Planner recale l'agenda au passage suivant.</p></div>
       <div class="week" id="week"></div>
+    </section>
+
+    <!-- BRIEF -->
+    <section id="p-brief" data-page hidden>
+      <div class="card bfnav"><button class="mini" id="bfprev" aria-label="Brief précédent">←</button><h3 id="bftitle">Brief</h3><button class="mini" id="bfnext" aria-label="Brief suivant">→</button></div>
+      <div id="bfbody"></div>
     </section>
 
     <!-- ÉTUDES -->
@@ -1284,6 +1310,7 @@ const svgOld=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 /* ---------- Icônes et orbe en pixel art ---------- */
 const PXMAP={
  accueil:[".....##.....","....####....","...######...","..########..",".##########.","############",".#........#.",".#.##..##.#.",".#.##..##.#.",".#........#.",".#...##...#.",".####..####."],
+ brief:["............",".....##.....","..#..##..#..","...#....#...","....####....","##.######.##","...######...","..########..","############","............","############","............"],
  planning:[".#......#...","############","#..........#","############","#..........#","#.##.##.##.#","#.##.##.##.#","#..........#","#.##.##....#","#.##.##....#","#..........#","############"],
  etudes:["............",".....##.....","...######...",".##########.","############",".##########.","...######.#.","..#......##.","..#......#..","..##....##..","...######...","............"],
  business:["############","#..........#","#.#####....#","#.#...#....#","#.#...####.#","#.#......#.#","#.########.#","#..........#","#.#.#.#.#..#","#..........#","############","............"],
@@ -1299,15 +1326,15 @@ function svg(k){return'<span class="pxi" style="--m:url('+pxURL(k)+')"></span>'}
  for(let y=0;y<16;y++)for(let x=0;x<16;x++){const dx=x-7.5,dy=y-7.5,d=Math.hypot(dx,dy);if(d>7.6)continue;const l=Math.hypot(x-5,y-5);
   g.fillStyle=d>6.6?"#1b1240":l<2.2?"#ffffff":l<4?"#c9b8ff":l<7?"#8f6bff":"#5a3fd6";g.fillRect(x,y,1,1)}
  document.documentElement.style.setProperty("--orb","url("+c.toDataURL()+")")})();
-const ROUTES=[["accueil","Accueil"],["planning","Planning"],["etudes","Études"],["bureau","Bureau des agents"]];
-const TITLES={accueil:"Tableau de <em>bord</em>",planning:"Planning",etudes:"Études",business:"Faîtage <em>Plans</em>",vie:"Vie <em>perso</em>",notes:"Notes et cerveau",bureau:"Bureau des <em>agents</em>",valider:"À valider",systeme:"Système"};
+const ROUTES=[["accueil","Accueil"],["brief","Brief du matin"],["planning","Planning"],["etudes","Études"],["bureau","Bureau des agents"]];
+const TITLES={accueil:"Tableau de <em>bord</em>",brief:"Brief du <em>matin</em>",planning:"Planning",etudes:"Études",business:"Faîtage <em>Plans</em>",vie:"Vie <em>perso</em>",notes:"Notes et cerveau",bureau:"Bureau des <em>agents</em>",valider:"À valider",systeme:"Système"};
 let route="accueil";
 function buildNav(){const box=$("navitems");box.textContent="";
- ROUTES.forEach(([k,l],i)=>{if(i===6)box.append(el("div",{class:"sep"}));const b=el("button",{class:"it","data-r":k,onclick:()=>go(k)});b.innerHTML=svg(k)+"<span>"+l+"</span>";b.append(el("span",{class:"cnt",id:"cnt-"+k,hidden:true}));box.append(b)});
+ ROUTES.forEach(([k,l],i)=>{if(k==="bureau")box.append(el("div",{class:"sep"}));const b=el("button",{class:"it","data-r":k,onclick:()=>go(k)});b.innerHTML=svg(k)+"<span>"+l+"</span>";b.append(el("span",{class:"cnt",id:"cnt-"+k,hidden:true}));box.append(b)});
  const tb=$("tabbar");tb.textContent="";
- [["accueil","Accueil"],["planning","Planning"],["bureau","Agents"],["etudes","Études"]].forEach(([k,l])=>{const b=el("button",{"data-r":k,class:k==="jarvis"?"mid":""});
+ [["accueil","Accueil"],["brief","Brief"],["planning","Planning"],["bureau","Agents"],["etudes","Études"]].forEach(([k,l])=>{const b=el("button",{"data-r":k,class:k==="jarvis"?"mid":""});
   b.innerHTML=(k==="jarvis"?'<span class="orb pulse"></span>':svg(k))+"<span>"+l+"</span>";b.onclick=()=>{if(k==="jarvis")openJarvis();else if(k==="plus")toggleSheet();else go(k)};tb.append(b)});
- const sh=$("sheet");sh.textContent="";[["etudes","Études"],["vie","Vie perso"],["notes","Notes"],["bureau","Bureau des agents"],["valider","À valider"],["systeme","Système"]].forEach(([k,l])=>{const b=el("button",{onclick:()=>{toggleSheet(false);go(k)}});b.innerHTML=svg(k)+"<span>"+l+"</span>";sh.append(b)})}
+ const sh=$("sheet");sh.textContent="";[["brief","Brief du matin"],["etudes","Études"],["vie","Vie perso"],["notes","Notes"],["bureau","Bureau des agents"],["valider","À valider"],["systeme","Système"]].forEach(([k,l])=>{const b=el("button",{onclick:()=>{toggleSheet(false);go(k)}});b.innerHTML=svg(k)+"<span>"+l+"</span>";sh.append(b)})}
 function toggleSheet(on){const s=$("sheet");s.classList.toggle("on",on==null?!s.classList.contains("on"):on)}
 function go(r,noHash){if(!TITLES.hasOwnProperty(r))r="accueil";route=r;document.querySelectorAll("[data-page]").forEach(s=>s.hidden=s.id!=="p-"+r);
  document.querySelectorAll("[data-r]").forEach(b=>{if(b.dataset.r===r)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
@@ -1315,7 +1342,7 @@ function go(r,noHash){if(!TITLES.hasOwnProperty(r))r="accueil";route=r;document.
  try{localStorage.setItem("qg-route",r)}catch(e){}
  const stg=$("stage"),slot=$(r==="accueil"?"slot-home":"slot-bureau");if(slot&&stg.parentNode!==slot)slot.prepend(stg);
  if(r==="bureau"||r==="accueil"){kick();requestAnimationFrame(()=>{const sc=$("scroll");if(!sc.dataset.c){sc.scrollLeft=(sc.scrollWidth-sc.clientWidth)/2;sc.dataset.c=1}})}
- if(r==="planning")renderWeek();if(r==="etudes")renderEtudes();if(r==="business")renderBiz();if(r==="vie")renderVie();if(r==="notes")renderNotes();if(r==="systeme")renderSys();
+ if(r==="brief")renderBrief();if(r==="planning")renderWeek();if(r==="etudes")renderEtudes();if(r==="business")renderBiz();if(r==="vie")renderVie();if(r==="notes")renderNotes();if(r==="systeme")renderSys();
  $("main").scrollTop=0;window.scrollTo(0,0);if(r==="planning"&&innerWidth<=700)setTimeout(()=>{const t=document.querySelector(".day.today");if(t)t.scrollIntoView({block:"start",behavior:"instant"})},60)}
 document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)go(g.dataset.go)});
 function greeting(){const h=new Date().getHours();return(h<6?"Bonne nuit":h<12?"Bonjour":h<18?"Bon après-midi":"Bonsoir")+" <em>Samuel</em>"}
@@ -1668,11 +1695,38 @@ async function runBrief(force){const b=$("brief");if(!sampleRef){b.textContent=j
  catch(e){b.classList.remove("load");b.textContent=e&&e.code==="not_granted"?"Briefing non autorisé : clique à nouveau pour que claude.ai te le demande.":e&&e.code==="rate_limited"?"Limite atteinte, réessaie plus tard.":"Briefing indisponible pour l'instant."}}
 $("briefbtn").onclick=()=>runBrief(true);
 
+
+/* ---------- Brief du matin (écrit par l'agent Assistant/CEO à chaque brief) ---------- */
+let briefs=[],bfIdx=0;
+function renderBrief(){const body=$("bfbody");if(!body)return;body.textContent="";
+ if(!briefs.length){$("bftitle").textContent="Brief du matin";body.append(el("div",{class:"card"},el("p",{class:"empty",text:"Aucun brief enregistré pour l'instant. Le prochain arrive à 7 h 25 (lun à ven) et le dimanche à 18 h 50."})));return}
+ bfIdx=Math.max(0,Math.min(bfIdx,briefs.length-1));const b=briefs[bfIdx];
+ $("bfprev").disabled=bfIdx>=briefs.length-1;$("bfnext").disabled=bfIdx===0;
+ $("bftitle").textContent=(b.type==="semaine"?"Brief de la semaine · ":"Brief · ")+frDate(b.date,{weekday:"long",day:"numeric",month:"long"});
+ const hero=el("div",{class:"card bfhero"});
+ hero.append(el("small",{class:"bfkick",text:(b.type==="semaine"?"PLANNING DU DIMANCHE":"BRIEF DU MATIN")+(b.at?" · "+new Date(b.at).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):"")}));
+ if(b.titre)hero.append(el("h2",{text:b.titre}));
+ const pr=el("ol",{class:"bfprio"});(b.priorites||[]).slice(0,5).forEach((p,i)=>pr.append(el("li",null,el("b",{text:String(i+1)}),el("span",{text:p}))));if(pr.children.length)hero.append(pr);
+ body.append(hero);
+ const g=el("div",{class:"grid g2"});
+ const box=(t,items,f)=>{const c=el("div",{class:"card"},el("header",null,el("h3",{text:t})));const ul=el("ul",{class:"bflist"});(items||[]).forEach(x=>ul.append(f(x)));if(!ul.children.length)ul.append(el("li",{class:"empty",text:"Rien."}));c.append(ul);return c};
+ g.append(box(b.type==="semaine"?"Semaine":"Journée",b.journee,x=>el("li",{class:x.cours?"cours":""},el("time",{text:x.h||x.jour||""}),el("span",{text:x.titre||""}))));
+ g.append(box("Attend ta validation",b.attente,x=>el("li",null,el("span",{text:typeof x==="string"?x:(x.titre||"")}))));
+ g.append(box("Rangé et traité",b.range,x=>el("li",null,el("span",{text:typeof x==="string"?x:(x.titre||"")}))));
+ const ag=el("div",{class:"card"},el("header",null,el("h3",{text:"Agents de ce passage"})));const al=el("div",{class:"bfags"});
+ (b.agents||[]).forEach(x=>{const a=BY[x.agent]||{nom:x.agent,pole:"dir"};const c=el("canvas",{width:34,height:44,"aria-hidden":"true"});const sp=SPR["p_"+x.agent];if(sp)c.getContext("2d").drawImage(sp,0,0);
+  al.append(el("div",{class:"bfag "+(x.statut||"ok"),style:"--c:"+(POLE_COL[a.pole]||"#7c5cff")},c,el("div",null,el("b",{text:a.nom+(x.statut==="erreur"?" · erreur":x.statut==="attente"?" · attend":"")}),el("small",{text:x.resume||""}))))});
+ if(!al.children.length)al.append(el("p",{class:"empty",text:"Pas de détail."}));ag.append(al);g.append(ag);
+ body.append(g);
+ if(b.echeance&&b.echeance.titre)body.append(el("div",{class:"card bfdue"},el("small",{text:"PROCHAINE ÉCHÉANCE"}),el("b",{text:b.echeance.titre}),el("span",{text:b.echeance.date?frDate(b.echeance.date,{weekday:"long",day:"numeric",month:"long"})+" · J-"+Math.max(0,daysUntil(b.echeance.date)):""})));
+ if(b.message)body.append(el("div",{class:"card"},el("header",null,el("h3",{text:"Message du brief"})),el("p",{class:"bfmsg",text:b.message})));
+}
+$("bfprev").onclick=()=>{bfIdx++;renderBrief()};$("bfnext").onclick=()=>{bfIdx--;renderBrief()};
 /* ---------- Rendu global, initialisation, données ---------- */
 function renderHello(){renderHome()}
 function renderStats(){renderHome()}
 function renderAll(){if(route==="bureau"||route==="accueil")renderOverlay();renderTicker();renderDetail();renderFeed();renderHome();renderAgenda();renderToday();renderNow&&renderNow();
- if(route==="planning")renderWeek();if(route==="etudes")renderEtudes();if(route==="business")renderBiz();if(route==="vie")renderVie();if(route==="notes")renderNotes();if(route==="systeme")renderSys()}
+ if(route==="brief")renderBrief();if(route==="planning")renderWeek();if(route==="etudes")renderEtudes();if(route==="business")renderBiz();if(route==="vie")renderVie();if(route==="notes")renderNotes();if(route==="systeme")renderSys()}
 let rq=null;function soon(){if(rq)return;rq=requestAnimationFrame(()=>{rq=null;renderAll()})}
 const use=n=>window.claude&&window.claude.use?window.claude.use(n):Promise.resolve(null);
 buildNav();buildSprites();
@@ -1693,6 +1747,7 @@ go(start,true);renderOverlay();renderAll();renderVals();renderGuide();setInterva
  db.collection("config").doc("reglages").onSnapshot(s=>{if(s.exists)reglages=Object.assign(reglages,s.data());soon()},()=>{});
  db.collection("cerveau").doc("index").onSnapshot(s=>{if(s.exists){const d=s.data();idx=d.notes||[];idxMaj=d.maj||""}soon()},()=>{});
  sub("planning",s=>planning=docs(s),r=>r.limit(600));
+ sub("briefs",s=>{briefs=docs(s).sort((a,b)=>String(b.date).localeCompare(String(a.date)))},r=>r.limit(40));
  sub("reflexions",s=>reflex=s.docs.map(d=>d.data()),r=>r.orderBy("maj","desc").limit(20));
  sub("echeances",s=>echeances=docs(s),r=>r.limit(300));sub("clients",s=>clients=docs(s),r=>r.limit(300));sub("compta",s=>compta=docs(s),r=>r.limit(1000));
  sub("habitudes",s=>habitudes=docs(s));sub("objectifs",s=>objectifs=docs(s));sub("captures",s=>captures=docs(s),r=>r.limit(200));sub("missions",s=>missions=docs(s),r=>r.limit(100));

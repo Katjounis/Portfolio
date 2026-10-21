@@ -67,8 +67,10 @@ window.claude={use:n=>Promise.resolve(n==="db"?db:n==="user"?user:n==="mcp"?mcp:
 /* Pastille d'état + réglage du jeton */
 function fmt(t){return t?new Date(t).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):"?"}
 function pill(msg,err){const p=document.getElementById("ro-pill");if(!p)return;
-  const m=state&&state.maj?" · "+new Date(state.maj).toLocaleString("fr-FR",{hour:"2-digit",minute:"2-digit"}):"";
-  p.querySelector("span").textContent=msg?msg:(token?"Direct"+m:"Jeton manquant");p.classList.toggle("err",!!err||!token)}
+  let m="";if(state&&state.maj){const d=new Date(state.maj),now=new Date(),min=Math.round((now-d)/60000);
+    m=min<2?"à l'instant":min<60?"il y a "+min+" min":d.toDateString()===now.toDateString()?"à "+d.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"}):d.toLocaleString("fr-FR",{weekday:"short",hour:"2-digit",minute:"2-digit"});
+    if(min>150)err=true}
+  p.querySelector("span").textContent=msg?msg:(token?"Maj "+m:"Jeton manquant");p.classList.toggle("err",!!err||!token)}
 function setup(){
   const box=document.createElement("div");box.id="ro-setup";
   box.innerHTML='<form><h2>QG Katjounis</h2><p>Colle ton jeton GitHub (fine-grained, dépôt <b>cerveau</b> seulement, Contents en lecture). Il reste sur ce téléphone.</p><input type="password" autocomplete="off" placeholder="github_pat_..." required><div><button type="submit">Connecter</button> <button type="button" data-x>Annuler</button></div><small>Pour le changer plus tard : touche la pastille en haut.</small></form>';
@@ -80,7 +82,7 @@ addEventListener("DOMContentLoaded",()=>{
   p.oncontextmenu=e=>{e.preventDefault();setup()};
   let t;p.addEventListener("touchstart",()=>{t=setTimeout(setup,700)});p.addEventListener("touchend",()=>clearTimeout(t));
   if(!token)setup();else load(true);
-  setInterval(()=>{if(!document.hidden)load()},60000);
+  setInterval(()=>{if(!document.hidden)load();pill()},60000);
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
   if(state)setTimeout(()=>{listeners.forEach(f=>f());try{runBrief()}catch(e){}},50);
 });
