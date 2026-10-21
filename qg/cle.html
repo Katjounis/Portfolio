@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Clés du QG</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&display=swap">
+<style>
+:root{--bg:#0b0e20;--panel:#141936;--line:#2b3366;--edge:#05060f;--accent:#7c5cff;--accent2:#4de1ff;--ok:#5cf28e;--warn:#ffd23f;--txt:#e8ecff;--muted:#9aa3bd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;padding:16px}
+main{max-width:640px;margin:0 auto}
+h1{font:700 26px "Pixelify Sans",monospace;margin:8px 0 4px}h1 em{font-style:normal;color:var(--warn)}
+.card{background:var(--panel);border:2px solid var(--line);box-shadow:4px 4px 0 var(--edge);padding:16px;margin:14px 0}
+.k{font:11px "Silkscreen",monospace;color:var(--accent2);letter-spacing:.04em}
+code{display:block;word-break:break-all;background:#0e1230;border:2px solid var(--line);padding:10px;margin:6px 0 8px;font:14px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--ok);user-select:all}
+button{font:12px "Silkscreen",monospace;background:var(--accent);color:#fff;border:0;padding:9px 12px;box-shadow:3px 3px 0 var(--edge);cursor:pointer}
+button.alt{background:#2b3366}
+p.small{color:var(--muted);font-size:13px}
+.warn{border-color:var(--warn)}
+</style></head><body><main>
+<h1>Clés du <em>QG</em></h1>
+<p class="small">Cette page fabrique tes deux clés secrètes directement dans ton navigateur (générateur aléatoire cryptographique). Rien n'est envoyé nulle part : la page n'a même pas le droit de se connecter à internet.</p>
+<div class="card"><div class="k">QG_DATA_KEY · clé de chiffrement (AES-256)</div><code id="k1"></code><button data-c="k1">Copier</button></div>
+<div class="card"><div class="k">QG_HOOK_SECRET · secret du pont Google</div><code id="k2"></code><button data-c="k2">Copier</button></div>
+<div class="card warn"><b>À faire maintenant</b><p class="small">1. Enregistre les deux dans ton gestionnaire de mots de passe (Mots de passe iCloud ou Bitwarden), note « QG Katjounis ». Sans QG_DATA_KEY, les données chiffrées (clients, compta, mails) sont perdues.<br>2. Colle-les dans GitHub : dépôt cerveau, Settings, Secrets and variables, Actions.<br>3. QG_HOOK_SECRET va aussi dans les propriétés du script Google (HOOK_SECRET).<br>Ne régénère pas les clés une fois le QG en service.</p>
+<button class="alt" id="regen">Régénérer (avant installation seulement)</button></div>
+</main><script src="cle.js"></script></body></html>
