@@ -19,9 +19,10 @@ p.small{color:var(--muted);font-size:13px}
 .warn{border-color:var(--warn)}
 </style></head><body><main>
 <h1>Clés du <em>QG</em></h1>
-<p class="small">Cette page fabrique tes deux clés secrètes directement dans ton navigateur (générateur aléatoire cryptographique). Rien n'est envoyé nulle part : la page n'a même pas le droit de se connecter à internet.</p>
+<p class="small">Cette page fabrique tes trois clés secrètes directement dans ton navigateur (générateur aléatoire cryptographique). Rien n'est envoyé nulle part : la page n'a même pas le droit de se connecter à internet.</p>
+<div class="card"><div class="k">QG_LOGIN_KEY · clé d'accès pour te connecter au QG</div><code id="k0"></code><button data-c="k0">Copier</button></div>
 <div class="card"><div class="k">QG_DATA_KEY · clé de chiffrement (AES-256)</div><code id="k1"></code><button data-c="k1">Copier</button></div>
 <div class="card"><div class="k">QG_HOOK_SECRET · secret du pont Google</div><code id="k2"></code><button data-c="k2">Copier</button></div>
-<div class="card warn"><b>À faire maintenant</b><p class="small">1. Enregistre les deux dans ton gestionnaire de mots de passe (Mots de passe iCloud ou Bitwarden), note « QG Katjounis ». Sans QG_DATA_KEY, les données chiffrées (clients, compta, mails) sont perdues.<br>2. Colle-les dans GitHub : dépôt cerveau, Settings, Secrets and variables, Actions.<br>3. QG_HOOK_SECRET va aussi dans les propriétés du script Google (HOOK_SECRET).<br>Ne régénère pas les clés une fois le QG en service.</p>
+<div class="card warn"><b>À faire maintenant</b><p class="small">1. Enregistre les trois dans ton gestionnaire de mots de passe (Mots de passe iCloud ou Bitwarden), fiche « QG Katjounis » : la clé d'accès comme mot de passe (ton téléphone la proposera tout seul à la connexion). Sans QG_DATA_KEY, les données chiffrées (clients, compta, mails) sont perdues.<br>2. Colle-les dans GitHub : dépôt cerveau, Settings, Secrets and variables, Actions.<br>3. QG_HOOK_SECRET va aussi dans les propriétés du script Google (HOOK_SECRET).<br>Ne régénère pas les clés une fois le QG en service.</p>
 <button class="alt" id="regen">Régénérer (avant installation seulement)</button></div>
 </main><script src="cle.js"></script></body></html>
