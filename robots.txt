@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /qg/
+
+Sitemap: https://samuelchaux.fr/sitemap.xml

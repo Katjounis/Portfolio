@@ -1,38 +1,72 @@
-/* v10 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
+/* v50 : si tu ne vois pas cette ligne sur GitHub, le fichier n'est pas à jour */
 /* ==========================================================================
-   BASE : variables, typographie, composants partagés par toutes les pages
-   Ne touche à ce fichier que si tu veux changer les couleurs ou les polices.
+   BASE : polices, variables, composants partagés par toutes les pages.
+   Ligne directrice : une planche de plan. Filets fins plutôt qu'ombres,
+   angles vifs, une seule couleur d'accent, le mono réservé à ce qui se
+   mesure (années, durées, références, cotes).
    ========================================================================== */
 
+/* ---------- Polices hébergées sur le site ---------- */
+@font-face{
+  font-family:'Bricolage Grotesque';
+  src:url('../fonts/bricolage-grotesque-var.woff2') format('woff2');
+  font-weight:200 800; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Instrument Sans';
+  src:url('../fonts/instrument-sans-400.woff2') format('woff2');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Instrument Sans';
+  src:url('../fonts/instrument-sans-500.woff2') format('woff2');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Instrument Sans';
+  src:url('../fonts/instrument-sans-600.woff2') format('woff2');
+  font-weight:600; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('../fonts/ibm-plex-mono-400.woff2') format('woff2');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('../fonts/ibm-plex-mono-500.woff2') format('woff2');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+
 :root{
-  /* Couleurs : palette claire */
-  --papier:#FCFBF9;
-  --papier-2:#F1F0EA;
-  --encre:#191B1F;
-  --gris:#67685F;
-  --trait:#CFCEC6;
+  /* Neutres teintés */
+  --papier:#F7F6F1;
+  --papier-2:#EDEBE3;
+  --blanc:#FDFCF9;
+  --encre:#1C1D1A;
+  --gris:#55564F;        /* 7,0:1 sur --papier */
+  --trait:#CBC9BF;
 
-  /* Accents : un par famille d'expérience */
-  --bleu:#1B4FD8;     /* formation */
-  --jaune:#FFC53D;    /* stage */
-  --vert:#1B8A5A;     /* international */
-  --rouge:#D9412F;    /* objectif, page Moi */
-  --violet:#6B4BD6;
+  /* Un seul accent, utilisé avec parcimonie */
+  --accent:#1B4FD8;      /* 6,0:1 sur --papier */
+  --accent-clair:#E4EAFB;
 
-  /* Ciel et terre pour la coupe du parcours */
-  --ciel-haut:#CBE1F6;
-  --ciel-bas:#EDF4FB;
-  --terre-haut:#E7DCC6;
-  --terre-bas:#C9B896;
+  /* Anciennes variables de teinte : toutes ramenées à l'encre ou à l'accent,
+     pour que le HTML existant (style="--teinte:var(--jaune)") reste valable */
+  --bleu:var(--accent);
+  --jaune:var(--encre);
+  --vert:var(--encre);
+  --rouge:var(--accent);
+  --violet:var(--accent);
 
   /* Polices */
-  --display:'Bricolage Grotesque', system-ui, sans-serif;
-  --corps:'Instrument Sans', system-ui, sans-serif;
+  --display:'Bricolage Grotesque', 'Instrument Sans', sans-serif;
+  --corps:'Instrument Sans', 'Helvetica Neue', sans-serif;
   --tech:'IBM Plex Mono', ui-monospace, monospace;
-   
-   --marge:1.25rem;
-  --marge:clamp(1.25rem, 5vw, 5rem);
-  --max:1180px;
+
+  --marge:clamp(1rem, 5vw, 4rem);
+  --max:1160px;
+  --duree:180ms;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -42,215 +76,141 @@ body{
   background:var(--papier);
   color:var(--encre);
   font-family:var(--corps);
-  font-size:clamp(1rem,.95rem + .2vw,1.07rem);
+  font-size:clamp(1rem,.96rem + .18vw,1.06rem);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 
-img{max-width:100%; display:block;}
-a{color:inherit;}
+img{max-width:100%; height:auto; display:block;}
+a{color:inherit; text-underline-offset:.18em; text-decoration-thickness:1px;}
+a:hover{color:var(--accent);}
 
-:focus-visible{outline:2.5px solid var(--bleu); outline-offset:3px;}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
 
 .enveloppe{max-width:var(--max); margin-inline:auto; padding-inline:var(--marge); position:relative; z-index:1;}
-.section{
-  position:relative; overflow:hidden;
-  padding-block:clamp(3rem,7vw,5.5rem);
-  background:
-    radial-gradient(85% 65% at 10% 0%, rgba(27,79,216,.055), transparent 60%),
-    radial-gradient(70% 55% at 95% 100%, rgba(255,197,61,.08), transparent 65%);
-}
-.section::before{
-  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
-  background-image:
-    linear-gradient(rgba(25,27,31,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(25,27,31,.045) 1px, transparent 1px);
-  background-size:46px 46px;
-  mask-image:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.2));
-}
-.fond-alt{
-  background:
-    radial-gradient(90% 70% at 90% 0%, rgba(107,75,214,.07), transparent 62%),
-    radial-gradient(70% 60% at 6% 100%, rgba(27,138,90,.09), transparent 65%),
-    var(--papier-2);
-}
+.section{position:relative; padding-block:clamp(3rem,7vw,5.5rem);}
 
 /* ---------- Barre de navigation ---------- */
 .bandeau{
   position:sticky; top:0; z-index:60;
-  background:#14161C;
-  color:#F4F2EC;
-  border-bottom:1.5px solid #14161C;
+  background:var(--encre); color:var(--papier);
 }
-.bandeau a{color:inherit;}
-.sigle{color:rgba(244,242,236,.6);}
-.bandeau nav a.ici{border-bottom-color:#7B93FF;}
 .bandeau-int{
   display:flex; align-items:center; justify-content:space-between;
-  gap:1rem; padding-block:.7rem;
+  gap:1rem; min-height:56px;
   max-width:var(--max); margin-inline:auto; padding-inline:var(--marge);
 }
-.sigle{font-family:var(--tech); font-size:.68rem; letter-spacing:.16em; font-weight:500;}
-.bandeau nav{display:flex; gap:1.25rem; flex-wrap:wrap;}
+.sigle{font-family:var(--display); font-weight:700; font-size:1rem; letter-spacing:-.01em;}
+.bandeau nav{display:flex; gap:.25rem 1.4rem; flex-wrap:wrap;}
+.bandeau a{color:inherit;}
 .bandeau nav a{
-  font-family:var(--tech); font-size:.67rem; letter-spacing:.1em;
-  text-transform:uppercase; text-decoration:none;
-  padding-bottom:2px; border-bottom:1.5px solid transparent;
-  transition:border-color .18s;
+  font-size:.92rem; font-weight:500; text-decoration:none;
+  display:inline-flex; align-items:center; min-height:44px;
+  border-bottom:2px solid transparent;
+  transition:border-color var(--duree), color var(--duree);
 }
-.bandeau nav a:hover{border-bottom-color:var(--jaune);}
-.bandeau nav a.ici{border-bottom-color:var(--bleu);}
+.bandeau nav a:hover{color:var(--papier); border-bottom-color:var(--trait);}
+.bandeau nav a.ici{border-bottom-color:var(--papier);}
 
-/* ---------- Boutons ---------- */
+/* ---------- Bouton : un seul par page, les autres actions en liens ---------- */
 .bouton{
-  display:inline-block;
-  font-family:var(--tech); font-size:.72rem; letter-spacing:.1em;
-  text-transform:uppercase; text-decoration:none;
-  padding:.78rem 1.3rem;
+  display:inline-flex; align-items:center; justify-content:center; min-height:44px;
+  font-family:var(--corps); font-weight:600; font-size:.95rem;
+  text-decoration:none;
+  padding:.6rem 1.25rem;
   border:1.5px solid var(--encre);
   background:var(--encre); color:var(--papier);
-  transition:background .18s, color .18s, transform .18s;
+  transition:background var(--duree), border-color var(--duree), color var(--duree);
 }
-.bouton:hover{background:var(--jaune); color:var(--encre); transform:translateY(-2px);}
+.bouton:hover{background:var(--accent); border-color:var(--accent); color:var(--blanc);}
 .bouton.vide{background:transparent; color:var(--encre);}
 .bouton.vide:hover{background:var(--encre); color:var(--papier);}
+
+/* Lien d'action secondaire */
+.lien-action{
+  display:inline-flex; align-items:center; min-height:44px;
+  font-weight:600; text-decoration:underline; text-underline-offset:.25em;
+}
+.lien-action::after{content:'\00a0\2192';}
 
 /* ---------- Trait de cote (motif signature) ---------- */
 .cote{display:block; width:100%; height:26px; overflow:visible;}
 .cote line{stroke:var(--trait); stroke-width:1.25; fill:none;}
-.cote .ligne{stroke-dasharray:1000; stroke-dashoffset:1000; animation:tracer 1.4s cubic-bezier(.2,.7,.3,1) forwards;}
-.cote text{
-  font-family:var(--tech); font-size:10.5px; letter-spacing:.1em;
-  fill:var(--gris); text-transform:uppercase;
-}
-@keyframes tracer{to{stroke-dashoffset:0;}}
+.cote text{font-family:var(--tech); font-size:10.5px; fill:var(--gris);}
 
-/* ---------- Cartouche de section ---------- */
-.cartouche{
-  display:flex; align-items:stretch;
-  border:1.5px solid var(--encre);
-  background:var(--papier);
-  margin-bottom:2.4rem;
-}
-.cartouche .num{
-  display:flex; align-items:center; padding-inline:.9rem;
-  background:var(--encre); color:var(--papier);
-  font-family:var(--tech); font-size:.72rem; font-weight:500; letter-spacing:.1em;
-}
-.cartouche h2{
-  flex:1; padding:.62rem .95rem;
-  font-family:var(--display); font-weight:600;
-  font-size:clamp(1.15rem,3.2vw,1.6rem);
-  letter-spacing:-.015em; text-transform:uppercase; line-height:1.2;
-}
-.cartouche .meta{
-  display:none; align-items:center; padding-inline:.95rem;
-  border-left:1.5px solid var(--encre);
-  font-family:var(--tech); font-size:.65rem; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--gris); white-space:nowrap;
-}
-@media(min-width:720px){.cartouche .meta{display:flex;}}
-
-/* ---------- Cadre image avec repère si le fichier manque ---------- */
+/* ---------- Cadre image ---------- */
 .cadre{
   position:relative;
-  border:1.5px solid var(--encre);
-  background:var(--papier);
+  border:1px solid var(--encre);
+  background:var(--blanc);
   overflow:hidden;
   aspect-ratio:16/10;
 }
-.cadre.vide{
-  background:
-    repeating-linear-gradient(45deg,
-      var(--papier-2) 0 8px, var(--papier) 8px 16px);
-}
-.cadre::after{display:none;}
-.cadre img{width:100%; height:100%; object-fit:cover; position:relative; z-index:1;}
+.cadre img{width:100%; height:100%; object-fit:cover;}
+.cadre-contain img{object-fit:contain; background:var(--papier-2);}
+.cadre.vide{background:var(--papier-2);}
 .cadre.vide img{display:none;}
 .cadre.vide::before{
-  content:'à déposer'; position:absolute; inset:0;
-  display:grid; place-items:center;
-  font-family:var(--tech); font-size:.65rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--gris);
+  content:'Image à déposer'; position:absolute; inset:0;
+  display:grid; place-items:center; font-size:.85rem; color:var(--gris);
 }
 
-/* ---------- Pied de page / cartouche de plan ---------- */
-.pied{border-top:1.5px solid var(--encre); background:var(--papier-2); margin-top:clamp(3rem,7vw,5rem);}
-.pied-int{max-width:var(--max); margin-inline:auto; padding-inline:var(--marge); padding-block:2.6rem;}
+/* ---------- Pied de page ---------- */
+.pied{border-top:1px solid var(--encre); background:var(--papier-2); margin-top:clamp(3rem,7vw,5rem);}
+.pied-int{max-width:var(--max); margin-inline:auto; padding-inline:var(--marge); padding-block:2.5rem 2rem;}
 .contact-titre{
   font-family:var(--display); font-weight:800;
-  font-size:clamp(1.8rem,6vw,3.2rem);
-  text-transform:uppercase; letter-spacing:-.03em; line-height:.95;
+  font-size:clamp(1.8rem,6vw,3rem);
+  letter-spacing:-.03em; line-height:1;
   margin-bottom:1.5rem;
 }
-.liens{display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:2.4rem;}
-.bloc-grille{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); border:1.5px solid var(--encre); background:var(--papier);}
-.cellule{padding:.7rem .85rem; border-right:1px solid var(--trait); border-bottom:1px solid var(--trait);}
-.cellule:last-child{border-right:none;}
-.cellule .cle{display:block; font-family:var(--tech); font-size:.57rem; letter-spacing:.13em; text-transform:uppercase; color:var(--gris); margin-bottom:.15rem;}
-.cellule .val{font-family:var(--tech); font-size:.78rem; font-weight:500;}
+.liens{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1.6rem; margin-bottom:2rem;}
+.mentions-pied{font-size:.85rem; color:var(--gris);}
+.mentions-pied a{color:var(--gris);}
 
-/* ---------- Apparition au défilement ----------
-   Règle de sécurité : le contenu est VISIBLE par défaut. Il n'est masqué
-   pour être animé que si le JavaScript a bien démarré (classe .js posée
-   dans le <head>). Si un script échoue, la page reste lisible. */
+/* Cartouche de plan (pied de l'accueil, en-tête des pages détail) */
+.bloc-grille{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); border:1px solid var(--encre); background:var(--blanc);}
+.cellule{padding:.65rem .85rem; border-right:1px solid var(--trait); border-bottom:1px solid var(--trait);}
+.cellule:last-child{border-right:none;}
+.cellule .cle{display:block; font-size:.78rem; color:var(--gris); margin-bottom:.1rem;}
+.cellule .val{font-weight:600; font-size:.95rem; font-variant-numeric:tabular-nums;}
+
+/* ---------- Plus d'apparition au défilement : le contenu est là, tout de suite ---------- */
 .revele{opacity:1; transform:none;}
-.js .revele{
-  opacity:0; transform:translateY(22px);
-  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);
+
+/* ---------- Lightbox photos ---------- */
+.cadre img{cursor:zoom-in;}
+.lightbox{
+  position:fixed; inset:0; z-index:999;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(28,29,26,.94);
+  opacity:0; visibility:hidden;
+  transition:opacity var(--duree);
+  padding:4vh 4vw;
 }
-.js .revele.vu{opacity:1; transform:none;}
+.lightbox.ouverte{opacity:1; visibility:visible;}
+.lightbox img{max-width:100%; max-height:100%; cursor:zoom-out;}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .js .revele{opacity:1; transform:none; transition:none;}
-  .cote .ligne{animation:none; stroke-dashoffset:0;}
-  *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
+  *,*::before,*::after{transition-duration:.001ms !important; animation-duration:.001ms !important; animation-iteration-count:1 !important;}
 }
 
 /* ==========================================================================
    TÉLÉPHONE : règles communes à toutes les pages
    ========================================================================== */
 @media(max-width:640px){
-  .bandeau-int{
-    flex-direction:column; align-items:flex-start;
-    gap:.45rem; padding-block:.6rem;
-  }
-  .bandeau nav{gap:.9rem; row-gap:.35rem;}
-  .bandeau nav a{font-size:.62rem;}
-
-  .cartouche{flex-wrap:wrap;}
-  .cartouche h2{font-size:1.05rem; padding:.55rem .8rem;}
+  .bandeau-int{flex-direction:column; align-items:flex-start; gap:0; padding-block:.5rem 0;}
+  .bandeau nav{gap:0 1.1rem;}
+  .bandeau nav a{font-size:.9rem;}
 
   .bloc-grille{grid-template-columns:repeat(2,minmax(0,1fr));}
   .cellule:nth-child(2n){border-right:none;}
 
-  .liens{flex-direction:column; align-items:stretch;}
-  .liens .bouton{text-align:center;}
+  .liens{flex-direction:column; align-items:flex-start;}
+  .section{padding-block:2.5rem;}
+}
 
-  .contact-titre{font-size:clamp(1.6rem,9vw,2.4rem);}
-  .section{padding-block:2.2rem;}
-
-   .enveloppe, .bandeau-int, .pied-int{padding-inline:1.25rem;}
-}
-/* ---------- Lightbox photos ---------- */
-.cadre img{cursor:zoom-in;}
-.lightbox{
-  position:fixed; inset:0; z-index:999;
-  display:flex; align-items:center; justify-content:center;
-  background:rgba(20,20,20,.92);
-  opacity:0; visibility:hidden;
-  transition:opacity .22s;
-  padding:4vh 4vw;
-}
-.cadre-contain img{object-fit:contain; background:var(--papier-2);}
-.lightbox.ouverte{opacity:1; visibility:visible;}
-.lightbox img{
-  max-width:100%; max-height:100%;
-  border-radius:12px;
-  box-shadow:0 30px 60px rgba(0,0,0,.4);
-  cursor:zoom-out;
-}
 /* Rien ne doit pouvoir déborder horizontalement sur un écran étroit */
 html, body{max-width:100%; overflow-x:clip;}
 img, svg, video, table{max-width:100%;}

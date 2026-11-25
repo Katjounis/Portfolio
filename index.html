@@ -4,34 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.className += " js";</script>
   <title>Samuel Chaux, élève ingénieur BTP et modélisateur BIM</title>
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="description"
     content="Élève ingénieur BTP à BUILDERS Lyon, orientation bâtiment. Revit, Navisworks, Dynamo, Allplan. En recherche d'un PFE en modélisation et projection BIM à partir de mars 2027.">
-  <meta name="author" content="Samuel Chaux">
-
+  <link rel="canonical" href="https://samuelchaux.fr/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://samuelchaux.fr/">
   <meta property="og:title" content="Samuel Chaux, élève ingénieur BTP et modélisateur BIM">
-  <meta property="og:description"
-    content="Revit, Navisworks, Dynamo, Allplan. En recherche d'un PFE BIM à partir de mars 2027.">
-  <meta property="og:image" content="assets/img/moi/portrait.jpg">
-
-  <link rel="icon" href="assets/img/logos/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/base.css?v=31">
-  <link rel="stylesheet" href="assets/css/accueil.css?v=31">
-  <link rel="stylesheet" href="assets/css/fond.css?v=32">
+  <meta property="og:description" content="Élève ingénieur BTP à BUILDERS Lyon, orientation bâtiment. Revit, Navisworks, Dynamo, Allplan. En recherche d'un PFE en modélisation et projection BIM à partir de mars 2027.">
+  <meta property="og:image" content="https://samuelchaux.fr/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Samuel Chaux">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/base.css?v=50">
+  <link rel="stylesheet" href="assets/css/accueil.css?v=50">
+  <link rel="stylesheet" href="assets/css/fond.css?v=50">
 </head>
 
 <body>
 
   <header class="bandeau">
     <div class="bandeau-int">
-      <span class="sigle">S.C. : PORTFOLIO</span>
+      <a class="sigle" href="index.html">Samuel Chaux</a>
       <nav>
         <a href="#parcours">Parcours</a>
         <a href="#projets">Projets</a>
@@ -55,7 +56,7 @@
 
         <p class="role">Élève ingénieur BTP : <b>Recherche PFE BIM, mars 2027</b></p>
 
-        <h1 class="nom">
+        <h1 class="nom" aria-label="Samuel Chaux">
           <span>Samuel</span>
           <span class="creux">Chaux</span>
         </h1>
@@ -76,8 +77,8 @@
 
         <div class="actions">
           <a class="bouton" href="assets/docs/cv.pdf">Voir mon CV</a>
-          <a class="bouton" href="#projets">Voir les projets réalisés</a>
-          <a class="bouton" href="moi.html">Qui je suis</a>
+          <a class="lien-action" href="#projets">Voir les projets réalisés</a>
+          <a class="lien-action" href="moi.html">Qui je suis</a>
         </div>
       </div>
     </section>
@@ -128,7 +129,7 @@
               <div class="etiquettes">
                 <span>Revit</span><span>Navisworks</span><span>Dynamo</span><span>Allplan</span><span>Twinmotion</span>
               </div>
-              <p style="margin-top:1.2rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
+              <p style="margin-top:1rem"><a class="lien-action" href="#contact">Me proposer un PFE</a></p>
             </div>
           </article>
           <article class="exp-item gauche revele" style="--teinte:var(--jaune)">
@@ -137,11 +138,10 @@
               <div class="exp-entete">
                 <div>
                   <p class="exp-lieu"><b>Andrézieux-Bouthéon</b> : 15 semaines</p>
-                  <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span
-                      class="marqueur">En cours</span></h3>
+                  <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a></h3>
                   <p class="fonction">Bureau d'études structure : Juin à septembre 2026</p>
                 </div>
-                <figure class="exp-vignette" data-legende="guivibat.png"><img src="assets/img/logos/guivibat.png" alt=""
+                <figure class="exp-vignette" data-legende="guivibat.png"><img width="320" height="240" src="assets/img/logos/guivibat.png" alt=""
                     loading="lazy"></figure>
               </div>
               <p class="texte">Suivi de dossiers de bout en bout : reprise des hypothèses, calculs de
@@ -163,7 +163,7 @@
                   <h3><a href="exp-edimbourg.html">Échange Erasmus, University of Edinburgh</a></h3>
                   <p class="fonction">School of Engineering : Old College, South Bridge</p>
                 </div>
-                <figure class="exp-vignette" data-legende="edinburgh.png"><img src="assets/img/logos/edinburgh.png"
+                <figure class="exp-vignette" data-legende="edinburgh.png"><img width="347" height="350" src="assets/img/logos/edinburgh.png"
                     alt="" loading="lazy"></figure>
               </div>
               <p class="texte">Un semestre complet de génie civil enseigné en anglais dans l'université classée 15e au
@@ -187,7 +187,7 @@
                   <h3><a href="exp-ouvrier.html">Stage ouvrier puis conduite de travaux, STAL TP</a></h3>
                   <p class="fonction">Travaux publics : Exécution puis pilotage de chantier</p>
                 </div>
-                <figure class="exp-vignette" data-legende="stal-tp.png"><img src="assets/img/logos/stal-tp.png" alt=""
+                <figure class="exp-vignette" data-legende="stal-tp.png"><img width="320" height="240" src="assets/img/logos/stal-tp.png" alt=""
                     loading="lazy"></figure>
               </div>
               <p class="texte">Trois semaines passées sur chantiers, puis douze semaines côté conduite de travaux.
@@ -209,7 +209,7 @@
                       cours</span></h3>
                   <p class="fonction">Campus AURA : Orientation bâtiment</p>
                 </div>
-                <figure class="exp-vignette" data-legende="builders.png"><img src="assets/img/logos/builders.png" alt=""
+                <figure class="exp-vignette" data-legende="builders.png"><img width="2160" height="2160" src="assets/img/logos/builders.png" alt=""
                     loading="lazy"></figure>
               </div>
               <p class="texte">Béton armé, construction métallique, étude de prix et métré, gestion de
@@ -251,7 +251,7 @@
                   <h3>Baccalauréat : Mention Bien</h3>
                   <p class="fonction">Lycée Hippolyte Carnot : Maths, Physique-chimie, SVT</p>
                 </div>
-                <figure class="exp-vignette" data-legende="carnot.png"><img src="assets/img/logos/carnot.png" alt=""
+                <figure class="exp-vignette" data-legende="carnot.png"><img width="400" height="400" src="assets/img/logos/carnot.png" alt=""
                     loading="lazy"></figure>
               </div>
               <p class="texte">Spécialité sciences de la vie et de la Terre abandonnée en fin de première
@@ -294,8 +294,8 @@
         <div class="grille">
 
           <article class="fiche cliquable revele">
-            <figure class="cadre cadre-contain" data-legende="aura-01.jpg">
-              <img src="assets/img/projets/aura-01.jpg" alt="Maquette numérique des nouveaux locaux du campus AURA"
+            <figure class="cadre cadre-contain" data-legende="aura-01.webp">
+              <img width="1600" height="1200" src="assets/img/projets/aura-01.webp" alt="Maquette numérique des nouveaux locaux du campus AURA"
                 loading="lazy">
             </figure>
             <div class="fiche-texte">
@@ -312,8 +312,8 @@
           </article>
 
           <article class="fiche cliquable revele">
-            <figure class="cadre cadre-contain" data-legende="tep-revit-01.jpg">
-              <img src="assets/img/projets/tep-revit-01.jpg" alt="Rendu du campus modélisé sous Revit" loading="lazy">
+            <figure class="cadre cadre-contain" data-legende="tep-revit-01.webp">
+              <img width="1600" height="1130" src="assets/img/projets/tep-revit-01.webp" alt="Rendu du campus modélisé sous Revit" loading="lazy">
             </figure>
             <div class="fiche-texte">
               <div class="ref"><span>PR-02</span><span>2026</span></div>
@@ -330,8 +330,8 @@
           </article>
 
           <article class="fiche cliquable revele">
-            <figure class="cadre cadre-contain" data-legende="eurocodes-01.jpg">
-              <img src="assets/img/projets/eurocodes-01.jpg" alt="Classeur de dimensionnement Eurocodes" loading="lazy">
+            <figure class="cadre cadre-contain" data-legende="eurocodes-01.webp">
+              <img width="1600" height="591" src="assets/img/projets/eurocodes-01.webp" alt="Classeur de dimensionnement Eurocodes" loading="lazy">
             </figure>
             <div class="fiche-texte">
               <div class="ref"><span>PR-03</span><span>2026</span></div>
@@ -346,8 +346,8 @@
           </article>
 
           <article class="fiche cliquable revele">
-            <figure class="cadre cadre-contain" data-legende="sanhorizons-01.jpg">
-              <img src="assets/img/projets/sanhorizons-01.jpg" alt="Site SAN Horizons" loading="lazy">
+            <figure class="cadre cadre-contain" data-legende="sanhorizons-01.webp">
+              <img width="181" height="181" src="assets/img/projets/sanhorizons-01.webp" alt="Site SAN Horizons" loading="lazy">
             </figure>
             <div class="fiche-texte">
               <div class="ref"><span>PR-04</span><span>2026</span></div>
@@ -362,8 +362,8 @@
           </article>
 
           <article class="fiche cliquable revele">
-            <figure class="cadre cadre-contain" data-legende="co2st-01.jpg">
-              <img src="assets/img/projets/co2st-01.jpg" alt="Vue aérienne de l'établissement scolaire du concours CO2ST.io"
+            <figure class="cadre cadre-contain" data-legende="co2st-01.webp">
+              <img width="1600" height="900" src="assets/img/projets/co2st-01.webp" alt="Vue aérienne de l'établissement scolaire du concours CO2ST.io"
                 loading="lazy">
             </figure>
             <div class="fiche-texte">
@@ -485,7 +485,7 @@
             <p>Design de tatouages, modélisation 3D, rugby, musique, voyages, vie
               associative. La partie qui ne rentre pas dans un CV.</p>
           </div>
-          <a class="bouton" href="moi.html">Découvrir ma page</a>
+          <a class="lien-action" href="moi.html">Découvrir ma page</a>
         </div>
       </div>
     </section>
@@ -498,11 +498,11 @@
       <h2 class="contact-titre">Parlons<br>de notre projet</h2>
 
       <div class="liens">
-        <a class="bouton" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
-        <a class="bouton vide" href="mailto:samuel.chaux@builders-lyon.fr">Mail école</a>
-        <a class="bouton vide" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
+        <a class="lien-action" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
+        <a class="lien-action" href="mailto:samuel.chaux@builders-lyon.fr">Mail école</a>
+        <a class="lien-action" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
           rel="noopener">LinkedIn</a>
-        <a class="bouton vide" href="https://github.com/Katjounis" target="_blank" rel="noopener">GitHub</a>
+        <a class="lien-action" href="https://github.com/Katjounis" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <div class="bloc-grille">
@@ -513,10 +513,11 @@
         <div class="cellule"><span class="cle">Secteurs</span><span class="val">Lyon, Toulouse, Roanne</span></div>
         <div class="cellule"><span class="cle">Mobilité</span><span class="val">Permis B, véhiculé</span></div>
       </div>
+      <p class="mentions-pied"><a href="mentions-legales.html">Mentions légales</a></p>
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=31"></script>
+  <script src="assets/js/app.js?v=50"></script>
 </body>
 
 </html>
