@@ -33,10 +33,7 @@
 /* ---------- 1. Le décor ---------- */
 
 body:not(.page-moi){
-  background:linear-gradient(168deg,
-    var(--f-papier-1) 0%,
-    var(--f-papier-2) 50%,
-    var(--f-papier-3) 100%) fixed;
+  background:var(--f-papier-2);
 }
 
 /* Les courbes de niveau : une seule image, fixe, qui couvre l'écran.
@@ -51,13 +48,6 @@ body:not(.page-moi)::before{
           mask-image:radial-gradient(130% 100% at 50% 20%, #000 55%, rgba(0,0,0,.5) 85%, transparent 100%);
 }
 
-/* Un grain de papier très léger par-dessus.
-   Si tu le trouves inutile : supprime tout ce bloc. */
-body:not(.page-moi)::after{
-  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.13'/%3E%3C/svg%3E");
-  background-size:180px 180px;
-}
 
 /* ---------- 2. On éteint l'ancien fond ---------- */
    /* L'en-tête n'est plus géré ici : sa couleur est dans base.css, pour

@@ -56,9 +56,6 @@ a{color:inherit;}
 .section{
   position:relative; overflow:hidden;
   padding-block:clamp(3rem,7vw,5.5rem);
-  background:
-    radial-gradient(85% 65% at 10% 0%, rgba(27,79,216,.055), transparent 60%),
-    radial-gradient(70% 55% at 95% 100%, rgba(255,197,61,.08), transparent 65%);
 }
 .section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
@@ -69,10 +66,7 @@ a{color:inherit;}
   mask-image:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.2));
 }
 .fond-alt{
-  background:
-    radial-gradient(90% 70% at 90% 0%, rgba(107,75,214,.07), transparent 62%),
-    radial-gradient(70% 60% at 6% 100%, rgba(27,138,90,.09), transparent 65%),
-    var(--papier-2);
+  background:var(--papier-2);
 }
 
 /* ---------- Barre de navigation ---------- */
@@ -109,16 +103,16 @@ a{color:inherit;}
   padding:.78rem 1.3rem;
   border:1.5px solid var(--encre);
   background:var(--encre); color:var(--papier);
-  transition:background .18s, color .18s, transform .18s;
+  transition:background .18s, color .18s, border-color .18s;
 }
-.bouton:hover{background:var(--jaune); color:var(--encre); transform:translateY(-2px);}
+.bouton:hover{background:var(--jaune); border-color:var(--jaune); color:var(--encre);}
 .bouton.vide{background:transparent; color:var(--encre);}
 .bouton.vide:hover{background:var(--encre); color:var(--papier);}
 
 /* ---------- Trait de cote (motif signature) ---------- */
 .cote{display:block; width:100%; height:26px; overflow:visible;}
 .cote line{stroke:var(--trait); stroke-width:1.25; fill:none;}
-.cote .ligne{stroke-dasharray:1000; stroke-dashoffset:1000; animation:tracer 1.4s cubic-bezier(.2,.7,.3,1) forwards;}
+.cote .ligne{}
 .cote text{
   font-family:var(--tech); font-size:10.5px; letter-spacing:.1em;
   fill:var(--gris); text-transform:uppercase;
@@ -195,15 +189,12 @@ a{color:inherit;}
    pour être animé que si le JavaScript a bien démarré (classe .js posée
    dans le <head>). Si un script échoue, la page reste lisible. */
 .revele{opacity:1; transform:none;}
-.js .revele{
-  opacity:0; transform:translateY(22px);
-  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);
-}
+.js .revele{opacity:1; transform:none;}
 .js .revele.vu{opacity:1; transform:none;}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .js .revele{opacity:1; transform:none; transition:none;}
+
   .cote .ligne{animation:none; stroke-dashoffset:0;}
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
 }
@@ -247,8 +238,6 @@ a{color:inherit;}
 .lightbox.ouverte{opacity:1; visibility:visible;}
 .lightbox img{
   max-width:100%; max-height:100%;
-  border-radius:12px;
-  box-shadow:0 30px 60px rgba(0,0,0,.4);
   cursor:zoom-out;
 }
 /* Rien ne doit pouvoir déborder horizontalement sur un écran étroit */

@@ -5,21 +5,7 @@
 (function () {
   'use strict';
 
-  /* --- 1. Apparition progressive au défilement --- */
-  var aReveler = document.querySelectorAll('.revele');
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function (entrees) {
-      entrees.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('vu');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    aReveler.forEach(function (el) { obs.observe(el); });
-  } else {
-    aReveler.forEach(function (el) { el.classList.add('vu'); });
-  }
+  /* Pas d'apparition au défilement : le contenu est affiché tout de suite. */
 
   /* --- 2. Image absente : on affiche le repère hachuré au lieu d'une icône cassée --- */
   document.querySelectorAll('.cadre img, .blason img, .logo-exp img, .exp-vignette img').forEach(function (img) {

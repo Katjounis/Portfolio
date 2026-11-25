@@ -10,10 +10,7 @@
   position:relative; overflow:hidden;
   padding-block:clamp(3rem,8vw,6.5rem) clamp(2.5rem,6vw,4.5rem);
   border-bottom:1.5px solid var(--trait);
-  background:
-    radial-gradient(120% 90% at 88% 8%, rgba(27,79,216,.09), transparent 62%),
-    radial-gradient(70% 60% at 4% 96%, rgba(255,197,61,.13), transparent 65%),
-    linear-gradient(180deg,#F7F8FA 0%, var(--papier) 72%);
+  background:var(--papier);
 }
 .heros::before{
   content:''; position:absolute; inset:0; pointer-events:none;
@@ -39,6 +36,12 @@
    transform:scaleX(-1);
 }
 @media(max-width:1000px){.heros::after{display:none;}}
+.actions .lien{
+  display:inline-flex; align-items:center; min-height:44px;
+  font-family:var(--tech); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:underline; text-underline-offset:.35em; text-decoration-thickness:1.5px;
+}
+.actions .lien:hover{text-decoration-color:var(--jaune);}
 
 /* Le nom utilise une grotesque industrielle plus franche que le reste du site */
 .nom{
@@ -67,7 +70,8 @@
    Les bornes indiquent la distance depuis l'etape precedente.
    ========================================================================== */
 
-css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
+
+.parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .parcours::after{
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
   opacity:.26; mix-blend-mode:multiply;
@@ -87,8 +91,8 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .resume span{
   font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
   text-transform:uppercase; color:var(--gris);
-  border:1.5px solid var(--trait); border-radius:999px;
-  background:rgba(255,255,255,.7); padding:.42rem .95rem;
+  border:1.5px solid var(--trait); border-radius:3px;
+  background:var(--papier); padding:.42rem .95rem;
 }
 .resume span b{color:var(--encre); font-weight:500;}
 
@@ -99,14 +103,14 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .fiche{
   background:var(--papier); border:1.5px solid var(--encre);
   display:flex; flex-direction:column;
-  transition:transform .2s ease, box-shadow .2s ease;
+  transition:border-color .2s ease;
 }
-.fiche:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--bleu);}
+.fiche:hover{border-color:var(--bleu);}
 .fiche .cadre{border:none; border-bottom:1.5px solid var(--encre); aspect-ratio:16/9;}
 .fiche-texte{padding:1.3rem; display:flex; flex-direction:column; gap:.65rem; flex:1;}
 .fiche .ref{
-  font-family:var(--tech); font-size:.62rem; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--gris);
+  font-family:var(--tech); font-size:.78rem; letter-spacing:0;
+  color:var(--gris);
   display:flex; justify-content:space-between; gap:.75rem;
   border-bottom:1px solid var(--trait); padding-bottom:.5rem;
 }
@@ -152,7 +156,6 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 /* ---------- Renvoi vers la page Moi ---------- */
 .renvoi{
   border:1.5px solid var(--encre); background:var(--papier);
-  border-left:6px solid var(--rouge);
   padding:clamp(1.5rem,4vw,2.4rem);
   display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.4rem;
 }
@@ -217,19 +220,19 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 }
 .cartouche h2::after{
   content:''; position:absolute; left:-.03em; right:-.03em; bottom:.05em;
-  height:.13em; border-radius:999px;
+  height:.13em; border-radius:0;
   background:var(--bleu); opacity:.26; z-index:-1;
 }
 .parcours .cartouche h2::after{background:var(--rouge); opacity:.3;}
 .cartouche .fil{
   position:relative; z-index:1;
-  flex:1; min-width:40px; height:1.5px; border-radius:999px;
+  flex:1; min-width:40px; height:1.5px;
   background:var(--trait);
 }
 .cartouche .meta{
   position:relative; z-index:1;
   display:inline-flex; align-items:center;
-  border:1.5px solid var(--encre); border-radius:999px;
+  border:1.5px solid var(--encre); border-radius:3px;
   padding:.42rem 1rem;
   font-family:var(--tech); font-size:.6rem; letter-spacing:.16em;
   text-transform:uppercase; color:var(--gris);
@@ -265,17 +268,12 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 
 .exp-carte{
   position:relative; z-index:2;
-  border:1.5px solid var(--encre); border-radius:28px;
-  background:rgba(255,255,255,.93);
-  backdrop-filter:blur(4px);
+  border:1.5px solid var(--encre); border-radius:8px;
+  background:#FFFFFF;
   padding:1.7rem 1.8rem 1.6rem;
-  box-shadow:0 18px 40px rgba(25,27,31,.11);
-  transition:transform .28s cubic-bezier(.2,.8,.3,1), box-shadow .28s;
+  transition:border-color .2s ease;
 }
-.exp-carte::before{
-  content:''; position:absolute; left:0; top:24px; bottom:24px; width:6px;
-  border-radius:0 999px 999px 0; background:var(--teinte);
-}
+
 @media(min-width:900px){
   .exp-item{padding-top:0;}
   .exp-item.gauche .exp-carte{width:70%; margin-left:auto;}
@@ -286,8 +284,8 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 /* ---------- En-tete de fiche ---------- */
 .exp-entete{display:flex; align-items:flex-start; gap:1.2rem; justify-content:space-between;}
 .exp-lieu{
-  font-family:var(--tech); font-size:.63rem; letter-spacing:.15em;
-  text-transform:uppercase; color:var(--gris); margin-bottom:.5rem;
+  font-family:var(--tech); font-size:.78rem; letter-spacing:0;
+  color:var(--gris); margin-bottom:.5rem;
 }
 .exp-lieu b{
   color:var(--encre); font-weight:500;
@@ -302,22 +300,22 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
   text-decoration:none;
   background-image:linear-gradient(var(--teinte),var(--teinte));
   background-size:0 2.5px; background-repeat:no-repeat; background-position:0 100%;
-  transition:background-size .28s ease;
+  transition:background-size .2s ease;
 }
 .exp-carte h3 a::after{content:''; position:absolute; inset:0; z-index:4;}
-.exp-carte.cliquable:hover{transform:translateY(-6px); box-shadow:0 26px 54px rgba(25,27,31,.17);}
+.exp-carte.cliquable:hover{border-color:var(--teinte);}
 .exp-carte.cliquable:hover h3 a{background-size:100% 2.5px;}
 .exp-carte.cliquable:focus-within{outline:2.5px solid var(--teinte); outline-offset:4px;}
 .exp-carte .fonction{
-  font-family:var(--tech); font-size:.63rem; letter-spacing:.09em;
-  text-transform:uppercase; color:var(--gris); margin-top:.55rem;
+  font-family:var(--tech); font-size:.76rem; letter-spacing:0;
+  color:var(--gris); margin-top:.55rem;
 }
 .exp-carte .texte{margin-top:1rem; line-height:1.78;}
 .exp-carte .texte + .texte{margin-top:.7rem;}
 
 .exp-vignette{
   position:relative; flex:0 0 122px; width:122px; aspect-ratio:1/1;
-  border:1.5px solid var(--encre); border-radius:24px;
+  border:1.5px solid var(--encre); border-radius:6px;
   background:var(--papier);
   overflow:hidden;
 }
@@ -337,7 +335,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
   display:inline-block; font-family:var(--tech); font-size:.55rem;
   letter-spacing:.11em; text-transform:uppercase;
   background:var(--teinte); color:var(--papier);
-  border-radius:999px; padding:.2rem .6rem;
+  border-radius:3px; padding:.2rem .6rem;
   margin-left:.5rem; vertical-align:middle;
 }
 .voir-plus{
@@ -352,10 +350,9 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 .exp-item.destination .exp-fond{-webkit-text-stroke-color:rgba(217,65,47,.75);}
 .destination .exp-carte{
   border:2.5px dashed var(--rouge);
-  background:linear-gradient(150deg,rgba(255,255,255,.96) 0%, rgba(255,244,242,.96) 100%);
-  box-shadow:0 22px 50px rgba(217,65,47,.18);
+  background:#FFF6F4;
 }
-.destination .exp-carte::before{background:var(--rouge); width:7px;}
+
 .destination .exp-lieu b{border-bottom-color:var(--rouge);}
 .destination .exp-vignette{border-style:dashed; border-color:var(--rouge);}
 .destination .exp-vignette{flex:0 0 146px; width:146px;}
@@ -365,14 +362,10 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
   font-family:var(--tech); font-size:.56rem; letter-spacing:.14em;
   text-transform:uppercase; font-weight:500;
   background:var(--rouge); color:var(--papier);
-  border-radius:999px; padding:.24rem .65rem;
-  animation:battement 2.6s ease-in-out infinite;
+  border-radius:3px; padding:.24rem .65rem;
 }
-@keyframes battement{
-  0%,100%{box-shadow:0 0 0 0 rgba(217,65,47,.5);}
-  55%{box-shadow:0 0 0 8px rgba(217,65,47,0);}
-}
-.destination .bouton{background:var(--rouge); border-color:var(--rouge); border-radius:999px;}
+
+.destination .bouton{background:var(--rouge); border-color:var(--rouge);}
 .destination .bouton:hover{background:var(--encre); border-color:var(--encre); color:var(--papier);}
 .destination .etiquettes span{border-color:var(--rouge); color:var(--rouge);}
 
@@ -380,8 +373,7 @@ css .parcours{ position:relative; isolation:isolate; background:var(--papier); }
 @media(max-width:899px){
   .exp-item{padding-top:0;}
   .exp-fond{font-size:clamp(3rem,12vw,4.4rem); top:0; left:0 !important; right:auto !important; transform:none !important;}
-  .exp-carte{padding:1.4rem 1.25rem 1.35rem; border-radius:22px;}
-  .exp-carte::before{width:5px; top:16px; bottom:16px;}
+  .exp-carte{padding:1.4rem 1.25rem 1.35rem;}
   .exp-entete{flex-direction:column; gap:.9rem;}
   .exp-vignette, .destination .exp-vignette{flex:0 0 104px; width:104px;}
 }
