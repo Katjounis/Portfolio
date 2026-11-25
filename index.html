@@ -4,10 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.className += " js";</script>
   <title>Samuel Chaux, élève ingénieur BTP et modélisateur BIM</title>
-  <link rel="icon" href="favicon.ico" sizes="32x32">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="description"
     content="Élève ingénieur BTP à BUILDERS Lyon, orientation bâtiment. Revit, Navisworks, Dynamo, Allplan. En recherche d'un PFE en modélisation et projection BIM à partir de mars 2027.">
   <link rel="canonical" href="https://samuelchaux.fr/">
@@ -21,18 +19,24 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="author" content="Samuel Chaux">
-  <link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/base.css?v=50">
-  <link rel="stylesheet" href="assets/css/accueil.css?v=50">
-  <link rel="stylesheet" href="assets/css/fond.css?v=50">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css?v=31">
+  <link rel="stylesheet" href="assets/css/accueil.css?v=31">
+  <link rel="stylesheet" href="assets/css/fond.css?v=32">
 </head>
 
 <body>
 
   <header class="bandeau">
     <div class="bandeau-int">
-      <a class="sigle" href="index.html">Samuel Chaux</a>
+      <span class="sigle">S.C. : PORTFOLIO</span>
       <nav>
         <a href="#parcours">Parcours</a>
         <a href="#projets">Projets</a>
@@ -56,7 +60,7 @@
 
         <p class="role">Élève ingénieur BTP : <b>Recherche PFE BIM, mars 2027</b></p>
 
-        <h1 class="nom" aria-label="Samuel Chaux">
+        <h1 class="nom">
           <span>Samuel</span>
           <span class="creux">Chaux</span>
         </h1>
@@ -77,8 +81,8 @@
 
         <div class="actions">
           <a class="bouton" href="assets/docs/cv.pdf">Voir mon CV</a>
-          <a class="lien-action" href="#projets">Voir les projets réalisés</a>
-          <a class="lien-action" href="moi.html">Qui je suis</a>
+          <a class="bouton" href="#projets">Voir les projets réalisés</a>
+          <a class="bouton" href="moi.html">Qui je suis</a>
         </div>
       </div>
     </section>
@@ -129,7 +133,7 @@
               <div class="etiquettes">
                 <span>Revit</span><span>Navisworks</span><span>Dynamo</span><span>Allplan</span><span>Twinmotion</span>
               </div>
-              <p style="margin-top:1rem"><a class="lien-action" href="#contact">Me proposer un PFE</a></p>
+              <p style="margin-top:1.2rem"><a class="bouton" href="#contact">Me proposer un PFE</a></p>
             </div>
           </article>
           <article class="exp-item gauche revele" style="--teinte:var(--jaune)">
@@ -138,7 +142,8 @@
               <div class="exp-entete">
                 <div>
                   <p class="exp-lieu"><b>Andrézieux-Bouthéon</b> : 15 semaines</p>
-                  <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a></h3>
+                  <h3><a href="exp-guivibat.html">Assistant ingénieur structure, Guivibat Ingénierie</a><span
+                      class="marqueur">En cours</span></h3>
                   <p class="fonction">Bureau d'études structure : Juin à septembre 2026</p>
                 </div>
                 <figure class="exp-vignette" data-legende="guivibat.png"><img width="320" height="240" src="assets/img/logos/guivibat.png" alt=""
@@ -485,7 +490,7 @@
             <p>Design de tatouages, modélisation 3D, rugby, musique, voyages, vie
               associative. La partie qui ne rentre pas dans un CV.</p>
           </div>
-          <a class="lien-action" href="moi.html">Découvrir ma page</a>
+          <a class="bouton" href="moi.html">Découvrir ma page</a>
         </div>
       </div>
     </section>
@@ -498,11 +503,11 @@
       <h2 class="contact-titre">Parlons<br>de notre projet</h2>
 
       <div class="liens">
-        <a class="lien-action" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
-        <a class="lien-action" href="mailto:samuel.chaux@builders-lyon.fr">Mail école</a>
-        <a class="lien-action" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
+        <a class="bouton" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
+        <a class="bouton vide" href="mailto:samuel.chaux@builders-lyon.fr">Mail école</a>
+        <a class="bouton vide" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
           rel="noopener">LinkedIn</a>
-        <a class="lien-action" href="https://github.com/Katjounis" target="_blank" rel="noopener">GitHub</a>
+        <a class="bouton vide" href="https://github.com/Katjounis" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <div class="bloc-grille">
@@ -513,11 +518,11 @@
         <div class="cellule"><span class="cle">Secteurs</span><span class="val">Lyon, Toulouse, Roanne</span></div>
         <div class="cellule"><span class="cle">Mobilité</span><span class="val">Permis B, véhiculé</span></div>
       </div>
-      <p class="mentions-pied"><a href="mentions-legales.html">Mentions légales</a></p>
+      <p style="margin-top:1.4rem; font-size:.8rem"><a href="mentions-legales.html">Mentions légales</a></p>
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=50"></script>
+  <script src="assets/js/app.js?v=31"></script>
 </body>
 
 </html>

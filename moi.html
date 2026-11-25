@@ -5,10 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.className += " js";</script>
   <title>Moi : Samuel Chaux</title>
-  <link rel="icon" href="favicon.ico" sizes="32x32">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="description"
     content="Le trait, les volumes, la musique, le terrain, ailleurs. La partie qui ne rentre pas dans un CV.">
   <link rel="canonical" href="https://samuelchaux.fr/moi.html">
@@ -21,16 +19,22 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/base.css?v=50">
-  <link rel="stylesheet" href="assets/css/moi.css?v=50">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css?v=46">
+  <link rel="stylesheet" href="assets/css/moi.css?v=46">
 </head>
 
 <body class="page-moi">
   <header class="bandeau">
     <div class="bandeau-int">
-      <a class="sigle" href="index.html">Samuel Chaux</a>
+      <span class="sigle">S.C. · PORTFOLIO</span>
       <nav>
         <a href="index.html#parcours">Parcours</a>
         <a href="index.html#projets">Projets</a>
@@ -42,6 +46,9 @@
   </header>
 
   <div class="mo-fond" aria-hidden="true">
+    <span class="halo h1"></span>
+    <span class="halo h2"></span>
+    <span class="halo h3"></span>
     <span class="grille"></span>
   </div>
 
@@ -69,7 +76,7 @@
                 mon actif</span></li>
             <li class="mo-galet"><b class="n"><span data-vers="9">9</span></b><span>pays<br>visités</span></li>
             <li class="mo-galet"><b class="n"><i class="pre">+ de</i><span
-                  data-vers="12">12</span></b><span>concerts<br>en salle</span></li>
+                  data-vers="12">12</span></b><span>concerts<br>incroyables</span></li>
             <li class="mo-galet"><b class="n"><i class="pre">+ de</i><span data-vers="10">10</span></b><span>années<br>de
                 passion pour le rugby</span></li>
           </ul>
@@ -92,7 +99,7 @@
             <div class="mo-medaillon-int">
               <figure class="mo-face mo-recto">
                 <div class="cadre" data-legende="portrait.webp">
-                  <img width="896" height="898" src="assets/img/moi/portrait.webp" alt="Portrait de Samuel Chaux">
+                  <img width="896" height="898" src="assets/img/moi/portrait.webp" alt="Portrait de Samuel Chaux" loading="lazy">
                 </div>
               </figure>
               <div class="mo-face mo-verso">
@@ -121,7 +128,7 @@
 
           <button class="mo-retourner" type="button" data-retourner aria-pressed="false">
             <span class="fleche" aria-hidden="true">↻</span>
-            <span class="lib">Retourner</span>
+            <span class="lib">Retournez</span>
           </button>
         </div>
 
@@ -133,6 +140,7 @@
 
       <div class="mo-tete">
         <h2 class="mo-h2">Cinq <em>passions</em></h2>
+        <p class="mo-chapo">Naviguez dans mon univers</p>
       </div>
 
       <input class="mo-radio" type="radio" name="facette" id="f1" checked>
@@ -143,11 +151,11 @@
 
       <div class="mo-onglets">
         <span class="mo-curseur" aria-hidden="true"></span>
-        <label for="f1"><span class="lib">Le trait</span></label>
-        <label for="f2"><span class="lib">Les volumes</span></label>
-        <label for="f3"><span class="lib">La musique</span></label>
-        <label for="f4"><span class="lib">Le terrain</span></label>
-        <label for="f5"><span class="lib">Ailleurs</span></label>
+        <label for="f1"><span class="ico" aria-hidden="true">✦</span><span class="lib">Le trait</span></label>
+        <label for="f2"><span class="ico" aria-hidden="true">◈</span><span class="lib">Les volumes</span></label>
+        <label for="f3"><span class="ico" aria-hidden="true">♪</span><span class="lib">La musique</span></label>
+        <label for="f4"><span class="ico" aria-hidden="true">◉</span><span class="lib">Le terrain</span></label>
+        <label for="f5"><span class="ico" aria-hidden="true">➤</span><span class="lib">Ailleurs</span></label>
       </div>
 
       <div class="mo-panneaux">
@@ -417,7 +425,7 @@
       <div class="mo-bloc-clair">
         <div class="mo-tete">
           <h2 class="mo-h2">Six <em>questions</em></h2>
-          
+          <p class="mo-chapo">Une seule s'ouvre à la fois</p>
         </div>
 
         <div class="mo-faq">
@@ -512,22 +520,22 @@
       <div>
         <div class="liens">
           <a class="bouton" href="mailto:chaux.samuel@gmail.com">chaux.samuel@gmail.com</a>
-          <a class="lien-action" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
+          <a class="bouton vide" href="https://www.linkedin.com/in/samuel-chaux-790128333/" target="_blank"
             rel="noopener">LinkedIn</a>
-          <a class="lien-action" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
-          <a class="lien-action" href="index.html">Retour au portfolio</a>
+          <a class="bouton vide" href="https://www.tiktok.com/@katjounis" target="_blank" rel="noopener">TikTok</a>
+          <a class="bouton vide" href="index.html">Retour au portfolio</a>
         </div>
         <p class="mentions">
           Composition, textes et développement : Samuel Chaux<br>
           Bron, 2026
         </p>
       </div>
-      <p class="mentions-pied"><a href="mentions-legales.html">Mentions légales</a></p>
+      <p style="margin-top:1.4rem; font-size:.8rem"><a href="mentions-legales.html">Mentions légales</a></p>
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=50"></script>
-  <script src="assets/js/moi.js?v=50"></script>
+  <script src="assets/js/app.js?v=46"></script>
+  <script src="assets/js/moi.js?v=46"></script>
 </body>
 
 </html>
